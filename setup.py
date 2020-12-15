@@ -40,8 +40,8 @@ else:
     version = time.strftime("%Y.%-m.%-d.%H%M")
 
 setup(
-    name="syntropy-sdk",
-    py_modules=["syntropy-sdk"],
+    name="syntropy_sdk",
+    py_modules=["syntropy_sdk"],
     version=version,
     url="https://github.com/syntropynet/syntropy-python-sdk/",
     author="Andrius Mikonis",
