@@ -8,11 +8,11 @@ from syntropy_sdk import utils
 from syntropy_sdk.rest import ApiException
 
 
-def testWithRetrySuccess():
+def test_with_retry__success():
     assert utils.WithRetry(lambda x: x)(42) == 42
 
 
-def testWithRetryFailRetry():
+def test_with_retry__fail_retry():
     func = mock.Mock(side_effect=[ApiException(status=502), ApiException(status=503)])
     func.__name__ = "test func"
     with pytest.raises(utils.ApiException):
@@ -20,14 +20,14 @@ def testWithRetryFailRetry():
     assert func.call_args_list == [mock.call(42) for _ in range(2)]
 
 
-def testWithRetryFail():
+def test_with_retry__fail():
     func = mock.Mock(side_effect=ValueError)
     with pytest.raises(ValueError):
         utils.WithRetry(func, retry_count=2, cap=0.1)(42)
     func.assert_called_once_with(42)
 
 
-def testDetermineBatchSize():
+def test_determine_batch_size():
     request = utils.BatchedRequest(lambda x: x, max_payload_size=5)
     assert request._determine_batch_size(None, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10) == (
         2,
@@ -35,7 +35,7 @@ def testDetermineBatchSize():
     )
 
 
-def testDetermineBatchSizeFail():
+def test_determine_batch_size__fail():
     request = utils.BatchedRequest(lambda x: x, max_payload_size=5)
     with pytest.raises(utils.SyntropyError):
         request._determine_batch_size(
@@ -45,7 +45,7 @@ def testDetermineBatchSizeFail():
         )
 
 
-def testBatchedRequestQuery():
+def test_batched_request__query():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
     assert utils.BatchedRequest(func, max_payload_size=5)(
         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -59,7 +59,7 @@ def testBatchedRequestQuery():
     ]
 
 
-def testBatchedRequestQueryFull():
+def test_batched_request__query_full():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
     assert utils.BatchedRequest(func, max_payload_size=20)(
         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -71,7 +71,7 @@ def testBatchedRequestQueryFull():
     ]
 
 
-def testBatchedRequestBody():
+def test_batched_request__body():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
     assert utils.BatchedRequest(func, max_payload_size=30)(
         body={"data": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, param="param"
@@ -82,7 +82,7 @@ def testBatchedRequestBody():
     ]
 
 
-def testBatchedRequestBodyFull():
+def test_batched_request__body_full():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
     assert utils.BatchedRequest(func, max_payload_size=100)(
         body={"data": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, param="param"
@@ -92,7 +92,7 @@ def testBatchedRequestBodyFull():
     ]
 
 
-def testBatchedRequestBodyEmptyResult():
+def test_batched_request__body_empty_result():
     func = mock.Mock(return_value=None)
     assert utils.BatchedRequest(
         func, translator=utils._default_translator("smth"), max_payload_size=100
