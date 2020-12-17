@@ -1,4 +1,4 @@
-![Tests](https://github.com/SyntropyNet/syntropy-python-sdk/workflows/Test%20the%20SDK/badge.svg)
+![Tests](https://github.com/SyntropyNet/syntropy-python-sdk/workflows/Tests/badge.svg)
 
 # Syntropy SDK
 Syntropy SDK for Python allows you to manage Syntropy Networks using simple Python interface.
