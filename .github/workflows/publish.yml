@@ -35,8 +35,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ env.UPLOAD_URL }}
-        asset_path: dist/${{ SYNTROPY_ASSET }}
-        asset_name: ${{ SYNTROPY_ASSET }}
+        asset_path: dist/${{ env.SYNTROPY_ASSET }}
+        asset_name: ${{ env.SYNTROPY_ASSET }}
         asset_content_type: application/zip
     - name: Publish
       env:
