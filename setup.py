@@ -20,9 +20,9 @@ except ImportError:
     from distutils.core import find_packages, setup
 
 if os.environ.get("CI_SYNTROPY_VERSION"):
-    # Development version of the package
-    version = os.environ["SYNTROPY_VERSION"]
+    version = os.environ["CI_SYNTROPY_VERSION"]
 else:
+    # Development version of the package
     version = "devel"
 
 setup(
