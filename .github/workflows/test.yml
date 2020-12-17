@@ -1,4 +1,4 @@
-name: Test the SDK
+name: Tests
 
 on:
   push:
