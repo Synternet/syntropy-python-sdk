@@ -23,6 +23,20 @@ jobs:
       run: |
         export CI_SYNTROPY_VERSION=$(echo $GITHUB_REF | sed 's#.*/v##')
         python3 setup.py sdist bdist_wheel
+        upload_url=$(curl -sL https://api.github.com/repos/actions/checkout/releases/latest | jq -r '.upload_url')
+        echo ::set-env name=UPLOAD_URL::$upload_url
+        cd dist
+        echo ::set-env name=SYNTROPY_ASSET=`ls *.whl`
+        cd -
+    - name: Upload Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ env.UPLOAD_URL }}
+        asset_path: dist/${{ SYNTROPY_ASSET }}
+        asset_name: ${{ SYNTROPY_ASSET }}
+        asset_content_type: application/zip
     - name: Publish
       env:
         TWINE_USERNAME: __token__
