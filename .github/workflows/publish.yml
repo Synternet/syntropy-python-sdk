@@ -24,18 +24,21 @@ jobs:
       run: |
         export CI_SYNTROPY_VERSION=$(echo $GITHUB_REF | sed 's#.*/v##')
         python3 setup.py sdist bdist_wheel
-        upload_url=$(curl -sL https://api.github.com/repos/SyntropyNet/syntropy-python-sdk/releases/latest | jq -r '.upload_url')
-        echo UPLOAD_URL=$upload_url >> $GITHUB_ENV
         cd dist
         echo SYNTROPY_ASSET=`ls *.whl` >> $GITHUB_ENV
         cd -
+    - name: Gets latest release info
+      id: latest_release_info
+      uses: jossef/action-latest-release-info@v1.1.0
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
     - name: Upload Asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ env.UPLOAD_URL }}
-        asset_path: dist/${{ env.SYNTROPY_ASSET }}
+        upload_url: ${{ steps.latest_release_info.outputs.upload_url }}
+        asset_path: ./dist/${{ env.SYNTROPY_ASSET }}
         asset_name: ${{ env.SYNTROPY_ASSET }}
         asset_content_type: application/zip
     - name: Publish
