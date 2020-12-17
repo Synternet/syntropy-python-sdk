@@ -25,9 +25,9 @@ jobs:
         export CI_SYNTROPY_VERSION=$(echo $GITHUB_REF | sed 's#.*/v##')
         python3 setup.py sdist bdist_wheel
         upload_url=$(curl -sL https://api.github.com/repos/SyntropyNet/syntropy-python-sdk/releases/latest | jq -r '.upload_url')
-        echo ::set-env name=UPLOAD_URL::$upload_url
+        echo UPLOAD_URL=$upload_url >> $GITHUB_ENV
         cd dist
-        echo ::set-env name=SYNTROPY_ASSET=`ls *.whl`
+        echo SYNTROPY_ASSET=`ls *.whl` >> $GITHUB_ENV
         cd -
     - name: Upload Asset
       uses: actions/upload-release-asset@v1
