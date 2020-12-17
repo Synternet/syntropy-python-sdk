@@ -774,7 +774,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 In order to use this SDK you must have a valid API Authorization token.
-This token can be obtained either by using `AuthApi.login` method or using the UI.
+This token can be obtained either by using `AuthApi.local` method or using the UI.
 This token should be passed to the configuration object like so:
 
 ```Python
