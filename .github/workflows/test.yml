@@ -20,8 +20,6 @@ jobs:
         python-version: ${{ matrix.python }}
     - name: Install dependencies
       run: |
-        pip3 install virtualenv
-        python3 -m virtualenv .venv && source .venv/bin/activate
         pip3 install --upgrade pip
         pip3 install --upgrade setuptools wheel
         pip3 install -r dev-requirements.txt
@@ -30,7 +28,7 @@ jobs:
         python3 setup.py sdist bdist_wheel
     - name: Test with pytest
       run: |
-        pytest
+        python3 -m pytest
     - name: Try installing the wheel
       run: |
         pip3 install `ls dist/*.whl`
