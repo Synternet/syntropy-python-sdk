@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
+from syntropy_sdk.api.agent_providers_api import AgentProvidersApi
 from syntropy_sdk.api.auth_api import AuthApi
 from syntropy_sdk.api.platform_api import PlatformApi
 from syntropy_sdk.api.providers_api import ProvidersApi
@@ -31,6 +32,9 @@ from syntropy_sdk.models.agent_connection_response_connection_performance_array_
     AgentConnectionResponseConnectionPerformanceArrayArray_,
 )
 from syntropy_sdk.models.agent_connection_status import AgentConnectionStatus
+from syntropy_sdk.models.agent_connection_subnets_deletion_object import (
+    AgentConnectionSubnetsDeletionObject,
+)
 from syntropy_sdk.models.agent_group_object import AgentGroupObject
 from syntropy_sdk.models.agent_interface_bw_object import AgentInterfaceBwObject
 from syntropy_sdk.models.agent_interface_object import AgentInterfaceObject
@@ -44,6 +48,9 @@ from syntropy_sdk.models.agent_path_object import AgentPathObject
 from syntropy_sdk.models.agent_provider_object import AgentProviderObject
 from syntropy_sdk.models.agent_service_object import AgentServiceObject
 from syntropy_sdk.models.agent_service_types import AgentServiceTypes
+from syntropy_sdk.models.agent_services_deletion_object import (
+    AgentServicesDeletionObject,
+)
 from syntropy_sdk.models.agent_services_update_object import AgentServicesUpdateObject
 from syntropy_sdk.models.agent_services_update_object_changes import (
     AgentServicesUpdateObjectChanges,

@@ -10,9 +10,11 @@ Method | HTTP request | Description
 [**create_connections**](PlatformApi.md#create_connections) | **POST** /api/platform/connections | 
 [**create_network**](PlatformApi.md#create_network) | **POST** /api/platform/networks | 
 [**create_network_agents**](PlatformApi.md#create_network_agents) | **POST** /api/platform/network/{network_id}/agents | 
+[**delete_agent_services**](PlatformApi.md#delete_agent_services) | **POST** /api/platform/agent-services-delete | 
 [**delete_agents**](PlatformApi.md#delete_agents) | **DELETE** /api/platform/agents/{agent_id} | 
 [**delete_api_key**](PlatformApi.md#delete_api_key) | **DELETE** /api/platform/api-keys/{api_key_id} | 
 [**delete_connection**](PlatformApi.md#delete_connection) | **DELETE** /api/platform/connections/{connection_id} | 
+[**delete_connection_subnets**](PlatformApi.md#delete_connection_subnets) | **POST** /api/platform/connection-services-delete | 
 [**delete_networks**](PlatformApi.md#delete_networks) | **DELETE** /api/platform/networks/{network_id} | 
 [**delete_networks_agent**](PlatformApi.md#delete_networks_agent) | **DELETE** /api/platform/networks/{network_id}/agents/{agent_id} | 
 [**find_all_name_id_pairs_by_user_id**](PlatformApi.md#find_all_name_id_pairs_by_user_id) | **GET** /api/platform/agents/id-name-pairs | 
@@ -369,6 +371,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_agent_services**
+> delete_agent_services(body)
+
+
+
+Deletes agent Services
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = NULL # dict(str, object) | 
+
+try:
+    api_instance.delete_agent_services(body)
+except ApiException as e:
+    print("Exception when calling PlatformApi->delete_agent_services: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, object)**](dict.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_agents**
 > InlineResponse204 delete_agents(agent_id)
 
@@ -527,6 +581,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_connection_subnets**
+> delete_connection_subnets(body)
+
+
+
+Deletes agent connection services/subnets
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = NULL # dict(str, object) | 
+
+try:
+    api_instance.delete_connection_subnets(body)
+except ApiException as e:
+    print("Exception when calling PlatformApi->delete_connection_subnets: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, object)**](dict.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

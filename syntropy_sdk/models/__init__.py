@@ -21,6 +21,9 @@ from syntropy_sdk.models.agent_connection_response_connection_performance_array_
     AgentConnectionResponseConnectionPerformanceArrayArray_,
 )
 from syntropy_sdk.models.agent_connection_status import AgentConnectionStatus
+from syntropy_sdk.models.agent_connection_subnets_deletion_object import (
+    AgentConnectionSubnetsDeletionObject,
+)
 from syntropy_sdk.models.agent_group_object import AgentGroupObject
 from syntropy_sdk.models.agent_interface_bw_object import AgentInterfaceBwObject
 from syntropy_sdk.models.agent_interface_object import AgentInterfaceObject
@@ -34,6 +37,9 @@ from syntropy_sdk.models.agent_path_object import AgentPathObject
 from syntropy_sdk.models.agent_provider_object import AgentProviderObject
 from syntropy_sdk.models.agent_service_object import AgentServiceObject
 from syntropy_sdk.models.agent_service_types import AgentServiceTypes
+from syntropy_sdk.models.agent_services_deletion_object import (
+    AgentServicesDeletionObject,
+)
 from syntropy_sdk.models.agent_services_update_object import AgentServicesUpdateObject
 from syntropy_sdk.models.agent_services_update_object_changes import (
     AgentServicesUpdateObjectChanges,
