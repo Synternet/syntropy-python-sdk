@@ -9,7 +9,6 @@ setup.py
 requirements.txt
 dev-requirements.txt
 test-requirements.txt
-README.md
 git_push.sh
 .travis.yml
 .gitignore
