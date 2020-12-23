@@ -54,393 +54,59 @@ import syntropy_sdk
 Please follow the [installation procedure](#installation--usage) and then use the following as a reference:
 
 ```python
-from __future__ import print_function
-import time
-import syntropy_sdk
-from syntropy_sdk.rest import ApiException
+import syntropy_sdk as sdk
+from syntropy_sdk.exceptions import ApiException
+from syntropy_sdk.utils import WithRetry
 from pprint import pprint
 
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-code = 'code_example' # str | Account deletion code (received by mail).
+# Configure API
+config = sdk.Configuration()
+config.host = "url to the Syntropy Stack"
+config.api_key["Authorization"] = "your api authorizaton token"
+api = sdk.ApiClient(config)
+platform_api = sdk.PlatformApi(api)
 
 try:
-    api_response = api_instance.delete_account(code)
+    network_id = 123  # A valid network ID
+    api_response = WithRetry(platform_api.platform_network_info)(network_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthApi->delete_account: %s\n" % e)
+    print("Exception when calling PlatformApi->platform_network_info: %s\n" % e)
 
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | Email verification code (received by mail).
 
+# Create a network with connections
 try:
-    api_response = api_instance.deprecated_verify_email(body)
-    pprint(api_response)
+    body = {
+        "network_name": "My Network",
+        "network_type": sdk.NetworkType.POINT_TO_POINT,  # Only POINT_TO_POINT types supported.
+        "network_disable_sdn_connections": True,
+        "network_metadata": {
+            "network_created_by": sdk.NetworkGenesisType.SDK,
+            "network_type": "P2P",
+        },
+    }
+    api_response = WithRetry(platform_api.platform_network_create())
+
+    network_id = api_response["data"]["network_id"]
+
+    body = {
+        "network_id": network_id,
+        "agent_ids": [
+            0, 1,  # Valid agent IDs
+            1, 2,
+            2, 4,
+        ],
+        "network_update_by": sdk.NetworkGenesisType.SDK,
+    }
+    connections = platform_api.platform_connection_create(body=body)["data"]
 except ApiException as e:
-    print("Exception when calling AuthApi->deprecated_verify_email: %s\n" % e)
+    print("Exception when creating a network: %s\n" % e)
 
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-ip = 'ip_example' # str | 
-
-try:
-    api_response = api_instance.geo_ip(ip)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->geo_ip: %s\n" % e)
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.local(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->local: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-
-try:
-    api_instance.logout()
-except ApiException as e:
-    print("Exception when calling AuthApi->logout: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.pair_latency_test_report(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->pair_latency_test_report: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = [syntropy_sdk.UserPairLatencyTestReportObject()] # list[UserPairLatencyTestReportObject] | 
-
-try:
-    api_response = api_instance.pair_latency_test_report_bulk(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->pair_latency_test_report_bulk: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.pair_speedtest_report(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->pair_speedtest_report: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.provider_attach(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->provider_attach: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.provider_detach(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->provider_detach: %s\n" % e)
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.provider_login(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->provider_login: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-attach = syntropy_sdk.AutoAttach() # AutoAttach |  (optional)
-
-try:
-    api_response = api_instance.provider_register(body, attach=attach)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->provider_register: %s\n" % e)
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-refresh_token = 'refresh_token_example' # str | 
-
-try:
-    api_response = api_instance.refresh(refresh_token)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->refresh: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-ref = syntropy_sdk.MailBodyTemplates() # MailBodyTemplates |  (optional)
-
-try:
-    api_response = api_instance.register(body, ref=ref)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->register: %s\n" % e)
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.reset_password(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->reset_password: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-ref = syntropy_sdk.MailBodyTemplates() # MailBodyTemplates |  (optional)
-
-try:
-    api_response = api_instance.set_delete_account_code(ref=ref)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->set_delete_account_code: %s\n" % e)
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-ref = syntropy_sdk.MailBodyTemplates() # MailBodyTemplates |  (optional)
-
-try:
-    api_response = api_instance.set_reset_password_code(body, ref=ref)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->set_reset_password_code: %s\n" % e)
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-ref = syntropy_sdk.MailBodyTemplates() # MailBodyTemplates |  (optional)
-
-try:
-    api_response = api_instance.set_verify_email_code(body, ref=ref)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->set_verify_email_code: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.speedtest_report(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->speedtest_report: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-
-try:
-    api_response = api_instance.user()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->user: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-ref = syntropy_sdk.MailBodyTemplates() # MailBodyTemplates |  (optional)
-
-try:
-    api_response = api_instance.user_change_email(body, ref=ref)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->user_change_email: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_instance.user_change_password(body)
-except ApiException as e:
-    print("Exception when calling AuthApi->user_change_password: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_instance.user_destroy(body)
-except ApiException as e:
-    print("Exception when calling AuthApi->user_destroy: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-
-try:
-    api_response = api_instance.user_hosts_create(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->user_hosts_create: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-id = 1.2 # float | 
-
-try:
-    api_response = api_instance.user_hosts_destroy(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->user_hosts_destroy: %s\n" % e)
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-
-try:
-    api_response = api_instance.user_hosts_index()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->user_hosts_index: %s\n" % e)
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
-code = 'code_example' # str | Email verification code (received by mail).
-
-try:
-    api_response = api_instance.verify_email(code)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthApi->verify_email: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to */*
+All URIs are relative to `$SYNTROPY_API_SERVER/*`
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
