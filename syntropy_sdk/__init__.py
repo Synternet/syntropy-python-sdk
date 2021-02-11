@@ -25,6 +25,10 @@ from syntropy_sdk.configuration import Configuration
 # import models into sdk package
 from syntropy_sdk.models.admin_agent_config import AdminAgentConfig
 from syntropy_sdk.models.admin_change_password_object import AdminChangePasswordObject
+from syntropy_sdk.models.agent_config_info_network import AgentConfigInfoNetwork
+from syntropy_sdk.models.agent_config_info_network_public import (
+    AgentConfigInfoNetworkPUBLIC,
+)
 from syntropy_sdk.models.agent_connection_object import AgentConnectionObject
 from syntropy_sdk.models.agent_connection_response_connection_performance_array_array_ import (
     AgentConnectionResponseConnectionPerformanceArrayArray_,
@@ -55,6 +59,8 @@ from syntropy_sdk.models.agent_services_update_object_changes import (
 )
 from syntropy_sdk.models.agent_success_response import AgentSuccessResponse
 from syntropy_sdk.models.agent_tag_object import AgentTagObject
+from syntropy_sdk.models.agents_object import AgentsObject
+from syntropy_sdk.models.agents_pair_object import AgentsPairObject
 from syntropy_sdk.models.any_of_agent_message_payload import AnyOfAgentMessagePayload
 from syntropy_sdk.models.any_of_platform_agent_message_payload import (
     AnyOfPlatformAgentMessagePayload,
@@ -71,38 +77,6 @@ from syntropy_sdk.models.any_of_wg_callable_object import AnyOfWgCallableObject
 from syntropy_sdk.models.any_ofbody_cmd import AnyOfbodyCmd
 from syntropy_sdk.models.any_ofinline_response204 import AnyOfinlineResponse204
 from syntropy_sdk.models.api_key_object import ApiKeyObject
-from syntropy_sdk.models.app_connect_config_object import AppConnectConfigObject
-from syntropy_sdk.models.app_connect_config_object_config import (
-    AppConnectConfigObjectConfig,
-)
-from syntropy_sdk.models.app_connect_config_object_config_params import (
-    AppConnectConfigObjectConfigParams,
-)
-from syntropy_sdk.models.app_connect_config_object_metadata import (
-    AppConnectConfigObjectMetadata,
-)
-from syntropy_sdk.models.app_connect_object import AppConnectObject
-from syntropy_sdk.models.app_disconnect_object import AppDisconnectObject
-from syntropy_sdk.models.app_disconnect_to_status_types import (
-    AppDisconnectToStatusTypes,
-)
-from syntropy_sdk.models.app_object import AppObject
-from syntropy_sdk.models.app_reconnect import AppReconnect
-from syntropy_sdk.models.app_routes_object import AppRoutesObject
-from syntropy_sdk.models.app_server_object import AppServerObject
-from syntropy_sdk.models.app_show_routes import AppShowRoutes
-from syntropy_sdk.models.app_skip_sdn import AppSkipSdn
-from syntropy_sdk.models.app_status import AppStatus
-from syntropy_sdk.models.app_user_sr_object import AppUserSrObject
-from syntropy_sdk.models.app_user_sr_object_constrains import AppUserSrObjectConstrains
-from syntropy_sdk.models.app_version_object import AppVersionObject
-from syntropy_sdk.models.app_vpn_server_object import AppVpnServerObject
-from syntropy_sdk.models.app_wait_conf import AppWaitConf
-from syntropy_sdk.models.app_web_socket_object import AppWebSocketObject
-from syntropy_sdk.models.app_ws_status import AppWsStatus
-from syntropy_sdk.models.apps_web_sockets_disconnect_object import (
-    AppsWebSocketsDisconnectObject,
-)
 from syntropy_sdk.models.auth_info import AuthInfo
 from syntropy_sdk.models.auth_user_object import AuthUserObject
 from syntropy_sdk.models.auto_attach import AutoAttach
@@ -122,6 +96,8 @@ from syntropy_sdk.models.change_path_object_data import ChangePathObjectData
 from syntropy_sdk.models.change_path_object_data_costs import ChangePathObjectDataCosts
 from syntropy_sdk.models.color_object import ColorObject
 from syntropy_sdk.models.connection_creation_body import ConnectionCreationBody
+from syntropy_sdk.models.connection_creation_body_mesh import ConnectionCreationBodyMesh
+from syntropy_sdk.models.connection_creation_body_p2p import ConnectionCreationBodyP2p
 from syntropy_sdk.models.connection_performance import ConnectionPerformance
 from syntropy_sdk.models.constraint_enum import ConstraintEnum
 from syntropy_sdk.models.container_info import ContainerInfo
@@ -130,8 +106,6 @@ from syntropy_sdk.models.context_type import ContextType
 from syntropy_sdk.models.delete_user_object import DeleteUserObject
 from syntropy_sdk.models.geo_ip_object import GeoIpObject
 from syntropy_sdk.models.get_info_data import GetInfoData
-from syntropy_sdk.models.host_group_object import HostGroupObject
-from syntropy_sdk.models.host_object import HostObject
 from syntropy_sdk.models.inline_response204 import InlineResponse204
 from syntropy_sdk.models.interface_object import InterfaceObject
 from syntropy_sdk.models.interface_type import InterfaceType
@@ -153,11 +127,6 @@ from syntropy_sdk.models.network_metadata import NetworkMetadata
 from syntropy_sdk.models.network_object import NetworkObject
 from syntropy_sdk.models.network_topology_object import NetworkTopologyObject
 from syntropy_sdk.models.network_type import NetworkType
-from syntropy_sdk.models.ookla_pair_speedtest_object import OoklaPairSpeedtestObject
-from syntropy_sdk.models.ookla_speedtest_object import OoklaSpeedtestObject
-from syntropy_sdk.models.organization_object import OrganizationObject
-from syntropy_sdk.models.pair_latency_test_object import PairLatencyTestObject
-from syntropy_sdk.models.pair_speedtest_type import PairSpeedtestType
 from syntropy_sdk.models.platform_agent_message_payload import (
     PlatformAgentMessagePayload,
 )
@@ -274,7 +243,6 @@ from syntropy_sdk.models.social_provider_object import SocialProviderObject
 from syntropy_sdk.models.social_provider_type import SocialProviderType
 from syntropy_sdk.models.social_provider_type_object import SocialProviderTypeObject
 from syntropy_sdk.models.social_providers_ids_object import SocialProvidersIdsObject
-from syntropy_sdk.models.speedtest_via import SpeedtestVia
 from syntropy_sdk.models.sr_path_object import SrPathObject
 from syntropy_sdk.models.sr_policy_object import SrPolicyObject
 from syntropy_sdk.models.status import Status
@@ -300,34 +268,14 @@ from syntropy_sdk.models.tsoa_partial_agent_provider_object_ import (
     TsoaPartialAgentProviderObject_,
 )
 from syntropy_sdk.models.tsoa_partial_api_key_object_ import TsoaPartialApiKeyObject_
-from syntropy_sdk.models.tsoa_partial_app_object_ import TsoaPartialAppObject_
-from syntropy_sdk.models.tsoa_partial_app_version_object_ import (
-    TsoaPartialAppVersionObject_,
-)
 from syntropy_sdk.models.tsoa_partial_color_object_ import TsoaPartialColorObject_
 from syntropy_sdk.models.tsoa_partial_content_object_ import TsoaPartialContentObject_
-from syntropy_sdk.models.tsoa_partial_host_group_object_ import (
-    TsoaPartialHostGroupObject_,
-)
-from syntropy_sdk.models.tsoa_partial_host_object_ import TsoaPartialHostObject_
 from syntropy_sdk.models.tsoa_partial_interface_object_ import (
     TsoaPartialInterfaceObject_,
 )
 from syntropy_sdk.models.tsoa_partial_language_object_ import TsoaPartialLanguageObject_
 from syntropy_sdk.models.tsoa_partial_link_object_ import TsoaPartialLinkObject_
 from syntropy_sdk.models.tsoa_partial_network_object_ import TsoaPartialNetworkObject_
-from syntropy_sdk.models.tsoa_partial_ookla_pair_speedtest_object_ import (
-    TsoaPartialOoklaPairSpeedtestObject_,
-)
-from syntropy_sdk.models.tsoa_partial_ookla_speedtest_object_ import (
-    TsoaPartialOoklaSpeedtestObject_,
-)
-from syntropy_sdk.models.tsoa_partial_organization_object_ import (
-    TsoaPartialOrganizationObject_,
-)
-from syntropy_sdk.models.tsoa_partial_pair_latency_test_object_ import (
-    TsoaPartialPairLatencyTestObject_,
-)
 from syntropy_sdk.models.tsoa_partial_provider_object_ import TsoaPartialProviderObject_
 from syntropy_sdk.models.tsoa_partial_region_object_ import TsoaPartialRegionObject_
 from syntropy_sdk.models.tsoa_partial_route_object_ import TsoaPartialRouteObject_
@@ -354,21 +302,13 @@ from syntropy_sdk.models.user_admin_object import UserAdminObject
 from syntropy_sdk.models.user_agent_patch_object import UserAgentPatchObject
 from syntropy_sdk.models.user_api_key_create_object import UserApiKeyCreateObject
 from syntropy_sdk.models.user_api_key_update_object import UserApiKeyUpdateObject
-from syntropy_sdk.models.user_host_create_object import UserHostCreateObject
-from syntropy_sdk.models.user_host_object import UserHostObject
 from syntropy_sdk.models.user_login_object import UserLoginObject
 from syntropy_sdk.models.user_network_object import UserNetworkObject
-from syntropy_sdk.models.user_pair_latency_test_report_object import (
-    UserPairLatencyTestReportObject,
-)
-from syntropy_sdk.models.user_pair_speedtest_report_object import (
-    UserPairSpeedtestReportObject,
-)
 from syntropy_sdk.models.user_register_object import UserRegisterObject
 from syntropy_sdk.models.user_register_via_provider_object import (
     UserRegisterViaProviderObject,
 )
-from syntropy_sdk.models.user_speedtest_report_object import UserSpeedtestReportObject
+from syntropy_sdk.models.user_settings import UserSettings
 from syntropy_sdk.models.user_sr_direction import UserSrDirection
 from syntropy_sdk.models.user_sr_object import UserSrObject
 from syntropy_sdk.models.verify_email_object import VerifyEmailObject

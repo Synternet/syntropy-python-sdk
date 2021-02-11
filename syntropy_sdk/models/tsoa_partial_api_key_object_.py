@@ -30,7 +30,6 @@ class TsoaPartialApiKeyObject_(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "organization_id": "float",
         "user_id": "float",
         "api_key_secret": "str",
         "api_key_name": "str",
@@ -39,7 +38,6 @@ class TsoaPartialApiKeyObject_(object):
     }
 
     attribute_map = {
-        "organization_id": "organization_id",
         "user_id": "user_id",
         "api_key_secret": "api_key_secret",
         "api_key_name": "api_key_name",
@@ -49,7 +47,6 @@ class TsoaPartialApiKeyObject_(object):
 
     def __init__(
         self,
-        organization_id=None,
         user_id=None,
         api_key_secret=None,
         api_key_name=None,
@@ -57,15 +54,12 @@ class TsoaPartialApiKeyObject_(object):
         api_key_valid_until=None,
     ):  # noqa: E501
         """TsoaPartialApiKeyObject_ - a model defined in Swagger"""  # noqa: E501
-        self._organization_id = None
         self._user_id = None
         self._api_key_secret = None
         self._api_key_name = None
         self._api_key_is_suspended = None
         self._api_key_valid_until = None
         self.discriminator = None
-        if organization_id is not None:
-            self.organization_id = organization_id
         if user_id is not None:
             self.user_id = user_id
         if api_key_secret is not None:
@@ -76,27 +70,6 @@ class TsoaPartialApiKeyObject_(object):
             self.api_key_is_suspended = api_key_is_suspended
         if api_key_valid_until is not None:
             self.api_key_valid_until = api_key_valid_until
-
-    @property
-    def organization_id(self):
-        """Gets the organization_id of this TsoaPartialApiKeyObject_.  # noqa: E501
-
-
-        :return: The organization_id of this TsoaPartialApiKeyObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._organization_id
-
-    @organization_id.setter
-    def organization_id(self, organization_id):
-        """Sets the organization_id of this TsoaPartialApiKeyObject_.
-
-
-        :param organization_id: The organization_id of this TsoaPartialApiKeyObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._organization_id = organization_id
 
     @property
     def user_id(self):

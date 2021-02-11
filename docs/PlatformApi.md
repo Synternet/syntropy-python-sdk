@@ -21,21 +21,28 @@ Method | HTTP request | Description
 [**platform_api_key_index**](PlatformApi.md#platform_api_key_index) | **GET** /api/platform/api-keys | 
 [**platform_api_key_update**](PlatformApi.md#platform_api_key_update) | **PATCH** /api/platform/api-keys/{api_key_id} | 
 [**platform_config**](PlatformApi.md#platform_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
+[**platform_connection_agent_destroy**](PlatformApi.md#platform_connection_agent_destroy) | **DELETE** /api/platform/connections/agents/{agent_id} | 
 [**platform_connection_create**](PlatformApi.md#platform_connection_create) | **POST** /api/platform/connections | 
-[**platform_connection_destroy**](PlatformApi.md#platform_connection_destroy) | **DELETE** /api/platform/connections/{connection_id} | 
+[**platform_connection_create_mesh**](PlatformApi.md#platform_connection_create_mesh) | **POST** /api/platform/connections/mesh | 
+[**platform_connection_create_p2p**](PlatformApi.md#platform_connection_create_p2p) | **POST** /api/platform/connections/point-to-point | 
+[**platform_connection_destroy**](PlatformApi.md#platform_connection_destroy) | **POST** /api/platform/connections/remove | 
+[**platform_connection_destroy_deprecated**](PlatformApi.md#platform_connection_destroy_deprecated) | **DELETE** /api/platform/connections/{connection_id} | 
 [**platform_connection_index**](PlatformApi.md#platform_connection_index) | **GET** /api/platform/connections | 
 [**platform_connection_service_show**](PlatformApi.md#platform_connection_service_show) | **GET** /api/platform/connection-services | 
 [**platform_connection_service_update**](PlatformApi.md#platform_connection_service_update) | **POST** /api/platform/connection-services | 
 [**platform_connection_subnet_destroy**](PlatformApi.md#platform_connection_subnet_destroy) | **POST** /api/platform/connection-services-delete | 
 [**platform_logs_read_timestamp**](PlatformApi.md#platform_logs_read_timestamp) | **POST** /api/platform/logs-reads-timestamp | 
-[**platform_network_agent_create**](PlatformApi.md#platform_network_agent_create) | **POST** /api/platform/network/{network_id}/agents | 
+[**platform_network_agent_create**](PlatformApi.md#platform_network_agent_create) | **POST** /api/platform/network/{network_id}/agents/add | 
+[**platform_network_agent_create_deprecated**](PlatformApi.md#platform_network_agent_create_deprecated) | **POST** /api/platform/network/{network_id}/agents | 
 [**platform_network_agent_destroy**](PlatformApi.md#platform_network_agent_destroy) | **DELETE** /api/platform/networks/{network_id}/agents/{agent_id} | 
 [**platform_network_agent_group_create**](PlatformApi.md#platform_network_agent_group_create) | **POST** /api/platform/network/{network_id}/agent-groups/{group_name} | 
+[**platform_network_agent_remove**](PlatformApi.md#platform_network_agent_remove) | **POST** /api/platform/networks/{network_id}/agents/remove | 
+[**platform_network_agent_remove_deprecated**](PlatformApi.md#platform_network_agent_remove_deprecated) | **DELETE** /api/platform/networks/{network_id}/agents | 
 [**platform_network_create**](PlatformApi.md#platform_network_create) | **POST** /api/platform/networks | 
 [**platform_network_destroy**](PlatformApi.md#platform_network_destroy) | **DELETE** /api/platform/networks/{network_id} | 
 [**platform_network_index**](PlatformApi.md#platform_network_index) | **GET** /api/platform/networks | 
 [**platform_network_info**](PlatformApi.md#platform_network_info) | **GET** /api/platform/network/{network_id}/info | 
-[**platform_network_network_agent_destroy**](PlatformApi.md#platform_network_network_agent_destroy) | **POST** /api/platform/network/{network_id}/agents/delete | 
+[**platform_network_network_agent_destroy_deprecated**](PlatformApi.md#platform_network_network_agent_destroy_deprecated) | **POST** /api/platform/network/{network_id}/agents/delete | 
 [**platform_network_topology**](PlatformApi.md#platform_network_topology) | **GET** /api/platform/networks/topology | 
 
 # **platform_agent_destroy**
@@ -43,7 +50,7 @@ Method | HTTP request | Description
 
 
 
-Deletes agent.
+Deletes `platform agent` ands its `connections`.
 
 ### Example
 ```python
@@ -955,6 +962,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **platform_connection_agent_destroy**
+> InlineResponse204 platform_connection_agent_destroy(agent_id)
+
+
+
+Deletes agent `connections`. Does not remove `platform agent` from `networks`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+agent_id = 1.2 # float | 
+
+try:
+    api_response = api_instance.platform_connection_agent_destroy(agent_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_connection_agent_destroy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_id** | **float**|  | 
+
+### Return type
+
+[**InlineResponse204**](InlineResponse204.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **platform_connection_create**
 > PlatformResponseAgentConnectionObjectArray_ platform_connection_create(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
 
@@ -1019,12 +1079,198 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **platform_connection_create_mesh**
+> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_mesh(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+
+
+
+Creates agents connections.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = {
+  "agent_ids" : [ {
+    "agent_id" : 1
+  }, {
+    "agent_id" : 2
+  } ],
+  "network_id" : 1
+} # dict(str, object) | 
+show_sdn_connections = syntropy_sdk.ShowSdnConnections() # ShowSdnConnections |  (optional)
+update_type = syntropy_sdk.UpdateType() # UpdateType |  (optional)
+paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
+
+try:
+    api_response = api_instance.platform_connection_create_mesh(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_connection_create_mesh: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, object)**](dict.md)|  | 
+ **show_sdn_connections** | [**ShowSdnConnections**](.md)|  | [optional] 
+ **update_type** | [**UpdateType**](.md)|  | [optional] 
+ **paths** | [**list[str]**](str.md)| Comma separated servers ids list for SDN path. | [optional] 
+
+### Return type
+
+[**PlatformResponseAgentConnectionObjectArray_**](PlatformResponseAgentConnectionObjectArray_.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_connection_create_p2p**
+> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_p2p(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+
+
+
+Creates agents connections.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = {
+  "agent_ids" : [ {
+    "agent_1_id" : 1,
+    "agent_2_id" : 2
+  } ],
+  "network_id" : 1
+} # dict(str, object) | 
+show_sdn_connections = syntropy_sdk.ShowSdnConnections() # ShowSdnConnections |  (optional)
+update_type = syntropy_sdk.UpdateType() # UpdateType |  (optional)
+paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
+
+try:
+    api_response = api_instance.platform_connection_create_p2p(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_connection_create_p2p: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, object)**](dict.md)|  | 
+ **show_sdn_connections** | [**ShowSdnConnections**](.md)|  | [optional] 
+ **update_type** | [**UpdateType**](.md)|  | [optional] 
+ **paths** | [**list[str]**](str.md)| Comma separated servers ids list for SDN path. | [optional] 
+
+### Return type
+
+[**PlatformResponseAgentConnectionObjectArray_**](PlatformResponseAgentConnectionObjectArray_.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **platform_connection_destroy**
-> InlineResponse204 platform_connection_destroy(connection_id, network_updated_by=network_updated_by)
+> InlineResponse204 platform_connection_destroy(body, network_updated_by=network_updated_by)
 
 
 
-Finds and deletes all tags (PUBLIC, SDN{1,2,3}) same pair connections (agent1, agent2) in network.
+Deletes `connections` by supplied pairs of `platform agents`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = [syntropy_sdk.AgentsPairObject()] # list[AgentsPairObject] | 
+network_updated_by = syntropy_sdk.NetworkGenesisType() # NetworkGenesisType |  (optional)
+
+try:
+    api_response = api_instance.platform_connection_destroy(body, network_updated_by=network_updated_by)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_connection_destroy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[AgentsPairObject]**](AgentsPairObject.md)|  | 
+ **network_updated_by** | [**NetworkGenesisType**](.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse204**](InlineResponse204.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_connection_destroy_deprecated**
+> InlineResponse204 platform_connection_destroy_deprecated(connection_id, network_updated_by=network_updated_by)
+
+
+
+Removes agent pair (agent1, agent2) connections (PUBLIC, SDN{1,2,3}).
 
 ### Example
 ```python
@@ -1046,10 +1292,10 @@ connection_id = 1.2 # float |
 network_updated_by = syntropy_sdk.NetworkGenesisType() # NetworkGenesisType |  (optional)
 
 try:
-    api_response = api_instance.platform_connection_destroy(connection_id, network_updated_by=network_updated_by)
+    api_response = api_instance.platform_connection_destroy_deprecated(connection_id, network_updated_by=network_updated_by)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PlatformApi->platform_connection_destroy: %s\n" % e)
+    print("Exception when calling PlatformApi->platform_connection_destroy_deprecated: %s\n" % e)
 ```
 
 ### Parameters
@@ -1352,7 +1598,7 @@ Name | Type | Description  | Notes
 
 
 
-Creates network agents.
+Adds agents to network without modifying connections.
 
 ### Example
 ```python
@@ -1402,12 +1648,67 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **platform_network_agent_create_deprecated**
+> InlineResponse204 platform_network_agent_create_deprecated(body, network_id)
+
+
+
+Adds `platform agents` to `network` view. Does not modify `connections`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = [syntropy_sdk.NetworkAgentPayload()] # list[NetworkAgentPayload] | 
+network_id = 1.2 # float | 
+
+try:
+    api_response = api_instance.platform_network_agent_create_deprecated(body, network_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_network_agent_create_deprecated: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[NetworkAgentPayload]**](NetworkAgentPayload.md)|  | 
+ **network_id** | **float**|  | 
+
+### Return type
+
+[**InlineResponse204**](InlineResponse204.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **platform_network_agent_destroy**
 > InlineResponse204 platform_network_agent_destroy(network_id, agent_id)
 
 
 
-Deletes agent from network.
+Removes agent from network view and connections associated with it.
 
 ### Example
 ```python
@@ -1514,6 +1815,116 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **platform_network_agent_remove**
+> InlineResponse204 platform_network_agent_remove(body, network_id)
+
+
+
+Remove agents from network view without unconfiguring connections.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = [3.4] # list[float] | 
+network_id = 1.2 # float | 
+
+try:
+    api_response = api_instance.platform_network_agent_remove(body, network_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_network_agent_remove: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[float]**](float.md)|  | 
+ **network_id** | **float**|  | 
+
+### Return type
+
+[**InlineResponse204**](InlineResponse204.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_network_agent_remove_deprecated**
+> InlineResponse204 platform_network_agent_remove_deprecated(body, network_id)
+
+
+
+Remove `platform agents` from `network` view. Does not modify `connections`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = [3.4] # list[float] | 
+network_id = 1.2 # float | 
+
+try:
+    api_response = api_instance.platform_network_agent_remove_deprecated(body, network_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_network_agent_remove_deprecated: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[float]**](float.md)|  | 
+ **network_id** | **float**|  | 
+
+### Return type
+
+[**InlineResponse204**](InlineResponse204.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **platform_network_create**
 > PlatformResponseNetworkObject_ platform_network_create(body)
 
@@ -1572,7 +1983,7 @@ Name | Type | Description  | Notes
 
 
 
-Deletes network.
+Deletes `network`. Does not modify `connections`.
 
 ### Example
 ```python
@@ -1732,8 +2143,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **platform_network_network_agent_destroy**
-> InlineResponse204 platform_network_network_agent_destroy(body, network_id)
+# **platform_network_network_agent_destroy_deprecated**
+> InlineResponse204 platform_network_network_agent_destroy_deprecated(body, network_id)
 
 
 
@@ -1759,10 +2170,10 @@ body = [3.4] # list[float] |
 network_id = 1.2 # float | 
 
 try:
-    api_response = api_instance.platform_network_network_agent_destroy(body, network_id)
+    api_response = api_instance.platform_network_network_agent_destroy_deprecated(body, network_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PlatformApi->platform_network_network_agent_destroy: %s\n" % e)
+    print("Exception when calling PlatformApi->platform_network_network_agent_destroy_deprecated: %s\n" % e)
 ```
 
 ### Parameters

@@ -106,7 +106,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to `$SYNTROPY_API_SERVER/*`
+All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -114,29 +114,22 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**auth_geoip**](docs/AuthApi.md#auth_geoip) | **GET** /api/auth/{ip}/geoip | 
 *AuthApi* | [**auth_local_login**](docs/AuthApi.md#auth_local_login) | **POST** /api/auth/local/login | 
 *AuthApi* | [**auth_logout**](docs/AuthApi.md#auth_logout) | **POST** /api/auth/logout | 
-*AuthApi* | [**auth_pair_latency_test_report**](docs/AuthApi.md#auth_pair_latency_test_report) | **POST** /api/auth/pair-latency-test-report | 
-*AuthApi* | [**auth_pair_latency_test_report_bulk**](docs/AuthApi.md#auth_pair_latency_test_report_bulk) | **POST** /api/auth/pair-latency-test-report/bulk | 
-*AuthApi* | [**auth_pair_speedtest_report**](docs/AuthApi.md#auth_pair_speedtest_report) | **POST** /api/auth/pair-speedtest-report | 
 *AuthApi* | [**auth_provider_attach**](docs/AuthApi.md#auth_provider_attach) | **POST** /api/auth/provider/attach | 
 *AuthApi* | [**auth_provider_detach**](docs/AuthApi.md#auth_provider_detach) | **POST** /api/auth/provider/detach | 
 *AuthApi* | [**auth_provider_login**](docs/AuthApi.md#auth_provider_login) | **POST** /api/auth/provider/login | 
 *AuthApi* | [**auth_provider_register**](docs/AuthApi.md#auth_provider_register) | **POST** /api/auth/provider/register | 
-*AuthApi* | [**auth_refresh_token**](docs/AuthApi.md#auth_refresh_token) | **POST** /api/auth/refresh-token | 
 *AuthApi* | [**auth_register**](docs/AuthApi.md#auth_register) | **POST** /api/auth/register | 
 *AuthApi* | [**auth_reset_password**](docs/AuthApi.md#auth_reset_password) | **POST** /api/auth/reset-password | 
 *AuthApi* | [**auth_send_delete_account_link**](docs/AuthApi.md#auth_send_delete_account_link) | **POST** /api/auth/send-delete-account-link | 
 *AuthApi* | [**auth_send_reset_password_link**](docs/AuthApi.md#auth_send_reset_password_link) | **POST** /api/auth/send-reset-password-link | 
 *AuthApi* | [**auth_send_verify_email_link**](docs/AuthApi.md#auth_send_verify_email_link) | **POST** /api/auth/send-verify-email-link | 
-*AuthApi* | [**auth_speedtest_report**](docs/AuthApi.md#auth_speedtest_report) | **POST** /api/auth/speedtest-report | 
 *AuthApi* | [**auth_user**](docs/AuthApi.md#auth_user) | **GET** /api/auth/user | 
 *AuthApi* | [**auth_user_change_email**](docs/AuthApi.md#auth_user_change_email) | **POST** /api/auth/user/change-email | 
 *AuthApi* | [**auth_user_change_password**](docs/AuthApi.md#auth_user_change_password) | **POST** /api/auth/user/change-password | 
 *AuthApi* | [**auth_user_delete**](docs/AuthApi.md#auth_user_delete) | **POST** /api/auth/user/delete | 
-*AuthApi* | [**auth_user_host_create**](docs/AuthApi.md#auth_user_host_create) | **POST** /api/auth/user/hosts | 
-*AuthApi* | [**auth_user_host_destroy**](docs/AuthApi.md#auth_user_host_destroy) | **DELETE** /api/auth/user/hosts/{id} | 
-*AuthApi* | [**auth_user_host_index**](docs/AuthApi.md#auth_user_host_index) | **GET** /api/auth/user/hosts | 
 *AuthApi* | [**auth_verify_email**](docs/AuthApi.md#auth_verify_email) | **GET** /api/auth/verify-email/{code} | 
 *AuthApi* | [**auth_verify_email_deprecated**](docs/AuthApi.md#auth_verify_email_deprecated) | **POST** /api/auth/verify-email | 
+*AuthApi* | [**update_settings**](docs/AuthApi.md#update_settings) | **PUT** /api/auth/settings | 
 *PlatformApi* | [**platform_agent_destroy**](docs/PlatformApi.md#platform_agent_destroy) | **DELETE** /api/platform/agents/{agent_id} | 
 *PlatformApi* | [**platform_agent_group_destroy**](docs/PlatformApi.md#platform_agent_group_destroy) | **DELETE** /api/platform/network/agent-groups/{group_id} | 
 *PlatformApi* | [**platform_agent_group_update**](docs/PlatformApi.md#platform_agent_group_update) | **PUT** /api/platform/network/agent-groups/{group_id} | 
@@ -154,27 +147,36 @@ Class | Method | HTTP request | Description
 *PlatformApi* | [**platform_api_key_index**](docs/PlatformApi.md#platform_api_key_index) | **GET** /api/platform/api-keys | 
 *PlatformApi* | [**platform_api_key_update**](docs/PlatformApi.md#platform_api_key_update) | **PATCH** /api/platform/api-keys/{api_key_id} | 
 *PlatformApi* | [**platform_config**](docs/PlatformApi.md#platform_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
+*PlatformApi* | [**platform_connection_agent_destroy**](docs/PlatformApi.md#platform_connection_agent_destroy) | **DELETE** /api/platform/connections/agents/{agent_id} | 
 *PlatformApi* | [**platform_connection_create**](docs/PlatformApi.md#platform_connection_create) | **POST** /api/platform/connections | 
-*PlatformApi* | [**platform_connection_destroy**](docs/PlatformApi.md#platform_connection_destroy) | **DELETE** /api/platform/connections/{connection_id} | 
+*PlatformApi* | [**platform_connection_create_mesh**](docs/PlatformApi.md#platform_connection_create_mesh) | **POST** /api/platform/connections/mesh | 
+*PlatformApi* | [**platform_connection_create_p2p**](docs/PlatformApi.md#platform_connection_create_p2p) | **POST** /api/platform/connections/point-to-point | 
+*PlatformApi* | [**platform_connection_destroy**](docs/PlatformApi.md#platform_connection_destroy) | **POST** /api/platform/connections/remove | 
+*PlatformApi* | [**platform_connection_destroy_deprecated**](docs/PlatformApi.md#platform_connection_destroy_deprecated) | **DELETE** /api/platform/connections/{connection_id} | 
 *PlatformApi* | [**platform_connection_index**](docs/PlatformApi.md#platform_connection_index) | **GET** /api/platform/connections | 
 *PlatformApi* | [**platform_connection_service_show**](docs/PlatformApi.md#platform_connection_service_show) | **GET** /api/platform/connection-services | 
 *PlatformApi* | [**platform_connection_service_update**](docs/PlatformApi.md#platform_connection_service_update) | **POST** /api/platform/connection-services | 
 *PlatformApi* | [**platform_connection_subnet_destroy**](docs/PlatformApi.md#platform_connection_subnet_destroy) | **POST** /api/platform/connection-services-delete | 
 *PlatformApi* | [**platform_logs_read_timestamp**](docs/PlatformApi.md#platform_logs_read_timestamp) | **POST** /api/platform/logs-reads-timestamp | 
-*PlatformApi* | [**platform_network_agent_create**](docs/PlatformApi.md#platform_network_agent_create) | **POST** /api/platform/network/{network_id}/agents | 
+*PlatformApi* | [**platform_network_agent_create**](docs/PlatformApi.md#platform_network_agent_create) | **POST** /api/platform/network/{network_id}/agents/add | 
+*PlatformApi* | [**platform_network_agent_create_deprecated**](docs/PlatformApi.md#platform_network_agent_create_deprecated) | **POST** /api/platform/network/{network_id}/agents | 
 *PlatformApi* | [**platform_network_agent_destroy**](docs/PlatformApi.md#platform_network_agent_destroy) | **DELETE** /api/platform/networks/{network_id}/agents/{agent_id} | 
 *PlatformApi* | [**platform_network_agent_group_create**](docs/PlatformApi.md#platform_network_agent_group_create) | **POST** /api/platform/network/{network_id}/agent-groups/{group_name} | 
+*PlatformApi* | [**platform_network_agent_remove**](docs/PlatformApi.md#platform_network_agent_remove) | **POST** /api/platform/networks/{network_id}/agents/remove | 
+*PlatformApi* | [**platform_network_agent_remove_deprecated**](docs/PlatformApi.md#platform_network_agent_remove_deprecated) | **DELETE** /api/platform/networks/{network_id}/agents | 
 *PlatformApi* | [**platform_network_create**](docs/PlatformApi.md#platform_network_create) | **POST** /api/platform/networks | 
 *PlatformApi* | [**platform_network_destroy**](docs/PlatformApi.md#platform_network_destroy) | **DELETE** /api/platform/networks/{network_id} | 
 *PlatformApi* | [**platform_network_index**](docs/PlatformApi.md#platform_network_index) | **GET** /api/platform/networks | 
 *PlatformApi* | [**platform_network_info**](docs/PlatformApi.md#platform_network_info) | **GET** /api/platform/network/{network_id}/info | 
-*PlatformApi* | [**platform_network_network_agent_destroy**](docs/PlatformApi.md#platform_network_network_agent_destroy) | **POST** /api/platform/network/{network_id}/agents/delete | 
+*PlatformApi* | [**platform_network_network_agent_destroy_deprecated**](docs/PlatformApi.md#platform_network_network_agent_destroy_deprecated) | **POST** /api/platform/network/{network_id}/agents/delete | 
 *PlatformApi* | [**platform_network_topology**](docs/PlatformApi.md#platform_network_topology) | **GET** /api/platform/networks/topology | 
 
 ## Documentation For Models
 
  - [AdminAgentConfig](docs/AdminAgentConfig.md)
  - [AdminChangePasswordObject](docs/AdminChangePasswordObject.md)
+ - [AgentConfigInfoNetwork](docs/AgentConfigInfoNetwork.md)
+ - [AgentConfigInfoNetworkPUBLIC](docs/AgentConfigInfoNetworkPUBLIC.md)
  - [AgentConnectionObject](docs/AgentConnectionObject.md)
  - [AgentConnectionResponseConnectionPerformanceArrayArray_](docs/AgentConnectionResponseConnectionPerformanceArrayArray_.md)
  - [AgentConnectionStatus](docs/AgentConnectionStatus.md)
@@ -197,6 +199,8 @@ Class | Method | HTTP request | Description
  - [AgentServicesUpdateObjectChanges](docs/AgentServicesUpdateObjectChanges.md)
  - [AgentSuccessResponse](docs/AgentSuccessResponse.md)
  - [AgentTagObject](docs/AgentTagObject.md)
+ - [AgentsObject](docs/AgentsObject.md)
+ - [AgentsPairObject](docs/AgentsPairObject.md)
  - [AnyOfAgentMessagePayload](docs/AnyOfAgentMessagePayload.md)
  - [AnyOfPlatformAgentMessagePayload](docs/AnyOfPlatformAgentMessagePayload.md)
  - [AnyOfPlatformAgentsHitObjectSourceSeverity](docs/AnyOfPlatformAgentsHitObjectSourceSeverity.md)
@@ -207,28 +211,6 @@ Class | Method | HTTP request | Description
  - [AnyOfbodyCmd](docs/AnyOfbodyCmd.md)
  - [AnyOfinlineResponse204](docs/AnyOfinlineResponse204.md)
  - [ApiKeyObject](docs/ApiKeyObject.md)
- - [AppConnectConfigObject](docs/AppConnectConfigObject.md)
- - [AppConnectConfigObjectConfig](docs/AppConnectConfigObjectConfig.md)
- - [AppConnectConfigObjectConfigParams](docs/AppConnectConfigObjectConfigParams.md)
- - [AppConnectConfigObjectMetadata](docs/AppConnectConfigObjectMetadata.md)
- - [AppConnectObject](docs/AppConnectObject.md)
- - [AppDisconnectObject](docs/AppDisconnectObject.md)
- - [AppDisconnectToStatusTypes](docs/AppDisconnectToStatusTypes.md)
- - [AppObject](docs/AppObject.md)
- - [AppReconnect](docs/AppReconnect.md)
- - [AppRoutesObject](docs/AppRoutesObject.md)
- - [AppServerObject](docs/AppServerObject.md)
- - [AppShowRoutes](docs/AppShowRoutes.md)
- - [AppSkipSdn](docs/AppSkipSdn.md)
- - [AppStatus](docs/AppStatus.md)
- - [AppUserSrObject](docs/AppUserSrObject.md)
- - [AppUserSrObjectConstrains](docs/AppUserSrObjectConstrains.md)
- - [AppVersionObject](docs/AppVersionObject.md)
- - [AppVpnServerObject](docs/AppVpnServerObject.md)
- - [AppWaitConf](docs/AppWaitConf.md)
- - [AppWebSocketObject](docs/AppWebSocketObject.md)
- - [AppWsStatus](docs/AppWsStatus.md)
- - [AppsWebSocketsDisconnectObject](docs/AppsWebSocketsDisconnectObject.md)
  - [AuthInfo](docs/AuthInfo.md)
  - [AuthUserObject](docs/AuthUserObject.md)
  - [AutoAttach](docs/AutoAttach.md)
@@ -248,6 +230,8 @@ Class | Method | HTTP request | Description
  - [ChangePathObjectDataCosts](docs/ChangePathObjectDataCosts.md)
  - [ColorObject](docs/ColorObject.md)
  - [ConnectionCreationBody](docs/ConnectionCreationBody.md)
+ - [ConnectionCreationBodyMesh](docs/ConnectionCreationBodyMesh.md)
+ - [ConnectionCreationBodyP2p](docs/ConnectionCreationBodyP2p.md)
  - [ConnectionPerformance](docs/ConnectionPerformance.md)
  - [ConstraintEnum](docs/ConstraintEnum.md)
  - [ContainerInfo](docs/ContainerInfo.md)
@@ -256,8 +240,6 @@ Class | Method | HTTP request | Description
  - [DeleteUserObject](docs/DeleteUserObject.md)
  - [GeoIpObject](docs/GeoIpObject.md)
  - [GetInfoData](docs/GetInfoData.md)
- - [HostGroupObject](docs/HostGroupObject.md)
- - [HostObject](docs/HostObject.md)
  - [InlineResponse204](docs/InlineResponse204.md)
  - [InterfaceObject](docs/InterfaceObject.md)
  - [InterfaceType](docs/InterfaceType.md)
@@ -277,11 +259,6 @@ Class | Method | HTTP request | Description
  - [NetworkObject](docs/NetworkObject.md)
  - [NetworkTopologyObject](docs/NetworkTopologyObject.md)
  - [NetworkType](docs/NetworkType.md)
- - [OoklaPairSpeedtestObject](docs/OoklaPairSpeedtestObject.md)
- - [OoklaSpeedtestObject](docs/OoklaSpeedtestObject.md)
- - [OrganizationObject](docs/OrganizationObject.md)
- - [PairLatencyTestObject](docs/PairLatencyTestObject.md)
- - [PairSpeedtestType](docs/PairSpeedtestType.md)
  - [PlatformAgentMessagePayload](docs/PlatformAgentMessagePayload.md)
  - [PlatformAgentMessagePayloadData](docs/PlatformAgentMessagePayloadData.md)
  - [PlatformAgentMessageType](docs/PlatformAgentMessageType.md)
@@ -346,7 +323,6 @@ Class | Method | HTTP request | Description
  - [SocialProviderType](docs/SocialProviderType.md)
  - [SocialProviderTypeObject](docs/SocialProviderTypeObject.md)
  - [SocialProvidersIdsObject](docs/SocialProvidersIdsObject.md)
- - [SpeedtestVia](docs/SpeedtestVia.md)
  - [SrPathObject](docs/SrPathObject.md)
  - [SrPolicyObject](docs/SrPolicyObject.md)
  - [Status](docs/Status.md)
@@ -360,20 +336,12 @@ Class | Method | HTTP request | Description
  - [TsoaPartialAgentPathObject_](docs/TsoaPartialAgentPathObject_.md)
  - [TsoaPartialAgentProviderObject_](docs/TsoaPartialAgentProviderObject_.md)
  - [TsoaPartialApiKeyObject_](docs/TsoaPartialApiKeyObject_.md)
- - [TsoaPartialAppObject_](docs/TsoaPartialAppObject_.md)
- - [TsoaPartialAppVersionObject_](docs/TsoaPartialAppVersionObject_.md)
  - [TsoaPartialColorObject_](docs/TsoaPartialColorObject_.md)
  - [TsoaPartialContentObject_](docs/TsoaPartialContentObject_.md)
- - [TsoaPartialHostGroupObject_](docs/TsoaPartialHostGroupObject_.md)
- - [TsoaPartialHostObject_](docs/TsoaPartialHostObject_.md)
  - [TsoaPartialInterfaceObject_](docs/TsoaPartialInterfaceObject_.md)
  - [TsoaPartialLanguageObject_](docs/TsoaPartialLanguageObject_.md)
  - [TsoaPartialLinkObject_](docs/TsoaPartialLinkObject_.md)
  - [TsoaPartialNetworkObject_](docs/TsoaPartialNetworkObject_.md)
- - [TsoaPartialOoklaPairSpeedtestObject_](docs/TsoaPartialOoklaPairSpeedtestObject_.md)
- - [TsoaPartialOoklaSpeedtestObject_](docs/TsoaPartialOoklaSpeedtestObject_.md)
- - [TsoaPartialOrganizationObject_](docs/TsoaPartialOrganizationObject_.md)
- - [TsoaPartialPairLatencyTestObject_](docs/TsoaPartialPairLatencyTestObject_.md)
  - [TsoaPartialProviderObject_](docs/TsoaPartialProviderObject_.md)
  - [TsoaPartialRegionObject_](docs/TsoaPartialRegionObject_.md)
  - [TsoaPartialRouteObject_](docs/TsoaPartialRouteObject_.md)
@@ -394,15 +362,11 @@ Class | Method | HTTP request | Description
  - [UserAgentPatchObject](docs/UserAgentPatchObject.md)
  - [UserApiKeyCreateObject](docs/UserApiKeyCreateObject.md)
  - [UserApiKeyUpdateObject](docs/UserApiKeyUpdateObject.md)
- - [UserHostCreateObject](docs/UserHostCreateObject.md)
- - [UserHostObject](docs/UserHostObject.md)
  - [UserLoginObject](docs/UserLoginObject.md)
  - [UserNetworkObject](docs/UserNetworkObject.md)
- - [UserPairLatencyTestReportObject](docs/UserPairLatencyTestReportObject.md)
- - [UserPairSpeedtestReportObject](docs/UserPairSpeedtestReportObject.md)
  - [UserRegisterObject](docs/UserRegisterObject.md)
  - [UserRegisterViaProviderObject](docs/UserRegisterViaProviderObject.md)
- - [UserSpeedtestReportObject](docs/UserSpeedtestReportObject.md)
+ - [UserSettings](docs/UserSettings.md)
  - [UserSrDirection](docs/UserSrDirection.md)
  - [UserSrObject](docs/UserSrObject.md)
  - [VerifyEmailObject](docs/VerifyEmailObject.md)

@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**organization_id** | **float** |  | [optional] 
 **user_id** | **float** |  | [optional] 
 **agent_gateway_id** | **float** |  | [optional] 
 **network_key** | **str** |  | [optional] 

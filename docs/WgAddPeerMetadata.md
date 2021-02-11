@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**agent_id** | **float** |  | 
 **connection_id** | **float** |  | 
 **device_public_ipv4** | **str** |  | 
 **device_name** | **str** |  | 

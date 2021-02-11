@@ -31,7 +31,6 @@ class TsoaPartialUserSrObject_(object):
     """
     swagger_types = {
         "user_id": "float",
-        "app_id": "float",
         "region_id": "float",
         "user_sr_location_lat": "float",
         "user_sr_location_lon": "float",
@@ -59,7 +58,6 @@ class TsoaPartialUserSrObject_(object):
 
     attribute_map = {
         "user_id": "user_id",
-        "app_id": "app_id",
         "region_id": "region_id",
         "user_sr_location_lat": "user_sr_location_lat",
         "user_sr_location_lon": "user_sr_location_lon",
@@ -88,7 +86,6 @@ class TsoaPartialUserSrObject_(object):
     def __init__(
         self,
         user_id=None,
-        app_id=None,
         region_id=None,
         user_sr_location_lat=None,
         user_sr_location_lon=None,
@@ -115,7 +112,6 @@ class TsoaPartialUserSrObject_(object):
     ):  # noqa: E501
         """TsoaPartialUserSrObject_ - a model defined in Swagger"""  # noqa: E501
         self._user_id = None
-        self._app_id = None
         self._region_id = None
         self._user_sr_location_lat = None
         self._user_sr_location_lon = None
@@ -142,8 +138,6 @@ class TsoaPartialUserSrObject_(object):
         self.discriminator = None
         if user_id is not None:
             self.user_id = user_id
-        if app_id is not None:
-            self.app_id = app_id
         if region_id is not None:
             self.region_id = region_id
         if user_sr_location_lat is not None:
@@ -211,27 +205,6 @@ class TsoaPartialUserSrObject_(object):
         """
 
         self._user_id = user_id
-
-    @property
-    def app_id(self):
-        """Gets the app_id of this TsoaPartialUserSrObject_.  # noqa: E501
-
-
-        :return: The app_id of this TsoaPartialUserSrObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._app_id
-
-    @app_id.setter
-    def app_id(self, app_id):
-        """Sets the app_id of this TsoaPartialUserSrObject_.
-
-
-        :param app_id: The app_id of this TsoaPartialUserSrObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._app_id = app_id
 
     @property
     def region_id(self):

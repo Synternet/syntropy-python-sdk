@@ -34,7 +34,7 @@ class TsoaPartialAgentConnectionObject_(object):
         "agent_interface_1_id": "float",
         "agent_2_id": "float",
         "agent_interface_2_id": "float",
-        "network_id": "float",
+        "user_id": "float",
         "agent_sdn_policy_id": "float",
         "agent_connection_link_tag": "LinkTag",
         "agent_connection_status": "AgentConnectionStatus",
@@ -50,7 +50,7 @@ class TsoaPartialAgentConnectionObject_(object):
         "agent_interface_1_id": "agent_interface_1_id",
         "agent_2_id": "agent_2_id",
         "agent_interface_2_id": "agent_interface_2_id",
-        "network_id": "network_id",
+        "user_id": "user_id",
         "agent_sdn_policy_id": "agent_sdn_policy_id",
         "agent_connection_link_tag": "agent_connection_link_tag",
         "agent_connection_status": "agent_connection_status",
@@ -67,7 +67,7 @@ class TsoaPartialAgentConnectionObject_(object):
         agent_interface_1_id=None,
         agent_2_id=None,
         agent_interface_2_id=None,
-        network_id=None,
+        user_id=None,
         agent_sdn_policy_id=None,
         agent_connection_link_tag=None,
         agent_connection_status=None,
@@ -82,7 +82,7 @@ class TsoaPartialAgentConnectionObject_(object):
         self._agent_interface_1_id = None
         self._agent_2_id = None
         self._agent_interface_2_id = None
-        self._network_id = None
+        self._user_id = None
         self._agent_sdn_policy_id = None
         self._agent_connection_link_tag = None
         self._agent_connection_status = None
@@ -100,8 +100,8 @@ class TsoaPartialAgentConnectionObject_(object):
             self.agent_2_id = agent_2_id
         if agent_interface_2_id is not None:
             self.agent_interface_2_id = agent_interface_2_id
-        if network_id is not None:
-            self.network_id = network_id
+        if user_id is not None:
+            self.user_id = user_id
         if agent_sdn_policy_id is not None:
             self.agent_sdn_policy_id = agent_sdn_policy_id
         if agent_connection_link_tag is not None:
@@ -204,25 +204,25 @@ class TsoaPartialAgentConnectionObject_(object):
         self._agent_interface_2_id = agent_interface_2_id
 
     @property
-    def network_id(self):
-        """Gets the network_id of this TsoaPartialAgentConnectionObject_.  # noqa: E501
+    def user_id(self):
+        """Gets the user_id of this TsoaPartialAgentConnectionObject_.  # noqa: E501
 
 
-        :return: The network_id of this TsoaPartialAgentConnectionObject_.  # noqa: E501
+        :return: The user_id of this TsoaPartialAgentConnectionObject_.  # noqa: E501
         :rtype: float
         """
-        return self._network_id
+        return self._user_id
 
-    @network_id.setter
-    def network_id(self, network_id):
-        """Sets the network_id of this TsoaPartialAgentConnectionObject_.
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this TsoaPartialAgentConnectionObject_.
 
 
-        :param network_id: The network_id of this TsoaPartialAgentConnectionObject_.  # noqa: E501
+        :param user_id: The user_id of this TsoaPartialAgentConnectionObject_.  # noqa: E501
         :type: float
         """
 
-        self._network_id = network_id
+        self._user_id = user_id
 
     @property
     def agent_sdn_policy_id(self):
