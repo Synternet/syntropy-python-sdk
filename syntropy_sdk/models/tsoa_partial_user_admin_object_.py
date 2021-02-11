@@ -47,6 +47,7 @@ class TsoaPartialUserAdminObject_(object):
         "user_surname": "str",
         "user_company_name": "str",
         "user_timezone": "str",
+        "user_settings": "UserSettings",
     }
 
     attribute_map = {
@@ -67,6 +68,7 @@ class TsoaPartialUserAdminObject_(object):
         "user_surname": "user_surname",
         "user_company_name": "user_company_name",
         "user_timezone": "user_timezone",
+        "user_settings": "user_settings",
     }
 
     def __init__(
@@ -88,6 +90,7 @@ class TsoaPartialUserAdminObject_(object):
         user_surname=None,
         user_company_name=None,
         user_timezone=None,
+        user_settings=None,
     ):  # noqa: E501
         """TsoaPartialUserAdminObject_ - a model defined in Swagger"""  # noqa: E501
         self._user_is_admin = None
@@ -107,6 +110,7 @@ class TsoaPartialUserAdminObject_(object):
         self._user_surname = None
         self._user_company_name = None
         self._user_timezone = None
+        self._user_settings = None
         self.discriminator = None
         if user_is_admin is not None:
             self.user_is_admin = user_is_admin
@@ -142,6 +146,8 @@ class TsoaPartialUserAdminObject_(object):
             self.user_company_name = user_company_name
         if user_timezone is not None:
             self.user_timezone = user_timezone
+        if user_settings is not None:
+            self.user_settings = user_settings
 
     @property
     def user_is_admin(self):
@@ -499,6 +505,27 @@ class TsoaPartialUserAdminObject_(object):
         """
 
         self._user_timezone = user_timezone
+
+    @property
+    def user_settings(self):
+        """Gets the user_settings of this TsoaPartialUserAdminObject_.  # noqa: E501
+
+
+        :return: The user_settings of this TsoaPartialUserAdminObject_.  # noqa: E501
+        :rtype: UserSettings
+        """
+        return self._user_settings
+
+    @user_settings.setter
+    def user_settings(self, user_settings):
+        """Sets the user_settings of this TsoaPartialUserAdminObject_.
+
+
+        :param user_settings: The user_settings of this TsoaPartialUserAdminObject_.  # noqa: E501
+        :type: UserSettings
+        """
+
+        self._user_settings = user_settings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

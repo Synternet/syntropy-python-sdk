@@ -31,9 +31,7 @@ class TsoaPartialAgentObject_(object):
     """
     swagger_types = {
         "agent_services_default_status": "bool",
-        "organization_id": "float",
         "api_key_id": "float",
-        "agent_category_id": "float",
         "agent_public_ipv4": "str",
         "agent_location_lat": "float",
         "agent_location_lon": "float",
@@ -51,9 +49,7 @@ class TsoaPartialAgentObject_(object):
 
     attribute_map = {
         "agent_services_default_status": "agent_services_default_status",
-        "organization_id": "organization_id",
         "api_key_id": "api_key_id",
-        "agent_category_id": "agent_category_id",
         "agent_public_ipv4": "agent_public_ipv4",
         "agent_location_lat": "agent_location_lat",
         "agent_location_lon": "agent_location_lon",
@@ -72,9 +68,7 @@ class TsoaPartialAgentObject_(object):
     def __init__(
         self,
         agent_services_default_status=None,
-        organization_id=None,
         api_key_id=None,
-        agent_category_id=None,
         agent_public_ipv4=None,
         agent_location_lat=None,
         agent_location_lon=None,
@@ -91,9 +85,7 @@ class TsoaPartialAgentObject_(object):
     ):  # noqa: E501
         """TsoaPartialAgentObject_ - a model defined in Swagger"""  # noqa: E501
         self._agent_services_default_status = None
-        self._organization_id = None
         self._api_key_id = None
-        self._agent_category_id = None
         self._agent_public_ipv4 = None
         self._agent_location_lat = None
         self._agent_location_lon = None
@@ -110,12 +102,8 @@ class TsoaPartialAgentObject_(object):
         self.discriminator = None
         if agent_services_default_status is not None:
             self.agent_services_default_status = agent_services_default_status
-        if organization_id is not None:
-            self.organization_id = organization_id
         if api_key_id is not None:
             self.api_key_id = api_key_id
-        if agent_category_id is not None:
-            self.agent_category_id = agent_category_id
         if agent_public_ipv4 is not None:
             self.agent_public_ipv4 = agent_public_ipv4
         if agent_location_lat is not None:
@@ -165,27 +153,6 @@ class TsoaPartialAgentObject_(object):
         self._agent_services_default_status = agent_services_default_status
 
     @property
-    def organization_id(self):
-        """Gets the organization_id of this TsoaPartialAgentObject_.  # noqa: E501
-
-
-        :return: The organization_id of this TsoaPartialAgentObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._organization_id
-
-    @organization_id.setter
-    def organization_id(self, organization_id):
-        """Sets the organization_id of this TsoaPartialAgentObject_.
-
-
-        :param organization_id: The organization_id of this TsoaPartialAgentObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._organization_id = organization_id
-
-    @property
     def api_key_id(self):
         """Gets the api_key_id of this TsoaPartialAgentObject_.  # noqa: E501
 
@@ -205,27 +172,6 @@ class TsoaPartialAgentObject_(object):
         """
 
         self._api_key_id = api_key_id
-
-    @property
-    def agent_category_id(self):
-        """Gets the agent_category_id of this TsoaPartialAgentObject_.  # noqa: E501
-
-
-        :return: The agent_category_id of this TsoaPartialAgentObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._agent_category_id
-
-    @agent_category_id.setter
-    def agent_category_id(self, agent_category_id):
-        """Sets the agent_category_id of this TsoaPartialAgentObject_.
-
-
-        :param agent_category_id: The agent_category_id of this TsoaPartialAgentObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._agent_category_id = agent_category_id
 
     @property
     def agent_public_ipv4(self):

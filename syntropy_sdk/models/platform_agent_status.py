@@ -27,6 +27,7 @@ class PlatformAgentStatus(object):
     """
     OK = "OK"
     WG_ERROR = "WG_ERROR"
+    DUPLICATE_NAME_ERROR = "DUPLICATE_NAME_ERROR"
     """
     Attributes:
       swagger_types (dict): The key is attribute name

@@ -30,7 +30,6 @@ class TsoaPartialNetworkObject_(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "organization_id": "float",
         "user_id": "float",
         "agent_gateway_id": "float",
         "network_key": "str",
@@ -41,7 +40,6 @@ class TsoaPartialNetworkObject_(object):
     }
 
     attribute_map = {
-        "organization_id": "organization_id",
         "user_id": "user_id",
         "agent_gateway_id": "agent_gateway_id",
         "network_key": "network_key",
@@ -53,7 +51,6 @@ class TsoaPartialNetworkObject_(object):
 
     def __init__(
         self,
-        organization_id=None,
         user_id=None,
         agent_gateway_id=None,
         network_key=None,
@@ -63,7 +60,6 @@ class TsoaPartialNetworkObject_(object):
         network_metadata=None,
     ):  # noqa: E501
         """TsoaPartialNetworkObject_ - a model defined in Swagger"""  # noqa: E501
-        self._organization_id = None
         self._user_id = None
         self._agent_gateway_id = None
         self._network_key = None
@@ -72,8 +68,6 @@ class TsoaPartialNetworkObject_(object):
         self._network_disable_sdn_connections = None
         self._network_metadata = None
         self.discriminator = None
-        if organization_id is not None:
-            self.organization_id = organization_id
         if user_id is not None:
             self.user_id = user_id
         if agent_gateway_id is not None:
@@ -88,27 +82,6 @@ class TsoaPartialNetworkObject_(object):
             self.network_disable_sdn_connections = network_disable_sdn_connections
         if network_metadata is not None:
             self.network_metadata = network_metadata
-
-    @property
-    def organization_id(self):
-        """Gets the organization_id of this TsoaPartialNetworkObject_.  # noqa: E501
-
-
-        :return: The organization_id of this TsoaPartialNetworkObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._organization_id
-
-    @organization_id.setter
-    def organization_id(self, organization_id):
-        """Sets the organization_id of this TsoaPartialNetworkObject_.
-
-
-        :param organization_id: The organization_id of this TsoaPartialNetworkObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._organization_id = organization_id
 
     @property
     def user_id(self):

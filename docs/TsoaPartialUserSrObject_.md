@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_id** | **float** |  | [optional] 
-**app_id** | **float** |  | [optional] 
 **region_id** | **float** |  | [optional] 
 **user_sr_location_lat** | **float** |  | [optional] 
 **user_sr_location_lon** | **float** |  | [optional] 

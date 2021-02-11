@@ -4,9 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agent_services_default_status** | **bool** |  | [optional] 
-**organization_id** | **float** |  | [optional] 
 **api_key_id** | **float** |  | [optional] 
-**agent_category_id** | **float** |  | [optional] 
 **agent_public_ipv4** | **str** |  | [optional] 
 **agent_location_lat** | **float** |  | [optional] 
 **agent_location_lon** | **float** |  | [optional] 

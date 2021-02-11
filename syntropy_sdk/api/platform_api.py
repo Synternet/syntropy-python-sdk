@@ -35,7 +35,7 @@ class PlatformApi(object):
     def platform_agent_destroy(self, agent_id, **kwargs):  # noqa: E501
         """platform_agent_destroy  # noqa: E501
 
-        Deletes agent.  # noqa: E501
+        Deletes `platform agent` ands its `connections`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_agent_destroy(agent_id, async_req=True)
@@ -61,7 +61,7 @@ class PlatformApi(object):
     def platform_agent_destroy_with_http_info(self, agent_id, **kwargs):  # noqa: E501
         """platform_agent_destroy  # noqa: E501
 
-        Deletes agent.  # noqa: E501
+        Deletes `platform agent` ands its `connections`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_agent_destroy_with_http_info(agent_id, async_req=True)
@@ -1867,6 +1867,111 @@ class PlatformApi(object):
             collection_formats=collection_formats,
         )
 
+    def platform_connection_agent_destroy(self, agent_id, **kwargs):  # noqa: E501
+        """platform_connection_agent_destroy  # noqa: E501
+
+        Deletes agent `connections`. Does not remove `platform agent` from `networks`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_agent_destroy(agent_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float agent_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_connection_agent_destroy_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_connection_agent_destroy_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_connection_agent_destroy_with_http_info(
+        self, agent_id, **kwargs
+    ):  # noqa: E501
+        """platform_connection_agent_destroy  # noqa: E501
+
+        Deletes agent `connections`. Does not remove `platform agent` from `networks`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_agent_destroy_with_http_info(agent_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float agent_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["agent_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_connection_agent_destroy" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'agent_id' is set
+        if "agent_id" not in params or params["agent_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `agent_id` when calling `platform_connection_agent_destroy`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if "agent_id" in params:
+            path_params["agent_id"] = params["agent_id"]  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/connections/agents/{agent_id}",
+            "DELETE",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="InlineResponse204",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def platform_connection_create(self, body, **kwargs):  # noqa: E501
         """platform_connection_create  # noqa: E501
 
@@ -1997,13 +2102,395 @@ class PlatformApi(object):
             collection_formats=collection_formats,
         )
 
-    def platform_connection_destroy(self, connection_id, **kwargs):  # noqa: E501
-        """platform_connection_destroy  # noqa: E501
+    def platform_connection_create_mesh(self, body, **kwargs):  # noqa: E501
+        """platform_connection_create_mesh  # noqa: E501
 
-        Finds and deletes all tags (PUBLIC, SDN{1,2,3}) same pair connections (agent1, agent2) in network.  # noqa: E501
+        Creates agents connections.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_connection_destroy(connection_id, async_req=True)
+        >>> thread = api.platform_connection_create_mesh(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :param ShowSdnConnections show_sdn_connections:
+        :param UpdateType update_type:
+        :param list[str] paths: Comma separated servers ids list for SDN path.
+        :return: PlatformResponseAgentConnectionObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_connection_create_mesh_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_connection_create_mesh_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_connection_create_mesh_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
+        """platform_connection_create_mesh  # noqa: E501
+
+        Creates agents connections.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_create_mesh_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :param ShowSdnConnections show_sdn_connections:
+        :param UpdateType update_type:
+        :param list[str] paths: Comma separated servers ids list for SDN path.
+        :return: PlatformResponseAgentConnectionObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = [
+            "body",
+            "show_sdn_connections",
+            "update_type",
+            "paths",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_connection_create_mesh" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_connection_create_mesh`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "show_sdn_connections" in params:
+            query_params.append(
+                ("show-sdn-connections", params["show_sdn_connections"])
+            )  # noqa: E501
+        if "update_type" in params:
+            query_params.append(("update-type", params["update_type"]))  # noqa: E501
+        if "paths" in params:
+            query_params.append(("paths", params["paths"]))  # noqa: E501
+            collection_formats["paths"] = "multi"  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/connections/mesh",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="PlatformResponseAgentConnectionObjectArray_",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_connection_create_p2p(self, body, **kwargs):  # noqa: E501
+        """platform_connection_create_p2p  # noqa: E501
+
+        Creates agents connections.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_create_p2p(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :param ShowSdnConnections show_sdn_connections:
+        :param UpdateType update_type:
+        :param list[str] paths: Comma separated servers ids list for SDN path.
+        :return: PlatformResponseAgentConnectionObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_connection_create_p2p_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_connection_create_p2p_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_connection_create_p2p_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
+        """platform_connection_create_p2p  # noqa: E501
+
+        Creates agents connections.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_create_p2p_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :param ShowSdnConnections show_sdn_connections:
+        :param UpdateType update_type:
+        :param list[str] paths: Comma separated servers ids list for SDN path.
+        :return: PlatformResponseAgentConnectionObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = [
+            "body",
+            "show_sdn_connections",
+            "update_type",
+            "paths",
+        ]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_connection_create_p2p" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_connection_create_p2p`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "show_sdn_connections" in params:
+            query_params.append(
+                ("show-sdn-connections", params["show_sdn_connections"])
+            )  # noqa: E501
+        if "update_type" in params:
+            query_params.append(("update-type", params["update_type"]))  # noqa: E501
+        if "paths" in params:
+            query_params.append(("paths", params["paths"]))  # noqa: E501
+            collection_formats["paths"] = "multi"  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/connections/point-to-point",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="PlatformResponseAgentConnectionObjectArray_",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_connection_destroy(self, body, **kwargs):  # noqa: E501
+        """platform_connection_destroy  # noqa: E501
+
+        Deletes `connections` by supplied pairs of `platform agents`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_destroy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[AgentsPairObject] body: (required)
+        :param NetworkGenesisType network_updated_by:
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_connection_destroy_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_connection_destroy_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_connection_destroy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """platform_connection_destroy  # noqa: E501
+
+        Deletes `connections` by supplied pairs of `platform agents`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_destroy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[AgentsPairObject] body: (required)
+        :param NetworkGenesisType network_updated_by:
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body", "network_updated_by"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_connection_destroy" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_connection_destroy`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "network_updated_by" in params:
+            query_params.append(
+                ("network-updated-by", params["network_updated_by"])
+            )  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/connections/remove",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="InlineResponse204",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_connection_destroy_deprecated(
+        self, connection_id, **kwargs
+    ):  # noqa: E501
+        """platform_connection_destroy_deprecated  # noqa: E501
+
+        Removes agent pair (agent1, agent2) connections (PUBLIC, SDN{1,2,3}).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_destroy_deprecated(connection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -2015,24 +2502,24 @@ class PlatformApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.platform_connection_destroy_with_http_info(
+            return self.platform_connection_destroy_deprecated_with_http_info(
                 connection_id, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.platform_connection_destroy_with_http_info(
+            (data) = self.platform_connection_destroy_deprecated_with_http_info(
                 connection_id, **kwargs
             )  # noqa: E501
             return data
 
-    def platform_connection_destroy_with_http_info(
+    def platform_connection_destroy_deprecated_with_http_info(
         self, connection_id, **kwargs
     ):  # noqa: E501
-        """platform_connection_destroy  # noqa: E501
+        """platform_connection_destroy_deprecated  # noqa: E501
 
-        Finds and deletes all tags (PUBLIC, SDN{1,2,3}) same pair connections (agent1, agent2) in network.  # noqa: E501
+        Removes agent pair (agent1, agent2) connections (PUBLIC, SDN{1,2,3}).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_connection_destroy_with_http_info(connection_id, async_req=True)
+        >>> thread = api.platform_connection_destroy_deprecated_with_http_info(connection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -2054,14 +2541,14 @@ class PlatformApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method platform_connection_destroy" % key
+                    " to method platform_connection_destroy_deprecated" % key
                 )
             params[key] = val
         del params["kwargs"]
         # verify the required parameter 'connection_id' is set
         if "connection_id" not in params or params["connection_id"] is None:
             raise ValueError(
-                "Missing the required parameter `connection_id` when calling `platform_connection_destroy`"
+                "Missing the required parameter `connection_id` when calling `platform_connection_destroy_deprecated`"
             )  # noqa: E501
 
         collection_formats = {}
@@ -2670,7 +3157,7 @@ class PlatformApi(object):
     def platform_network_agent_create(self, body, network_id, **kwargs):  # noqa: E501
         """platform_network_agent_create  # noqa: E501
 
-        Creates network agents.  # noqa: E501
+        Adds agents to network without modifying connections.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_network_agent_create(body, network_id, async_req=True)
@@ -2699,7 +3186,7 @@ class PlatformApi(object):
     ):  # noqa: E501
         """platform_network_agent_create  # noqa: E501
 
-        Creates network agents.  # noqa: E501
+        Adds agents to network without modifying connections.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_network_agent_create_with_http_info(body, network_id, async_req=True)
@@ -2771,6 +3258,129 @@ class PlatformApi(object):
         auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
+            "/api/platform/network/{network_id}/agents/add",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="InlineResponse204",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_network_agent_create_deprecated(
+        self, body, network_id, **kwargs
+    ):  # noqa: E501
+        """platform_network_agent_create_deprecated  # noqa: E501
+
+        Adds `platform agents` to `network` view. Does not modify `connections`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_network_agent_create_deprecated(body, network_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[NetworkAgentPayload] body: (required)
+        :param float network_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_network_agent_create_deprecated_with_http_info(
+                body, network_id, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_network_agent_create_deprecated_with_http_info(
+                body, network_id, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_network_agent_create_deprecated_with_http_info(
+        self, body, network_id, **kwargs
+    ):  # noqa: E501
+        """platform_network_agent_create_deprecated  # noqa: E501
+
+        Adds `platform agents` to `network` view. Does not modify `connections`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_network_agent_create_deprecated_with_http_info(body, network_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[NetworkAgentPayload] body: (required)
+        :param float network_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body", "network_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_network_agent_create_deprecated" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_network_agent_create_deprecated`"
+            )  # noqa: E501
+        # verify the required parameter 'network_id' is set
+        if "network_id" not in params or params["network_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `network_id` when calling `platform_network_agent_create_deprecated`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if "network_id" in params:
+            path_params["network_id"] = params["network_id"]  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
             "/api/platform/network/{network_id}/agents",
             "POST",
             path_params,
@@ -2793,7 +3403,7 @@ class PlatformApi(object):
     ):  # noqa: E501
         """platform_network_agent_destroy  # noqa: E501
 
-        Deletes agent from network.  # noqa: E501
+        Removes agent from network view and connections associated with it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_network_agent_destroy(network_id, agent_id, async_req=True)
@@ -2822,7 +3432,7 @@ class PlatformApi(object):
     ):  # noqa: E501
         """platform_network_agent_destroy  # noqa: E501
 
-        Deletes agent from network.  # noqa: E501
+        Removes agent from network view and connections associated with it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_network_agent_destroy_with_http_info(network_id, agent_id, async_req=True)
@@ -3031,6 +3641,250 @@ class PlatformApi(object):
             collection_formats=collection_formats,
         )
 
+    def platform_network_agent_remove(self, body, network_id, **kwargs):  # noqa: E501
+        """platform_network_agent_remove  # noqa: E501
+
+        Remove agents from network view without unconfiguring connections.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_network_agent_remove(body, network_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[float] body: (required)
+        :param float network_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_network_agent_remove_with_http_info(
+                body, network_id, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_network_agent_remove_with_http_info(
+                body, network_id, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_network_agent_remove_with_http_info(
+        self, body, network_id, **kwargs
+    ):  # noqa: E501
+        """platform_network_agent_remove  # noqa: E501
+
+        Remove agents from network view without unconfiguring connections.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_network_agent_remove_with_http_info(body, network_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[float] body: (required)
+        :param float network_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body", "network_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_network_agent_remove" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_network_agent_remove`"
+            )  # noqa: E501
+        # verify the required parameter 'network_id' is set
+        if "network_id" not in params or params["network_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `network_id` when calling `platform_network_agent_remove`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if "network_id" in params:
+            path_params["network_id"] = params["network_id"]  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/networks/{network_id}/agents/remove",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="InlineResponse204",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_network_agent_remove_deprecated(
+        self, body, network_id, **kwargs
+    ):  # noqa: E501
+        """platform_network_agent_remove_deprecated  # noqa: E501
+
+        Remove `platform agents` from `network` view. Does not modify `connections`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_network_agent_remove_deprecated(body, network_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[float] body: (required)
+        :param float network_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_network_agent_remove_deprecated_with_http_info(
+                body, network_id, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_network_agent_remove_deprecated_with_http_info(
+                body, network_id, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_network_agent_remove_deprecated_with_http_info(
+        self, body, network_id, **kwargs
+    ):  # noqa: E501
+        """platform_network_agent_remove_deprecated  # noqa: E501
+
+        Remove `platform agents` from `network` view. Does not modify `connections`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_network_agent_remove_deprecated_with_http_info(body, network_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[float] body: (required)
+        :param float network_id: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body", "network_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_network_agent_remove_deprecated" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_network_agent_remove_deprecated`"
+            )  # noqa: E501
+        # verify the required parameter 'network_id' is set
+        if "network_id" not in params or params["network_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `network_id` when calling `platform_network_agent_remove_deprecated`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if "network_id" in params:
+            path_params["network_id"] = params["network_id"]  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/networks/{network_id}/agents",
+            "DELETE",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="InlineResponse204",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def platform_network_create(self, body, **kwargs):  # noqa: E501
         """platform_network_create  # noqa: E501
 
@@ -3144,7 +3998,7 @@ class PlatformApi(object):
     def platform_network_destroy(self, network_id, **kwargs):  # noqa: E501
         """platform_network_destroy  # noqa: E501
 
-        Deletes network.  # noqa: E501
+        Deletes `network`. Does not modify `connections`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_network_destroy(network_id, async_req=True)
@@ -3172,7 +4026,7 @@ class PlatformApi(object):
     ):  # noqa: E501
         """platform_network_destroy  # noqa: E501
 
-        Deletes network.  # noqa: E501
+        Deletes `network`. Does not modify `connections`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_network_destroy_with_http_info(network_id, async_req=True)
@@ -3455,15 +4309,15 @@ class PlatformApi(object):
             collection_formats=collection_formats,
         )
 
-    def platform_network_network_agent_destroy(
+    def platform_network_network_agent_destroy_deprecated(
         self, body, network_id, **kwargs
     ):  # noqa: E501
-        """platform_network_network_agent_destroy  # noqa: E501
+        """platform_network_network_agent_destroy_deprecated  # noqa: E501
 
         Removes network agents.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_network_network_agent_destroy(body, network_id, async_req=True)
+        >>> thread = api.platform_network_network_agent_destroy_deprecated(body, network_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -3475,24 +4329,28 @@ class PlatformApi(object):
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.platform_network_network_agent_destroy_with_http_info(
-                body, network_id, **kwargs
+            return (
+                self.platform_network_network_agent_destroy_deprecated_with_http_info(
+                    body, network_id, **kwargs
+                )
             )  # noqa: E501
         else:
-            (data) = self.platform_network_network_agent_destroy_with_http_info(
+            (
+                data
+            ) = self.platform_network_network_agent_destroy_deprecated_with_http_info(
                 body, network_id, **kwargs
             )  # noqa: E501
             return data
 
-    def platform_network_network_agent_destroy_with_http_info(
+    def platform_network_network_agent_destroy_deprecated_with_http_info(
         self, body, network_id, **kwargs
     ):  # noqa: E501
-        """platform_network_network_agent_destroy  # noqa: E501
+        """platform_network_network_agent_destroy_deprecated  # noqa: E501
 
         Removes network agents.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_network_network_agent_destroy_with_http_info(body, network_id, async_req=True)
+        >>> thread = api.platform_network_network_agent_destroy_deprecated_with_http_info(body, network_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -3514,19 +4372,19 @@ class PlatformApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method platform_network_network_agent_destroy" % key
+                    " to method platform_network_network_agent_destroy_deprecated" % key
                 )
             params[key] = val
         del params["kwargs"]
         # verify the required parameter 'body' is set
         if "body" not in params or params["body"] is None:
             raise ValueError(
-                "Missing the required parameter `body` when calling `platform_network_network_agent_destroy`"
+                "Missing the required parameter `body` when calling `platform_network_network_agent_destroy_deprecated`"
             )  # noqa: E501
         # verify the required parameter 'network_id' is set
         if "network_id" not in params or params["network_id"] is None:
             raise ValueError(
-                "Missing the required parameter `network_id` when calling `platform_network_network_agent_destroy`"
+                "Missing the required parameter `network_id` when calling `platform_network_network_agent_destroy_deprecated`"
             )  # noqa: E501
 
         collection_formats = {}

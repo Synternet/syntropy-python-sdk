@@ -31,7 +31,7 @@ class TsoaPartialAgentInterfaceObject_(object):
     """
     swagger_types = {
         "agent_id": "float",
-        "network_id": "float",
+        "user_id": "float",
         "agent_interface_is_configured": "bool",
         "agent_interface_link_tag": "LinkTag",
         "agent_interface_name": "str",
@@ -43,7 +43,7 @@ class TsoaPartialAgentInterfaceObject_(object):
 
     attribute_map = {
         "agent_id": "agent_id",
-        "network_id": "network_id",
+        "user_id": "user_id",
         "agent_interface_is_configured": "agent_interface_is_configured",
         "agent_interface_link_tag": "agent_interface_link_tag",
         "agent_interface_name": "agent_interface_name",
@@ -56,7 +56,7 @@ class TsoaPartialAgentInterfaceObject_(object):
     def __init__(
         self,
         agent_id=None,
-        network_id=None,
+        user_id=None,
         agent_interface_is_configured=None,
         agent_interface_link_tag=None,
         agent_interface_name=None,
@@ -67,7 +67,7 @@ class TsoaPartialAgentInterfaceObject_(object):
     ):  # noqa: E501
         """TsoaPartialAgentInterfaceObject_ - a model defined in Swagger"""  # noqa: E501
         self._agent_id = None
-        self._network_id = None
+        self._user_id = None
         self._agent_interface_is_configured = None
         self._agent_interface_link_tag = None
         self._agent_interface_name = None
@@ -78,8 +78,8 @@ class TsoaPartialAgentInterfaceObject_(object):
         self.discriminator = None
         if agent_id is not None:
             self.agent_id = agent_id
-        if network_id is not None:
-            self.network_id = network_id
+        if user_id is not None:
+            self.user_id = user_id
         if agent_interface_is_configured is not None:
             self.agent_interface_is_configured = agent_interface_is_configured
         if agent_interface_link_tag is not None:
@@ -117,25 +117,25 @@ class TsoaPartialAgentInterfaceObject_(object):
         self._agent_id = agent_id
 
     @property
-    def network_id(self):
-        """Gets the network_id of this TsoaPartialAgentInterfaceObject_.  # noqa: E501
+    def user_id(self):
+        """Gets the user_id of this TsoaPartialAgentInterfaceObject_.  # noqa: E501
 
 
-        :return: The network_id of this TsoaPartialAgentInterfaceObject_.  # noqa: E501
+        :return: The user_id of this TsoaPartialAgentInterfaceObject_.  # noqa: E501
         :rtype: float
         """
-        return self._network_id
+        return self._user_id
 
-    @network_id.setter
-    def network_id(self, network_id):
-        """Sets the network_id of this TsoaPartialAgentInterfaceObject_.
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this TsoaPartialAgentInterfaceObject_.
 
 
-        :param network_id: The network_id of this TsoaPartialAgentInterfaceObject_.  # noqa: E501
+        :param user_id: The user_id of this TsoaPartialAgentInterfaceObject_.  # noqa: E501
         :type: float
         """
 
-        self._network_id = network_id
+        self._user_id = user_id
 
     @property
     def agent_interface_is_configured(self):

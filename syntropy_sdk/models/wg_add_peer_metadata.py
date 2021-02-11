@@ -30,6 +30,7 @@ class WgAddPeerMetadata(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "agent_id": "float",
         "connection_id": "float",
         "device_public_ipv4": "str",
         "device_name": "str",
@@ -37,6 +38,7 @@ class WgAddPeerMetadata(object):
     }
 
     attribute_map = {
+        "agent_id": "agent_id",
         "connection_id": "connection_id",
         "device_public_ipv4": "device_public_ipv4",
         "device_name": "device_name",
@@ -45,21 +47,49 @@ class WgAddPeerMetadata(object):
 
     def __init__(
         self,
+        agent_id=None,
         connection_id=None,
         device_public_ipv4=None,
         device_name=None,
         device_id=None,
     ):  # noqa: E501
         """WgAddPeerMetadata - a model defined in Swagger"""  # noqa: E501
+        self._agent_id = None
         self._connection_id = None
         self._device_public_ipv4 = None
         self._device_name = None
         self._device_id = None
         self.discriminator = None
+        self.agent_id = agent_id
         self.connection_id = connection_id
         self.device_public_ipv4 = device_public_ipv4
         self.device_name = device_name
         self.device_id = device_id
+
+    @property
+    def agent_id(self):
+        """Gets the agent_id of this WgAddPeerMetadata.  # noqa: E501
+
+
+        :return: The agent_id of this WgAddPeerMetadata.  # noqa: E501
+        :rtype: float
+        """
+        return self._agent_id
+
+    @agent_id.setter
+    def agent_id(self, agent_id):
+        """Sets the agent_id of this WgAddPeerMetadata.
+
+
+        :param agent_id: The agent_id of this WgAddPeerMetadata.  # noqa: E501
+        :type: float
+        """
+        if agent_id is None:
+            raise ValueError(
+                "Invalid value for `agent_id`, must not be `None`"
+            )  # noqa: E501
+
+        self._agent_id = agent_id
 
     @property
     def connection_id(self):
