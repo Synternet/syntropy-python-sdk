@@ -29,65 +29,67 @@ class Body(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"cmd": "AnyOfbodyCmd", "id": "str"}
+    swagger_types = {"password": "str", "email": "str"}
 
-    attribute_map = {"cmd": "cmd", "id": "id"}
+    attribute_map = {"password": "password", "email": "email"}
 
-    def __init__(self, cmd=None, id=None):  # noqa: E501
+    def __init__(self, password=None, email=None):  # noqa: E501
         """Body - a model defined in Swagger"""  # noqa: E501
-        self._cmd = None
-        self._id = None
+        self._password = None
+        self._email = None
         self.discriminator = None
-        self.cmd = cmd
-        self.id = id
+        self.password = password
+        self.email = email
 
     @property
-    def cmd(self):
-        """Gets the cmd of this Body.  # noqa: E501
+    def password(self):
+        """Gets the password of this Body.  # noqa: E501
 
 
-        :return: The cmd of this Body.  # noqa: E501
-        :rtype: AnyOfbodyCmd
-        """
-        return self._cmd
-
-    @cmd.setter
-    def cmd(self, cmd):
-        """Sets the cmd of this Body.
-
-
-        :param cmd: The cmd of this Body.  # noqa: E501
-        :type: AnyOfbodyCmd
-        """
-        if cmd is None:
-            raise ValueError(
-                "Invalid value for `cmd`, must not be `None`"
-            )  # noqa: E501
-
-        self._cmd = cmd
-
-    @property
-    def id(self):
-        """Gets the id of this Body.  # noqa: E501
-
-
-        :return: The id of this Body.  # noqa: E501
+        :return: The password of this Body.  # noqa: E501
         :rtype: str
         """
-        return self._id
+        return self._password
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Body.
+    @password.setter
+    def password(self, password):
+        """Sets the password of this Body.
 
 
-        :param id: The id of this Body.  # noqa: E501
+        :param password: The password of this Body.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if password is None:
+            raise ValueError(
+                "Invalid value for `password`, must not be `None`"
+            )  # noqa: E501
 
-        self._id = id
+        self._password = password
+
+    @property
+    def email(self):
+        """Gets the email of this Body.  # noqa: E501
+
+
+        :return: The email of this Body.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this Body.
+
+
+        :param email: The email of this Body.  # noqa: E501
+        :type: str
+        """
+        if email is None:
+            raise ValueError(
+                "Invalid value for `email`, must not be `None`"
+            )  # noqa: E501
+
+        self._email = email
 
     def to_dict(self):
         """Returns the model properties as a dict"""

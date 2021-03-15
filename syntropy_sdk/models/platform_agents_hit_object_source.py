@@ -29,11 +29,7 @@ class PlatformAgentsHitObjectSource(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "agent_id": "float",
-        "severity": "AnyOfPlatformAgentsHitObjectSourceSeverity",
-        "timestamp": "datetime",
-    }
+    swagger_types = {"agent_id": "float", "severity": "str", "timestamp": "datetime"}
 
     attribute_map = {
         "agent_id": "agent_id",
@@ -82,7 +78,7 @@ class PlatformAgentsHitObjectSource(object):
 
 
         :return: The severity of this PlatformAgentsHitObjectSource.  # noqa: E501
-        :rtype: AnyOfPlatformAgentsHitObjectSourceSeverity
+        :rtype: str
         """
         return self._severity
 
@@ -92,12 +88,19 @@ class PlatformAgentsHitObjectSource(object):
 
 
         :param severity: The severity of this PlatformAgentsHitObjectSource.  # noqa: E501
-        :type: AnyOfPlatformAgentsHitObjectSourceSeverity
+        :type: str
         """
         if severity is None:
             raise ValueError(
                 "Invalid value for `severity`, must not be `None`"
             )  # noqa: E501
+        allowed_values = ["WARN", "ERROR"]  # noqa: E501
+        if severity not in allowed_values:
+            raise ValueError(
+                "Invalid value for `severity` ({0}), must be one of {1}".format(  # noqa: E501
+                    severity, allowed_values
+                )
+            )
 
         self._severity = severity
 

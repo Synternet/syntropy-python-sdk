@@ -5,6 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**auth_delete_account**](AuthApi.md#auth_delete_account) | **GET** /api/auth/delete-account/{code} | 
+[**auth_external_login**](AuthApi.md#auth_external_login) | **POST** /api/auth/external/login | 
 [**auth_geoip**](AuthApi.md#auth_geoip) | **GET** /api/auth/{ip}/geoip | 
 [**auth_local_login**](AuthApi.md#auth_local_login) | **POST** /api/auth/local/login | 
 [**auth_logout**](AuthApi.md#auth_logout) | **POST** /api/auth/logout | 
@@ -18,12 +19,15 @@ Method | HTTP request | Description
 [**auth_send_reset_password_link**](AuthApi.md#auth_send_reset_password_link) | **POST** /api/auth/send-reset-password-link | 
 [**auth_send_verify_email_link**](AuthApi.md#auth_send_verify_email_link) | **POST** /api/auth/send-verify-email-link | 
 [**auth_user**](AuthApi.md#auth_user) | **GET** /api/auth/user | 
+[**auth_user_0**](AuthApi.md#auth_user_0) | **POST** /api/auth/create-user | 
 [**auth_user_change_email**](AuthApi.md#auth_user_change_email) | **POST** /api/auth/user/change-email | 
 [**auth_user_change_password**](AuthApi.md#auth_user_change_password) | **POST** /api/auth/user/change-password | 
 [**auth_user_delete**](AuthApi.md#auth_user_delete) | **POST** /api/auth/user/delete | 
 [**auth_verify_email**](AuthApi.md#auth_verify_email) | **GET** /api/auth/verify-email/{code} | 
 [**auth_verify_email_deprecated**](AuthApi.md#auth_verify_email_deprecated) | **POST** /api/auth/verify-email | 
 [**update_settings**](AuthApi.md#update_settings) | **PUT** /api/auth/settings | 
+[**validate_captcha**](AuthApi.md#validate_captcha) | **POST** /api/auth/validate-captcha | 
+[**validate_user_credentials**](AuthApi.md#validate_user_credentials) | **POST** /api/auth/validate-user | 
 
 # **auth_delete_account**
 > Object auth_delete_account(code)
@@ -68,6 +72,53 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **auth_external_login**
+> AzureUserTokenDto auth_external_login(body)
+
+
+
+Logs in user using resource owner passwor credentials flow.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi()
+body = NULL # dict(str, object) | 
+
+try:
+    api_response = api_instance.auth_external_login(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_external_login: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, object)**](dict.md)|  | 
+
+### Return type
+
+[**AzureUserTokenDto**](AzureUserTokenDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -728,6 +779,52 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **auth_user_0**
+> auth_user_0(body)
+
+
+
+Returns authorized user data. This is recommended way to get the latest user's information.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi()
+body = syntropy_sdk.Object() # Object | 
+
+try:
+    api_instance.auth_user_0(body)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_user_0: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **auth_user_change_email**
 > ResponseObject auth_user_change_email(body, ref=ref)
 
@@ -1029,6 +1126,98 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate_captcha**
+> validate_captcha(body)
+
+
+
+Validates user captcha.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi()
+body = syntropy_sdk.Body1() # Body1 | 
+
+try:
+    api_instance.validate_captcha(body)
+except ApiException as e:
+    print("Exception when calling AuthApi->validate_captcha: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Body1**](Body1.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate_user_credentials**
+> validate_user_credentials(body)
+
+
+
+Returns authorized user data. This is recommended way to get the latest user's information.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi()
+body = syntropy_sdk.Body() # Body | 
+
+try:
+    api_instance.validate_user_credentials(body)
+except ApiException as e:
+    print("Exception when calling AuthApi->validate_user_credentials: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Body**](Body.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

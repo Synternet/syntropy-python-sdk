@@ -4,10 +4,13 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**platform_admin_config**](PlatformApi.md#platform_admin_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
+[**platform_agent_coordinates**](PlatformApi.md#platform_agent_coordinates) | **GET** /api/platform/agents/coordinates | 
+[**platform_agent_create**](PlatformApi.md#platform_agent_create) | **POST** /api/platform/agents | 
 [**platform_agent_destroy**](PlatformApi.md#platform_agent_destroy) | **DELETE** /api/platform/agents/{agent_id} | 
 [**platform_agent_group_destroy**](PlatformApi.md#platform_agent_group_destroy) | **DELETE** /api/platform/network/agent-groups/{group_id} | 
 [**platform_agent_group_update**](PlatformApi.md#platform_agent_group_update) | **PUT** /api/platform/network/agent-groups/{group_id} | 
-[**platform_agent_id_name_pairs**](PlatformApi.md#platform_agent_id_name_pairs) | **GET** /api/platform/agents/id-name-pairs | 
+[**platform_agent_id_name_pairs**](PlatformApi.md#platform_agent_id_name_pairs) | **GET** /api/platform/agents/filters | 
 [**platform_agent_index**](PlatformApi.md#platform_agent_index) | **GET** /api/platform/agents | 
 [**platform_agent_provider_index**](PlatformApi.md#platform_agent_provider_index) | **GET** /api/platform/agent-providers | 
 [**platform_agent_provider_show**](PlatformApi.md#platform_agent_provider_show) | **GET** /api/platform/agent-providers/{id} | 
@@ -20,7 +23,7 @@ Method | HTTP request | Description
 [**platform_api_key_destroy**](PlatformApi.md#platform_api_key_destroy) | **DELETE** /api/platform/api-keys/{api_key_id} | 
 [**platform_api_key_index**](PlatformApi.md#platform_api_key_index) | **GET** /api/platform/api-keys | 
 [**platform_api_key_update**](PlatformApi.md#platform_api_key_update) | **PATCH** /api/platform/api-keys/{api_key_id} | 
-[**platform_config**](PlatformApi.md#platform_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
+[**platform_config**](PlatformApi.md#platform_config) | **GET** /api/platform/agent/{agent_id}/wg-config | 
 [**platform_connection_agent_destroy**](PlatformApi.md#platform_connection_agent_destroy) | **DELETE** /api/platform/connections/agents/{agent_id} | 
 [**platform_connection_create**](PlatformApi.md#platform_connection_create) | **POST** /api/platform/connections | 
 [**platform_connection_create_mesh**](PlatformApi.md#platform_connection_create_mesh) | **POST** /api/platform/connections/mesh | 
@@ -44,6 +47,165 @@ Method | HTTP request | Description
 [**platform_network_info**](PlatformApi.md#platform_network_info) | **GET** /api/platform/network/{network_id}/info | 
 [**platform_network_network_agent_destroy_deprecated**](PlatformApi.md#platform_network_network_agent_destroy_deprecated) | **POST** /api/platform/network/{network_id}/agents/delete | 
 [**platform_network_topology**](PlatformApi.md#platform_network_topology) | **GET** /api/platform/networks/topology | 
+
+# **platform_admin_config**
+> PlatformResponseAdminAgentConfig_ platform_admin_config(agent_id)
+
+
+
+Returns agent configuration details.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+agent_id = 1.2 # float | 
+
+try:
+    api_response = api_instance.platform_admin_config(agent_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_admin_config: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_id** | **float**|  | 
+
+### Return type
+
+[**PlatformResponseAdminAgentConfig_**](PlatformResponseAdminAgentConfig_.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_agent_coordinates**
+> PlatformResponseAgentCoordinatesObjectArray_ platform_agent_coordinates(agent_ids)
+
+
+
+Get Platform agent location coordinates
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+agent_ids = [3.4] # list[float] | 
+
+try:
+    api_response = api_instance.platform_agent_coordinates(agent_ids)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_agent_coordinates: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_ids** | [**list[float]**](float.md)|  | 
+
+### Return type
+
+[**PlatformResponseAgentCoordinatesObjectArray_**](PlatformResponseAgentCoordinatesObjectArray_.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_agent_create**
+> PlatformResponseAgentObject_ platform_agent_create(body)
+
+
+
+Creates new `platform agent`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = NULL # dict(str, object) | 
+
+try:
+    api_response = api_instance.platform_agent_create(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_agent_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**dict(str, object)**](dict.md)|  | 
+
+### Return type
+
+[**PlatformResponseAgentObject_**](PlatformResponseAgentObject_.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_agent_destroy**
 > InlineResponse204 platform_agent_destroy(agent_id)
@@ -207,7 +369,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_agent_id_name_pairs**
-> PlatformResponseAgentNameIdPairArray_ platform_agent_id_name_pairs(filter=filter)
+> PlatformResponseAgentFiltersObject_ platform_agent_id_name_pairs(filter=filter)
 
 
 
@@ -244,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlatformResponseAgentNameIdPairArray_**](PlatformResponseAgentNameIdPairArray_.md)
+[**PlatformResponseAgentFiltersObject_**](PlatformResponseAgentFiltersObject_.md)
 
 ### Authorization
 
@@ -283,7 +445,7 @@ api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 skip = 1.2 # float |  (optional)
 take = 1.2 # float |  (optional)
 order = 'order_example' # str | string: \"ASC\" | \"DESC\" (optional)
-filter = 'filter_example' # str | ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", (optional)
+filter = 'filter_example' # str | ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\" (optional)
 load_relations = true # bool |  (optional) (default to true)
 show_logs_state = false # bool |  (optional) (default to false)
 
@@ -301,7 +463,7 @@ Name | Type | Description  | Notes
  **skip** | **float**|  | [optional] 
  **take** | **float**|  | [optional] 
  **order** | **str**| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
- **filter** | **str**| ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, id|name: agent id or agent name, example: \&quot;name1\&quot; or \&quot;132\&quot;, name: exact agent name, example: \&quot;name1\&quot;, statuses[]: one of: connected, connected_with_errors, disconnected, example: \&quot;connected;connected_with_errors\&quot;, networks[]: array of network ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, tags[]: array of tags ids, example: \&quot;1;2;3\&quot;, tags_names[]: array of tags name, example: \&quot;name1;name2;name3\&quot;, networks_names[]: array of networks names, example: \&quot;name1;name2;name3\&quot;, | [optional] 
+ **filter** | **str**| ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, id|name: agent id or agent name, example: \&quot;name1\&quot; or \&quot;132\&quot;, name: exact agent name, example: \&quot;name1\&quot;, statuses[]: one of: connected, connected_with_errors, disconnected, example: \&quot;connected;connected_with_errors\&quot;, networks[]: array of network ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, tags[]: array of tags ids, example: \&quot;1;2;3\&quot;, tags_names[]: array of tags name, example: \&quot;name1;name2;name3\&quot;, networks_names[]: array of networks names, example: \&quot;name1;name2;name3\&quot;, agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \&quot;0.0.75;0.0.74\&quot; locations[]: array of locations, example: \&quot;ES;US\&quot; | [optional] 
  **load_relations** | **bool**|  | [optional] [default to true]
  **show_logs_state** | **bool**|  | [optional] [default to false]
 
@@ -910,11 +1072,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_config**
-> PlatformResponseAdminAgentConfig_ platform_config(agent_id)
+> PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_ platform_config(agent_id)
 
 
 
-Returns agent configuration details.
+Returns `platform agent` `WireGuard` configuration.
 
 ### Example
 ```python
@@ -949,7 +1111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlatformResponseAdminAgentConfig_**](PlatformResponseAdminAgentConfig_.md)
+[**PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_**](PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_.md)
 
 ### Authorization
 
@@ -1016,7 +1178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_connection_create**
-> PlatformResponseAgentConnectionObjectArray_ platform_connection_create(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+> PlatformResponseAgentConnectionObjectArray_ platform_connection_create(body, paths=paths)
 
 
 
@@ -1044,12 +1206,10 @@ body = {
     "network_id" : 1
   }
 } # dict(str, object) | 
-show_sdn_connections = syntropy_sdk.ShowSdnConnections() # ShowSdnConnections |  (optional)
-update_type = syntropy_sdk.UpdateType() # UpdateType |  (optional)
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:
-    api_response = api_instance.platform_connection_create(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+    api_response = api_instance.platform_connection_create(body, paths=paths)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_connection_create: %s\n" % e)
@@ -1060,8 +1220,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**dict(str, object)**](dict.md)|  | 
- **show_sdn_connections** | [**ShowSdnConnections**](.md)|  | [optional] 
- **update_type** | [**UpdateType**](.md)|  | [optional] 
  **paths** | [**list[str]**](str.md)| Comma separated servers ids list for SDN path. | [optional] 
 
 ### Return type
@@ -1080,7 +1238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_connection_create_mesh**
-> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_mesh(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_mesh(body, paths=paths)
 
 
 
@@ -1110,12 +1268,10 @@ body = {
   } ],
   "network_id" : 1
 } # dict(str, object) | 
-show_sdn_connections = syntropy_sdk.ShowSdnConnections() # ShowSdnConnections |  (optional)
-update_type = syntropy_sdk.UpdateType() # UpdateType |  (optional)
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:
-    api_response = api_instance.platform_connection_create_mesh(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+    api_response = api_instance.platform_connection_create_mesh(body, paths=paths)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_connection_create_mesh: %s\n" % e)
@@ -1126,8 +1282,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**dict(str, object)**](dict.md)|  | 
- **show_sdn_connections** | [**ShowSdnConnections**](.md)|  | [optional] 
- **update_type** | [**UpdateType**](.md)|  | [optional] 
  **paths** | [**list[str]**](str.md)| Comma separated servers ids list for SDN path. | [optional] 
 
 ### Return type
@@ -1146,7 +1300,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_connection_create_p2p**
-> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_p2p(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_p2p(body, paths=paths)
 
 
 
@@ -1175,12 +1329,10 @@ body = {
   } ],
   "network_id" : 1
 } # dict(str, object) | 
-show_sdn_connections = syntropy_sdk.ShowSdnConnections() # ShowSdnConnections |  (optional)
-update_type = syntropy_sdk.UpdateType() # UpdateType |  (optional)
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:
-    api_response = api_instance.platform_connection_create_p2p(body, show_sdn_connections=show_sdn_connections, update_type=update_type, paths=paths)
+    api_response = api_instance.platform_connection_create_p2p(body, paths=paths)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_connection_create_p2p: %s\n" % e)
@@ -1191,8 +1343,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**dict(str, object)**](dict.md)|  | 
- **show_sdn_connections** | [**ShowSdnConnections**](.md)|  | [optional] 
- **update_type** | [**UpdateType**](.md)|  | [optional] 
  **paths** | [**list[str]**](str.md)| Comma separated servers ids list for SDN path. | [optional] 
 
 ### Return type
@@ -1346,7 +1496,7 @@ api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 skip = 1.2 # float |  (optional)
 take = 1.2 # float |  (optional)
 order = 'order_example' # str | string: \"ASC\" | \"DESC\" (optional)
-filter = 'filter_example' # str | id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", (optional)
+filter = 'filter_example' # str | id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified (optional)
 show_sdn_connections = syntropy_sdk.ShowSdnConnections() # ShowSdnConnections |  (optional)
 load_relations = true # bool |  (optional) (default to true)
 
@@ -1364,7 +1514,7 @@ Name | Type | Description  | Notes
  **skip** | **float**|  | [optional] 
  **take** | **float**|  | [optional] 
  **order** | **str**| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
- **filter** | **str**| id|name: string, example: \&quot;1\&quot; or \&quot;name\&quot;, name: exact agent name, example: \&quot;name1\&quot;, agent_ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \&quot;OFFLINE;ERROR;WARNING\&quot;, networks[]: array of networks ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, | [optional] 
+ **filter** | **str**| id|name: string, example: \&quot;1\&quot; or \&quot;name\&quot;, name: exact agent name, example: \&quot;name1\&quot;, agent_ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \&quot;OFFLINE;ERROR;WARNING\&quot;, networks[]: array of networks ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified | [optional] 
  **show_sdn_connections** | [**ShowSdnConnections**](.md)|  | [optional] 
  **load_relations** | **bool**|  | [optional] [default to true]
 

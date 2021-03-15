@@ -29,37 +29,92 @@ class Body4(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"synch_file": "str"}
+    swagger_types = {"cmd": "list[VppCallableObject]", "ip": "str", "auth_key": "str"}
 
-    attribute_map = {"synch_file": "synch_file"}
+    attribute_map = {"cmd": "cmd", "ip": "ip", "auth_key": "authKey"}
 
-    def __init__(self, synch_file=None):  # noqa: E501
+    def __init__(self, cmd=None, ip=None, auth_key=None):  # noqa: E501
         """Body4 - a model defined in Swagger"""  # noqa: E501
-        self._synch_file = None
+        self._cmd = None
+        self._ip = None
+        self._auth_key = None
         self.discriminator = None
-        if synch_file is not None:
-            self.synch_file = synch_file
+        self.cmd = cmd
+        self.ip = ip
+        self.auth_key = auth_key
 
     @property
-    def synch_file(self):
-        """Gets the synch_file of this Body4.  # noqa: E501
+    def cmd(self):
+        """Gets the cmd of this Body4.  # noqa: E501
 
 
-        :return: The synch_file of this Body4.  # noqa: E501
+        :return: The cmd of this Body4.  # noqa: E501
+        :rtype: list[VppCallableObject]
+        """
+        return self._cmd
+
+    @cmd.setter
+    def cmd(self, cmd):
+        """Sets the cmd of this Body4.
+
+
+        :param cmd: The cmd of this Body4.  # noqa: E501
+        :type: list[VppCallableObject]
+        """
+        if cmd is None:
+            raise ValueError(
+                "Invalid value for `cmd`, must not be `None`"
+            )  # noqa: E501
+
+        self._cmd = cmd
+
+    @property
+    def ip(self):
+        """Gets the ip of this Body4.  # noqa: E501
+
+
+        :return: The ip of this Body4.  # noqa: E501
         :rtype: str
         """
-        return self._synch_file
+        return self._ip
 
-    @synch_file.setter
-    def synch_file(self, synch_file):
-        """Sets the synch_file of this Body4.
+    @ip.setter
+    def ip(self, ip):
+        """Sets the ip of this Body4.
 
 
-        :param synch_file: The synch_file of this Body4.  # noqa: E501
+        :param ip: The ip of this Body4.  # noqa: E501
         :type: str
         """
+        if ip is None:
+            raise ValueError("Invalid value for `ip`, must not be `None`")  # noqa: E501
 
-        self._synch_file = synch_file
+        self._ip = ip
+
+    @property
+    def auth_key(self):
+        """Gets the auth_key of this Body4.  # noqa: E501
+
+
+        :return: The auth_key of this Body4.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_key
+
+    @auth_key.setter
+    def auth_key(self, auth_key):
+        """Sets the auth_key of this Body4.
+
+
+        :param auth_key: The auth_key of this Body4.  # noqa: E501
+        :type: str
+        """
+        if auth_key is None:
+            raise ValueError(
+                "Invalid value for `auth_key`, must not be `None`"
+            )  # noqa: E501
+
+        self._auth_key = auth_key
 
     def to_dict(self):
         """Returns the model properties as a dict"""

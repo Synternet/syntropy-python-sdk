@@ -1,18 +1,13 @@
 import json
 import time
 
-from syntropy_sdk import MetadataNetworkType, NetworkType
+from syntropy_sdk import MetadataNetworkType
 from syntropy_sdk.exceptions import *
 
 TAKE_MAX_ITEMS_PER_CALL = 2048
 MAX_PAYLOAD_SIZE = 99 * 1024
 MAX_QUERY_FIELD_SIZE = 2 * 1024
 
-ALLOWED_NETWORK_TYPES = (
-    NetworkType.POINT_TO_POINT,
-    NetworkType.GATEWAY,
-    NetworkType.MESH,
-)
 ALLOWED_NETWORK_TOPOLOGIES = (
     MetadataNetworkType.P2P,
     MetadataNetworkType.P2M,

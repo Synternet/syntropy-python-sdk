@@ -23,6 +23,11 @@ class SettingsTypes(object):
     """
 
     """
+    allowed enum values
+    """
+    INTEGER = "INTEGER"
+    SERIALIZED_STRINGS = "SERIALIZED_STRINGS"
+    """
     Attributes:
       swagger_types (dict): The key is attribute name
                             and the value is attribute type.

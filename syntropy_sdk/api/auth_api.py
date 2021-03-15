@@ -133,6 +133,114 @@ class AuthApi(object):
             collection_formats=collection_formats,
         )
 
+    def auth_external_login(self, body, **kwargs):  # noqa: E501
+        """auth_external_login  # noqa: E501
+
+        Logs in user using resource owner passwor credentials flow.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_external_login(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :return: AzureUserTokenDto
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_external_login_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.auth_external_login_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def auth_external_login_with_http_info(self, body, **kwargs):  # noqa: E501
+        """auth_external_login  # noqa: E501
+
+        Logs in user using resource owner passwor credentials flow.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_external_login_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :return: AzureUserTokenDto
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_external_login" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `auth_external_login`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/auth/external/login",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="AzureUserTokenDto",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def auth_geoip(self, ip, **kwargs):  # noqa: E501
         """auth_geoip  # noqa: E501
 
@@ -1499,6 +1607,107 @@ class AuthApi(object):
             collection_formats=collection_formats,
         )
 
+    def auth_user_0(self, body, **kwargs):  # noqa: E501
+        """auth_user_0  # noqa: E501
+
+        Returns authorized user data. This is recommended way to get the latest user's information.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_user_0(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Object body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_user_0_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.auth_user_0_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def auth_user_0_with_http_info(self, body, **kwargs):  # noqa: E501
+        """auth_user_0  # noqa: E501
+
+        Returns authorized user data. This is recommended way to get the latest user's information.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_user_0_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Object body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_user_0" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `auth_user_0`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/auth/create-user",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def auth_user_change_email(self, body, **kwargs):  # noqa: E501
         """auth_user_change_email  # noqa: E501
 
@@ -2124,6 +2333,212 @@ class AuthApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="Object",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def validate_captcha(self, body, **kwargs):  # noqa: E501
+        """validate_captcha  # noqa: E501
+
+        Validates user captcha.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.validate_captcha(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Body1 body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.validate_captcha_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.validate_captcha_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def validate_captcha_with_http_info(self, body, **kwargs):  # noqa: E501
+        """validate_captcha  # noqa: E501
+
+        Validates user captcha.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.validate_captcha_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Body1 body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method validate_captcha" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `validate_captcha`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/auth/validate-captcha",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def validate_user_credentials(self, body, **kwargs):  # noqa: E501
+        """validate_user_credentials  # noqa: E501
+
+        Returns authorized user data. This is recommended way to get the latest user's information.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.validate_user_credentials(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Body body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.validate_user_credentials_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.validate_user_credentials_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def validate_user_credentials_with_http_info(self, body, **kwargs):  # noqa: E501
+        """validate_user_credentials  # noqa: E501
+
+        Returns authorized user data. This is recommended way to get the latest user's information.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.validate_user_credentials_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Body body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method validate_user_credentials" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `validate_user_credentials`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/auth/validate-user",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
