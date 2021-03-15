@@ -31,7 +31,7 @@ setup(
     version=version,
     url="https://github.com/syntropynet/syntropy-python-sdk/",
     author="Andrius Mikonis",
-    author_email="andrius@noia.network",
+    author_email="andrius@syntropynet.com",
     description="Syntropy SDK for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",

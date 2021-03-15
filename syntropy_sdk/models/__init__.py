@@ -16,10 +16,6 @@ from __future__ import absolute_import
 # import models into model package
 from syntropy_sdk.models.admin_agent_config import AdminAgentConfig
 from syntropy_sdk.models.admin_change_password_object import AdminChangePasswordObject
-from syntropy_sdk.models.agent_config_info_network import AgentConfigInfoNetwork
-from syntropy_sdk.models.agent_config_info_network_public import (
-    AgentConfigInfoNetworkPUBLIC,
-)
 from syntropy_sdk.models.agent_connection_object import AgentConnectionObject
 from syntropy_sdk.models.agent_connection_response_connection_performance_array_array_ import (
     AgentConnectionResponseConnectionPerformanceArrayArray_,
@@ -28,13 +24,18 @@ from syntropy_sdk.models.agent_connection_status import AgentConnectionStatus
 from syntropy_sdk.models.agent_connection_subnets_deletion_object import (
     AgentConnectionSubnetsDeletionObject,
 )
+from syntropy_sdk.models.agent_coordinates_object import AgentCoordinatesObject
+from syntropy_sdk.models.agent_filters_object import AgentFiltersObject
 from syntropy_sdk.models.agent_group_object import AgentGroupObject
 from syntropy_sdk.models.agent_interface_bw_object import AgentInterfaceBwObject
 from syntropy_sdk.models.agent_interface_object import AgentInterfaceObject
+from syntropy_sdk.models.agent_interfaces_metadata import AgentInterfacesMetadata
+from syntropy_sdk.models.agent_interfaces_metadata_public import (
+    AgentInterfacesMetadataPUBLIC,
+)
 from syntropy_sdk.models.agent_locked_fields import AgentLockedFields
 from syntropy_sdk.models.agent_message_payload import AgentMessagePayload
 from syntropy_sdk.models.agent_message_type import AgentMessageType
-from syntropy_sdk.models.agent_name_id_pair import AgentNameIdPair
 from syntropy_sdk.models.agent_network_object import AgentNetworkObject
 from syntropy_sdk.models.agent_object import AgentObject
 from syntropy_sdk.models.agent_path_object import AgentPathObject
@@ -53,25 +54,18 @@ from syntropy_sdk.models.agent_tag_object import AgentTagObject
 from syntropy_sdk.models.agents_object import AgentsObject
 from syntropy_sdk.models.agents_pair_object import AgentsPairObject
 from syntropy_sdk.models.any_of_agent_message_payload import AnyOfAgentMessagePayload
-from syntropy_sdk.models.any_of_platform_agent_message_payload import (
-    AnyOfPlatformAgentMessagePayload,
-)
-from syntropy_sdk.models.any_of_platform_agents_hit_object_source_severity import (
-    AnyOfPlatformAgentsHitObjectSourceSeverity,
-)
 from syntropy_sdk.models.any_of_platform_response_error_item_value import (
     AnyOfPlatformResponseErrorItemValue,
 )
-from syntropy_sdk.models.any_of_settings_types import AnyOfSettingsTypes
 from syntropy_sdk.models.any_of_vpp_callable_object import AnyOfVppCallableObject
 from syntropy_sdk.models.any_of_wg_callable_object import AnyOfWgCallableObject
-from syntropy_sdk.models.any_ofbody_cmd import AnyOfbodyCmd
 from syntropy_sdk.models.any_ofinline_response204 import AnyOfinlineResponse204
 from syntropy_sdk.models.api_key_object import ApiKeyObject
 from syntropy_sdk.models.auth_info import AuthInfo
 from syntropy_sdk.models.auth_user_object import AuthUserObject
 from syntropy_sdk.models.auto_attach import AutoAttach
 from syntropy_sdk.models.auto_ping_payload import AutoPingPayload
+from syntropy_sdk.models.azure_user_token_dto import AzureUserTokenDto
 from syntropy_sdk.models.behavior_type import BehaviorType
 from syntropy_sdk.models.bi_statistics import BiStatistics
 from syntropy_sdk.models.bi_statistics_edges_post import BiStatisticsEdgesPost
@@ -80,6 +74,8 @@ from syntropy_sdk.models.body1 import Body1
 from syntropy_sdk.models.body2 import Body2
 from syntropy_sdk.models.body3 import Body3
 from syntropy_sdk.models.body4 import Body4
+from syntropy_sdk.models.body5 import Body5
+from syntropy_sdk.models.body6 import Body6
 from syntropy_sdk.models.change_email_object import ChangeEmailObject
 from syntropy_sdk.models.change_password_object import ChangePasswordObject
 from syntropy_sdk.models.change_path_object import ChangePathObject
@@ -91,12 +87,10 @@ from syntropy_sdk.models.connection_creation_body_mesh import ConnectionCreation
 from syntropy_sdk.models.connection_creation_body_p2p import ConnectionCreationBodyP2p
 from syntropy_sdk.models.connection_performance import ConnectionPerformance
 from syntropy_sdk.models.constraint_enum import ConstraintEnum
-from syntropy_sdk.models.container_info import ContainerInfo
 from syntropy_sdk.models.content_object import ContentObject
 from syntropy_sdk.models.context_type import ContextType
 from syntropy_sdk.models.delete_user_object import DeleteUserObject
 from syntropy_sdk.models.geo_ip_object import GeoIpObject
-from syntropy_sdk.models.get_info_data import GetInfoData
 from syntropy_sdk.models.inline_response204 import InlineResponse204
 from syntropy_sdk.models.interface_object import InterfaceObject
 from syntropy_sdk.models.interface_type import InterfaceType
@@ -112,23 +106,11 @@ from syntropy_sdk.models.metadata_network_type import MetadataNetworkType
 from syntropy_sdk.models.network_agent_object import NetworkAgentObject
 from syntropy_sdk.models.network_agent_payload import NetworkAgentPayload
 from syntropy_sdk.models.network_genesis_type import NetworkGenesisType
-from syntropy_sdk.models.network_info_data import NetworkInfoData
 from syntropy_sdk.models.network_info_object import NetworkInfoObject
 from syntropy_sdk.models.network_metadata import NetworkMetadata
 from syntropy_sdk.models.network_object import NetworkObject
 from syntropy_sdk.models.network_topology_object import NetworkTopologyObject
-from syntropy_sdk.models.network_type import NetworkType
-from syntropy_sdk.models.platform_agent_message_payload import (
-    PlatformAgentMessagePayload,
-)
-from syntropy_sdk.models.platform_agent_message_payload_data import (
-    PlatformAgentMessagePayloadData,
-)
-from syntropy_sdk.models.platform_agent_message_type import PlatformAgentMessageType
 from syntropy_sdk.models.platform_agent_status import PlatformAgentStatus
-from syntropy_sdk.models.platform_agent_success_response import (
-    PlatformAgentSuccessResponse,
-)
 from syntropy_sdk.models.platform_agents_body_object import PlatformAgentsBodyObject
 from syntropy_sdk.models.platform_agents_error_body import PlatformAgentsErrorBody
 from syntropy_sdk.models.platform_agents_error_response import (
@@ -141,14 +123,26 @@ from syntropy_sdk.models.platform_agents_hit_object import PlatformAgentsHitObje
 from syntropy_sdk.models.platform_agents_hit_object_source import (
     PlatformAgentsHitObjectSource,
 )
+from syntropy_sdk.models.platform_response5_b_link_tag_public5_d3_f3_astring5_b_link_tag_sdn15_d3_f3_astring5_b_link_tag_sdn25_d3_f3_astring5_b_link_tag_sdn35_d3_f3_astring_ import (
+    PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_,
+)
+from syntropy_sdk.models.platform_response5_b_link_tag_public5_d3_f3_astring5_b_link_tag_sdn15_d3_f3_astring5_b_link_tag_sdn25_d3_f3_astring5_b_link_tag_sdn35_d3_f3_astring_data import (
+    PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3AstringData,
+)
 from syntropy_sdk.models.platform_response_admin_agent_config_ import (
     PlatformResponseAdminAgentConfig_,
 )
 from syntropy_sdk.models.platform_response_agent_connection_object_array_ import (
     PlatformResponseAgentConnectionObjectArray_,
 )
-from syntropy_sdk.models.platform_response_agent_name_id_pair_array_ import (
-    PlatformResponseAgentNameIdPairArray_,
+from syntropy_sdk.models.platform_response_agent_coordinates_object_array_ import (
+    PlatformResponseAgentCoordinatesObjectArray_,
+)
+from syntropy_sdk.models.platform_response_agent_filters_object_ import (
+    PlatformResponseAgentFiltersObject_,
+)
+from syntropy_sdk.models.platform_response_agent_object_ import (
+    PlatformResponseAgentObject_,
 )
 from syntropy_sdk.models.platform_response_agent_object_array_ import (
     PlatformResponseAgentObjectArray_,
@@ -186,9 +180,6 @@ from syntropy_sdk.models.platform_response_network_object_array_ import (
 )
 from syntropy_sdk.models.platform_response_network_topology_object_array_ import (
     PlatformResponseNetworkTopologyObjectArray_,
-)
-from syntropy_sdk.models.platform_response_platform_agent_success_response_ import (
-    PlatformResponsePlatformAgentSuccessResponse_,
 )
 from syntropy_sdk.models.platform_response_success_boolean_ import (
     PlatformResponseSuccessBoolean_,
@@ -282,14 +273,25 @@ from syntropy_sdk.models.tsoa_partial_user_admin_object_ import (
 from syntropy_sdk.models.tsoa_partial_user_sr_object_ import TsoaPartialUserSrObject_
 from syntropy_sdk.models.tsoa_partial_version_object_ import TsoaPartialVersionObject_
 from syntropy_sdk.models.tsoa_partial_vpn_object_ import TsoaPartialVpnObject_
+from syntropy_sdk.models.tsoa_pick_agent_agent_id_or_agent_location_lat_or_agent_location_lon_ import (
+    TsoaPickAgentAgentIdOrAgentLocationLatOrAgentLocationLon_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_agent_location_country_ import (
+    TsoaPickAgentAgentLocationCountry_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_agent_name_or_agent_id_ import (
+    TsoaPickAgentAgentNameOrAgentId_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_agent_version_ import (
+    TsoaPickAgentAgentVersion_,
+)
 from syntropy_sdk.models.tunnel_object import TunnelObject
-from syntropy_sdk.models.udp_and_utc_ports import UdpAndUtcPorts
 from syntropy_sdk.models.update_status_body import UpdateStatusBody
 from syntropy_sdk.models.update_status_body_subnets_to_update import (
     UpdateStatusBodySubnetsToUpdate,
 )
-from syntropy_sdk.models.update_type import UpdateType
 from syntropy_sdk.models.user_admin_object import UserAdminObject
+from syntropy_sdk.models.user_agent_create_object import UserAgentCreateObject
 from syntropy_sdk.models.user_agent_patch_object import UserAgentPatchObject
 from syntropy_sdk.models.user_api_key_create_object import UserApiKeyCreateObject
 from syntropy_sdk.models.user_api_key_update_object import UserApiKeyUpdateObject
@@ -328,6 +330,9 @@ from syntropy_sdk.models.vpp_callable_object_args16 import VppCallableObjectArgs
 from syntropy_sdk.models.wg_add_peer import WgAddPeer
 from syntropy_sdk.models.wg_add_peer_args import WgAddPeerArgs
 from syntropy_sdk.models.wg_add_peer_metadata import WgAddPeerMetadata
+from syntropy_sdk.models.wg_add_peer_metadata_allowed_ips_info import (
+    WgAddPeerMetadataAllowedIpsInfo,
+)
 from syntropy_sdk.models.wg_callable_object import WgCallableObject
 from syntropy_sdk.models.wg_create_interface import WgCreateInterface
 from syntropy_sdk.models.wg_create_interface_args import WgCreateInterfaceArgs

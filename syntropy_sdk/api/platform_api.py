@@ -32,6 +32,325 @@ class PlatformApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def platform_admin_config(self, agent_id, **kwargs):  # noqa: E501
+        """platform_admin_config  # noqa: E501
+
+        Returns agent configuration details.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_admin_config(agent_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float agent_id: (required)
+        :return: PlatformResponseAdminAgentConfig_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_admin_config_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_admin_config_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_admin_config_with_http_info(self, agent_id, **kwargs):  # noqa: E501
+        """platform_admin_config  # noqa: E501
+
+        Returns agent configuration details.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_admin_config_with_http_info(agent_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float agent_id: (required)
+        :return: PlatformResponseAdminAgentConfig_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["agent_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_admin_config" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'agent_id' is set
+        if "agent_id" not in params or params["agent_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `agent_id` when calling `platform_admin_config`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if "agent_id" in params:
+            path_params["agent_id"] = params["agent_id"]  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/admin/agent/{agent_id}/config",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="PlatformResponseAdminAgentConfig_",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_agent_coordinates(self, agent_ids, **kwargs):  # noqa: E501
+        """platform_agent_coordinates  # noqa: E501
+
+        Get Platform agent location coordinates  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agent_coordinates(agent_ids, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[float] agent_ids: (required)
+        :return: PlatformResponseAgentCoordinatesObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_agent_coordinates_with_http_info(
+                agent_ids, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_agent_coordinates_with_http_info(
+                agent_ids, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_agent_coordinates_with_http_info(
+        self, agent_ids, **kwargs
+    ):  # noqa: E501
+        """platform_agent_coordinates  # noqa: E501
+
+        Get Platform agent location coordinates  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agent_coordinates_with_http_info(agent_ids, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[float] agent_ids: (required)
+        :return: PlatformResponseAgentCoordinatesObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["agent_ids"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_agent_coordinates" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'agent_ids' is set
+        if "agent_ids" not in params or params["agent_ids"] is None:
+            raise ValueError(
+                "Missing the required parameter `agent_ids` when calling `platform_agent_coordinates`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "agent_ids" in params:
+            query_params.append(("agentIds", params["agent_ids"]))  # noqa: E501
+            collection_formats["agentIds"] = "multi"  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/agents/coordinates",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="PlatformResponseAgentCoordinatesObjectArray_",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_agent_create(self, body, **kwargs):  # noqa: E501
+        """platform_agent_create  # noqa: E501
+
+        Creates new `platform agent`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agent_create(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :return: PlatformResponseAgentObject_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_agent_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_agent_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_agent_create_with_http_info(self, body, **kwargs):  # noqa: E501
+        """platform_agent_create  # noqa: E501
+
+        Creates new `platform agent`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agent_create_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param dict(str, object) body: (required)
+        :return: PlatformResponseAgentObject_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_agent_create" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_agent_create`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/agents",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="PlatformResponseAgentObject_",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def platform_agent_destroy(self, agent_id, **kwargs):  # noqa: E501
         """platform_agent_destroy  # noqa: E501
 
@@ -371,7 +690,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\",
-        :return: PlatformResponseAgentNameIdPairArray_
+        :return: PlatformResponseAgentFiltersObject_
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -396,7 +715,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\",
-        :return: PlatformResponseAgentNameIdPairArray_
+        :return: PlatformResponseAgentFiltersObject_
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -440,7 +759,7 @@ class PlatformApi(object):
         auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/api/platform/agents/id-name-pairs",
+            "/api/platform/agents/filters",
             "GET",
             path_params,
             query_params,
@@ -448,7 +767,7 @@ class PlatformApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PlatformResponseAgentNameIdPairArray_",  # noqa: E501
+            response_type="PlatformResponseAgentFiltersObject_",  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -470,7 +789,7 @@ class PlatformApi(object):
         :param float skip:
         :param float take:
         :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\",
+        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\"
         :param bool load_relations:
         :param bool show_logs_state:
         :return: PlatformResponseAgentObjectArray_
@@ -497,7 +816,7 @@ class PlatformApi(object):
         :param float skip:
         :param float take:
         :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\",
+        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\"
         :param bool load_relations:
         :param bool show_logs_state:
         :return: PlatformResponseAgentObjectArray_
@@ -1769,7 +2088,7 @@ class PlatformApi(object):
     def platform_config(self, agent_id, **kwargs):  # noqa: E501
         """platform_config  # noqa: E501
 
-        Returns agent configuration details.  # noqa: E501
+        Returns `platform agent` `WireGuard` configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_config(agent_id, async_req=True)
@@ -1777,7 +2096,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param float agent_id: (required)
-        :return: PlatformResponseAdminAgentConfig_
+        :return: PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1793,7 +2112,7 @@ class PlatformApi(object):
     def platform_config_with_http_info(self, agent_id, **kwargs):  # noqa: E501
         """platform_config  # noqa: E501
 
-        Returns agent configuration details.  # noqa: E501
+        Returns `platform agent` `WireGuard` configuration.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_config_with_http_info(agent_id, async_req=True)
@@ -1801,7 +2120,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param float agent_id: (required)
-        :return: PlatformResponseAdminAgentConfig_
+        :return: PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1850,7 +2169,7 @@ class PlatformApi(object):
         auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/api/platform/admin/agent/{agent_id}/config",
+            "/api/platform/agent/{agent_id}/wg-config",
             "GET",
             path_params,
             query_params,
@@ -1858,7 +2177,7 @@ class PlatformApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PlatformResponseAdminAgentConfig_",  # noqa: E501
+            response_type="PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_",  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -1983,8 +2302,6 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param ShowSdnConnections show_sdn_connections:
-        :param UpdateType update_type:
         :param list[str] paths: Comma separated servers ids list for SDN path.
         :return: PlatformResponseAgentConnectionObjectArray_
                  If the method is called asynchronously,
@@ -2012,20 +2329,13 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param ShowSdnConnections show_sdn_connections:
-        :param UpdateType update_type:
         :param list[str] paths: Comma separated servers ids list for SDN path.
         :return: PlatformResponseAgentConnectionObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = [
-            "body",
-            "show_sdn_connections",
-            "update_type",
-            "paths",
-        ]  # noqa: E501
+        all_params = ["body", "paths"]  # noqa: E501
         all_params.append("async_req")
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
@@ -2051,12 +2361,6 @@ class PlatformApi(object):
         path_params = {}
 
         query_params = []
-        if "show_sdn_connections" in params:
-            query_params.append(
-                ("show-sdn-connections", params["show_sdn_connections"])
-            )  # noqa: E501
-        if "update_type" in params:
-            query_params.append(("update-type", params["update_type"]))  # noqa: E501
         if "paths" in params:
             query_params.append(("paths", params["paths"]))  # noqa: E501
             collection_formats["paths"] = "multi"  # noqa: E501
@@ -2113,8 +2417,6 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param ShowSdnConnections show_sdn_connections:
-        :param UpdateType update_type:
         :param list[str] paths: Comma separated servers ids list for SDN path.
         :return: PlatformResponseAgentConnectionObjectArray_
                  If the method is called asynchronously,
@@ -2144,20 +2446,13 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param ShowSdnConnections show_sdn_connections:
-        :param UpdateType update_type:
         :param list[str] paths: Comma separated servers ids list for SDN path.
         :return: PlatformResponseAgentConnectionObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = [
-            "body",
-            "show_sdn_connections",
-            "update_type",
-            "paths",
-        ]  # noqa: E501
+        all_params = ["body", "paths"]  # noqa: E501
         all_params.append("async_req")
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
@@ -2183,12 +2478,6 @@ class PlatformApi(object):
         path_params = {}
 
         query_params = []
-        if "show_sdn_connections" in params:
-            query_params.append(
-                ("show-sdn-connections", params["show_sdn_connections"])
-            )  # noqa: E501
-        if "update_type" in params:
-            query_params.append(("update-type", params["update_type"]))  # noqa: E501
         if "paths" in params:
             query_params.append(("paths", params["paths"]))  # noqa: E501
             collection_formats["paths"] = "multi"  # noqa: E501
@@ -2245,8 +2534,6 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param ShowSdnConnections show_sdn_connections:
-        :param UpdateType update_type:
         :param list[str] paths: Comma separated servers ids list for SDN path.
         :return: PlatformResponseAgentConnectionObjectArray_
                  If the method is called asynchronously,
@@ -2276,20 +2563,13 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param ShowSdnConnections show_sdn_connections:
-        :param UpdateType update_type:
         :param list[str] paths: Comma separated servers ids list for SDN path.
         :return: PlatformResponseAgentConnectionObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = [
-            "body",
-            "show_sdn_connections",
-            "update_type",
-            "paths",
-        ]  # noqa: E501
+        all_params = ["body", "paths"]  # noqa: E501
         all_params.append("async_req")
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
@@ -2315,12 +2595,6 @@ class PlatformApi(object):
         path_params = {}
 
         query_params = []
-        if "show_sdn_connections" in params:
-            query_params.append(
-                ("show-sdn-connections", params["show_sdn_connections"])
-            )  # noqa: E501
-        if "update_type" in params:
-            query_params.append(("update-type", params["update_type"]))  # noqa: E501
         if "paths" in params:
             query_params.append(("paths", params["paths"]))  # noqa: E501
             collection_formats["paths"] = "multi"  # noqa: E501
@@ -2608,7 +2882,7 @@ class PlatformApi(object):
         :param float skip:
         :param float take:
         :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\",
+        :param str filter: id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified
         :param ShowSdnConnections show_sdn_connections:
         :param bool load_relations:
         :return: PlatformResponseAgentConnectionObjectArray_
@@ -2637,7 +2911,7 @@ class PlatformApi(object):
         :param float skip:
         :param float take:
         :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\",
+        :param str filter: id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified
         :param ShowSdnConnections show_sdn_connections:
         :param bool load_relations:
         :return: PlatformResponseAgentConnectionObjectArray_

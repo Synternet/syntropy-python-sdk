@@ -30,6 +30,8 @@ class WgAddPeerMetadata(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "allowed_ips_info": "list[WgAddPeerMetadataAllowedIpsInfo]",
+        "link_tag": "LinkTag",
         "agent_id": "float",
         "connection_id": "float",
         "device_public_ipv4": "str",
@@ -38,6 +40,8 @@ class WgAddPeerMetadata(object):
     }
 
     attribute_map = {
+        "allowed_ips_info": "allowed_ips_info",
+        "link_tag": "link_tag",
         "agent_id": "agent_id",
         "connection_id": "connection_id",
         "device_public_ipv4": "device_public_ipv4",
@@ -47,6 +51,8 @@ class WgAddPeerMetadata(object):
 
     def __init__(
         self,
+        allowed_ips_info=None,
+        link_tag=None,
         agent_id=None,
         connection_id=None,
         device_public_ipv4=None,
@@ -54,17 +60,71 @@ class WgAddPeerMetadata(object):
         device_id=None,
     ):  # noqa: E501
         """WgAddPeerMetadata - a model defined in Swagger"""  # noqa: E501
+        self._allowed_ips_info = None
+        self._link_tag = None
         self._agent_id = None
         self._connection_id = None
         self._device_public_ipv4 = None
         self._device_name = None
         self._device_id = None
         self.discriminator = None
+        self.allowed_ips_info = allowed_ips_info
+        self.link_tag = link_tag
         self.agent_id = agent_id
         self.connection_id = connection_id
         self.device_public_ipv4 = device_public_ipv4
         self.device_name = device_name
         self.device_id = device_id
+
+    @property
+    def allowed_ips_info(self):
+        """Gets the allowed_ips_info of this WgAddPeerMetadata.  # noqa: E501
+
+
+        :return: The allowed_ips_info of this WgAddPeerMetadata.  # noqa: E501
+        :rtype: list[WgAddPeerMetadataAllowedIpsInfo]
+        """
+        return self._allowed_ips_info
+
+    @allowed_ips_info.setter
+    def allowed_ips_info(self, allowed_ips_info):
+        """Sets the allowed_ips_info of this WgAddPeerMetadata.
+
+
+        :param allowed_ips_info: The allowed_ips_info of this WgAddPeerMetadata.  # noqa: E501
+        :type: list[WgAddPeerMetadataAllowedIpsInfo]
+        """
+        if allowed_ips_info is None:
+            raise ValueError(
+                "Invalid value for `allowed_ips_info`, must not be `None`"
+            )  # noqa: E501
+
+        self._allowed_ips_info = allowed_ips_info
+
+    @property
+    def link_tag(self):
+        """Gets the link_tag of this WgAddPeerMetadata.  # noqa: E501
+
+
+        :return: The link_tag of this WgAddPeerMetadata.  # noqa: E501
+        :rtype: LinkTag
+        """
+        return self._link_tag
+
+    @link_tag.setter
+    def link_tag(self, link_tag):
+        """Sets the link_tag of this WgAddPeerMetadata.
+
+
+        :param link_tag: The link_tag of this WgAddPeerMetadata.  # noqa: E501
+        :type: LinkTag
+        """
+        if link_tag is None:
+            raise ValueError(
+                "Invalid value for `link_tag`, must not be `None`"
+            )  # noqa: E501
+
+        self._link_tag = link_tag
 
     @property
     def agent_id(self):

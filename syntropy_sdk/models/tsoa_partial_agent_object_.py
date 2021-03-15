@@ -45,6 +45,7 @@ class TsoaPartialAgentObject_(object):
         "agent_is_online": "bool",
         "agent_locked_fields": "AgentLockedFields",
         "agent_modified_at": "datetime",
+        "agent_is_virtual": "bool",
     }
 
     attribute_map = {
@@ -63,6 +64,7 @@ class TsoaPartialAgentObject_(object):
         "agent_is_online": "agent_is_online",
         "agent_locked_fields": "agent_locked_fields",
         "agent_modified_at": "agent_modified_at",
+        "agent_is_virtual": "agent_is_virtual",
     }
 
     def __init__(
@@ -82,6 +84,7 @@ class TsoaPartialAgentObject_(object):
         agent_is_online=None,
         agent_locked_fields=None,
         agent_modified_at=None,
+        agent_is_virtual=None,
     ):  # noqa: E501
         """TsoaPartialAgentObject_ - a model defined in Swagger"""  # noqa: E501
         self._agent_services_default_status = None
@@ -99,6 +102,7 @@ class TsoaPartialAgentObject_(object):
         self._agent_is_online = None
         self._agent_locked_fields = None
         self._agent_modified_at = None
+        self._agent_is_virtual = None
         self.discriminator = None
         if agent_services_default_status is not None:
             self.agent_services_default_status = agent_services_default_status
@@ -130,6 +134,8 @@ class TsoaPartialAgentObject_(object):
             self.agent_locked_fields = agent_locked_fields
         if agent_modified_at is not None:
             self.agent_modified_at = agent_modified_at
+        if agent_is_virtual is not None:
+            self.agent_is_virtual = agent_is_virtual
 
     @property
     def agent_services_default_status(self):
@@ -445,6 +451,27 @@ class TsoaPartialAgentObject_(object):
         """
 
         self._agent_modified_at = agent_modified_at
+
+    @property
+    def agent_is_virtual(self):
+        """Gets the agent_is_virtual of this TsoaPartialAgentObject_.  # noqa: E501
+
+
+        :return: The agent_is_virtual of this TsoaPartialAgentObject_.  # noqa: E501
+        :rtype: bool
+        """
+        return self._agent_is_virtual
+
+    @agent_is_virtual.setter
+    def agent_is_virtual(self, agent_is_virtual):
+        """Sets the agent_is_virtual of this TsoaPartialAgentObject_.
+
+
+        :param agent_is_virtual: The agent_is_virtual of this TsoaPartialAgentObject_.  # noqa: E501
+        :type: bool
+        """
+
+        self._agent_is_virtual = agent_is_virtual
 
     def to_dict(self):
         """Returns the model properties as a dict"""

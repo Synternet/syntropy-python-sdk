@@ -31,55 +31,33 @@ class TsoaPartialNetworkObject_(object):
     """
     swagger_types = {
         "user_id": "float",
-        "agent_gateway_id": "float",
         "network_key": "str",
-        "network_type": "NetworkType",
         "network_name": "str",
-        "network_disable_sdn_connections": "bool",
         "network_metadata": "NetworkMetadata",
     }
 
     attribute_map = {
         "user_id": "user_id",
-        "agent_gateway_id": "agent_gateway_id",
         "network_key": "network_key",
-        "network_type": "network_type",
         "network_name": "network_name",
-        "network_disable_sdn_connections": "network_disable_sdn_connections",
         "network_metadata": "network_metadata",
     }
 
     def __init__(
-        self,
-        user_id=None,
-        agent_gateway_id=None,
-        network_key=None,
-        network_type=None,
-        network_name=None,
-        network_disable_sdn_connections=None,
-        network_metadata=None,
+        self, user_id=None, network_key=None, network_name=None, network_metadata=None
     ):  # noqa: E501
         """TsoaPartialNetworkObject_ - a model defined in Swagger"""  # noqa: E501
         self._user_id = None
-        self._agent_gateway_id = None
         self._network_key = None
-        self._network_type = None
         self._network_name = None
-        self._network_disable_sdn_connections = None
         self._network_metadata = None
         self.discriminator = None
         if user_id is not None:
             self.user_id = user_id
-        if agent_gateway_id is not None:
-            self.agent_gateway_id = agent_gateway_id
         if network_key is not None:
             self.network_key = network_key
-        if network_type is not None:
-            self.network_type = network_type
         if network_name is not None:
             self.network_name = network_name
-        if network_disable_sdn_connections is not None:
-            self.network_disable_sdn_connections = network_disable_sdn_connections
         if network_metadata is not None:
             self.network_metadata = network_metadata
 
@@ -105,27 +83,6 @@ class TsoaPartialNetworkObject_(object):
         self._user_id = user_id
 
     @property
-    def agent_gateway_id(self):
-        """Gets the agent_gateway_id of this TsoaPartialNetworkObject_.  # noqa: E501
-
-
-        :return: The agent_gateway_id of this TsoaPartialNetworkObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._agent_gateway_id
-
-    @agent_gateway_id.setter
-    def agent_gateway_id(self, agent_gateway_id):
-        """Sets the agent_gateway_id of this TsoaPartialNetworkObject_.
-
-
-        :param agent_gateway_id: The agent_gateway_id of this TsoaPartialNetworkObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._agent_gateway_id = agent_gateway_id
-
-    @property
     def network_key(self):
         """Gets the network_key of this TsoaPartialNetworkObject_.  # noqa: E501
 
@@ -147,27 +104,6 @@ class TsoaPartialNetworkObject_(object):
         self._network_key = network_key
 
     @property
-    def network_type(self):
-        """Gets the network_type of this TsoaPartialNetworkObject_.  # noqa: E501
-
-
-        :return: The network_type of this TsoaPartialNetworkObject_.  # noqa: E501
-        :rtype: NetworkType
-        """
-        return self._network_type
-
-    @network_type.setter
-    def network_type(self, network_type):
-        """Sets the network_type of this TsoaPartialNetworkObject_.
-
-
-        :param network_type: The network_type of this TsoaPartialNetworkObject_.  # noqa: E501
-        :type: NetworkType
-        """
-
-        self._network_type = network_type
-
-    @property
     def network_name(self):
         """Gets the network_name of this TsoaPartialNetworkObject_.  # noqa: E501
 
@@ -187,27 +123,6 @@ class TsoaPartialNetworkObject_(object):
         """
 
         self._network_name = network_name
-
-    @property
-    def network_disable_sdn_connections(self):
-        """Gets the network_disable_sdn_connections of this TsoaPartialNetworkObject_.  # noqa: E501
-
-
-        :return: The network_disable_sdn_connections of this TsoaPartialNetworkObject_.  # noqa: E501
-        :rtype: bool
-        """
-        return self._network_disable_sdn_connections
-
-    @network_disable_sdn_connections.setter
-    def network_disable_sdn_connections(self, network_disable_sdn_connections):
-        """Sets the network_disable_sdn_connections of this TsoaPartialNetworkObject_.
-
-
-        :param network_disable_sdn_connections: The network_disable_sdn_connections of this TsoaPartialNetworkObject_.  # noqa: E501
-        :type: bool
-        """
-
-        self._network_disable_sdn_connections = network_disable_sdn_connections
 
     @property
     def network_metadata(self):
