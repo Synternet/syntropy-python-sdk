@@ -61,7 +61,14 @@ from syntropy_sdk.models.any_of_vpp_callable_object import AnyOfVppCallableObjec
 from syntropy_sdk.models.any_of_wg_callable_object import AnyOfWgCallableObject
 from syntropy_sdk.models.any_ofinline_response204 import AnyOfinlineResponse204
 from syntropy_sdk.models.api_key_object import ApiKeyObject
+from syntropy_sdk.models.api_response_api_key_object_ import ApiResponseApiKeyObject_
+from syntropy_sdk.models.api_response_api_key_object_array_ import (
+    ApiResponseApiKeyObjectArray_,
+)
+from syntropy_sdk.models.api_response_void_ import ApiResponseVoid_
+from syntropy_sdk.models.auth_data import AuthData
 from syntropy_sdk.models.auth_info import AuthInfo
+from syntropy_sdk.models.auth_source import AuthSource
 from syntropy_sdk.models.auth_user_object import AuthUserObject
 from syntropy_sdk.models.auto_attach import AutoAttach
 from syntropy_sdk.models.auto_ping_payload import AutoPingPayload
@@ -302,6 +309,7 @@ from syntropy_sdk.models.user_register_via_provider_object import (
     UserRegisterViaProviderObject,
 )
 from syntropy_sdk.models.user_settings import UserSettings
+from syntropy_sdk.models.user_settings_object import UserSettingsObject
 from syntropy_sdk.models.user_sr_direction import UserSrDirection
 from syntropy_sdk.models.user_sr_object import UserSrObject
 from syntropy_sdk.models.verify_email_object import VerifyEmailObject
