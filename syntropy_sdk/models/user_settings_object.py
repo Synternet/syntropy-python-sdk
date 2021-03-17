@@ -29,20 +29,32 @@ class UserSettingsObject(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"show_onboarding": "bool", "user_timezone": "str"}
+    swagger_types = {
+        "show_onboarding": "bool",
+        "user_timezone": "str",
+        "auth_sources": "list[AuthSource]",
+    }
 
     attribute_map = {
         "show_onboarding": "show_onboarding",
         "user_timezone": "user_timezone",
+        "auth_sources": "auth_sources",
     }
 
-    def __init__(self, show_onboarding=None, user_timezone=None):  # noqa: E501
+    def __init__(
+        self, show_onboarding=None, user_timezone=None, auth_sources=None
+    ):  # noqa: E501
         """UserSettingsObject - a model defined in Swagger"""  # noqa: E501
         self._show_onboarding = None
         self._user_timezone = None
+        self._auth_sources = None
         self.discriminator = None
-        self.show_onboarding = show_onboarding
-        self.user_timezone = user_timezone
+        if show_onboarding is not None:
+            self.show_onboarding = show_onboarding
+        if user_timezone is not None:
+            self.user_timezone = user_timezone
+        if auth_sources is not None:
+            self.auth_sources = auth_sources
 
     @property
     def show_onboarding(self):
@@ -62,10 +74,6 @@ class UserSettingsObject(object):
         :param show_onboarding: The show_onboarding of this UserSettingsObject.  # noqa: E501
         :type: bool
         """
-        if show_onboarding is None:
-            raise ValueError(
-                "Invalid value for `show_onboarding`, must not be `None`"
-            )  # noqa: E501
 
         self._show_onboarding = show_onboarding
 
@@ -87,12 +95,29 @@ class UserSettingsObject(object):
         :param user_timezone: The user_timezone of this UserSettingsObject.  # noqa: E501
         :type: str
         """
-        if user_timezone is None:
-            raise ValueError(
-                "Invalid value for `user_timezone`, must not be `None`"
-            )  # noqa: E501
 
         self._user_timezone = user_timezone
+
+    @property
+    def auth_sources(self):
+        """Gets the auth_sources of this UserSettingsObject.  # noqa: E501
+
+
+        :return: The auth_sources of this UserSettingsObject.  # noqa: E501
+        :rtype: list[AuthSource]
+        """
+        return self._auth_sources
+
+    @auth_sources.setter
+    def auth_sources(self, auth_sources):
+        """Sets the auth_sources of this UserSettingsObject.
+
+
+        :param auth_sources: The auth_sources of this UserSettingsObject.  # noqa: E501
+        :type: list[AuthSource]
+        """
+
+        self._auth_sources = auth_sources
 
     def to_dict(self):
         """Returns the model properties as a dict"""

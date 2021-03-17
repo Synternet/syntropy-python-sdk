@@ -1242,8 +1242,6 @@ Name | Type | Description  | Notes
 
 
 
-Creates agents connections.
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1260,14 +1258,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-body = {
-  "agent_ids" : [ {
-    "agent_id" : 1
-  }, {
-    "agent_id" : 2
-  } ],
-  "network_id" : 1
-} # dict(str, object) | 
+body = NULL # dict(str, object) | 
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:
@@ -1304,8 +1295,6 @@ Name | Type | Description  | Notes
 
 
 
-Creates agents connections.
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1322,13 +1311,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-body = {
-  "agent_ids" : [ {
-    "agent_1_id" : 1,
-    "agent_2_id" : 2
-  } ],
-  "network_id" : 1
-} # dict(str, object) | 
+body = NULL # dict(str, object) | 
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:

@@ -110,6 +110,10 @@ All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApiKeysApi* | [**create_api_key**](docs/ApiKeysApi.md#create_api_key) | **POST** /auth/api-key | 
+*ApiKeysApi* | [**delete_api_key**](docs/ApiKeysApi.md#delete_api_key) | **DELETE** /auth/api-key/{api_key_id} | 
+*ApiKeysApi* | [**index_api_key**](docs/ApiKeysApi.md#index_api_key) | **GET** /auth/api-key | 
+*ApiKeysApi* | [**update_api_key**](docs/ApiKeysApi.md#update_api_key) | **PUT** /auth/api-key/{api_key_id} | 
 *AuthApi* | [**auth**](docs/AuthApi.md#auth) | **GET** /auth/authorization | 
 *AuthApi* | [**auth_external_login**](docs/AuthApi.md#auth_external_login) | **POST** /auth/authorization/external/login | 
 *AuthApi* | [**auth_logout**](docs/AuthApi.md#auth_logout) | **POST** /auth/authorization/logout | 

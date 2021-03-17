@@ -2409,7 +2409,6 @@ class PlatformApi(object):
     def platform_connection_create_mesh(self, body, **kwargs):  # noqa: E501
         """platform_connection_create_mesh  # noqa: E501
 
-        Creates agents connections.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_connection_create_mesh(body, async_req=True)
@@ -2438,7 +2437,6 @@ class PlatformApi(object):
     ):  # noqa: E501
         """platform_connection_create_mesh  # noqa: E501
 
-        Creates agents connections.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_connection_create_mesh_with_http_info(body, async_req=True)
@@ -2526,7 +2524,6 @@ class PlatformApi(object):
     def platform_connection_create_p2p(self, body, **kwargs):  # noqa: E501
         """platform_connection_create_p2p  # noqa: E501
 
-        Creates agents connections.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_connection_create_p2p(body, async_req=True)
@@ -2555,7 +2552,6 @@ class PlatformApi(object):
     ):  # noqa: E501
         """platform_connection_create_p2p  # noqa: E501
 
-        Creates agents connections.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_connection_create_p2p_with_http_info(body, async_req=True)
