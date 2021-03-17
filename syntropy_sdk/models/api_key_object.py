@@ -34,6 +34,7 @@ class ApiKeyObject(object):
         "user_id": "float",
         "api_key_secret": "str",
         "api_key_name": "str",
+        "api_key_id": "float",
         "api_key_is_suspended": "bool",
         "api_key_valid_until": "str",
     }
