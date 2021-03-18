@@ -32,7 +32,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.ApiKeysApi(syntropy_sdk.ApiClient(configuration))
-body = syntropy_sdk.UserApiKeyCreateObject() # UserApiKeyCreateObject | 
+body = syntropy_sdk.ApiKeyCreateRequest() # ApiKeyCreateRequest | 
 
 try:
     api_response = api_instance.create_api_key(body)
@@ -45,7 +45,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserApiKeyCreateObject**](UserApiKeyCreateObject.md)|  | 
+ **body** | [**ApiKeyCreateRequest**](ApiKeyCreateRequest.md)|  | 
 
 ### Return type
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_api_key**
-> InlineResponse204 delete_api_key(api_key_id)
+> delete_api_key(api_key_id)
 
 
 
@@ -88,8 +88,7 @@ api_instance = syntropy_sdk.ApiKeysApi(syntropy_sdk.ApiClient(configuration))
 api_key_id = 1.2 # float | 
 
 try:
-    api_response = api_instance.delete_api_key(api_key_id)
-    pprint(api_response)
+    api_instance.delete_api_key(api_key_id)
 except ApiException as e:
     print("Exception when calling ApiKeysApi->delete_api_key: %s\n" % e)
 ```
@@ -102,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse204**](InlineResponse204.md)
+void (empty response body)
 
 ### Authorization
 
@@ -111,12 +110,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **index_api_key**
-> ApiResponseApiKeyObjectArray_ index_api_key(skip=skip, take=take, order=order, filter=filter)
+> ApiResponseApiKeyDtoArray_ index_api_key(skip=skip, take=take, order=order, filter=filter)
 
 
 
@@ -161,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiResponseApiKeyObjectArray_**](ApiResponseApiKeyObjectArray_.md)
+[**ApiResponseApiKeyDtoArray_**](ApiResponseApiKeyDtoArray_.md)
 
 ### Authorization
 
@@ -175,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_api_key**
-> InlineResponse204 update_api_key(body, api_key_id)
+> update_api_key(body, api_key_id)
 
 
 
@@ -197,12 +196,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.ApiKeysApi(syntropy_sdk.ApiClient(configuration))
-body = syntropy_sdk.UserApiKeyUpdateObject() # UserApiKeyUpdateObject | 
+body = syntropy_sdk.ApiKeyUpdateRequest() # ApiKeyUpdateRequest | 
 api_key_id = 1.2 # float | 
 
 try:
-    api_response = api_instance.update_api_key(body, api_key_id)
-    pprint(api_response)
+    api_instance.update_api_key(body, api_key_id)
 except ApiException as e:
     print("Exception when calling ApiKeysApi->update_api_key: %s\n" % e)
 ```
@@ -211,12 +209,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserApiKeyUpdateObject**](UserApiKeyUpdateObject.md)|  | 
+ **body** | [**ApiKeyUpdateRequest**](ApiKeyUpdateRequest.md)|  | 
  **api_key_id** | **float**|  | 
 
 ### Return type
 
-[**InlineResponse204**](InlineResponse204.md)
+void (empty response body)
 
 ### Authorization
 
@@ -225,7 +223,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
