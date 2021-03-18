@@ -1,4 +1,4 @@
-# UserApiKeyCreateObject
+# AnyOfApiKeyObjectApiKeyCreatedAt
 
 ## Properties
 Name | Type | Description | Notes

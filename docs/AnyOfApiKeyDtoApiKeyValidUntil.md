@@ -1,4 +1,4 @@
-# UserApiKeyCreateObject
+# AnyOfApiKeyDtoApiKeyValidUntil
 
 ## Properties
 Name | Type | Description | Notes
