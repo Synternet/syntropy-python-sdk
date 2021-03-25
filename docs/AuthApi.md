@@ -4,6 +4,7 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_contact**](AuthApi.md#add_contact) | **POST** /auth/authorization/contact | 
 [**auth**](AuthApi.md#auth) | **GET** /auth/authorization | 
 [**auth_external_login**](AuthApi.md#auth_external_login) | **POST** /auth/authorization/external/login | 
 [**auth_logout**](AuthApi.md#auth_logout) | **POST** /auth/authorization/logout | 
@@ -14,6 +15,57 @@ Method | HTTP request | Description
 [**validate_captcha**](AuthApi.md#validate_captcha) | **POST** /auth/authorization/validate-captcha | 
 [**validate_captcha_0**](AuthApi.md#validate_captcha_0) | **POST** /auth/authorization/validate-limit | 
 [**validate_user_credentials**](AuthApi.md#validate_user_credentials) | **POST** /auth/authorization/validate-user | 
+
+# **add_contact**
+> Object add_contact(body)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
+body = syntropy_sdk.ContactRequest() # ContactRequest | 
+
+try:
+    api_response = api_instance.add_contact(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->add_contact: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ContactRequest**](ContactRequest.md)|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **auth**
 > str auth()

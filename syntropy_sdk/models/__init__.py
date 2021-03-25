@@ -117,6 +117,7 @@ from syntropy_sdk.models.connection_creation_body_mesh import ConnectionCreation
 from syntropy_sdk.models.connection_creation_body_p2p import ConnectionCreationBodyP2p
 from syntropy_sdk.models.connection_performance import ConnectionPerformance
 from syntropy_sdk.models.constraint_enum import ConstraintEnum
+from syntropy_sdk.models.contact_request import ContactRequest
 from syntropy_sdk.models.content_object import ContentObject
 from syntropy_sdk.models.context_type import ContextType
 from syntropy_sdk.models.delete_user_object import DeleteUserObject
