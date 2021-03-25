@@ -31,30 +31,51 @@ class UserSettingsObject(object):
     """
     swagger_types = {
         "show_onboarding": "bool",
+        "show_registration_form": "bool",
         "user_timezone": "str",
         "auth_sources": "list[AuthSource]",
+        "network_disable_sdn_connections": "bool",
+        "two_factors_authentication": "bool",
     }
 
     attribute_map = {
         "show_onboarding": "show_onboarding",
+        "show_registration_form": "show_registration_form",
         "user_timezone": "user_timezone",
         "auth_sources": "auth_sources",
+        "network_disable_sdn_connections": "network_disable_sdn_connections",
+        "two_factors_authentication": "two_factors_authentication",
     }
 
     def __init__(
-        self, show_onboarding=None, user_timezone=None, auth_sources=None
+        self,
+        show_onboarding=None,
+        show_registration_form=None,
+        user_timezone=None,
+        auth_sources=None,
+        network_disable_sdn_connections=None,
+        two_factors_authentication=None,
     ):  # noqa: E501
         """UserSettingsObject - a model defined in Swagger"""  # noqa: E501
         self._show_onboarding = None
+        self._show_registration_form = None
         self._user_timezone = None
         self._auth_sources = None
+        self._network_disable_sdn_connections = None
+        self._two_factors_authentication = None
         self.discriminator = None
         if show_onboarding is not None:
             self.show_onboarding = show_onboarding
+        if show_registration_form is not None:
+            self.show_registration_form = show_registration_form
         if user_timezone is not None:
             self.user_timezone = user_timezone
         if auth_sources is not None:
             self.auth_sources = auth_sources
+        if network_disable_sdn_connections is not None:
+            self.network_disable_sdn_connections = network_disable_sdn_connections
+        if two_factors_authentication is not None:
+            self.two_factors_authentication = two_factors_authentication
 
     @property
     def show_onboarding(self):
@@ -76,6 +97,27 @@ class UserSettingsObject(object):
         """
 
         self._show_onboarding = show_onboarding
+
+    @property
+    def show_registration_form(self):
+        """Gets the show_registration_form of this UserSettingsObject.  # noqa: E501
+
+
+        :return: The show_registration_form of this UserSettingsObject.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_registration_form
+
+    @show_registration_form.setter
+    def show_registration_form(self, show_registration_form):
+        """Sets the show_registration_form of this UserSettingsObject.
+
+
+        :param show_registration_form: The show_registration_form of this UserSettingsObject.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_registration_form = show_registration_form
 
     @property
     def user_timezone(self):
@@ -118,6 +160,48 @@ class UserSettingsObject(object):
         """
 
         self._auth_sources = auth_sources
+
+    @property
+    def network_disable_sdn_connections(self):
+        """Gets the network_disable_sdn_connections of this UserSettingsObject.  # noqa: E501
+
+
+        :return: The network_disable_sdn_connections of this UserSettingsObject.  # noqa: E501
+        :rtype: bool
+        """
+        return self._network_disable_sdn_connections
+
+    @network_disable_sdn_connections.setter
+    def network_disable_sdn_connections(self, network_disable_sdn_connections):
+        """Sets the network_disable_sdn_connections of this UserSettingsObject.
+
+
+        :param network_disable_sdn_connections: The network_disable_sdn_connections of this UserSettingsObject.  # noqa: E501
+        :type: bool
+        """
+
+        self._network_disable_sdn_connections = network_disable_sdn_connections
+
+    @property
+    def two_factors_authentication(self):
+        """Gets the two_factors_authentication of this UserSettingsObject.  # noqa: E501
+
+
+        :return: The two_factors_authentication of this UserSettingsObject.  # noqa: E501
+        :rtype: bool
+        """
+        return self._two_factors_authentication
+
+    @two_factors_authentication.setter
+    def two_factors_authentication(self, two_factors_authentication):
+        """Sets the two_factors_authentication of this UserSettingsObject.
+
+
+        :param two_factors_authentication: The two_factors_authentication of this UserSettingsObject.  # noqa: E501
+        :type: bool
+        """
+
+        self._two_factors_authentication = two_factors_authentication
 
     def to_dict(self):
         """Returns the model properties as a dict"""
