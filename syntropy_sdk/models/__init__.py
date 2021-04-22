@@ -15,7 +15,6 @@ from __future__ import absolute_import
 
 # import models into model package
 from syntropy_sdk.models.admin_agent_config import AdminAgentConfig
-from syntropy_sdk.models.admin_change_password_object import AdminChangePasswordObject
 from syntropy_sdk.models.agent_connection_object import AgentConnectionObject
 from syntropy_sdk.models.agent_connection_response_connection_performance_array_array_ import (
     AgentConnectionResponseConnectionPerformanceArrayArray_,
@@ -28,11 +27,9 @@ from syntropy_sdk.models.agent_coordinates_object import AgentCoordinatesObject
 from syntropy_sdk.models.agent_filters_object import AgentFiltersObject
 from syntropy_sdk.models.agent_group_object import AgentGroupObject
 from syntropy_sdk.models.agent_interface_bw_object import AgentInterfaceBwObject
+from syntropy_sdk.models.agent_interface_metadata import AgentInterfaceMetadata
 from syntropy_sdk.models.agent_interface_object import AgentInterfaceObject
 from syntropy_sdk.models.agent_interfaces_metadata import AgentInterfacesMetadata
-from syntropy_sdk.models.agent_interfaces_metadata_public import (
-    AgentInterfacesMetadataPUBLIC,
-)
 from syntropy_sdk.models.agent_locked_fields import AgentLockedFields
 from syntropy_sdk.models.agent_message_payload import AgentMessagePayload
 from syntropy_sdk.models.agent_message_type import AgentMessageType
@@ -40,62 +37,30 @@ from syntropy_sdk.models.agent_network_object import AgentNetworkObject
 from syntropy_sdk.models.agent_object import AgentObject
 from syntropy_sdk.models.agent_path_object import AgentPathObject
 from syntropy_sdk.models.agent_provider_object import AgentProviderObject
+from syntropy_sdk.models.agent_provider_order_string import AgentProviderOrderString
 from syntropy_sdk.models.agent_service_object import AgentServiceObject
 from syntropy_sdk.models.agent_service_types import AgentServiceTypes
 from syntropy_sdk.models.agent_services_deletion_object import (
     AgentServicesDeletionObject,
 )
-from syntropy_sdk.models.agent_services_update_object import AgentServicesUpdateObject
-from syntropy_sdk.models.agent_services_update_object_changes import (
-    AgentServicesUpdateObjectChanges,
+from syntropy_sdk.models.agent_services_update_changes_object import (
+    AgentServicesUpdateChangesObject,
 )
+from syntropy_sdk.models.agent_services_update_object import AgentServicesUpdateObject
 from syntropy_sdk.models.agent_success_response import AgentSuccessResponse
 from syntropy_sdk.models.agent_tag_object import AgentTagObject
+from syntropy_sdk.models.agent_version import AgentVersion
 from syntropy_sdk.models.agents_object import AgentsObject
 from syntropy_sdk.models.agents_pair_object import AgentsPairObject
 from syntropy_sdk.models.any_of_agent_message_payload import AnyOfAgentMessagePayload
-from syntropy_sdk.models.any_of_api_key_create_request_api_key_valid_until import (
-    AnyOfApiKeyCreateRequestApiKeyValidUntil,
-)
-from syntropy_sdk.models.any_of_api_key_dto_api_key_created_at import (
-    AnyOfApiKeyDtoApiKeyCreatedAt,
-)
-from syntropy_sdk.models.any_of_api_key_dto_api_key_updated_at import (
-    AnyOfApiKeyDtoApiKeyUpdatedAt,
-)
-from syntropy_sdk.models.any_of_api_key_dto_api_key_valid_until import (
-    AnyOfApiKeyDtoApiKeyValidUntil,
-)
-from syntropy_sdk.models.any_of_api_key_object_api_key_created_at import (
-    AnyOfApiKeyObjectApiKeyCreatedAt,
-)
-from syntropy_sdk.models.any_of_api_key_object_api_key_updated_at import (
-    AnyOfApiKeyObjectApiKeyUpdatedAt,
-)
-from syntropy_sdk.models.any_of_api_key_object_api_key_valid_until import (
-    AnyOfApiKeyObjectApiKeyValidUntil,
-)
 from syntropy_sdk.models.any_of_platform_response_error_item_value import (
     AnyOfPlatformResponseErrorItemValue,
 )
 from syntropy_sdk.models.any_of_vpp_callable_object import AnyOfVppCallableObject
 from syntropy_sdk.models.any_of_wg_callable_object import AnyOfWgCallableObject
 from syntropy_sdk.models.any_ofinline_response204 import AnyOfinlineResponse204
-from syntropy_sdk.models.api_key_create_request import ApiKeyCreateRequest
-from syntropy_sdk.models.api_key_dto import ApiKeyDto
 from syntropy_sdk.models.api_key_object import ApiKeyObject
-from syntropy_sdk.models.api_key_update_request import ApiKeyUpdateRequest
-from syntropy_sdk.models.api_response_api_key_dto_array_ import (
-    ApiResponseApiKeyDtoArray_,
-)
-from syntropy_sdk.models.api_response_api_key_object_ import ApiResponseApiKeyObject_
-from syntropy_sdk.models.auth_data import AuthData
-from syntropy_sdk.models.auth_info import AuthInfo
-from syntropy_sdk.models.auth_source import AuthSource
-from syntropy_sdk.models.auth_user_object import AuthUserObject
-from syntropy_sdk.models.auto_attach import AutoAttach
 from syntropy_sdk.models.auto_ping_payload import AutoPingPayload
-from syntropy_sdk.models.azure_user_token_dto import AzureUserTokenDto
 from syntropy_sdk.models.behavior_type import BehaviorType
 from syntropy_sdk.models.bi_statistics import BiStatistics
 from syntropy_sdk.models.bi_statistics_edges_post import BiStatisticsEdgesPost
@@ -105,9 +70,6 @@ from syntropy_sdk.models.body2 import Body2
 from syntropy_sdk.models.body3 import Body3
 from syntropy_sdk.models.body4 import Body4
 from syntropy_sdk.models.body5 import Body5
-from syntropy_sdk.models.body6 import Body6
-from syntropy_sdk.models.change_email_object import ChangeEmailObject
-from syntropy_sdk.models.change_password_object import ChangePasswordObject
 from syntropy_sdk.models.change_path_object import ChangePathObject
 from syntropy_sdk.models.change_path_object_data import ChangePathObjectData
 from syntropy_sdk.models.change_path_object_data_costs import ChangePathObjectDataCosts
@@ -117,22 +79,23 @@ from syntropy_sdk.models.connection_creation_body_mesh import ConnectionCreation
 from syntropy_sdk.models.connection_creation_body_p2p import ConnectionCreationBodyP2p
 from syntropy_sdk.models.connection_performance import ConnectionPerformance
 from syntropy_sdk.models.constraint_enum import ConstraintEnum
-from syntropy_sdk.models.contact_request import ContactRequest
 from syntropy_sdk.models.content_object import ContentObject
 from syntropy_sdk.models.context_type import ContextType
-from syntropy_sdk.models.delete_user_object import DeleteUserObject
-from syntropy_sdk.models.geo_ip_object import GeoIpObject
+from syntropy_sdk.models.default_string import DefaultString
+from syntropy_sdk.models.id_number import IdNumber
 from syntropy_sdk.models.inline_response204 import InlineResponse204
 from syntropy_sdk.models.interface_object import InterfaceObject
 from syntropy_sdk.models.interface_type import InterfaceType
+from syntropy_sdk.models.ipv4 import Ipv4
 from syntropy_sdk.models.language_object import LanguageObject
+from syntropy_sdk.models.latitude import Latitude
 from syntropy_sdk.models.link_object import LinkObject
 from syntropy_sdk.models.link_tag import LinkTag
 from syntropy_sdk.models.logs_read_timestamp_entity_types import (
     LogsReadTimestampEntityTypes,
 )
 from syntropy_sdk.models.logs_read_timestamp_object import LogsReadTimestampObject
-from syntropy_sdk.models.mail_body_templates import MailBodyTemplates
+from syntropy_sdk.models.longitude import Longitude
 from syntropy_sdk.models.metadata_network_type import MetadataNetworkType
 from syntropy_sdk.models.network_agent_object import NetworkAgentObject
 from syntropy_sdk.models.network_agent_payload import NetworkAgentPayload
@@ -141,7 +104,9 @@ from syntropy_sdk.models.network_info_object import NetworkInfoObject
 from syntropy_sdk.models.network_metadata import NetworkMetadata
 from syntropy_sdk.models.network_object import NetworkObject
 from syntropy_sdk.models.network_topology_object import NetworkTopologyObject
+from syntropy_sdk.models.order_string import OrderString
 from syntropy_sdk.models.platform_agent_status import PlatformAgentStatus
+from syntropy_sdk.models.platform_agent_type_local import PlatformAgentTypeLocal
 from syntropy_sdk.models.platform_agents_body_object import PlatformAgentsBodyObject
 from syntropy_sdk.models.platform_agents_error_body import PlatformAgentsErrorBody
 from syntropy_sdk.models.platform_agents_error_response import (
@@ -219,6 +184,7 @@ from syntropy_sdk.models.platform_response_successboolean_data import (
     PlatformResponseSuccessbooleanData,
 )
 from syntropy_sdk.models.platform_response_void_ import PlatformResponseVoid_
+from syntropy_sdk.models.port import Port
 from syntropy_sdk.models.provider_object import ProviderObject
 from syntropy_sdk.models.public_app_info_object import PublicAppInfoObject
 from syntropy_sdk.models.public_language_object import PublicLanguageObject
@@ -233,18 +199,12 @@ from syntropy_sdk.models.public_translations_lang_code_object import (
 from syntropy_sdk.models.public_translations_object import PublicTranslationsObject
 from syntropy_sdk.models.public_versions_object import PublicVersionsObject
 from syntropy_sdk.models.region_object import RegionObject
-from syntropy_sdk.models.reset_password_object import ResetPasswordObject
 from syntropy_sdk.models.reset_server_object import ResetServerObject
-from syntropy_sdk.models.response_object import ResponseObject
 from syntropy_sdk.models.restart_agent_object import RestartAgentObject
 from syntropy_sdk.models.route_object import RouteObject
 from syntropy_sdk.models.s3_object_list_item import S3ObjectListItem
 from syntropy_sdk.models.s3_object_list_item_owner import S3ObjectListItemOwner
 from syntropy_sdk.models.s3_send_data import S3SendData
-from syntropy_sdk.models.send_reset_password_link_object import (
-    SendResetPasswordLinkObject,
-)
-from syntropy_sdk.models.send_verify_email_link_object import SendVerifyEmailLinkObject
 from syntropy_sdk.models.server_agent_status import ServerAgentStatus
 from syntropy_sdk.models.server_object import ServerObject
 from syntropy_sdk.models.server_sr_software import ServerSrSoftware
@@ -252,13 +212,11 @@ from syntropy_sdk.models.setting_read_object import SettingReadObject
 from syntropy_sdk.models.setting_write_object import SettingWriteObject
 from syntropy_sdk.models.settings_types import SettingsTypes
 from syntropy_sdk.models.show_sdn_connections import ShowSdnConnections
-from syntropy_sdk.models.social_provider_object import SocialProviderObject
-from syntropy_sdk.models.social_provider_type import SocialProviderType
-from syntropy_sdk.models.social_provider_type_object import SocialProviderTypeObject
-from syntropy_sdk.models.social_providers_ids_object import SocialProvidersIdsObject
+from syntropy_sdk.models.skip_number import SkipNumber
 from syntropy_sdk.models.sr_path_object import SrPathObject
 from syntropy_sdk.models.sr_policy_object import SrPolicyObject
 from syntropy_sdk.models.status import Status
+from syntropy_sdk.models.take_number import TakeNumber
 from syntropy_sdk.models.topology_object import TopologyObject
 from syntropy_sdk.models.translation_object import TranslationObject
 from syntropy_sdk.models.tsoa_partial_agent_connection_object_ import (
@@ -298,9 +256,6 @@ from syntropy_sdk.models.tsoa_partial_translation_object_ import (
     TsoaPartialTranslationObject_,
 )
 from syntropy_sdk.models.tsoa_partial_tunnel_object_ import TsoaPartialTunnelObject_
-from syntropy_sdk.models.tsoa_partial_user_admin_object_ import (
-    TsoaPartialUserAdminObject_,
-)
 from syntropy_sdk.models.tsoa_partial_user_sr_object_ import TsoaPartialUserSrObject_
 from syntropy_sdk.models.tsoa_partial_version_object_ import TsoaPartialVersionObject_
 from syntropy_sdk.models.tsoa_partial_vpn_object_ import TsoaPartialVpnObject_
@@ -325,18 +280,10 @@ from syntropy_sdk.models.user_admin_object import UserAdminObject
 from syntropy_sdk.models.user_agent_create_object import UserAgentCreateObject
 from syntropy_sdk.models.user_agent_patch_object import UserAgentPatchObject
 from syntropy_sdk.models.user_api_key_create_object import UserApiKeyCreateObject
-from syntropy_sdk.models.user_api_key_update_object import UserApiKeyUpdateObject
-from syntropy_sdk.models.user_login_object import UserLoginObject
 from syntropy_sdk.models.user_network_object import UserNetworkObject
-from syntropy_sdk.models.user_register_object import UserRegisterObject
-from syntropy_sdk.models.user_register_via_provider_object import (
-    UserRegisterViaProviderObject,
-)
 from syntropy_sdk.models.user_settings import UserSettings
-from syntropy_sdk.models.user_settings_object import UserSettingsObject
 from syntropy_sdk.models.user_sr_direction import UserSrDirection
 from syntropy_sdk.models.user_sr_object import UserSrObject
-from syntropy_sdk.models.verify_email_object import VerifyEmailObject
 from syntropy_sdk.models.version_object import VersionObject
 from syntropy_sdk.models.version_type import VersionType
 from syntropy_sdk.models.visibility_type import VisibilityType
@@ -370,7 +317,84 @@ from syntropy_sdk.models.wg_create_interface import WgCreateInterface
 from syntropy_sdk.models.wg_create_interface_args import WgCreateInterfaceArgs
 from syntropy_sdk.models.wg_create_interface_metadata import WgCreateInterfaceMetadata
 from syntropy_sdk.models.wg_keypair_object import WgKeypairObject
+from syntropy_sdk.models.wg_public_key import WgPublicKey
 from syntropy_sdk.models.wg_remove_interface import WgRemoveInterface
 from syntropy_sdk.models.wg_remove_interface_args import WgRemoveInterfaceArgs
 from syntropy_sdk.models.wg_remove_peer import WgRemovePeer
 from syntropy_sdk.models.wg_remove_peer_args import WgRemovePeerArgs
+from syntropy_sdk.models.where_string import WhereString
+
+# coding: utf-8
+
+# flake8: noqa
+"""
+    syntropy-auth-service
+
+    No description provided (generated by Swagger Codegen https://github.com/swagger-api/swagger-codegen)  # noqa: E501
+
+    OpenAPI spec version: 1.0.0
+    
+    Generated by: https://github.com/swagger-api/swagger-codegen.git
+"""
+
+from __future__ import absolute_import
+
+# import models into model package
+from syntropy_sdk.models.access_token_data import AccessTokenData
+from syntropy_sdk.models.access_token_order import AccessTokenOrder
+from syntropy_sdk.models.access_token_read_data import AccessTokenReadData
+from syntropy_sdk.models.access_token_write_data import AccessTokenWriteData
+from syntropy_sdk.models.any_of_api_key_create_request_api_key_valid_until import (
+    AnyOfApiKeyCreateRequestApiKeyValidUntil,
+)
+from syntropy_sdk.models.any_of_api_key_dto_api_key_created_at import (
+    AnyOfApiKeyDtoApiKeyCreatedAt,
+)
+from syntropy_sdk.models.any_of_api_key_dto_api_key_updated_at import (
+    AnyOfApiKeyDtoApiKeyUpdatedAt,
+)
+from syntropy_sdk.models.any_of_api_key_dto_api_key_valid_until import (
+    AnyOfApiKeyDtoApiKeyValidUntil,
+)
+from syntropy_sdk.models.any_of_api_key_object_api_key_created_at import (
+    AnyOfApiKeyObjectApiKeyCreatedAt,
+)
+from syntropy_sdk.models.any_of_api_key_object_api_key_updated_at import (
+    AnyOfApiKeyObjectApiKeyUpdatedAt,
+)
+from syntropy_sdk.models.any_of_api_key_object_api_key_valid_until import (
+    AnyOfApiKeyObjectApiKeyValidUntil,
+)
+from syntropy_sdk.models.any_of_verify_mfa_request_code import AnyOfVerifyMFARequestCode
+from syntropy_sdk.models.api_key_create_request import ApiKeyCreateRequest
+from syntropy_sdk.models.api_key_dto import ApiKeyDto
+from syntropy_sdk.models.api_key_object import ApiKeyObject
+from syntropy_sdk.models.api_response_api_key_dto_array_ import (
+    ApiResponseApiKeyDtoArray_,
+)
+from syntropy_sdk.models.api_response_api_key_object_ import ApiResponseApiKeyObject_
+from syntropy_sdk.models.auth_source import AuthSource
+from syntropy_sdk.models.azure_user_token_dto import AzureUserTokenDto
+from syntropy_sdk.models.body import Body
+from syntropy_sdk.models.body1 import Body1
+from syntropy_sdk.models.check_mfa_for_new_social_account_request import (
+    CheckMFAForNewSocialAccountRequest,
+)
+from syntropy_sdk.models.check_mfa_for_new_social_account_response import (
+    CheckMFAForNewSocialAccountResponse,
+)
+from syntropy_sdk.models.code_generation_response import CodeGenerationResponse
+from syntropy_sdk.models.confirm_mfa_request import ConfirmMFARequest
+from syntropy_sdk.models.contact_request import ContactRequest
+from syntropy_sdk.models.disable_mfa_request import DisableMFARequest
+from syntropy_sdk.models.disable_mfa_using_backup_request import (
+    DisableMFAUsingBackupRequest,
+)
+from syntropy_sdk.models.login_request import LoginRequest
+from syntropy_sdk.models.mfa_backup_code import MFABackupCode
+from syntropy_sdk.models.mfa_code import MFACode
+from syntropy_sdk.models.mfa_code_type import MfaCodeType
+from syntropy_sdk.models.permission_object import PermissionObject
+from syntropy_sdk.models.user_data_response import UserDataResponse
+from syntropy_sdk.models.user_settings_object import UserSettingsObject
+from syntropy_sdk.models.verify_mfa_request import VerifyMFARequest

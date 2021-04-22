@@ -4,8 +4,9 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**platform_admin_config**](PlatformApi.md#platform_admin_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
-[**platform_agent_coordinates**](PlatformApi.md#platform_agent_coordinates) | **GET** /api/platform/agents/coordinates | 
+[**platform_admin_agent_config**](PlatformApi.md#platform_admin_agent_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
+[**platform_agent_config**](PlatformApi.md#platform_agent_config) | **GET** /api/platform/agent/{agent_id}/config | 
+[**platform_agent_coordinates**](PlatformApi.md#platform_agent_coordinates) | **POST** /api/platform/agents/coordinates | 
 [**platform_agent_create**](PlatformApi.md#platform_agent_create) | **POST** /api/platform/agents | 
 [**platform_agent_destroy**](PlatformApi.md#platform_agent_destroy) | **DELETE** /api/platform/agents/{agent_id} | 
 [**platform_agent_group_destroy**](PlatformApi.md#platform_agent_group_destroy) | **DELETE** /api/platform/network/agent-groups/{group_id} | 
@@ -19,12 +20,13 @@ Method | HTTP request | Description
 [**platform_agent_service_subnet_update**](PlatformApi.md#platform_agent_service_subnet_update) | **POST** /api/platform/agent-services-subnets | 
 [**platform_agent_tag_index**](PlatformApi.md#platform_agent_tag_index) | **GET** /api/platform/agent-tags | 
 [**platform_agent_update**](PlatformApi.md#platform_agent_update) | **PATCH** /api/platform/agents/{agent_id} | 
+[**platform_agents_destroy**](PlatformApi.md#platform_agents_destroy) | **POST** /api/platform/agents/remove | 
 [**platform_api_key_create**](PlatformApi.md#platform_api_key_create) | **POST** /api/platform/api-keys | 
 [**platform_api_key_destroy**](PlatformApi.md#platform_api_key_destroy) | **DELETE** /api/platform/api-keys/{api_key_id} | 
 [**platform_api_key_index**](PlatformApi.md#platform_api_key_index) | **GET** /api/platform/api-keys | 
-[**platform_api_key_update**](PlatformApi.md#platform_api_key_update) | **PATCH** /api/platform/api-keys/{api_key_id} | 
 [**platform_config**](PlatformApi.md#platform_config) | **GET** /api/platform/agent/{agent_id}/wg-config | 
 [**platform_connection_agent_destroy**](PlatformApi.md#platform_connection_agent_destroy) | **DELETE** /api/platform/connections/agents/{agent_id} | 
+[**platform_connection_agents_destroy**](PlatformApi.md#platform_connection_agents_destroy) | **POST** /api/platform/connections/agents/remove | 
 [**platform_connection_create**](PlatformApi.md#platform_connection_create) | **POST** /api/platform/connections | 
 [**platform_connection_create_mesh**](PlatformApi.md#platform_connection_create_mesh) | **POST** /api/platform/connections/mesh | 
 [**platform_connection_create_p2p**](PlatformApi.md#platform_connection_create_p2p) | **POST** /api/platform/connections/point-to-point | 
@@ -48,8 +50,61 @@ Method | HTTP request | Description
 [**platform_network_network_agent_destroy_deprecated**](PlatformApi.md#platform_network_network_agent_destroy_deprecated) | **POST** /api/platform/network/{network_id}/agents/delete | 
 [**platform_network_topology**](PlatformApi.md#platform_network_topology) | **GET** /api/platform/networks/topology | 
 
-# **platform_admin_config**
-> PlatformResponseAdminAgentConfig_ platform_admin_config(agent_id)
+# **platform_admin_agent_config**
+> PlatformResponseAdminAgentConfig_ platform_admin_agent_config(agent_id)
+
+
+
+Returns agent configuration details (admin).
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+agent_id = syntropy_sdk.IdNumber() # IdNumber | 
+
+try:
+    api_response = api_instance.platform_admin_agent_config(agent_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_admin_agent_config: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_id** | [**IdNumber**](.md)|  | 
+
+### Return type
+
+[**PlatformResponseAdminAgentConfig_**](PlatformResponseAdminAgentConfig_.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_agent_config**
+> PlatformResponseAdminAgentConfig_ platform_agent_config(agent_id)
 
 
 
@@ -71,20 +126,20 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-agent_id = 1.2 # float | 
+agent_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
-    api_response = api_instance.platform_admin_config(agent_id)
+    api_response = api_instance.platform_agent_config(agent_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PlatformApi->platform_admin_config: %s\n" % e)
+    print("Exception when calling PlatformApi->platform_agent_config: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_id** | **float**|  | 
+ **agent_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -102,11 +157,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_agent_coordinates**
-> PlatformResponseAgentCoordinatesObjectArray_ platform_agent_coordinates(agent_ids)
+> PlatformResponseAgentCoordinatesObjectArray_ platform_agent_coordinates(body)
 
 
 
-Get Platform agent location coordinates
+Retrieves Platform agent location coordinates
 
 ### Example
 ```python
@@ -124,10 +179,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-agent_ids = [3.4] # list[float] | 
+body = syntropy_sdk.Body1() # Body1 | 
 
 try:
-    api_response = api_instance.platform_agent_coordinates(agent_ids)
+    api_response = api_instance.platform_agent_coordinates(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_agent_coordinates: %s\n" % e)
@@ -137,7 +192,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_ids** | [**list[float]**](float.md)|  | 
+ **body** | [**Body1**](Body1.md)|  | 
 
 ### Return type
 
@@ -149,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -230,7 +285,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-agent_id = 1.2 # float | 
+agent_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_agent_destroy(agent_id)
@@ -243,7 +298,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_id** | **float**|  | 
+ **agent_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -283,7 +338,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-group_id = 1.2 # float | 
+group_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_agent_group_destroy(group_id)
@@ -296,7 +351,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **float**|  | 
+ **group_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -337,7 +392,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 body = [3.4] # list[float] | 
-group_id = 1.2 # float | 
+group_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_agent_group_update(body, group_id)
@@ -351,7 +406,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**list[float]**](float.md)|  | 
- **group_id** | **float**|  | 
+ **group_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -389,7 +444,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-filter = 'filter_example' # str | ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\", (optional)
+filter = syntropy_sdk.WhereString() # WhereString | ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\", (optional)
 
 try:
     api_response = api_instance.platform_agent_id_name_pairs(filter=filter)
@@ -402,7 +457,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **str**| ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, id|name: agent id or agent name, example: \&quot;name1\&quot; or \&quot;132\&quot;, name: exact agent name, example: \&quot;name1\&quot;, statuses[]: one of: connected, connected_with_errors, disconnected, example: \&quot;connected;connected_with_errors\&quot;, networks[]: array of network ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, tags[]: array of tags ids, example: \&quot;1;2;3\&quot;, tags_names[]: array of tags name, example: \&quot;name1;name2;name3\&quot;, networks_names[]: array of networks names, example: \&quot;name1;name2;name3\&quot;, connected[]: boolean to check if agent belongs to connection, example: \&quot;true\&quot;, | [optional] 
+ **filter** | [**WhereString**](.md)| ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, id|name: agent id or agent name, example: \&quot;name1\&quot; or \&quot;132\&quot;, name: exact agent name, example: \&quot;name1\&quot;, statuses[]: one of: connected, connected_with_errors, disconnected, example: \&quot;connected;connected_with_errors\&quot;, networks[]: array of network ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, tags[]: array of tags ids, example: \&quot;1;2;3\&quot;, tags_names[]: array of tags name, example: \&quot;name1;name2;name3\&quot;, networks_names[]: array of networks names, example: \&quot;name1;name2;name3\&quot;, connected[]: boolean to check if agent belongs to connection, example: \&quot;true\&quot;, | [optional] 
 
 ### Return type
 
@@ -442,10 +497,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-skip = 1.2 # float |  (optional)
-take = 1.2 # float |  (optional)
-order = 'order_example' # str | string: \"ASC\" | \"DESC\" (optional)
-filter = 'filter_example' # str | ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"0;1;2;3\", providers[]: array of providers ids, example: \"0;1;2;3\", tags[]: array of tags ids, example: \"0;1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\" (optional)
+skip = syntropy_sdk.SkipNumber() # SkipNumber |  (optional)
+take = syntropy_sdk.TakeNumber() # TakeNumber |  (optional)
+order = syntropy_sdk.OrderString() # OrderString | string: \"ASC\" | \"DESC\" (optional)
+filter = syntropy_sdk.WhereString() # WhereString | ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"0;1;2;3\", providers[]: array of providers ids, example: \"0;1;2;3\", tags[]: array of tags ids, example: \"0;1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\" (optional)
 load_relations = true # bool |  (optional) (default to true)
 show_logs_state = false # bool |  (optional) (default to false)
 
@@ -460,10 +515,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
- **order** | **str**| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
- **filter** | **str**| ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, id|name: agent id or agent name, example: \&quot;name1\&quot; or \&quot;132\&quot;, name: exact agent name, example: \&quot;name1\&quot;, statuses[]: one of: connected, connected_with_errors, disconnected, example: \&quot;connected;connected_with_errors\&quot;, networks[]: array of network ids, example: \&quot;0;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;0;1;2;3\&quot;, tags[]: array of tags ids, example: \&quot;0;1;2;3\&quot;, tags_names[]: array of tags name, example: \&quot;name1;name2;name3\&quot;, networks_names[]: array of networks names, example: \&quot;name1;name2;name3\&quot;, agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \&quot;0.0.75;0.0.74\&quot; locations[]: array of locations, example: \&quot;ES;US\&quot; | [optional] 
+ **skip** | [**SkipNumber**](.md)|  | [optional] 
+ **take** | [**TakeNumber**](.md)|  | [optional] 
+ **order** | [**OrderString**](.md)| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
+ **filter** | [**WhereString**](.md)| ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, id|name: agent id or agent name, example: \&quot;name1\&quot; or \&quot;132\&quot;, name: exact agent name, example: \&quot;name1\&quot;, statuses[]: one of: connected, connected_with_errors, disconnected, example: \&quot;connected;connected_with_errors\&quot;, networks[]: array of network ids, example: \&quot;0;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;0;1;2;3\&quot;, tags[]: array of tags ids, example: \&quot;0;1;2;3\&quot;, tags_names[]: array of tags name, example: \&quot;name1;name2;name3\&quot;, networks_names[]: array of networks names, example: \&quot;name1;name2;name3\&quot;, agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \&quot;0.0.75;0.0.74\&quot; locations[]: array of locations, example: \&quot;ES;US\&quot; | [optional] 
  **load_relations** | **bool**|  | [optional] [default to true]
  **show_logs_state** | **bool**|  | [optional] [default to false]
 
@@ -483,7 +538,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_agent_provider_index**
-> PlatformResponseAgentProviderObjectArray_ platform_agent_provider_index(skip=skip, take=take, order=order, filter=filter)
+> PlatformResponseAgentProviderObjectArray_ platform_agent_provider_index(skip=skip, take=take, order=order)
 
 
 
@@ -503,13 +558,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-skip = 1.2 # float |  (optional)
-take = 1.2 # float |  (optional)
-order = 'order_example' # str |  (optional)
-filter = 'filter_example' # str |  (optional)
+skip = syntropy_sdk.SkipNumber() # SkipNumber |  (optional)
+take = syntropy_sdk.TakeNumber() # TakeNumber |  (optional)
+order = syntropy_sdk.AgentProviderOrderString() # AgentProviderOrderString |  (optional)
 
 try:
-    api_response = api_instance.platform_agent_provider_index(skip=skip, take=take, order=order, filter=filter)
+    api_response = api_instance.platform_agent_provider_index(skip=skip, take=take, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_agent_provider_index: %s\n" % e)
@@ -519,10 +573,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
- **order** | **str**|  | [optional] 
- **filter** | **str**|  | [optional] 
+ **skip** | [**SkipNumber**](.md)|  | [optional] 
+ **take** | [**TakeNumber**](.md)|  | [optional] 
+ **order** | [**AgentProviderOrderString**](.md)|  | [optional] 
 
 ### Return type
 
@@ -560,7 +613,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-id = 1.2 # float | 
+id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_agent_provider_show(id)
@@ -573,7 +626,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**|  | 
+ **id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -820,7 +873,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 body = NULL # dict(str, object) | 
-agent_id = 1.2 # float | 
+agent_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_agent_update(body, agent_id)
@@ -834,11 +887,64 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**dict(str, object)**](dict.md)|  | 
- **agent_id** | **float**|  | 
+ **agent_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
 [**PlatformResponseSuccessBoolean_**](PlatformResponseSuccessBoolean_.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_agents_destroy**
+> InlineResponse204 platform_agents_destroy(body)
+
+
+
+Deletes `platform agent` ands its `connections`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = [syntropy_sdk.AgentsObject()] # list[AgentsObject] | 
+
+try:
+    api_response = api_instance.platform_agents_destroy(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_agents_destroy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[AgentsObject]**](AgentsObject.md)|  | 
+
+### Return type
+
+[**InlineResponse204**](InlineResponse204.md)
 
 ### Authorization
 
@@ -927,7 +1033,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-api_key_id = 1.2 # float | 
+api_key_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_api_key_destroy(api_key_id)
@@ -940,7 +1046,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_key_id** | **float**|  | 
+ **api_key_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -980,8 +1086,8 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-skip = 1.2 # float |  (optional)
-take = 1.2 # float |  (optional)
+skip = syntropy_sdk.SkipNumber() # SkipNumber |  (optional)
+take = syntropy_sdk.TakeNumber() # TakeNumber |  (optional)
 order = 'order_example' # str | string: \"ASC\" | \"DESC\" (optional)
 filter = 'filter_example' # str | api_key_id: string, api_key_name: string (optional)
 
@@ -996,8 +1102,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
+ **skip** | [**SkipNumber**](.md)|  | [optional] 
+ **take** | [**TakeNumber**](.md)|  | [optional] 
  **order** | **str**| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
  **filter** | **str**| api_key_id: string, api_key_name: string | [optional] 
 
@@ -1012,61 +1118,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **platform_api_key_update**
-> InlineResponse204 platform_api_key_update(body, api_key_id)
-
-
-
-Updates API key.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import syntropy_sdk
-from syntropy_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-api_key_id = 1.2 # float | 
-
-try:
-    api_response = api_instance.platform_api_key_update(body, api_key_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PlatformApi->platform_api_key_update: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**dict(str, object)**](dict.md)|  | 
- **api_key_id** | **float**|  | 
-
-### Return type
-
-[**InlineResponse204**](InlineResponse204.md)
-
-### Authorization
-
-[jwt](../README.md#jwt)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1094,7 +1145,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-agent_id = 1.2 # float | 
+agent_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_config(agent_id)
@@ -1107,7 +1158,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_id** | **float**|  | 
+ **agent_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -1147,7 +1198,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-agent_id = 1.2 # float | 
+agent_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_connection_agent_destroy(agent_id)
@@ -1160,7 +1211,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_id** | **float**|  | 
+ **agent_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -1173,6 +1224,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **platform_connection_agents_destroy**
+> InlineResponse204 platform_connection_agents_destroy(body)
+
+
+
+Deletes agent `connections`. Does not remove `platform agent` from `networks`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
+body = [syntropy_sdk.AgentsObject()] # list[AgentsObject] | 
+
+try:
+    api_response = api_instance.platform_connection_agents_destroy(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PlatformApi->platform_connection_agents_destroy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[AgentsObject]**](AgentsObject.md)|  | 
+
+### Return type
+
+[**InlineResponse204**](InlineResponse204.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1421,7 +1525,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-connection_id = 1.2 # float | 
+connection_id = syntropy_sdk.IdNumber() # IdNumber | 
 network_updated_by = syntropy_sdk.NetworkGenesisType() # NetworkGenesisType |  (optional)
 
 try:
@@ -1435,7 +1539,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connection_id** | **float**|  | 
+ **connection_id** | [**IdNumber**](.md)|  | 
  **network_updated_by** | [**NetworkGenesisType**](.md)|  | [optional] 
 
 ### Return type
@@ -1476,10 +1580,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-skip = 1.2 # float |  (optional)
-take = 1.2 # float |  (optional)
-order = 'order_example' # str | string: \"ASC\" | \"DESC\" (optional)
-filter = 'filter_example' # str | id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified (optional)
+skip = syntropy_sdk.SkipNumber() # SkipNumber |  (optional)
+take = syntropy_sdk.TakeNumber() # TakeNumber |  (optional)
+order = syntropy_sdk.OrderString() # OrderString | string: \"ASC\" | \"DESC\" (optional)
+filter = syntropy_sdk.WhereString() # WhereString | id|name: string, example: \"1\" or \"name\", connectionId: string, example: \"1\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified (optional)
 show_sdn_connections = syntropy_sdk.ShowSdnConnections() # ShowSdnConnections |  (optional)
 load_relations = true # bool |  (optional) (default to true)
 
@@ -1494,10 +1598,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
- **order** | **str**| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
- **filter** | **str**| id|name: string, example: \&quot;1\&quot; or \&quot;name\&quot;, name: exact agent name, example: \&quot;name1\&quot;, agent_ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \&quot;OFFLINE;ERROR;WARNING\&quot;, networks[]: array of networks ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified | [optional] 
+ **skip** | [**SkipNumber**](.md)|  | [optional] 
+ **take** | [**TakeNumber**](.md)|  | [optional] 
+ **order** | [**OrderString**](.md)| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
+ **filter** | [**WhereString**](.md)| id|name: string, example: \&quot;1\&quot; or \&quot;name\&quot;, connectionId: string, example: \&quot;1\&quot;, name: exact agent name, example: \&quot;name1\&quot;, agent_ids[]: array of agent ids, example: \&quot;1;2;3\&quot;, statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \&quot;OFFLINE;ERROR;WARNING\&quot;, networks[]: array of networks ids, example: \&quot;1;2;3\&quot;, providers[]: array of providers ids, example: \&quot;1;2;3\&quot;, agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified | [optional] 
  **show_sdn_connections** | [**ShowSdnConnections**](.md)|  | [optional] 
  **load_relations** | **bool**|  | [optional] [default to true]
 
@@ -1626,7 +1730,7 @@ void (empty response body)
 
 
 
-Deletes agent connection services/subnets
+Deletes agent connection services/subnets.
 
 ### Example
 ```python
@@ -1750,7 +1854,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 body = [syntropy_sdk.NetworkAgentPayload()] # list[NetworkAgentPayload] | 
-network_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_agent_create(body, network_id)
@@ -1764,7 +1868,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**list[NetworkAgentPayload]**](NetworkAgentPayload.md)|  | 
- **network_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -1805,7 +1909,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 body = [syntropy_sdk.NetworkAgentPayload()] # list[NetworkAgentPayload] | 
-network_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_agent_create_deprecated(body, network_id)
@@ -1819,7 +1923,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**list[NetworkAgentPayload]**](NetworkAgentPayload.md)|  | 
- **network_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -1859,8 +1963,8 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-network_id = 1.2 # float | 
-agent_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
+agent_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_agent_destroy(network_id, agent_id)
@@ -1873,8 +1977,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network_id** | **float**|  | 
- **agent_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
+ **agent_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -1914,8 +2018,8 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-network_id = 1.2 # float | 
-group_name = 'group_name_example' # str | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
+group_name = syntropy_sdk.DefaultString() # DefaultString | 
 body = [3.4] # list[float] |  (optional)
 
 try:
@@ -1929,8 +2033,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network_id** | **float**|  | 
- **group_name** | **str**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
+ **group_name** | [**DefaultString**](.md)|  | 
  **body** | [**list[float]**](float.md)|  | [optional] 
 
 ### Return type
@@ -1972,7 +2076,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 body = [3.4] # list[float] | 
-network_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_agent_remove(body, network_id)
@@ -1986,7 +2090,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**list[float]**](float.md)|  | 
- **network_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -2027,7 +2131,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 body = [3.4] # list[float] | 
-network_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_agent_remove_deprecated(body, network_id)
@@ -2041,7 +2145,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**list[float]**](float.md)|  | 
- **network_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -2134,7 +2238,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-network_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_destroy(network_id)
@@ -2147,7 +2251,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -2187,10 +2291,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-skip = 1.2 # float |  (optional)
-take = 1.2 # float |  (optional)
-order = 'order_example' # str | string: \"ASC\" | \"DESC\" (optional)
-filter = 'filter_example' # str | id|name: string, name: string, (optional)
+skip = syntropy_sdk.SkipNumber() # SkipNumber |  (optional)
+take = syntropy_sdk.TakeNumber() # TakeNumber |  (optional)
+order = syntropy_sdk.OrderString() # OrderString | string: \"ASC\" | \"DESC\" (optional)
+filter = syntropy_sdk.WhereString() # WhereString | id|name: string, name: string, (optional)
 
 try:
     api_response = api_instance.platform_network_index(skip=skip, take=take, order=order, filter=filter)
@@ -2203,10 +2307,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **skip** | **float**|  | [optional] 
- **take** | **float**|  | [optional] 
- **order** | **str**| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
- **filter** | **str**| id|name: string, name: string, | [optional] 
+ **skip** | [**SkipNumber**](.md)|  | [optional] 
+ **take** | [**TakeNumber**](.md)|  | [optional] 
+ **order** | [**OrderString**](.md)| string: \&quot;ASC\&quot; | \&quot;DESC\&quot; | [optional] 
+ **filter** | [**WhereString**](.md)| id|name: string, name: string, | [optional] 
 
 ### Return type
 
@@ -2246,7 +2350,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-network_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_info(network_id)
@@ -2259,7 +2363,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -2300,7 +2404,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
 body = [3.4] # list[float] | 
-network_id = 1.2 # float | 
+network_id = syntropy_sdk.IdNumber() # IdNumber | 
 
 try:
     api_response = api_instance.platform_network_network_agent_destroy_deprecated(body, network_id)
@@ -2314,7 +2418,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**list[float]**](float.md)|  | 
- **network_id** | **float**|  | 
+ **network_id** | [**IdNumber**](.md)|  | 
 
 ### Return type
 
@@ -2354,7 +2458,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-network_id = 1.2 # float |  (optional)
+network_id = syntropy_sdk.IdNumber() # IdNumber |  (optional)
 
 try:
     api_response = api_instance.platform_network_topology(network_id=network_id)
@@ -2367,7 +2471,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **network_id** | **float**|  | [optional] 
+ **network_id** | [**IdNumber**](.md)|  | [optional] 
 
 ### Return type
 

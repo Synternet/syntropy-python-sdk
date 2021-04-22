@@ -32,43 +32,45 @@ class PlatformApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def platform_admin_config(self, agent_id, **kwargs):  # noqa: E501
-        """platform_admin_config  # noqa: E501
+    def platform_admin_agent_config(self, agent_id, **kwargs):  # noqa: E501
+        """platform_admin_agent_config  # noqa: E501
 
-        Returns agent configuration details.  # noqa: E501
+        Returns agent configuration details (admin).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_admin_config(agent_id, async_req=True)
+        >>> thread = api.platform_admin_agent_config(agent_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: PlatformResponseAdminAgentConfig_
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.platform_admin_config_with_http_info(
+            return self.platform_admin_agent_config_with_http_info(
                 agent_id, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.platform_admin_config_with_http_info(
+            (data) = self.platform_admin_agent_config_with_http_info(
                 agent_id, **kwargs
             )  # noqa: E501
             return data
 
-    def platform_admin_config_with_http_info(self, agent_id, **kwargs):  # noqa: E501
-        """platform_admin_config  # noqa: E501
+    def platform_admin_agent_config_with_http_info(
+        self, agent_id, **kwargs
+    ):  # noqa: E501
+        """platform_admin_agent_config  # noqa: E501
 
-        Returns agent configuration details.  # noqa: E501
+        Returns agent configuration details (admin).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_admin_config_with_http_info(agent_id, async_req=True)
+        >>> thread = api.platform_admin_agent_config_with_http_info(agent_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: PlatformResponseAdminAgentConfig_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -85,14 +87,14 @@ class PlatformApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method platform_admin_config" % key
+                    " to method platform_admin_agent_config" % key
                 )
             params[key] = val
         del params["kwargs"]
         # verify the required parameter 'agent_id' is set
         if "agent_id" not in params or params["agent_id"] is None:
             raise ValueError(
-                "Missing the required parameter `agent_id` when calling `platform_admin_config`"
+                "Missing the required parameter `agent_id` when calling `platform_admin_agent_config`"
             )  # noqa: E501
 
         collection_formats = {}
@@ -135,51 +137,49 @@ class PlatformApi(object):
             collection_formats=collection_formats,
         )
 
-    def platform_agent_coordinates(self, agent_ids, **kwargs):  # noqa: E501
-        """platform_agent_coordinates  # noqa: E501
+    def platform_agent_config(self, agent_id, **kwargs):  # noqa: E501
+        """platform_agent_config  # noqa: E501
 
-        Get Platform agent location coordinates  # noqa: E501
+        Returns agent configuration details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_agent_coordinates(agent_ids, async_req=True)
+        >>> thread = api.platform_agent_config(agent_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[float] agent_ids: (required)
-        :return: PlatformResponseAgentCoordinatesObjectArray_
+        :param IdNumber agent_id: (required)
+        :return: PlatformResponseAdminAgentConfig_
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.platform_agent_coordinates_with_http_info(
-                agent_ids, **kwargs
+            return self.platform_agent_config_with_http_info(
+                agent_id, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.platform_agent_coordinates_with_http_info(
-                agent_ids, **kwargs
+            (data) = self.platform_agent_config_with_http_info(
+                agent_id, **kwargs
             )  # noqa: E501
             return data
 
-    def platform_agent_coordinates_with_http_info(
-        self, agent_ids, **kwargs
-    ):  # noqa: E501
-        """platform_agent_coordinates  # noqa: E501
+    def platform_agent_config_with_http_info(self, agent_id, **kwargs):  # noqa: E501
+        """platform_agent_config  # noqa: E501
 
-        Get Platform agent location coordinates  # noqa: E501
+        Returns agent configuration details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_agent_coordinates_with_http_info(agent_ids, async_req=True)
+        >>> thread = api.platform_agent_config_with_http_info(agent_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[float] agent_ids: (required)
-        :return: PlatformResponseAgentCoordinatesObjectArray_
+        :param IdNumber agent_id: (required)
+        :return: PlatformResponseAdminAgentConfig_
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ["agent_ids"]  # noqa: E501
+        all_params = ["agent_id"]  # noqa: E501
         all_params.append("async_req")
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
@@ -190,24 +190,23 @@ class PlatformApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method platform_agent_coordinates" % key
+                    " to method platform_agent_config" % key
                 )
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'agent_ids' is set
-        if "agent_ids" not in params or params["agent_ids"] is None:
+        # verify the required parameter 'agent_id' is set
+        if "agent_id" not in params or params["agent_id"] is None:
             raise ValueError(
-                "Missing the required parameter `agent_ids` when calling `platform_agent_coordinates`"
+                "Missing the required parameter `agent_id` when calling `platform_agent_config`"
             )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if "agent_id" in params:
+            path_params["agent_id"] = params["agent_id"]  # noqa: E501
 
         query_params = []
-        if "agent_ids" in params:
-            query_params.append(("agentIds", params["agent_ids"]))  # noqa: E501
-            collection_formats["agentIds"] = "multi"  # noqa: E501
 
         header_params = {}
 
@@ -224,8 +223,118 @@ class PlatformApi(object):
         auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/api/platform/agents/coordinates",
+            "/api/platform/agent/{agent_id}/config",
             "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="PlatformResponseAdminAgentConfig_",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_agent_coordinates(self, body, **kwargs):  # noqa: E501
+        """platform_agent_coordinates  # noqa: E501
+
+        Retrieves Platform agent location coordinates  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agent_coordinates(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Body1 body: (required)
+        :return: PlatformResponseAgentCoordinatesObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_agent_coordinates_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_agent_coordinates_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_agent_coordinates_with_http_info(self, body, **kwargs):  # noqa: E501
+        """platform_agent_coordinates  # noqa: E501
+
+        Retrieves Platform agent location coordinates  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agent_coordinates_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Body1 body: (required)
+        :return: PlatformResponseAgentCoordinatesObjectArray_
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_agent_coordinates" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_agent_coordinates`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/agents/coordinates",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -361,7 +470,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -387,7 +496,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -464,7 +573,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float group_id: (required)
+        :param IdNumber group_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -492,7 +601,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float group_id: (required)
+        :param IdNumber group_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -570,7 +679,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float group_id: (required)
+        :param IdNumber group_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -599,7 +708,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float group_id: (required)
+        :param IdNumber group_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -689,7 +798,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\",
+        :param WhereString filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\",
         :return: PlatformResponseAgentFiltersObject_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -714,7 +823,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\",
+        :param WhereString filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", tags[]: array of tags ids, example: \"1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", connected[]: boolean to check if agent belongs to connection, example: \"true\",
         :return: PlatformResponseAgentFiltersObject_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -786,10 +895,10 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"0;1;2;3\", providers[]: array of providers ids, example: \"0;1;2;3\", tags[]: array of tags ids, example: \"0;1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\"
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param OrderString order: string: \"ASC\" | \"DESC\"
+        :param WhereString filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"0;1;2;3\", providers[]: array of providers ids, example: \"0;1;2;3\", tags[]: array of tags ids, example: \"0;1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\"
         :param bool load_relations:
         :param bool show_logs_state:
         :return: PlatformResponseAgentObjectArray_
@@ -813,10 +922,10 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"0;1;2;3\", providers[]: array of providers ids, example: \"0;1;2;3\", tags[]: array of tags ids, example: \"0;1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\"
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param OrderString order: string: \"ASC\" | \"DESC\"
+        :param WhereString filter: ids[]: array of agent ids, example: \"1;2;3\", id|name: agent id or agent name, example: \"name1\" or \"132\", name: exact agent name, example: \"name1\", statuses[]: one of: connected, connected_with_errors, disconnected, example: \"connected;connected_with_errors\", networks[]: array of network ids, example: \"0;1;2;3\", providers[]: array of providers ids, example: \"0;1;2;3\", tags[]: array of tags ids, example: \"0;1;2;3\", tags_names[]: array of tags name, example: \"name1;name2;name3\", networks_names[]: array of networks names, example: \"name1;name2;name3\", agent_modified_at_from: date from which agent was last modified agent_modified_at_to: date to which agent was last modified agent_versions[]: array of agent versions, example: \"0.0.75;0.0.74\" locations[]: array of locations, example: \"ES;US\"
         :param bool load_relations:
         :param bool show_logs_state:
         :return: PlatformResponseAgentObjectArray_
@@ -910,10 +1019,9 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order:
-        :param str filter:
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param AgentProviderOrderString order:
         :return: PlatformResponseAgentProviderObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -938,16 +1046,15 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order:
-        :param str filter:
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param AgentProviderOrderString order:
         :return: PlatformResponseAgentProviderObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ["skip", "take", "order", "filter"]  # noqa: E501
+        all_params = ["skip", "take", "order"]  # noqa: E501
         all_params.append("async_req")
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
@@ -974,8 +1081,6 @@ class PlatformApi(object):
             query_params.append(("take", params["take"]))  # noqa: E501
         if "order" in params:
             query_params.append(("order", params["order"]))  # noqa: E501
-        if "filter" in params:
-            query_params.append(("filter", params["filter"]))  # noqa: E501
 
         header_params = {}
 
@@ -1018,7 +1123,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float id: (required)
+        :param IdNumber id: (required)
         :return: PlatformResponseAgentProviderObject_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1043,7 +1148,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float id: (required)
+        :param IdNumber id: (required)
         :return: PlatformResponseAgentProviderObject_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1533,7 +1638,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: PlatformResponseSuccessBoolean_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1562,7 +1667,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param dict(str, object) body: (required)
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: PlatformResponseSuccessBoolean_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1635,6 +1740,116 @@ class PlatformApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="PlatformResponseSuccessBoolean_",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_agents_destroy(self, body, **kwargs):  # noqa: E501
+        """platform_agents_destroy  # noqa: E501
+
+        Deletes `platform agent` ands its `connections`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agents_destroy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[AgentsObject] body: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_agents_destroy_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_agents_destroy_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_agents_destroy_with_http_info(self, body, **kwargs):  # noqa: E501
+        """platform_agents_destroy  # noqa: E501
+
+        Deletes `platform agent` ands its `connections`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_agents_destroy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[AgentsObject] body: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_agents_destroy" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_agents_destroy`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/agents/remove",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="InlineResponse204",  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -1763,7 +1978,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float api_key_id: (required)
+        :param IdNumber api_key_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1791,7 +2006,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float api_key_id: (required)
+        :param IdNumber api_key_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1868,8 +2083,8 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
+        :param SkipNumber skip:
+        :param TakeNumber take:
         :param str order: string: \"ASC\" | \"DESC\"
         :param str filter: api_key_id: string, api_key_name: string
         :return: PlatformResponseApiKeyObjectArray_
@@ -1893,8 +2108,8 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
+        :param SkipNumber skip:
+        :param TakeNumber take:
         :param str order: string: \"ASC\" | \"DESC\"
         :param str filter: api_key_id: string, api_key_name: string
         :return: PlatformResponseApiKeyObjectArray_
@@ -1964,127 +2179,6 @@ class PlatformApi(object):
             collection_formats=collection_formats,
         )
 
-    def platform_api_key_update(self, body, api_key_id, **kwargs):  # noqa: E501
-        """platform_api_key_update  # noqa: E501
-
-        Updates API key.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_api_key_update(body, api_key_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param dict(str, object) body: (required)
-        :param float api_key_id: (required)
-        :return: InlineResponse204
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs["_return_http_data_only"] = True
-        if kwargs.get("async_req"):
-            return self.platform_api_key_update_with_http_info(
-                body, api_key_id, **kwargs
-            )  # noqa: E501
-        else:
-            (data) = self.platform_api_key_update_with_http_info(
-                body, api_key_id, **kwargs
-            )  # noqa: E501
-            return data
-
-    def platform_api_key_update_with_http_info(
-        self, body, api_key_id, **kwargs
-    ):  # noqa: E501
-        """platform_api_key_update  # noqa: E501
-
-        Updates API key.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_api_key_update_with_http_info(body, api_key_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param dict(str, object) body: (required)
-        :param float api_key_id: (required)
-        :return: InlineResponse204
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ["body", "api_key_id"]  # noqa: E501
-        all_params.append("async_req")
-        all_params.append("_return_http_data_only")
-        all_params.append("_preload_content")
-        all_params.append("_request_timeout")
-
-        params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method platform_api_key_update" % key
-                )
-            params[key] = val
-        del params["kwargs"]
-        # verify the required parameter 'body' is set
-        if "body" not in params or params["body"] is None:
-            raise ValueError(
-                "Missing the required parameter `body` when calling `platform_api_key_update`"
-            )  # noqa: E501
-        # verify the required parameter 'api_key_id' is set
-        if "api_key_id" not in params or params["api_key_id"] is None:
-            raise ValueError(
-                "Missing the required parameter `api_key_id` when calling `platform_api_key_update`"
-            )  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if "api_key_id" in params:
-            path_params["api_key_id"] = params["api_key_id"]  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if "body" in params:
-            body_params = params["body"]
-        # HTTP header `Accept`
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params[
-            "Content-Type"
-        ] = self.api_client.select_header_content_type(  # noqa: E501
-            ["application/json"]
-        )  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
-
-        return self.api_client.call_api(
-            "/api/platform/api-keys/{api_key_id}",
-            "PATCH",
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type="InlineResponse204",  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get("async_req"),
-            _return_http_data_only=params.get("_return_http_data_only"),
-            _preload_content=params.get("_preload_content", True),
-            _request_timeout=params.get("_request_timeout"),
-            collection_formats=collection_formats,
-        )
-
     def platform_config(self, agent_id, **kwargs):  # noqa: E501
         """platform_config  # noqa: E501
 
@@ -2095,7 +2189,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2119,7 +2213,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2196,7 +2290,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2224,7 +2318,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float agent_id: (required)
+        :param IdNumber agent_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2276,6 +2370,118 @@ class PlatformApi(object):
         return self.api_client.call_api(
             "/api/platform/connections/agents/{agent_id}",
             "DELETE",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="InlineResponse204",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def platform_connection_agents_destroy(self, body, **kwargs):  # noqa: E501
+        """platform_connection_agents_destroy  # noqa: E501
+
+        Deletes agent `connections`. Does not remove `platform agent` from `networks`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_agents_destroy(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[AgentsObject] body: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.platform_connection_agents_destroy_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.platform_connection_agents_destroy_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def platform_connection_agents_destroy_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
+        """platform_connection_agents_destroy  # noqa: E501
+
+        Deletes agent `connections`. Does not remove `platform agent` from `networks`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.platform_connection_agents_destroy_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[AgentsObject] body: (required)
+        :return: InlineResponse204
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method platform_connection_agents_destroy" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `platform_connection_agents_destroy`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/platform/connections/agents/remove",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -2764,7 +2970,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float connection_id: (required)
+        :param IdNumber connection_id: (required)
         :param NetworkGenesisType network_updated_by:
         :return: InlineResponse204
                  If the method is called asynchronously,
@@ -2793,7 +2999,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float connection_id: (required)
+        :param IdNumber connection_id: (required)
         :param NetworkGenesisType network_updated_by:
         :return: InlineResponse204
                  If the method is called asynchronously,
@@ -2875,10 +3081,10 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param OrderString order: string: \"ASC\" | \"DESC\"
+        :param WhereString filter: id|name: string, example: \"1\" or \"name\", connectionId: string, example: \"1\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified
         :param ShowSdnConnections show_sdn_connections:
         :param bool load_relations:
         :return: PlatformResponseAgentConnectionObjectArray_
@@ -2904,10 +3110,10 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: id|name: string, example: \"1\" or \"name\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param OrderString order: string: \"ASC\" | \"DESC\"
+        :param WhereString filter: id|name: string, example: \"1\" or \"name\", connectionId: string, example: \"1\", name: exact agent name, example: \"name1\", agent_ids[]: array of agent ids, example: \"1;2;3\", statuses[]: array of statuses, one of PENDING, WARNING, ERROR, CONNECTED, OFFLINE, example: \"OFFLINE;ERROR;WARNING\", networks[]: array of networks ids, example: \"1;2;3\", providers[]: array of providers ids, example: \"1;2;3\", agent_connection_updated_at_from: date from which connection was last modified, agent_connection_updated_at_to: date to which connection was last modified
         :param ShowSdnConnections show_sdn_connections:
         :param bool load_relations:
         :return: PlatformResponseAgentConnectionObjectArray_
@@ -3210,7 +3416,7 @@ class PlatformApi(object):
     def platform_connection_subnet_destroy(self, body, **kwargs):  # noqa: E501
         """platform_connection_subnet_destroy  # noqa: E501
 
-        Deletes agent connection services/subnets  # noqa: E501
+        Deletes agent connection services/subnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_connection_subnet_destroy(body, async_req=True)
@@ -3238,7 +3444,7 @@ class PlatformApi(object):
     ):  # noqa: E501
         """platform_connection_subnet_destroy  # noqa: E501
 
-        Deletes agent connection services/subnets  # noqa: E501
+        Deletes agent connection services/subnets.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.platform_connection_subnet_destroy_with_http_info(body, async_req=True)
@@ -3435,7 +3641,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[NetworkAgentPayload] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3464,7 +3670,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[NetworkAgentPayload] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3558,7 +3764,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[NetworkAgentPayload] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3587,7 +3793,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[NetworkAgentPayload] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3680,8 +3886,8 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
-        :param float agent_id: (required)
+        :param IdNumber network_id: (required)
+        :param IdNumber agent_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3709,8 +3915,8 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
-        :param float agent_id: (required)
+        :param IdNumber network_id: (required)
+        :param IdNumber agent_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3796,8 +4002,8 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
-        :param str group_name: (required)
+        :param IdNumber network_id: (required)
+        :param DefaultString group_name: (required)
         :param list[float] body:
         :return: InlineResponse204
                  If the method is called asynchronously,
@@ -3826,8 +4032,8 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
-        :param str group_name: (required)
+        :param IdNumber network_id: (required)
+        :param DefaultString group_name: (required)
         :param list[float] body:
         :return: InlineResponse204
                  If the method is called asynchronously,
@@ -3922,7 +4128,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3951,7 +4157,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4045,7 +4251,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4074,7 +4280,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4275,7 +4481,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4303,7 +4509,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4380,10 +4586,10 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: id|name: string, name: string,
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param OrderString order: string: \"ASC\" | \"DESC\"
+        :param WhereString filter: id|name: string, name: string,
         :return: PlatformResponseNetworkObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4405,10 +4611,10 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float skip:
-        :param float take:
-        :param str order: string: \"ASC\" | \"DESC\"
-        :param str filter: id|name: string, name: string,
+        :param SkipNumber skip:
+        :param TakeNumber take:
+        :param OrderString order: string: \"ASC\" | \"DESC\"
+        :param WhereString filter: id|name: string, name: string,
         :return: PlatformResponseNetworkObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4486,7 +4692,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: PlatformResponseNetworkInfoObject_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4512,7 +4718,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: PlatformResponseNetworkInfoObject_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4592,7 +4798,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4625,7 +4831,7 @@ class PlatformApi(object):
 
         :param async_req bool
         :param list[float] body: (required)
-        :param float network_id: (required)
+        :param IdNumber network_id: (required)
         :return: InlineResponse204
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4716,7 +4922,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id:
+        :param IdNumber network_id:
         :return: PlatformResponseNetworkTopologyObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4740,7 +4946,7 @@ class PlatformApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param float network_id:
+        :param IdNumber network_id:
         :return: PlatformResponseNetworkTopologyObjectArray_
                  If the method is called asynchronously,
                  returns the request thread.

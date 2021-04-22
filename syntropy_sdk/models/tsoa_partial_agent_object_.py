@@ -46,6 +46,7 @@ class TsoaPartialAgentObject_(object):
         "agent_locked_fields": "AgentLockedFields",
         "agent_modified_at": "datetime",
         "agent_is_virtual": "bool",
+        "agent_type": "PlatformAgentTypeLocal",
     }
 
     attribute_map = {
@@ -65,6 +66,7 @@ class TsoaPartialAgentObject_(object):
         "agent_locked_fields": "agent_locked_fields",
         "agent_modified_at": "agent_modified_at",
         "agent_is_virtual": "agent_is_virtual",
+        "agent_type": "agent_type",
     }
 
     def __init__(
@@ -85,6 +87,7 @@ class TsoaPartialAgentObject_(object):
         agent_locked_fields=None,
         agent_modified_at=None,
         agent_is_virtual=None,
+        agent_type=None,
     ):  # noqa: E501
         """TsoaPartialAgentObject_ - a model defined in Swagger"""  # noqa: E501
         self._agent_services_default_status = None
@@ -103,6 +106,7 @@ class TsoaPartialAgentObject_(object):
         self._agent_locked_fields = None
         self._agent_modified_at = None
         self._agent_is_virtual = None
+        self._agent_type = None
         self.discriminator = None
         if agent_services_default_status is not None:
             self.agent_services_default_status = agent_services_default_status
@@ -136,6 +140,8 @@ class TsoaPartialAgentObject_(object):
             self.agent_modified_at = agent_modified_at
         if agent_is_virtual is not None:
             self.agent_is_virtual = agent_is_virtual
+        if agent_type is not None:
+            self.agent_type = agent_type
 
     @property
     def agent_services_default_status(self):
@@ -472,6 +478,27 @@ class TsoaPartialAgentObject_(object):
         """
 
         self._agent_is_virtual = agent_is_virtual
+
+    @property
+    def agent_type(self):
+        """Gets the agent_type of this TsoaPartialAgentObject_.  # noqa: E501
+
+
+        :return: The agent_type of this TsoaPartialAgentObject_.  # noqa: E501
+        :rtype: PlatformAgentTypeLocal
+        """
+        return self._agent_type
+
+    @agent_type.setter
+    def agent_type(self, agent_type):
+        """Sets the agent_type of this TsoaPartialAgentObject_.
+
+
+        :param agent_type: The agent_type of this TsoaPartialAgentObject_.  # noqa: E501
+        :type: PlatformAgentTypeLocal
+        """
+
+        self._agent_type = agent_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

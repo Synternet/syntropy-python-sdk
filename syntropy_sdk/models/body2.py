@@ -29,40 +29,92 @@ class Body2(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"data": "str"}
+    swagger_types = {"cmd": "list[Object]", "ip": "str", "auth_key": "str"}
 
-    attribute_map = {"data": "data"}
+    attribute_map = {"cmd": "cmd", "ip": "ip", "auth_key": "authKey"}
 
-    def __init__(self, data=None):  # noqa: E501
+    def __init__(self, cmd=None, ip=None, auth_key=None):  # noqa: E501
         """Body2 - a model defined in Swagger"""  # noqa: E501
-        self._data = None
+        self._cmd = None
+        self._ip = None
+        self._auth_key = None
         self.discriminator = None
-        self.data = data
+        self.cmd = cmd
+        self.ip = ip
+        self.auth_key = auth_key
 
     @property
-    def data(self):
-        """Gets the data of this Body2.  # noqa: E501
+    def cmd(self):
+        """Gets the cmd of this Body2.  # noqa: E501
 
 
-        :return: The data of this Body2.  # noqa: E501
-        :rtype: str
+        :return: The cmd of this Body2.  # noqa: E501
+        :rtype: list[Object]
         """
-        return self._data
+        return self._cmd
 
-    @data.setter
-    def data(self, data):
-        """Sets the data of this Body2.
+    @cmd.setter
+    def cmd(self, cmd):
+        """Sets the cmd of this Body2.
 
 
-        :param data: The data of this Body2.  # noqa: E501
-        :type: str
+        :param cmd: The cmd of this Body2.  # noqa: E501
+        :type: list[Object]
         """
-        if data is None:
+        if cmd is None:
             raise ValueError(
-                "Invalid value for `data`, must not be `None`"
+                "Invalid value for `cmd`, must not be `None`"
             )  # noqa: E501
 
-        self._data = data
+        self._cmd = cmd
+
+    @property
+    def ip(self):
+        """Gets the ip of this Body2.  # noqa: E501
+
+
+        :return: The ip of this Body2.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip
+
+    @ip.setter
+    def ip(self, ip):
+        """Sets the ip of this Body2.
+
+
+        :param ip: The ip of this Body2.  # noqa: E501
+        :type: str
+        """
+        if ip is None:
+            raise ValueError("Invalid value for `ip`, must not be `None`")  # noqa: E501
+
+        self._ip = ip
+
+    @property
+    def auth_key(self):
+        """Gets the auth_key of this Body2.  # noqa: E501
+
+
+        :return: The auth_key of this Body2.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_key
+
+    @auth_key.setter
+    def auth_key(self, auth_key):
+        """Sets the auth_key of this Body2.
+
+
+        :param auth_key: The auth_key of this Body2.  # noqa: E501
+        :type: str
+        """
+        if auth_key is None:
+            raise ValueError(
+                "Invalid value for `auth_key`, must not be `None`"
+            )  # noqa: E501
+
+        self._auth_key = auth_key
 
     def to_dict(self):
         """Returns the model properties as a dict"""
