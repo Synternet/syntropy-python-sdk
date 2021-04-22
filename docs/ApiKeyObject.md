@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api_key_is_suspended** | **bool** |  | [optional] 
 **api_key_name** | **str** |  | 
 **api_key_valid_until** | [**AnyOfApiKeyObjectApiKeyValidUntil**](AnyOfApiKeyObjectApiKeyValidUntil.md) |  | [optional] 
 **api_key_secret** | **str** |  | 

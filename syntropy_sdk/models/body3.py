@@ -29,7 +29,7 @@ class Body3(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"cmd": "list[Object]", "ip": "str", "auth_key": "str"}
+    swagger_types = {"cmd": "list[VppCallableObject]", "ip": "str", "auth_key": "str"}
 
     attribute_map = {"cmd": "cmd", "ip": "ip", "auth_key": "authKey"}
 
@@ -49,7 +49,7 @@ class Body3(object):
 
 
         :return: The cmd of this Body3.  # noqa: E501
-        :rtype: list[Object]
+        :rtype: list[VppCallableObject]
         """
         return self._cmd
 
@@ -59,7 +59,7 @@ class Body3(object):
 
 
         :param cmd: The cmd of this Body3.  # noqa: E501
-        :type: list[Object]
+        :type: list[VppCallableObject]
         """
         if cmd is None:
             raise ValueError(

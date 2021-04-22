@@ -112,20 +112,31 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApiKeysApi* | [**create_api_key**](docs/ApiKeysApi.md#create_api_key) | **POST** /auth/api-key | 
 *ApiKeysApi* | [**delete_api_key**](docs/ApiKeysApi.md#delete_api_key) | **DELETE** /auth/api-key/{api_key_id} | 
-*ApiKeysApi* | [**index_api_key**](docs/ApiKeysApi.md#index_api_key) | **GET** /auth/api-key | 
-*ApiKeysApi* | [**update_api_key**](docs/ApiKeysApi.md#update_api_key) | **PUT** /auth/api-key/{api_key_id} | 
+*ApiKeysApi* | [**get_api_key**](docs/ApiKeysApi.md#get_api_key) | **GET** /auth/api-key | 
+*AuthApi* | [**add_contact**](docs/AuthApi.md#add_contact) | **POST** /auth/authorization/contact | 
 *AuthApi* | [**auth**](docs/AuthApi.md#auth) | **GET** /auth/authorization | 
+*AuthApi* | [**auth_access_token_list**](docs/AuthApi.md#auth_access_token_list) | **GET** /auth/authorization/access-token | 
+*AuthApi* | [**auth_access_token_login**](docs/AuthApi.md#auth_access_token_login) | **POST** /auth/authorization/access-token/login | 
+*AuthApi* | [**auth_access_token_permissions_list**](docs/AuthApi.md#auth_access_token_permissions_list) | **GET** /auth/authorization/permissions/access-token | 
+*AuthApi* | [**auth_access_token_user_create**](docs/AuthApi.md#auth_access_token_user_create) | **POST** /auth/authorization/access-token | 
+*AuthApi* | [**auth_access_token_user_delete**](docs/AuthApi.md#auth_access_token_user_delete) | **DELETE** /auth/authorization/access-token/{id} | 
+*AuthApi* | [**auth_create_user**](docs/AuthApi.md#auth_create_user) | **POST** /auth/authorization/create-user | 
 *AuthApi* | [**auth_external_login**](docs/AuthApi.md#auth_external_login) | **POST** /auth/authorization/external/login | 
 *AuthApi* | [**auth_logout**](docs/AuthApi.md#auth_logout) | **POST** /auth/authorization/logout | 
-*AuthApi* | [**auth_user**](docs/AuthApi.md#auth_user) | **POST** /auth/authorization/create-user | 
-*AuthApi* | [**auth_user_0**](docs/AuthApi.md#auth_user_0) | **GET** /auth/authorization/user | 
+*AuthApi* | [**auth_show_user**](docs/AuthApi.md#auth_show_user) | **GET** /auth/authorization/user | 
 *AuthApi* | [**auth_verify_email**](docs/AuthApi.md#auth_verify_email) | **GET** /auth/authorization/verify-email/{code} | 
 *AuthApi* | [**update_settings**](docs/AuthApi.md#update_settings) | **PUT** /auth/authorization/settings | 
 *AuthApi* | [**validate_captcha**](docs/AuthApi.md#validate_captcha) | **POST** /auth/authorization/validate-captcha | 
 *AuthApi* | [**validate_captcha_0**](docs/AuthApi.md#validate_captcha_0) | **POST** /auth/authorization/validate-limit | 
 *AuthApi* | [**validate_user_credentials**](docs/AuthApi.md#validate_user_credentials) | **POST** /auth/authorization/validate-user | 
-*PlatformApi* | [**platform_admin_config**](docs/PlatformApi.md#platform_admin_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
-*PlatformApi* | [**platform_agent_coordinates**](docs/PlatformApi.md#platform_agent_coordinates) | **GET** /api/platform/agents/coordinates | 
+*ApiKeysApi* | [**api_key_create**](docs/ApiKeysApi.md#api_key_create) | **POST** /api/api-keys | 
+*ApiKeysApi* | [**api_key_destroy**](docs/ApiKeysApi.md#api_key_destroy) | **DELETE** /api/api-keys/{id} | 
+*ApiKeysApi* | [**api_key_index**](docs/ApiKeysApi.md#api_key_index) | **GET** /api/api-keys | 
+*ApiKeysApi* | [**api_key_show**](docs/ApiKeysApi.md#api_key_show) | **GET** /api/api-keys/{id} | 
+*ApiKeysApi* | [**api_key_update**](docs/ApiKeysApi.md#api_key_update) | **PATCH** /api/api-keys/{id} | 
+*PlatformApi* | [**platform_admin_agent_config**](docs/PlatformApi.md#platform_admin_agent_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
+*PlatformApi* | [**platform_agent_config**](docs/PlatformApi.md#platform_agent_config) | **GET** /api/platform/agent/{agent_id}/config | 
+*PlatformApi* | [**platform_agent_coordinates**](docs/PlatformApi.md#platform_agent_coordinates) | **POST** /api/platform/agents/coordinates | 
 *PlatformApi* | [**platform_agent_create**](docs/PlatformApi.md#platform_agent_create) | **POST** /api/platform/agents | 
 *PlatformApi* | [**platform_agent_destroy**](docs/PlatformApi.md#platform_agent_destroy) | **DELETE** /api/platform/agents/{agent_id} | 
 *PlatformApi* | [**platform_agent_group_destroy**](docs/PlatformApi.md#platform_agent_group_destroy) | **DELETE** /api/platform/network/agent-groups/{group_id} | 
@@ -139,12 +150,13 @@ Class | Method | HTTP request | Description
 *PlatformApi* | [**platform_agent_service_subnet_update**](docs/PlatformApi.md#platform_agent_service_subnet_update) | **POST** /api/platform/agent-services-subnets | 
 *PlatformApi* | [**platform_agent_tag_index**](docs/PlatformApi.md#platform_agent_tag_index) | **GET** /api/platform/agent-tags | 
 *PlatformApi* | [**platform_agent_update**](docs/PlatformApi.md#platform_agent_update) | **PATCH** /api/platform/agents/{agent_id} | 
+*PlatformApi* | [**platform_agents_destroy**](docs/PlatformApi.md#platform_agents_destroy) | **POST** /api/platform/agents/remove | 
 *PlatformApi* | [**platform_api_key_create**](docs/PlatformApi.md#platform_api_key_create) | **POST** /api/platform/api-keys | 
 *PlatformApi* | [**platform_api_key_destroy**](docs/PlatformApi.md#platform_api_key_destroy) | **DELETE** /api/platform/api-keys/{api_key_id} | 
 *PlatformApi* | [**platform_api_key_index**](docs/PlatformApi.md#platform_api_key_index) | **GET** /api/platform/api-keys | 
-*PlatformApi* | [**platform_api_key_update**](docs/PlatformApi.md#platform_api_key_update) | **PATCH** /api/platform/api-keys/{api_key_id} | 
 *PlatformApi* | [**platform_config**](docs/PlatformApi.md#platform_config) | **GET** /api/platform/agent/{agent_id}/wg-config | 
 *PlatformApi* | [**platform_connection_agent_destroy**](docs/PlatformApi.md#platform_connection_agent_destroy) | **DELETE** /api/platform/connections/agents/{agent_id} | 
+*PlatformApi* | [**platform_connection_agents_destroy**](docs/PlatformApi.md#platform_connection_agents_destroy) | **POST** /api/platform/connections/agents/remove | 
 *PlatformApi* | [**platform_connection_create**](docs/PlatformApi.md#platform_connection_create) | **POST** /api/platform/connections | 
 *PlatformApi* | [**platform_connection_create_mesh**](docs/PlatformApi.md#platform_connection_create_mesh) | **POST** /api/platform/connections/mesh | 
 *PlatformApi* | [**platform_connection_create_p2p**](docs/PlatformApi.md#platform_connection_create_p2p) | **POST** /api/platform/connections/point-to-point | 
@@ -170,26 +182,43 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
-- [AnyOfApiKeyCreateRequestApiKeyValidUntil](docs/AnyOfApiKeyCreateRequestApiKeyValidUntil.md)
+ - [AccessTokenData](docs/AccessTokenData.md)
+ - [AccessTokenOrder](docs/AccessTokenOrder.md)
+ - [AccessTokenReadData](docs/AccessTokenReadData.md)
+ - [AccessTokenWriteData](docs/AccessTokenWriteData.md)
+ - [AnyOfApiKeyCreateRequestApiKeyValidUntil](docs/AnyOfApiKeyCreateRequestApiKeyValidUntil.md)
  - [AnyOfApiKeyDtoApiKeyCreatedAt](docs/AnyOfApiKeyDtoApiKeyCreatedAt.md)
  - [AnyOfApiKeyDtoApiKeyUpdatedAt](docs/AnyOfApiKeyDtoApiKeyUpdatedAt.md)
  - [AnyOfApiKeyDtoApiKeyValidUntil](docs/AnyOfApiKeyDtoApiKeyValidUntil.md)
  - [AnyOfApiKeyObjectApiKeyCreatedAt](docs/AnyOfApiKeyObjectApiKeyCreatedAt.md)
  - [AnyOfApiKeyObjectApiKeyUpdatedAt](docs/AnyOfApiKeyObjectApiKeyUpdatedAt.md)
  - [AnyOfApiKeyObjectApiKeyValidUntil](docs/AnyOfApiKeyObjectApiKeyValidUntil.md)
+ - [AnyOfVerifyMFARequestCode](docs/AnyOfVerifyMFARequestCode.md)
  - [ApiKeyCreateRequest](docs/ApiKeyCreateRequest.md)
  - [ApiKeyDto](docs/ApiKeyDto.md)
  - [ApiKeyObject](docs/ApiKeyObject.md)
- - [ApiKeyUpdateRequest](docs/ApiKeyUpdateRequest.md)
  - [ApiResponseApiKeyDtoArray_](docs/ApiResponseApiKeyDtoArray_.md)
  - [ApiResponseApiKeyObject_](docs/ApiResponseApiKeyObject_.md)
- - [AuthData](docs/AuthData.md)
  - [AuthSource](docs/AuthSource.md)
  - [AzureUserTokenDto](docs/AzureUserTokenDto.md)
- - [UserLoginObject](docs/UserLoginObject.md)
+ - [Body](docs/Body.md)
+ - [Body1](docs/Body1.md)
+ - [CheckMFAForNewSocialAccountRequest](docs/CheckMFAForNewSocialAccountRequest.md)
+ - [CheckMFAForNewSocialAccountResponse](docs/CheckMFAForNewSocialAccountResponse.md)
+ - [CodeGenerationResponse](docs/CodeGenerationResponse.md)
+ - [ConfirmMFARequest](docs/ConfirmMFARequest.md)
+ - [ContactRequest](docs/ContactRequest.md)
+ - [DisableMFARequest](docs/DisableMFARequest.md)
+ - [DisableMFAUsingBackupRequest](docs/DisableMFAUsingBackupRequest.md)
+ - [LoginRequest](docs/LoginRequest.md)
+ - [MFABackupCode](docs/MFABackupCode.md)
+ - [MFACode](docs/MFACode.md)
+ - [MfaCodeType](docs/MfaCodeType.md)
+ - [PermissionObject](docs/PermissionObject.md)
+ - [UserDataResponse](docs/UserDataResponse.md)
  - [UserSettingsObject](docs/UserSettingsObject.md)
+ - [VerifyMFARequest](docs/VerifyMFARequest.md)
  - [AdminAgentConfig](docs/AdminAgentConfig.md)
- - [AdminChangePasswordObject](docs/AdminChangePasswordObject.md)
  - [AgentConnectionObject](docs/AgentConnectionObject.md)
  - [AgentConnectionResponseConnectionPerformanceArrayArray_](docs/AgentConnectionResponseConnectionPerformanceArrayArray_.md)
  - [AgentConnectionStatus](docs/AgentConnectionStatus.md)
@@ -198,9 +227,9 @@ Class | Method | HTTP request | Description
  - [AgentFiltersObject](docs/AgentFiltersObject.md)
  - [AgentGroupObject](docs/AgentGroupObject.md)
  - [AgentInterfaceBwObject](docs/AgentInterfaceBwObject.md)
+ - [AgentInterfaceMetadata](docs/AgentInterfaceMetadata.md)
  - [AgentInterfaceObject](docs/AgentInterfaceObject.md)
  - [AgentInterfacesMetadata](docs/AgentInterfacesMetadata.md)
- - [AgentInterfacesMetadataPUBLIC](docs/AgentInterfacesMetadataPUBLIC.md)
  - [AgentLockedFields](docs/AgentLockedFields.md)
  - [AgentMessagePayload](docs/AgentMessagePayload.md)
  - [AgentMessageType](docs/AgentMessageType.md)
@@ -208,13 +237,15 @@ Class | Method | HTTP request | Description
  - [AgentObject](docs/AgentObject.md)
  - [AgentPathObject](docs/AgentPathObject.md)
  - [AgentProviderObject](docs/AgentProviderObject.md)
+ - [AgentProviderOrderString](docs/AgentProviderOrderString.md)
  - [AgentServiceObject](docs/AgentServiceObject.md)
  - [AgentServiceTypes](docs/AgentServiceTypes.md)
  - [AgentServicesDeletionObject](docs/AgentServicesDeletionObject.md)
+ - [AgentServicesUpdateChangesObject](docs/AgentServicesUpdateChangesObject.md)
  - [AgentServicesUpdateObject](docs/AgentServicesUpdateObject.md)
- - [AgentServicesUpdateObjectChanges](docs/AgentServicesUpdateObjectChanges.md)
  - [AgentSuccessResponse](docs/AgentSuccessResponse.md)
  - [AgentTagObject](docs/AgentTagObject.md)
+ - [AgentVersion](docs/AgentVersion.md)
  - [AgentsObject](docs/AgentsObject.md)
  - [AgentsPairObject](docs/AgentsPairObject.md)
  - [AnyOfAgentMessagePayload](docs/AnyOfAgentMessagePayload.md)
@@ -223,11 +254,7 @@ Class | Method | HTTP request | Description
  - [AnyOfWgCallableObject](docs/AnyOfWgCallableObject.md)
  - [AnyOfinlineResponse204](docs/AnyOfinlineResponse204.md)
  - [ApiKeyObject](docs/ApiKeyObject.md)
- - [AuthInfo](docs/AuthInfo.md)
- - [AuthUserObject](docs/AuthUserObject.md)
- - [AutoAttach](docs/AutoAttach.md)
  - [AutoPingPayload](docs/AutoPingPayload.md)
- - [AzureUserTokenDto](docs/AzureUserTokenDto.md)
  - [BehaviorType](docs/BehaviorType.md)
  - [BiStatistics](docs/BiStatistics.md)
  - [BiStatisticsEdgesPost](docs/BiStatisticsEdgesPost.md)
@@ -237,9 +264,6 @@ Class | Method | HTTP request | Description
  - [Body3](docs/Body3.md)
  - [Body4](docs/Body4.md)
  - [Body5](docs/Body5.md)
- - [Body6](docs/Body6.md)
- - [ChangeEmailObject](docs/ChangeEmailObject.md)
- - [ChangePasswordObject](docs/ChangePasswordObject.md)
  - [ChangePathObject](docs/ChangePathObject.md)
  - [ChangePathObjectData](docs/ChangePathObjectData.md)
  - [ChangePathObjectDataCosts](docs/ChangePathObjectDataCosts.md)
@@ -251,17 +275,19 @@ Class | Method | HTTP request | Description
  - [ConstraintEnum](docs/ConstraintEnum.md)
  - [ContentObject](docs/ContentObject.md)
  - [ContextType](docs/ContextType.md)
- - [DeleteUserObject](docs/DeleteUserObject.md)
- - [GeoIpObject](docs/GeoIpObject.md)
+ - [DefaultString](docs/DefaultString.md)
+ - [IdNumber](docs/IdNumber.md)
  - [InlineResponse204](docs/InlineResponse204.md)
  - [InterfaceObject](docs/InterfaceObject.md)
  - [InterfaceType](docs/InterfaceType.md)
+ - [Ipv4](docs/Ipv4.md)
  - [LanguageObject](docs/LanguageObject.md)
+ - [Latitude](docs/Latitude.md)
  - [LinkObject](docs/LinkObject.md)
  - [LinkTag](docs/LinkTag.md)
  - [LogsReadTimestampEntityTypes](docs/LogsReadTimestampEntityTypes.md)
  - [LogsReadTimestampObject](docs/LogsReadTimestampObject.md)
- - [MailBodyTemplates](docs/MailBodyTemplates.md)
+ - [Longitude](docs/Longitude.md)
  - [MetadataNetworkType](docs/MetadataNetworkType.md)
  - [NetworkAgentObject](docs/NetworkAgentObject.md)
  - [NetworkAgentPayload](docs/NetworkAgentPayload.md)
@@ -270,7 +296,9 @@ Class | Method | HTTP request | Description
  - [NetworkMetadata](docs/NetworkMetadata.md)
  - [NetworkObject](docs/NetworkObject.md)
  - [NetworkTopologyObject](docs/NetworkTopologyObject.md)
+ - [OrderString](docs/OrderString.md)
  - [PlatformAgentStatus](docs/PlatformAgentStatus.md)
+ - [PlatformAgentTypeLocal](docs/PlatformAgentTypeLocal.md)
  - [PlatformAgentsBodyObject](docs/PlatformAgentsBodyObject.md)
  - [PlatformAgentsErrorBody](docs/PlatformAgentsErrorBody.md)
  - [PlatformAgentsErrorResponse](docs/PlatformAgentsErrorResponse.md)
@@ -300,6 +328,7 @@ Class | Method | HTTP request | Description
  - [PlatformResponseSuccessBoolean_](docs/PlatformResponseSuccessBoolean_.md)
  - [PlatformResponseSuccessbooleanData](docs/PlatformResponseSuccessbooleanData.md)
  - [PlatformResponseVoid_](docs/PlatformResponseVoid_.md)
+ - [Port](docs/Port.md)
  - [ProviderObject](docs/ProviderObject.md)
  - [PublicAppInfoObject](docs/PublicAppInfoObject.md)
  - [PublicLanguageObject](docs/PublicLanguageObject.md)
@@ -312,16 +341,12 @@ Class | Method | HTTP request | Description
  - [PublicTranslationsObject](docs/PublicTranslationsObject.md)
  - [PublicVersionsObject](docs/PublicVersionsObject.md)
  - [RegionObject](docs/RegionObject.md)
- - [ResetPasswordObject](docs/ResetPasswordObject.md)
  - [ResetServerObject](docs/ResetServerObject.md)
- - [ResponseObject](docs/ResponseObject.md)
  - [RestartAgentObject](docs/RestartAgentObject.md)
  - [RouteObject](docs/RouteObject.md)
  - [S3ObjectListItem](docs/S3ObjectListItem.md)
  - [S3ObjectListItemOwner](docs/S3ObjectListItemOwner.md)
  - [S3SendData](docs/S3SendData.md)
- - [SendResetPasswordLinkObject](docs/SendResetPasswordLinkObject.md)
- - [SendVerifyEmailLinkObject](docs/SendVerifyEmailLinkObject.md)
  - [ServerAgentStatus](docs/ServerAgentStatus.md)
  - [ServerObject](docs/ServerObject.md)
  - [ServerSrSoftware](docs/ServerSrSoftware.md)
@@ -329,13 +354,11 @@ Class | Method | HTTP request | Description
  - [SettingWriteObject](docs/SettingWriteObject.md)
  - [SettingsTypes](docs/SettingsTypes.md)
  - [ShowSdnConnections](docs/ShowSdnConnections.md)
- - [SocialProviderObject](docs/SocialProviderObject.md)
- - [SocialProviderType](docs/SocialProviderType.md)
- - [SocialProviderTypeObject](docs/SocialProviderTypeObject.md)
- - [SocialProvidersIdsObject](docs/SocialProvidersIdsObject.md)
+ - [SkipNumber](docs/SkipNumber.md)
  - [SrPathObject](docs/SrPathObject.md)
  - [SrPolicyObject](docs/SrPolicyObject.md)
  - [Status](docs/Status.md)
+ - [TakeNumber](docs/TakeNumber.md)
  - [TopologyObject](docs/TopologyObject.md)
  - [TranslationObject](docs/TranslationObject.md)
  - [TsoaPartialAgentConnectionObject_](docs/TsoaPartialAgentConnectionObject_.md)
@@ -359,7 +382,6 @@ Class | Method | HTTP request | Description
  - [TsoaPartialTopologyObject_](docs/TsoaPartialTopologyObject_.md)
  - [TsoaPartialTranslationObject_](docs/TsoaPartialTranslationObject_.md)
  - [TsoaPartialTunnelObject_](docs/TsoaPartialTunnelObject_.md)
- - [TsoaPartialUserAdminObject_](docs/TsoaPartialUserAdminObject_.md)
  - [TsoaPartialUserSrObject_](docs/TsoaPartialUserSrObject_.md)
  - [TsoaPartialVersionObject_](docs/TsoaPartialVersionObject_.md)
  - [TsoaPartialVpnObject_](docs/TsoaPartialVpnObject_.md)
@@ -374,15 +396,10 @@ Class | Method | HTTP request | Description
  - [UserAgentCreateObject](docs/UserAgentCreateObject.md)
  - [UserAgentPatchObject](docs/UserAgentPatchObject.md)
  - [UserApiKeyCreateObject](docs/UserApiKeyCreateObject.md)
- - [UserApiKeyUpdateObject](docs/UserApiKeyUpdateObject.md)
- - [UserLoginObject](docs/UserLoginObject.md)
  - [UserNetworkObject](docs/UserNetworkObject.md)
- - [UserRegisterObject](docs/UserRegisterObject.md)
- - [UserRegisterViaProviderObject](docs/UserRegisterViaProviderObject.md)
  - [UserSettings](docs/UserSettings.md)
  - [UserSrDirection](docs/UserSrDirection.md)
  - [UserSrObject](docs/UserSrObject.md)
- - [VerifyEmailObject](docs/VerifyEmailObject.md)
  - [VersionObject](docs/VersionObject.md)
  - [VersionType](docs/VersionType.md)
  - [VisibilityType](docs/VisibilityType.md)
@@ -414,10 +431,12 @@ Class | Method | HTTP request | Description
  - [WgCreateInterfaceArgs](docs/WgCreateInterfaceArgs.md)
  - [WgCreateInterfaceMetadata](docs/WgCreateInterfaceMetadata.md)
  - [WgKeypairObject](docs/WgKeypairObject.md)
+ - [WgPublicKey](docs/WgPublicKey.md)
  - [WgRemoveInterface](docs/WgRemoveInterface.md)
  - [WgRemoveInterfaceArgs](docs/WgRemoveInterfaceArgs.md)
  - [WgRemovePeer](docs/WgRemovePeer.md)
  - [WgRemovePeerArgs](docs/WgRemovePeerArgs.md)
+ - [WhereString](docs/WhereString.md)
 
 ## Documentation For Authorization
 In order to use this SDK you must have a valid API Authorization token.

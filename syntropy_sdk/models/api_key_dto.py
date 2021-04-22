@@ -30,7 +30,6 @@ class ApiKeyDto(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "api_key_is_suspended": "bool",
         "api_key_name": "str",
         "api_key_valid_until": "AnyOfApiKeyDtoApiKeyValidUntil",
         "api_key_status": "bool",
@@ -40,7 +39,6 @@ class ApiKeyDto(object):
     }
 
     attribute_map = {
-        "api_key_is_suspended": "api_key_is_suspended",
         "api_key_name": "api_key_name",
         "api_key_valid_until": "api_key_valid_until",
         "api_key_status": "api_key_status",
@@ -51,7 +49,6 @@ class ApiKeyDto(object):
 
     def __init__(
         self,
-        api_key_is_suspended=None,
         api_key_name=None,
         api_key_valid_until=None,
         api_key_status=None,
@@ -60,7 +57,6 @@ class ApiKeyDto(object):
         api_key_updated_at=None,
     ):  # noqa: E501
         """ApiKeyDto - a model defined in Swagger"""  # noqa: E501
-        self._api_key_is_suspended = None
         self._api_key_name = None
         self._api_key_valid_until = None
         self._api_key_status = None
@@ -68,8 +64,6 @@ class ApiKeyDto(object):
         self._api_key_created_at = None
         self._api_key_updated_at = None
         self.discriminator = None
-        if api_key_is_suspended is not None:
-            self.api_key_is_suspended = api_key_is_suspended
         self.api_key_name = api_key_name
         if api_key_valid_until is not None:
             self.api_key_valid_until = api_key_valid_until
@@ -77,27 +71,6 @@ class ApiKeyDto(object):
         self.api_key_id = api_key_id
         self.api_key_created_at = api_key_created_at
         self.api_key_updated_at = api_key_updated_at
-
-    @property
-    def api_key_is_suspended(self):
-        """Gets the api_key_is_suspended of this ApiKeyDto.  # noqa: E501
-
-
-        :return: The api_key_is_suspended of this ApiKeyDto.  # noqa: E501
-        :rtype: bool
-        """
-        return self._api_key_is_suspended
-
-    @api_key_is_suspended.setter
-    def api_key_is_suspended(self, api_key_is_suspended):
-        """Sets the api_key_is_suspended of this ApiKeyDto.
-
-
-        :param api_key_is_suspended: The api_key_is_suspended of this ApiKeyDto.  # noqa: E501
-        :type: bool
-        """
-
-        self._api_key_is_suspended = api_key_is_suspended
 
     @property
     def api_key_name(self):

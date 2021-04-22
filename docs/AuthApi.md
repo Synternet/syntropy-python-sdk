@@ -6,10 +6,15 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_contact**](AuthApi.md#add_contact) | **POST** /auth/authorization/contact | 
 [**auth**](AuthApi.md#auth) | **GET** /auth/authorization | 
+[**auth_access_token_list**](AuthApi.md#auth_access_token_list) | **GET** /auth/authorization/access-token | 
+[**auth_access_token_login**](AuthApi.md#auth_access_token_login) | **POST** /auth/authorization/access-token/login | 
+[**auth_access_token_permissions_list**](AuthApi.md#auth_access_token_permissions_list) | **GET** /auth/authorization/permissions/access-token | 
+[**auth_access_token_user_create**](AuthApi.md#auth_access_token_user_create) | **POST** /auth/authorization/access-token | 
+[**auth_access_token_user_delete**](AuthApi.md#auth_access_token_user_delete) | **DELETE** /auth/authorization/access-token/{id} | 
+[**auth_create_user**](AuthApi.md#auth_create_user) | **POST** /auth/authorization/create-user | 
 [**auth_external_login**](AuthApi.md#auth_external_login) | **POST** /auth/authorization/external/login | 
 [**auth_logout**](AuthApi.md#auth_logout) | **POST** /auth/authorization/logout | 
-[**auth_user**](AuthApi.md#auth_user) | **POST** /auth/authorization/create-user | 
-[**auth_user_0**](AuthApi.md#auth_user_0) | **GET** /auth/authorization/user | 
+[**auth_show_user**](AuthApi.md#auth_show_user) | **GET** /auth/authorization/user | 
 [**auth_verify_email**](AuthApi.md#auth_verify_email) | **GET** /auth/authorization/verify-email/{code} | 
 [**update_settings**](AuthApi.md#update_settings) | **PUT** /auth/authorization/settings | 
 [**validate_captcha**](AuthApi.md#validate_captcha) | **POST** /auth/authorization/validate-captcha | 
@@ -116,12 +121,69 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **auth_external_login**
-> AzureUserTokenDto auth_external_login(body)
+# **auth_access_token_list**
+> list[AccessTokenReadData] auth_access_token_list(skip=skip, take=take, order=order)
 
 
 
-Logs in user using resource owner passwor credentials flow.
+List access tokens.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
+skip = 0 # float |  (optional) (default to 0)
+take = 10 # float |  (optional) (default to 10)
+order = syntropy_sdk.AccessTokenOrder() # AccessTokenOrder |  (optional)
+
+try:
+    api_response = api_instance.auth_access_token_list(skip=skip, take=take, order=order)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_access_token_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **skip** | **float**|  | [optional] [default to 0]
+ **take** | **float**|  | [optional] [default to 10]
+ **order** | [**AccessTokenOrder**](.md)|  | [optional] 
+
+### Return type
+
+[**list[AccessTokenReadData]**](AccessTokenReadData.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **auth_access_token_login**
+> AzureUserTokenDto auth_access_token_login(body)
+
+
+
+Retrieve JWT from access token.
 
 ### Example
 ```python
@@ -133,7 +195,255 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AuthApi()
-body = syntropy_sdk.UserLoginObject() # UserLoginObject | 
+body = syntropy_sdk.AccessTokenData() # AccessTokenData | 
+
+try:
+    api_response = api_instance.auth_access_token_login(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_access_token_login: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AccessTokenData**](AccessTokenData.md)|  | 
+
+### Return type
+
+[**AzureUserTokenDto**](AzureUserTokenDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **auth_access_token_permissions_list**
+> list[PermissionObject] auth_access_token_permissions_list()
+
+
+
+Entire list of available permissions access tokens can have.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
+
+try:
+    api_response = api_instance.auth_access_token_permissions_list()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_access_token_permissions_list: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[PermissionObject]**](PermissionObject.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **auth_access_token_user_create**
+> AccessTokenData auth_access_token_user_create(body)
+
+
+
+Create scopes access token.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
+body = syntropy_sdk.AccessTokenWriteData() # AccessTokenWriteData | 
+
+try:
+    api_response = api_instance.auth_access_token_user_create(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_access_token_user_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AccessTokenWriteData**](AccessTokenWriteData.md)|  | 
+
+### Return type
+
+[**AccessTokenData**](AccessTokenData.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **auth_access_token_user_delete**
+> Object auth_access_token_user_delete(id)
+
+
+
+Delete scopes access token.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: jwt
+configuration = syntropy_sdk.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    api_response = api_instance.auth_access_token_user_delete(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_access_token_user_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+[jwt](../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **auth_create_user**
+> auth_create_user(body)
+
+
+
+Used by Azure as web hook after new user is registered.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi()
+body = syntropy_sdk.Object() # Object | 
+
+try:
+    api_instance.auth_create_user(body)
+except ApiException as e:
+    print("Exception when calling AuthApi->auth_create_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **auth_external_login**
+> AzureUserTokenDto auth_external_login(body)
+
+
+
+Logs in user using resource owner password credentials flow.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import syntropy_sdk
+from syntropy_sdk.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = syntropy_sdk.AuthApi()
+body = syntropy_sdk.LoginRequest() # LoginRequest | 
 
 try:
     api_response = api_instance.auth_external_login(body)
@@ -146,7 +456,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UserLoginObject**](UserLoginObject.md)|  | 
+ **body** | [**LoginRequest**](LoginRequest.md)|  | 
 
 ### Return type
 
@@ -211,54 +521,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **auth_user**
-> auth_user(body)
-
-
-
-Used by Azure as web hook after new user is registered.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import syntropy_sdk
-from syntropy_sdk.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AuthApi()
-body = syntropy_sdk.Object() # Object | 
-
-try:
-    api_instance.auth_user(body)
-except ApiException as e:
-    print("Exception when calling AuthApi->auth_user: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **auth_user_0**
-> AuthData auth_user_0()
+# **auth_show_user**
+> UserDataResponse auth_show_user()
 
 
 
@@ -282,10 +546,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = syntropy_sdk.AuthApi(syntropy_sdk.ApiClient(configuration))
 
 try:
-    api_response = api_instance.auth_user_0()
+    api_response = api_instance.auth_show_user()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthApi->auth_user_0: %s\n" % e)
+    print("Exception when calling AuthApi->auth_show_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -293,7 +557,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AuthData**](AuthData.md)
+[**UserDataResponse**](UserDataResponse.md)
 
 ### Authorization
 

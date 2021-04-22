@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cmd** | [**list[Object]**](Object.md) |  | 
+**cmd** | [**list[VppCallableObject]**](VppCallableObject.md) |  | 
 **ip** | **str** |  | 
 **auth_key** | **str** |  | 
 

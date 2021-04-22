@@ -225,17 +225,639 @@ class AuthApi(object):
             collection_formats=collection_formats,
         )
 
+    def auth_access_token_list(self, **kwargs):  # noqa: E501
+        """auth_access_token_list  # noqa: E501
+
+        List access tokens.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float skip:
+        :param float take:
+        :param AccessTokenOrder order:
+        :return: list[AccessTokenReadData]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_access_token_list_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.auth_access_token_list_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def auth_access_token_list_with_http_info(self, **kwargs):  # noqa: E501
+        """auth_access_token_list  # noqa: E501
+
+        List access tokens.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float skip:
+        :param float take:
+        :param AccessTokenOrder order:
+        :return: list[AccessTokenReadData]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["skip", "take", "order"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_access_token_list" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "skip" in params:
+            query_params.append(("skip", params["skip"]))  # noqa: E501
+        if "take" in params:
+            query_params.append(("take", params["take"]))  # noqa: E501
+        if "order" in params:
+            query_params.append(("order", params["order"]))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/auth/authorization/access-token",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="list[AccessTokenReadData]",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def auth_access_token_login(self, body, **kwargs):  # noqa: E501
+        """auth_access_token_login  # noqa: E501
+
+        Retrieve JWT from access token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_login(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AccessTokenData body: (required)
+        :return: AzureUserTokenDto
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_access_token_login_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.auth_access_token_login_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def auth_access_token_login_with_http_info(self, body, **kwargs):  # noqa: E501
+        """auth_access_token_login  # noqa: E501
+
+        Retrieve JWT from access token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_login_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AccessTokenData body: (required)
+        :return: AzureUserTokenDto
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_access_token_login" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `auth_access_token_login`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            "/auth/authorization/access-token/login",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="AzureUserTokenDto",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def auth_access_token_permissions_list(self, **kwargs):  # noqa: E501
+        """auth_access_token_permissions_list  # noqa: E501
+
+        Entire list of available permissions access tokens can have.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_permissions_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: list[PermissionObject]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_access_token_permissions_list_with_http_info(
+                **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.auth_access_token_permissions_list_with_http_info(
+                **kwargs
+            )  # noqa: E501
+            return data
+
+    def auth_access_token_permissions_list_with_http_info(self, **kwargs):  # noqa: E501
+        """auth_access_token_permissions_list  # noqa: E501
+
+        Entire list of available permissions access tokens can have.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_permissions_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: list[PermissionObject]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_access_token_permissions_list" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/auth/authorization/permissions/access-token",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="list[PermissionObject]",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def auth_access_token_user_create(self, body, **kwargs):  # noqa: E501
+        """auth_access_token_user_create  # noqa: E501
+
+        Create scopes access token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_user_create(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AccessTokenWriteData body: (required)
+        :return: AccessTokenData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_access_token_user_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.auth_access_token_user_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
+            return data
+
+    def auth_access_token_user_create_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
+        """auth_access_token_user_create  # noqa: E501
+
+        Create scopes access token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_user_create_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AccessTokenWriteData body: (required)
+        :return: AccessTokenData
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_access_token_user_create" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `auth_access_token_user_create`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/auth/authorization/access-token",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="AccessTokenData",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def auth_access_token_user_delete(self, id, **kwargs):  # noqa: E501
+        """auth_access_token_user_delete  # noqa: E501
+
+        Delete scopes access token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_user_delete(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: (required)
+        :return: Object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_access_token_user_delete_with_http_info(
+                id, **kwargs
+            )  # noqa: E501
+        else:
+            (data) = self.auth_access_token_user_delete_with_http_info(
+                id, **kwargs
+            )  # noqa: E501
+            return data
+
+    def auth_access_token_user_delete_with_http_info(self, id, **kwargs):  # noqa: E501
+        """auth_access_token_user_delete  # noqa: E501
+
+        Delete scopes access token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_access_token_user_delete_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: (required)
+        :return: Object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_access_token_user_delete" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'id' is set
+        if "id" not in params or params["id"] is None:
+            raise ValueError(
+                "Missing the required parameter `id` when calling `auth_access_token_user_delete`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if "id" in params:
+            path_params["id"] = params["id"]  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["jwt"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/auth/authorization/access-token/{id}",
+            "DELETE",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="Object",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def auth_create_user(self, body, **kwargs):  # noqa: E501
+        """auth_create_user  # noqa: E501
+
+        Used by Azure as web hook after new user is registered.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_create_user(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Object body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.auth_create_user_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.auth_create_user_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def auth_create_user_with_http_info(self, body, **kwargs):  # noqa: E501
+        """auth_create_user  # noqa: E501
+
+        Used by Azure as web hook after new user is registered.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_create_user_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Object body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_create_user" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'body' is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `auth_create_user`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            "/auth/authorization/create-user",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def auth_external_login(self, body, **kwargs):  # noqa: E501
         """auth_external_login  # noqa: E501
 
-        Logs in user using resource owner passwor credentials flow.  # noqa: E501
+        Logs in user using resource owner password credentials flow.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.auth_external_login(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserLoginObject body: (required)
+        :param LoginRequest body: (required)
         :return: AzureUserTokenDto
                  If the method is called asynchronously,
                  returns the request thread.
@@ -252,14 +874,14 @@ class AuthApi(object):
     def auth_external_login_with_http_info(self, body, **kwargs):  # noqa: E501
         """auth_external_login  # noqa: E501
 
-        Logs in user using resource owner passwor credentials flow.  # noqa: E501
+        Logs in user using resource owner password credentials flow.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.auth_external_login_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserLoginObject body: (required)
+        :param LoginRequest body: (required)
         :return: AzureUserTokenDto
                  If the method is called asynchronously,
                  returns the request thread.
@@ -418,139 +1040,38 @@ class AuthApi(object):
             collection_formats=collection_formats,
         )
 
-    def auth_user(self, body, **kwargs):  # noqa: E501
-        """auth_user  # noqa: E501
+    def auth_show_user(self, **kwargs):  # noqa: E501
+        """auth_show_user  # noqa: E501
 
-        Used by Azure as web hook after new user is registered.  # noqa: E501
+        Returns authorized user data. This is recommended way to get the latest user's information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.auth_user(body, async_req=True)
+        >>> thread = api.auth_show_user(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param Object body: (required)
-        :return: None
+        :return: UserDataResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.auth_user_with_http_info(body, **kwargs)  # noqa: E501
+            return self.auth_show_user_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.auth_user_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.auth_show_user_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def auth_user_with_http_info(self, body, **kwargs):  # noqa: E501
-        """auth_user  # noqa: E501
-
-        Used by Azure as web hook after new user is registered.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.auth_user_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param Object body: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ["body"]  # noqa: E501
-        all_params.append("async_req")
-        all_params.append("_return_http_data_only")
-        all_params.append("_preload_content")
-        all_params.append("_request_timeout")
-
-        params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method auth_user" % key
-                )
-            params[key] = val
-        del params["kwargs"]
-        # verify the required parameter 'body' is set
-        if "body" not in params or params["body"] is None:
-            raise ValueError(
-                "Missing the required parameter `body` when calling `auth_user`"
-            )  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if "body" in params:
-            body_params = params["body"]
-        # HTTP header `Content-Type`
-        header_params[
-            "Content-Type"
-        ] = self.api_client.select_header_content_type(  # noqa: E501
-            ["application/json"]
-        )  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            "/auth/authorization/create-user",
-            "POST",
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get("async_req"),
-            _return_http_data_only=params.get("_return_http_data_only"),
-            _preload_content=params.get("_preload_content", True),
-            _request_timeout=params.get("_request_timeout"),
-            collection_formats=collection_formats,
-        )
-
-    def auth_user_0(self, **kwargs):  # noqa: E501
-        """auth_user_0  # noqa: E501
+    def auth_show_user_with_http_info(self, **kwargs):  # noqa: E501
+        """auth_show_user  # noqa: E501
 
         Returns authorized user data. This is recommended way to get the latest user's information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.auth_user_0(async_req=True)
+        >>> thread = api.auth_show_user_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :return: AuthData
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs["_return_http_data_only"] = True
-        if kwargs.get("async_req"):
-            return self.auth_user_0_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.auth_user_0_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def auth_user_0_with_http_info(self, **kwargs):  # noqa: E501
-        """auth_user_0  # noqa: E501
-
-        Returns authorized user data. This is recommended way to get the latest user's information.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.auth_user_0_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :return: AuthData
+        :return: UserDataResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -566,7 +1087,7 @@ class AuthApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method auth_user_0" % key
+                    " to method auth_show_user" % key
                 )
             params[key] = val
         del params["kwargs"]
@@ -600,7 +1121,7 @@ class AuthApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="AuthData",  # noqa: E501
+            response_type="UserDataResponse",  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),

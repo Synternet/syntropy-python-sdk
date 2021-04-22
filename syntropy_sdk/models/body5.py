@@ -29,37 +29,37 @@ class Body5(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"img": "str"}
+    swagger_types = {"synch_file": "str"}
 
-    attribute_map = {"img": "img"}
+    attribute_map = {"synch_file": "synch_file"}
 
-    def __init__(self, img=None):  # noqa: E501
+    def __init__(self, synch_file=None):  # noqa: E501
         """Body5 - a model defined in Swagger"""  # noqa: E501
-        self._img = None
+        self._synch_file = None
         self.discriminator = None
-        if img is not None:
-            self.img = img
+        if synch_file is not None:
+            self.synch_file = synch_file
 
     @property
-    def img(self):
-        """Gets the img of this Body5.  # noqa: E501
+    def synch_file(self):
+        """Gets the synch_file of this Body5.  # noqa: E501
 
 
-        :return: The img of this Body5.  # noqa: E501
+        :return: The synch_file of this Body5.  # noqa: E501
         :rtype: str
         """
-        return self._img
+        return self._synch_file
 
-    @img.setter
-    def img(self, img):
-        """Sets the img of this Body5.
+    @synch_file.setter
+    def synch_file(self, synch_file):
+        """Sets the synch_file of this Body5.
 
 
-        :param img: The img of this Body5.  # noqa: E501
+        :param synch_file: The synch_file of this Body5.  # noqa: E501
         :type: str
         """
 
-        self._img = img
+        self._synch_file = synch_file
 
     def to_dict(self):
         """Returns the model properties as a dict"""
