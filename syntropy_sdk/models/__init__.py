@@ -13,6 +13,7 @@
 
 from __future__ import absolute_import
 
+# import models into model package
 from syntropy_sdk.models.access_token_data import AccessTokenData
 from syntropy_sdk.models.access_token_order import AccessTokenOrder
 from syntropy_sdk.models.access_token_read_data import AccessTokenReadData
