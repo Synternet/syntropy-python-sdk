@@ -129,7 +129,6 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**validate_captcha**](docs/AuthApi.md#validate_captcha) | **POST** /auth/authorization/validate-captcha | 
 *AuthApi* | [**validate_captcha_0**](docs/AuthApi.md#validate_captcha_0) | **POST** /auth/authorization/validate-limit | 
 *AuthApi* | [**validate_user_credentials**](docs/AuthApi.md#validate_user_credentials) | **POST** /auth/authorization/validate-user | 
-
 *ApiKeysApi* | [**api_key_create**](docs/ApiKeysApi.md#api_key_create) | **POST** /api/api-keys | 
 *ApiKeysApi* | [**api_key_destroy**](docs/ApiKeysApi.md#api_key_destroy) | **DELETE** /api/api-keys/{id} | 
 *ApiKeysApi* | [**api_key_index**](docs/ApiKeysApi.md#api_key_index) | **GET** /api/api-keys | 
