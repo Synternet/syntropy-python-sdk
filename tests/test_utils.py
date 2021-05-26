@@ -47,7 +47,7 @@ def test_determine_batch_size__fail():
 
 def test_batched_request__query():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
-    assert utils.BatchedRequest(func, max_payload_size=5)(
+    assert utils.BatchedRequestQuery(func, max_query_size=5)(
         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     ) == {"data": [i + 1 for _ in range(5) for i in range(3)]}
     assert func.call_args_list == [
@@ -61,7 +61,7 @@ def test_batched_request__query():
 
 def test_batched_request__query_full():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
-    assert utils.BatchedRequest(func, max_payload_size=20)(
+    assert utils.BatchedRequestQuery(func, max_query_size=20)(
         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     ) == {
         "data": [1, 2, 3],
@@ -73,7 +73,7 @@ def test_batched_request__query_full():
 
 def test_batched_request__body():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
-    assert utils.BatchedRequest(func, max_payload_size=30)(
+    assert utils.BatchedRequestBody(func, max_payload_size=30)(
         body={"data": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, param="param"
     ) == {"data": [1, 2, 3, 1, 2, 3]}
     assert func.call_args_list == [
@@ -84,7 +84,7 @@ def test_batched_request__body():
 
 def test_batched_request__body_full():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
-    assert utils.BatchedRequest(func, max_payload_size=100)(
+    assert utils.BatchedRequestBody(func, max_payload_size=100)(
         body={"data": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, param="param"
     ) == {"data": [1, 2, 3]}
     assert func.call_args_list == [
@@ -94,7 +94,7 @@ def test_batched_request__body_full():
 
 def test_batched_request__body_empty_result():
     func = mock.Mock(return_value=None)
-    assert utils.BatchedRequest(
+    assert utils.BatchedRequestBody(
         func, translator=utils._default_translator("smth"), max_payload_size=100
     )(body={"id": 123, "smth": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, param="param") == {
         "data": [None]
@@ -103,4 +103,32 @@ def test_batched_request__body_empty_result():
         mock.call(
             body={"id": 123, "smth": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, param="param"
         ),
+    ]
+
+
+def test_batched_request__filter():
+    func = mock.Mock(return_value={"data": [1, 2, 3]})
+    data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assert utils.BatchedRequestFilter(
+        func, max_query_size=20, filter_name="ids", filter_data=data
+    )(filter="filter:123") == {"data": [i + 1 for _ in range(5) for i in range(3)]}
+    assert func.call_args_list == [
+        mock.call(filter="filter:123,ids[]:0;1"),
+        mock.call(filter="filter:123,ids[]:2;3"),
+        mock.call(filter="filter:123,ids[]:4;5"),
+        mock.call(filter="filter:123,ids[]:6;7"),
+        mock.call(filter="filter:123,ids[]:8;9"),
+    ]
+
+
+def test_batched_request__filter():
+    func = mock.Mock(return_value={"data": [1, 2, 3]})
+    data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    assert utils.BatchedRequestFilter(
+        func, max_query_size=200, filter_name="ids", filter_data=data
+    )(filter="filter:123") == {
+        "data": [1, 2, 3],
+    }
+    assert func.call_args_list == [
+        mock.call(filter="filter:123,ids[]:0;1;2;3;4;5;6;7;8;9"),
     ]

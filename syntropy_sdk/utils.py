@@ -98,20 +98,7 @@ class BatchedRequest:
         self.translator = translator
 
     def __call__(self, *args, **kwargs):
-        if "body" in kwargs:
-            return self._call_with_body(*args, **kwargs)
-        else:
-            return self._call_with_query(*args, **kwargs)
-
-    def _call_with_body(self, *args, **kwargs):
-        body = kwargs.pop("body")
-        data = self.translator(body, None)
-        return self._call(body, data, *args, **kwargs)
-
-    def _call_with_query(self, *args, **kwargs):
-        query = args[0]
-        args = args[1:]
-        return self._call(None, query, *args, **kwargs)
+        raise NotImplementedError
 
     def _calculate_payload_size(self, data):
         if isinstance(data, list):
@@ -145,6 +132,79 @@ class BatchedRequest:
                 response = func(batch, *args, **kwargs)
             else:
                 response = func(body=batch, *args, **kwargs)
+            if isinstance(response, dict) and "data" in response:
+                result += response["data"]
+            else:
+                result.append(response)
+        # NOTE: Undesirable side effect: will transform non-list responses to {"data": data}
+        return {"data": result}
+
+
+class BatchedRequestBody(BatchedRequest):
+    def __init__(
+        self,
+        func,
+        max_payload_size,
+        translator=_default_translator("data"),
+    ):
+        super().__init__(func, max_payload_size, translator=translator)
+
+    def __call__(self, *args, **kwargs):
+        body = kwargs.pop("body")
+        data = self.translator(body, None)
+        return self._call(body, data, *args, **kwargs)
+
+
+class BatchedRequestQuery(BatchedRequest):
+    def __init__(
+        self,
+        func,
+        max_query_size,
+    ):
+        super().__init__(func, max_query_size)
+
+    def __call__(self, *args, **kwargs):
+        query = args[0]
+        args = args[1:]
+        return self._call(None, query, *args, **kwargs)
+
+
+class BatchedRequestFilter(BatchedRequest):
+    def __init__(
+        self,
+        func,
+        max_query_size,
+        filter_name,
+        filter_data,
+    ):
+        super().__init__(func, max_query_size)
+        self.filter_name = filter_name
+        self.filter_data = filter_data
+        self._original_filter_size = 0
+
+    def _calculate_payload_size(self, data):
+        return (
+            len(";".join(str(i) for i in data))
+            + len(f"{self.filter_name}[]:")
+            + self._original_filter_size
+        )
+
+    def __call__(self, *args, **kwargs):
+        result = []
+        original_filter = []
+        if "filter" in kwargs:
+            original_filter = [kwargs["filter"]]
+            self._original_filter_size = len(kwargs["filter"])
+            del kwargs["filter"]
+
+        for batch in self._generate_batches(None, self.filter_data):
+            func = WithRetry(self.func)
+
+            filter_batch = f"{self.filter_name}[]:{';'.join(str(i) for i in batch)}"
+            filters = original_filter + [filter_batch]
+            new_filter = ",".join(filters)
+            response = func(filter=new_filter, *args, **kwargs)
+
             if isinstance(response, dict) and "data" in response:
                 result += response["data"]
             else:
