@@ -76,8 +76,11 @@ class ApiClient(object):
         self.user_agent = "Swagger-Codegen/0.1.2/python"
 
     def __del__(self):
-        self.pool.close()
-        self.pool.join()
+        # NOTE: This is actually a bug in the client code generator and causes lots of issues.
+        # A more robust solution is already available, however, it is not yet released.
+        # self.pool.close()
+        # self.pool.join()
+        pass
 
     @property
     def user_agent(self):

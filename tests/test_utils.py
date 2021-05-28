@@ -132,3 +132,19 @@ def test_batched_request__filter():
     assert func.call_args_list == [
         mock.call(filter="filter:123,ids[]:0;1;2;3;4;5;6;7;8;9"),
     ]
+
+
+def test_login_with_access_token():
+    with mock.patch.object(
+        sdk.AuthApi,
+        "auth_access_token_login",
+        autospec=True,
+        return_value=sdk.models.AzureUserTokenDto(
+            access_token="token",
+            token_type="bearer",
+            expires_in="whenever",
+            refresh_token="refresh token",
+        ),
+    ) as the_mock:
+        assert "token" == utils.login_with_access_token("the url", "access token")
+        the_mock.assert_called_once()

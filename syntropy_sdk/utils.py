@@ -1,7 +1,7 @@
 import json
 import time
 
-from syntropy_sdk import MetadataNetworkType
+from syntropy_sdk import ApiClient, AuthApi, Configuration, MetadataNetworkType, models
 from syntropy_sdk.exceptions import *
 
 TAKE_MAX_ITEMS_PER_CALL = 2048
@@ -211,3 +211,21 @@ class BatchedRequestFilter(BatchedRequest):
                 result.append(response)
         # NOTE: Undesirable side effect: will transform non-list responses to {"data": data}
         return {"data": result}
+
+
+def login_with_access_token(api_url, access_token):
+    """Exchange access token retrieved from the Platform for JWT access token.
+    JWT access token can be used to make Platform API calls.
+    """
+    config = Configuration()
+    config.host = api_url
+    api = ApiClient(config)
+    auth = AuthApi(api)
+
+    body = models.AccessTokenData(access_token=access_token)
+    try:
+        response = auth.auth_access_token_login(body)
+        return response.access_token
+    finally:
+        del auth
+        del api
