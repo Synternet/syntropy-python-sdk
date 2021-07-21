@@ -1,7 +1,7 @@
 import json
 import time
 
-from syntropy_sdk import ApiClient, AuthApi, Configuration, MetadataNetworkType, models
+from syntropy_sdk import ApiClient, AuthApi, Configuration, models
 from syntropy_sdk.exceptions import *
 
 TAKE_MAX_ITEMS_PER_CALL = 2048
@@ -9,9 +9,9 @@ MAX_PAYLOAD_SIZE = 99 * 1024
 MAX_QUERY_FIELD_SIZE = 2 * 1024
 
 ALLOWED_NETWORK_TOPOLOGIES = (
-    MetadataNetworkType.P2P,
-    MetadataNetworkType.P2M,
-    MetadataNetworkType.MESH,
+    "P2P",
+    "P2M",
+    "MESH",
 )
 
 

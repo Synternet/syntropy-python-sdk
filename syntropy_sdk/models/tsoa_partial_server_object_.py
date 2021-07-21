@@ -60,6 +60,8 @@ class TsoaPartialServerObject_(object):
         "server_public_tap_vpp_ipv4": "str",
         "server_agent_status": "ServerAgentStatus",
         "server_agent_key": "str",
+        "server_agent_version": "str",
+        "server_kernel_version": "str",
         "vpn_id": "float",
         "server_skip_configuration": "bool",
     }
@@ -95,6 +97,8 @@ class TsoaPartialServerObject_(object):
         "server_public_tap_vpp_ipv4": "server_public_tap_vpp_ipv4",
         "server_agent_status": "server_agent_status",
         "server_agent_key": "server_agent_key",
+        "server_agent_version": "server_agent_version",
+        "server_kernel_version": "server_kernel_version",
         "vpn_id": "vpn_id",
         "server_skip_configuration": "server_skip_configuration",
     }
@@ -131,6 +135,8 @@ class TsoaPartialServerObject_(object):
         server_public_tap_vpp_ipv4=None,
         server_agent_status=None,
         server_agent_key=None,
+        server_agent_version=None,
+        server_kernel_version=None,
         vpn_id=None,
         server_skip_configuration=None,
     ):  # noqa: E501
@@ -165,6 +171,8 @@ class TsoaPartialServerObject_(object):
         self._server_public_tap_vpp_ipv4 = None
         self._server_agent_status = None
         self._server_agent_key = None
+        self._server_agent_version = None
+        self._server_kernel_version = None
         self._vpn_id = None
         self._server_skip_configuration = None
         self.discriminator = None
@@ -228,6 +236,10 @@ class TsoaPartialServerObject_(object):
             self.server_agent_status = server_agent_status
         if server_agent_key is not None:
             self.server_agent_key = server_agent_key
+        if server_agent_version is not None:
+            self.server_agent_version = server_agent_version
+        if server_kernel_version is not None:
+            self.server_kernel_version = server_kernel_version
         if vpn_id is not None:
             self.vpn_id = vpn_id
         if server_skip_configuration is not None:
@@ -862,6 +874,48 @@ class TsoaPartialServerObject_(object):
         """
 
         self._server_agent_key = server_agent_key
+
+    @property
+    def server_agent_version(self):
+        """Gets the server_agent_version of this TsoaPartialServerObject_.  # noqa: E501
+
+
+        :return: The server_agent_version of this TsoaPartialServerObject_.  # noqa: E501
+        :rtype: str
+        """
+        return self._server_agent_version
+
+    @server_agent_version.setter
+    def server_agent_version(self, server_agent_version):
+        """Sets the server_agent_version of this TsoaPartialServerObject_.
+
+
+        :param server_agent_version: The server_agent_version of this TsoaPartialServerObject_.  # noqa: E501
+        :type: str
+        """
+
+        self._server_agent_version = server_agent_version
+
+    @property
+    def server_kernel_version(self):
+        """Gets the server_kernel_version of this TsoaPartialServerObject_.  # noqa: E501
+
+
+        :return: The server_kernel_version of this TsoaPartialServerObject_.  # noqa: E501
+        :rtype: str
+        """
+        return self._server_kernel_version
+
+    @server_kernel_version.setter
+    def server_kernel_version(self, server_kernel_version):
+        """Sets the server_kernel_version of this TsoaPartialServerObject_.
+
+
+        :param server_kernel_version: The server_kernel_version of this TsoaPartialServerObject_.  # noqa: E501
+        :type: str
+        """
+
+        self._server_kernel_version = server_kernel_version
 
     @property
     def vpn_id(self):

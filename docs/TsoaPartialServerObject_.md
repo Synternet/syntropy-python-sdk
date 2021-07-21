@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **server_public_tap_vpp_ipv4** | **str** |  | [optional] 
 **server_agent_status** | [**ServerAgentStatus**](ServerAgentStatus.md) |  | [optional] 
 **server_agent_key** | **str** |  | [optional] 
+**server_agent_version** | **str** |  | [optional] 
+**server_kernel_version** | **str** |  | [optional] 
 **vpn_id** | **float** |  | [optional] 
 **server_skip_configuration** | **bool** |  | [optional] 
 
