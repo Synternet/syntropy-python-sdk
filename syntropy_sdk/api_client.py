@@ -75,13 +75,6 @@ class ApiClient(object):
         # Set default User-Agent.
         self.user_agent = "Swagger-Codegen/0.1.2/python"
 
-    def __del__(self):
-        # NOTE: This is actually a bug in the client code generator and causes lots of issues.
-        # A more robust solution is already available, however, it is not yet released.
-        # self.pool.close()
-        # self.pool.join()
-        pass
-
     @property
     def user_agent(self):
         """User agent for this API client"""

@@ -33,6 +33,7 @@ class TsoaPartialApiKeyObject_(object):
         "user_id": "float",
         "api_key_secret": "str",
         "api_key_name": "str",
+        "api_key_description": "str",
         "api_key_valid_until": "str",
     }
 
@@ -40,6 +41,7 @@ class TsoaPartialApiKeyObject_(object):
         "user_id": "user_id",
         "api_key_secret": "api_key_secret",
         "api_key_name": "api_key_name",
+        "api_key_description": "api_key_description",
         "api_key_valid_until": "api_key_valid_until",
     }
 
@@ -48,12 +50,14 @@ class TsoaPartialApiKeyObject_(object):
         user_id=None,
         api_key_secret=None,
         api_key_name=None,
+        api_key_description=None,
         api_key_valid_until=None,
     ):  # noqa: E501
         """TsoaPartialApiKeyObject_ - a model defined in Swagger"""  # noqa: E501
         self._user_id = None
         self._api_key_secret = None
         self._api_key_name = None
+        self._api_key_description = None
         self._api_key_valid_until = None
         self.discriminator = None
         if user_id is not None:
@@ -62,6 +66,8 @@ class TsoaPartialApiKeyObject_(object):
             self.api_key_secret = api_key_secret
         if api_key_name is not None:
             self.api_key_name = api_key_name
+        if api_key_description is not None:
+            self.api_key_description = api_key_description
         if api_key_valid_until is not None:
             self.api_key_valid_until = api_key_valid_until
 
@@ -127,6 +133,27 @@ class TsoaPartialApiKeyObject_(object):
         """
 
         self._api_key_name = api_key_name
+
+    @property
+    def api_key_description(self):
+        """Gets the api_key_description of this TsoaPartialApiKeyObject_.  # noqa: E501
+
+
+        :return: The api_key_description of this TsoaPartialApiKeyObject_.  # noqa: E501
+        :rtype: str
+        """
+        return self._api_key_description
+
+    @api_key_description.setter
+    def api_key_description(self, api_key_description):
+        """Sets the api_key_description of this TsoaPartialApiKeyObject_.
+
+
+        :param api_key_description: The api_key_description of this TsoaPartialApiKeyObject_.  # noqa: E501
+        :type: str
+        """
+
+        self._api_key_description = api_key_description
 
     @property
     def api_key_valid_until(self):

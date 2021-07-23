@@ -21,19 +21,43 @@ from syntropy_sdk.models.access_token_write_data import AccessTokenWriteData
 
 # import models into model package
 from syntropy_sdk.models.admin_agent_config import AdminAgentConfig
+from syntropy_sdk.models.agent_connection_agent_agent_tag_object import (
+    AgentConnectionAgentAgentTagObject,
+)
+from syntropy_sdk.models.agent_connection_agent_object import AgentConnectionAgentObject
+from syntropy_sdk.models.agent_connection_find_and_count_object import (
+    AgentConnectionFindAndCountObject,
+)
 from syntropy_sdk.models.agent_connection_object import AgentConnectionObject
 from syntropy_sdk.models.agent_connection_response_connection_performance_array_array_ import (
     AgentConnectionResponseConnectionPerformanceArrayArray_,
 )
 from syntropy_sdk.models.agent_connection_status import AgentConnectionStatus
+from syntropy_sdk.models.agent_connection_subnet_statuses import (
+    AgentConnectionSubnetStatuses,
+)
 from syntropy_sdk.models.agent_connection_subnets_deletion_object import (
     AgentConnectionSubnetsDeletionObject,
 )
+from syntropy_sdk.models.agent_connection_with_services_agent import (
+    AgentConnectionWithServicesAgent,
+)
+from syntropy_sdk.models.agent_connection_with_services_agent_agent_services import (
+    AgentConnectionWithServicesAgentAgentServices,
+)
+from syntropy_sdk.models.agent_connection_with_services_agent_agent_services_subnets import (
+    AgentConnectionWithServicesAgentAgentServicesSubnets,
+)
+from syntropy_sdk.models.agent_connection_with_services_object import (
+    AgentConnectionWithServicesObject,
+)
 from syntropy_sdk.models.agent_coordinates_object import AgentCoordinatesObject
+from syntropy_sdk.models.agent_create_agent_object import AgentCreateAgentObject
 from syntropy_sdk.models.agent_filters_object import AgentFiltersObject
-from syntropy_sdk.models.agent_group_object import AgentGroupObject
+from syntropy_sdk.models.agent_found_and_count_object import AgentFoundAndCountObject
 from syntropy_sdk.models.agent_interface_bw_object import AgentInterfaceBwObject
 from syntropy_sdk.models.agent_interface_metadata import AgentInterfaceMetadata
+from syntropy_sdk.models.agent_interface_model_object import AgentInterfaceModelObject
 from syntropy_sdk.models.agent_interface_object import AgentInterfaceObject
 from syntropy_sdk.models.agent_interfaces_metadata import AgentInterfacesMetadata
 from syntropy_sdk.models.agent_locked_fields import AgentLockedFields
@@ -42,9 +66,12 @@ from syntropy_sdk.models.agent_message_type import AgentMessageType
 from syntropy_sdk.models.agent_network_object import AgentNetworkObject
 from syntropy_sdk.models.agent_object import AgentObject
 from syntropy_sdk.models.agent_path_object import AgentPathObject
+from syntropy_sdk.models.agent_provider import AgentProvider
 from syntropy_sdk.models.agent_provider_object import AgentProviderObject
 from syntropy_sdk.models.agent_provider_order_string import AgentProviderOrderString
-from syntropy_sdk.models.agent_service_object import AgentServiceObject
+from syntropy_sdk.models.agent_service_get_services_by_agent_id_user_id_object import (
+    AgentServiceGetServicesByAgentIdUserIdObject,
+)
 from syntropy_sdk.models.agent_service_types import AgentServiceTypes
 from syntropy_sdk.models.agent_services_deletion_object import (
     AgentServicesDeletionObject,
@@ -54,8 +81,10 @@ from syntropy_sdk.models.agent_services_update_changes_object import (
 )
 from syntropy_sdk.models.agent_services_update_object import AgentServicesUpdateObject
 from syntropy_sdk.models.agent_success_response import AgentSuccessResponse
-from syntropy_sdk.models.agent_tag_object import AgentTagObject
+from syntropy_sdk.models.agent_tag_model_object import AgentTagModelObject
+from syntropy_sdk.models.agent_tag_pair_object import AgentTagPairObject
 from syntropy_sdk.models.agent_version import AgentVersion
+from syntropy_sdk.models.agent_wg_config import AgentWgConfig
 from syntropy_sdk.models.agents_object import AgentsObject
 from syntropy_sdk.models.agents_pair_object import AgentsPairObject
 from syntropy_sdk.models.any_of_agent_message_payload import AnyOfAgentMessagePayload
@@ -86,7 +115,6 @@ from syntropy_sdk.models.any_of_platform_response_error_item_value import (
 from syntropy_sdk.models.any_of_verify_mfa_request_code import AnyOfVerifyMFARequestCode
 from syntropy_sdk.models.any_of_vpp_callable_object import AnyOfVppCallableObject
 from syntropy_sdk.models.any_of_wg_callable_object import AnyOfWgCallableObject
-from syntropy_sdk.models.any_ofinline_response204 import AnyOfinlineResponse204
 from syntropy_sdk.models.api_key_create_request import ApiKeyCreateRequest
 from syntropy_sdk.models.api_key_dto import ApiKeyDto
 from syntropy_sdk.models.api_key_object import ApiKeyObject
@@ -120,6 +148,7 @@ from syntropy_sdk.models.color_object import ColorObject
 from syntropy_sdk.models.confirm_mfa_request import ConfirmMFARequest
 from syntropy_sdk.models.connection_creation_body import ConnectionCreationBody
 from syntropy_sdk.models.connection_creation_body_mesh import ConnectionCreationBodyMesh
+from syntropy_sdk.models.connection_creation_body_p2_t import ConnectionCreationBodyP2T
 from syntropy_sdk.models.connection_creation_body_p2p import ConnectionCreationBodyP2p
 from syntropy_sdk.models.connection_performance import ConnectionPerformance
 from syntropy_sdk.models.constraint_enum import ConstraintEnum
@@ -132,7 +161,6 @@ from syntropy_sdk.models.disable_mfa_using_backup_request import (
     DisableMFAUsingBackupRequest,
 )
 from syntropy_sdk.models.id_number import IdNumber
-from syntropy_sdk.models.inline_response204 import InlineResponse204
 from syntropy_sdk.models.interface_object import InterfaceObject
 from syntropy_sdk.models.interface_type import InterfaceType
 from syntropy_sdk.models.ipv4 import Ipv4
@@ -146,17 +174,12 @@ from syntropy_sdk.models.logs_read_timestamp_entity_types import (
 )
 from syntropy_sdk.models.logs_read_timestamp_object import LogsReadTimestampObject
 from syntropy_sdk.models.longitude import Longitude
-from syntropy_sdk.models.metadata_network_type import MetadataNetworkType
 from syntropy_sdk.models.mfa_backup_code import MFABackupCode
 from syntropy_sdk.models.mfa_code import MFACode
 from syntropy_sdk.models.mfa_code_type import MfaCodeType
-from syntropy_sdk.models.network_agent_object import NetworkAgentObject
-from syntropy_sdk.models.network_agent_payload import NetworkAgentPayload
-from syntropy_sdk.models.network_genesis_type import NetworkGenesisType
+from syntropy_sdk.models.network_info_agent import NetworkInfoAgent
+from syntropy_sdk.models.network_info_connection import NetworkInfoConnection
 from syntropy_sdk.models.network_info_object import NetworkInfoObject
-from syntropy_sdk.models.network_metadata import NetworkMetadata
-from syntropy_sdk.models.network_object import NetworkObject
-from syntropy_sdk.models.network_topology_object import NetworkTopologyObject
 from syntropy_sdk.models.order_string import OrderString
 from syntropy_sdk.models.permission_object import PermissionObject
 from syntropy_sdk.models.platform_agent_status import PlatformAgentStatus
@@ -173,44 +196,47 @@ from syntropy_sdk.models.platform_agents_hit_object import PlatformAgentsHitObje
 from syntropy_sdk.models.platform_agents_hit_object_source import (
     PlatformAgentsHitObjectSource,
 )
-from syntropy_sdk.models.platform_response5_b_link_tag_public5_d3_f3_astring5_b_link_tag_sdn15_d3_f3_astring5_b_link_tag_sdn25_d3_f3_astring5_b_link_tag_sdn35_d3_f3_astring_ import (
-    PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_,
-)
-from syntropy_sdk.models.platform_response5_b_link_tag_public5_d3_f3_astring5_b_link_tag_sdn15_d3_f3_astring5_b_link_tag_sdn25_d3_f3_astring5_b_link_tag_sdn35_d3_f3_astring_data import (
-    PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3AstringData,
-)
 from syntropy_sdk.models.platform_response_admin_agent_config_ import (
     PlatformResponseAdminAgentConfig_,
+)
+from syntropy_sdk.models.platform_response_agent_connection_find_and_count_object_array_ import (
+    PlatformResponseAgentConnectionFindAndCountObjectArray_,
 )
 from syntropy_sdk.models.platform_response_agent_connection_object_array_ import (
     PlatformResponseAgentConnectionObjectArray_,
 )
+from syntropy_sdk.models.platform_response_agent_connection_with_services_object_array_ import (
+    PlatformResponseAgentConnectionWithServicesObjectArray_,
+)
 from syntropy_sdk.models.platform_response_agent_coordinates_object_array_ import (
     PlatformResponseAgentCoordinatesObjectArray_,
+)
+from syntropy_sdk.models.platform_response_agent_create_agent_object_ import (
+    PlatformResponseAgentCreateAgentObject_,
 )
 from syntropy_sdk.models.platform_response_agent_filters_object_ import (
     PlatformResponseAgentFiltersObject_,
 )
-from syntropy_sdk.models.platform_response_agent_object_ import (
-    PlatformResponseAgentObject_,
+from syntropy_sdk.models.platform_response_agent_found_and_count_object_array_ import (
+    PlatformResponseAgentFoundAndCountObjectArray_,
 )
-from syntropy_sdk.models.platform_response_agent_object_array_ import (
-    PlatformResponseAgentObjectArray_,
+from syntropy_sdk.models.platform_response_agent_provider_ import (
+    PlatformResponseAgentProvider_,
 )
-from syntropy_sdk.models.platform_response_agent_provider_object_ import (
-    PlatformResponseAgentProviderObject_,
+from syntropy_sdk.models.platform_response_agent_provider_array_ import (
+    PlatformResponseAgentProviderArray_,
 )
-from syntropy_sdk.models.platform_response_agent_provider_object_array_ import (
-    PlatformResponseAgentProviderObjectArray_,
-)
-from syntropy_sdk.models.platform_response_agent_service_object_array_ import (
-    PlatformResponseAgentServiceObjectArray_,
+from syntropy_sdk.models.platform_response_agent_service_get_services_by_agent_id_user_id_object_array_ import (
+    PlatformResponseAgentServiceGetServicesByAgentIdUserIdObjectArray_,
 )
 from syntropy_sdk.models.platform_response_agent_success_response_ import (
     PlatformResponseAgentSuccessResponse_,
 )
-from syntropy_sdk.models.platform_response_agent_tag_object_array_ import (
-    PlatformResponseAgentTagObjectArray_,
+from syntropy_sdk.models.platform_response_agent_tag_model_object_array_ import (
+    PlatformResponseAgentTagModelObjectArray_,
+)
+from syntropy_sdk.models.platform_response_agent_wg_config_ import (
+    PlatformResponseAgentWgConfig_,
 )
 from syntropy_sdk.models.platform_response_api_key_object_ import (
     PlatformResponseApiKeyObject_,
@@ -222,22 +248,12 @@ from syntropy_sdk.models.platform_response_error_item import PlatformResponseErr
 from syntropy_sdk.models.platform_response_network_info_object_ import (
     PlatformResponseNetworkInfoObject_,
 )
-from syntropy_sdk.models.platform_response_network_object_ import (
-    PlatformResponseNetworkObject_,
-)
-from syntropy_sdk.models.platform_response_network_object_array_ import (
-    PlatformResponseNetworkObjectArray_,
-)
-from syntropy_sdk.models.platform_response_network_topology_object_array_ import (
-    PlatformResponseNetworkTopologyObjectArray_,
-)
 from syntropy_sdk.models.platform_response_success_boolean_ import (
     PlatformResponseSuccessBoolean_,
 )
 from syntropy_sdk.models.platform_response_successboolean_data import (
     PlatformResponseSuccessbooleanData,
 )
-from syntropy_sdk.models.platform_response_void_ import PlatformResponseVoid_
 from syntropy_sdk.models.port import Port
 from syntropy_sdk.models.provider_object import ProviderObject
 from syntropy_sdk.models.public_app_info_object import PublicAppInfoObject
@@ -273,6 +289,21 @@ from syntropy_sdk.models.status import Status
 from syntropy_sdk.models.take_number import TakeNumber
 from syntropy_sdk.models.topology_object import TopologyObject
 from syntropy_sdk.models.translation_object import TranslationObject
+from syntropy_sdk.models.tsoa_agent_config_info_network import (
+    TsoaAgentConfigInfoNetwork,
+)
+from syntropy_sdk.models.tsoa_agent_config_info_network_public import (
+    TsoaAgentConfigInfoNetworkPUBLIC,
+)
+from syntropy_sdk.models.tsoa_omit_agent_interface_agent_ import (
+    TsoaOmitAgentInterfaceAgent_,
+)
+from syntropy_sdk.models.tsoa_omit_agent_service_model_agent_or_agent_service_subnets_ import (
+    TsoaOmitAgentServiceModelAgentOrAgentServiceSubnets_,
+)
+from syntropy_sdk.models.tsoa_omit_agent_service_subnet_agent_service_or_agent_network_or_agent_or_agent_connection_subnets_ import (
+    TsoaOmitAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_,
+)
 from syntropy_sdk.models.tsoa_partial_agent_connection_object_ import (
     TsoaPartialAgentConnectionObject_,
 )
@@ -300,7 +331,6 @@ from syntropy_sdk.models.tsoa_partial_interface_object_ import (
 )
 from syntropy_sdk.models.tsoa_partial_language_object_ import TsoaPartialLanguageObject_
 from syntropy_sdk.models.tsoa_partial_link_object_ import TsoaPartialLinkObject_
-from syntropy_sdk.models.tsoa_partial_network_object_ import TsoaPartialNetworkObject_
 from syntropy_sdk.models.tsoa_partial_provider_object_ import TsoaPartialProviderObject_
 from syntropy_sdk.models.tsoa_partial_region_object_ import TsoaPartialRegionObject_
 from syntropy_sdk.models.tsoa_partial_route_object_ import TsoaPartialRouteObject_
@@ -325,6 +355,42 @@ from syntropy_sdk.models.tsoa_pick_agent_agent_name_or_agent_id_ import (
 from syntropy_sdk.models.tsoa_pick_agent_agent_version_ import (
     TsoaPickAgentAgentVersion_,
 )
+from syntropy_sdk.models.tsoa_pick_agent_connection_agent1_id_or_agent2_id_or_agent_connection_id_or_agent_connection_status_or_agent_connection_status_reason_ import (
+    TsoaPickAgentConnectionAgent1IdOrAgent2IdOrAgentConnectionIdOrAgentConnectionStatusOrAgentConnectionStatusReason_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_connection_agent_connection_id_ import (
+    TsoaPickAgentConnectionAgentConnectionId_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_connection_or_agent_connection_id_or_agent_connection_updated_at_or_agent_connection_link_tag_or_agent_connection_status_or_agent_connection_status_reason_or_agent_connection_latency_ms_or_agent_connection_packet_loss_ import (
+    TsoaPickAgentConnectionOrAgentConnectionIdOrAgentConnectionUpdatedAtOrAgentConnectionLinkTagOrAgentConnectionStatusOrAgentConnectionStatusReasonOrAgentConnectionLatencyMsOrAgentConnectionPacketLoss_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_connection_subnet_or_agent_connection_subnet_id_or_agent_service_subnet_id_or_agent_connection_subnet_is_enabled_or_agent_connection_subnet_error_or_agent_connection_subnet_status_ import (
+    TsoaPickAgentConnectionSubnetOrAgentConnectionSubnetIdOrAgentServiceSubnetIdOrAgentConnectionSubnetIsEnabledOrAgentConnectionSubnetErrorOrAgentConnectionSubnetStatus_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_interface_exclude_keyof_agent_interface_agent_ import (
+    TsoaPickAgentInterfaceExcludeKeyofAgentInterfaceAgent_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_or_agent_id_or_agent_public_ipv4_or_agent_location_city_or_agent_locked_fields_or_agent_name_or_agent_type_or_agent_version_or_agent_modified_at_or_agent_status_or_agent_is_online_or_agent_is_virtual_ import (
+    TsoaPickAgentOrAgentIdOrAgentPublicIpv4OrAgentLocationCityOrAgentLockedFieldsOrAgentNameOrAgentTypeOrAgentVersionOrAgentModifiedAtOrAgentStatusOrAgentIsOnlineOrAgentIsVirtual_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_provider_agent_provider_name_or_agent_provider_id_ import (
+    TsoaPickAgentProviderAgentProviderNameOrAgentProviderId_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_service_model_exclude_keyof_agent_service_model_agent_or_agent_service_subnets_ import (
+    TsoaPickAgentServiceModelExcludeKeyofAgentServiceModelAgentOrAgentServiceSubnets_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_service_subnet_exclude_keyof_agent_service_subnet_agent_service_or_agent_network_or_agent_or_agent_connection_subnets_ import (
+    TsoaPickAgentServiceSubnetExcludeKeyofAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_tag_agent_tag_id_or_agent_tag_name_ import (
+    TsoaPickAgentTagAgentTagIdOrAgentTagName_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_tag_agent_tag_id_or_user_id_or_agent_tag_name_ import (
+    TsoaPickAgentTagAgentTagIdOrUserIdOrAgentTagName_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_tag_agent_tag_name_or_agent_tag_id_ import (
+    TsoaPickAgentTagAgentTagNameOrAgentTagId_,
+)
 from syntropy_sdk.models.tunnel_object import TunnelObject
 from syntropy_sdk.models.update_status_body import UpdateStatusBody
 from syntropy_sdk.models.update_status_body_subnets_to_update import (
@@ -335,7 +401,6 @@ from syntropy_sdk.models.user_agent_create_object import UserAgentCreateObject
 from syntropy_sdk.models.user_agent_patch_object import UserAgentPatchObject
 from syntropy_sdk.models.user_api_key_create_object import UserApiKeyCreateObject
 from syntropy_sdk.models.user_data_response import UserDataResponse
-from syntropy_sdk.models.user_network_object import UserNetworkObject
 from syntropy_sdk.models.user_settings import UserSettings
 from syntropy_sdk.models.user_settings_object import UserSettingsObject
 from syntropy_sdk.models.user_sr_direction import UserSrDirection

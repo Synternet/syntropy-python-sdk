@@ -129,18 +129,11 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**validate_captcha**](docs/AuthApi.md#validate_captcha) | **POST** /auth/authorization/validate-captcha | 
 *AuthApi* | [**validate_captcha_0**](docs/AuthApi.md#validate_captcha_0) | **POST** /auth/authorization/validate-limit | 
 *AuthApi* | [**validate_user_credentials**](docs/AuthApi.md#validate_user_credentials) | **POST** /auth/authorization/validate-user | 
-*ApiKeysApi* | [**api_key_create**](docs/ApiKeysApi.md#api_key_create) | **POST** /api/api-keys | 
-*ApiKeysApi* | [**api_key_destroy**](docs/ApiKeysApi.md#api_key_destroy) | **DELETE** /api/api-keys/{id} | 
-*ApiKeysApi* | [**api_key_index**](docs/ApiKeysApi.md#api_key_index) | **GET** /api/api-keys | 
-*ApiKeysApi* | [**api_key_show**](docs/ApiKeysApi.md#api_key_show) | **GET** /api/api-keys/{id} | 
-*ApiKeysApi* | [**api_key_update**](docs/ApiKeysApi.md#api_key_update) | **PATCH** /api/api-keys/{id} | 
 *PlatformApi* | [**platform_admin_agent_config**](docs/PlatformApi.md#platform_admin_agent_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
 *PlatformApi* | [**platform_agent_config**](docs/PlatformApi.md#platform_agent_config) | **GET** /api/platform/agent/{agent_id}/config | 
 *PlatformApi* | [**platform_agent_coordinates**](docs/PlatformApi.md#platform_agent_coordinates) | **POST** /api/platform/agents/coordinates | 
 *PlatformApi* | [**platform_agent_create**](docs/PlatformApi.md#platform_agent_create) | **POST** /api/platform/agents | 
 *PlatformApi* | [**platform_agent_destroy**](docs/PlatformApi.md#platform_agent_destroy) | **DELETE** /api/platform/agents/{agent_id} | 
-*PlatformApi* | [**platform_agent_group_destroy**](docs/PlatformApi.md#platform_agent_group_destroy) | **DELETE** /api/platform/network/agent-groups/{group_id} | 
-*PlatformApi* | [**platform_agent_group_update**](docs/PlatformApi.md#platform_agent_group_update) | **PUT** /api/platform/network/agent-groups/{group_id} | 
 *PlatformApi* | [**platform_agent_id_name_pairs**](docs/PlatformApi.md#platform_agent_id_name_pairs) | **GET** /api/platform/agents/filters | 
 *PlatformApi* | [**platform_agent_index**](docs/PlatformApi.md#platform_agent_index) | **GET** /api/platform/agents | 
 *PlatformApi* | [**platform_agent_provider_index**](docs/PlatformApi.md#platform_agent_provider_index) | **GET** /api/platform/agent-providers | 
@@ -159,6 +152,7 @@ Class | Method | HTTP request | Description
 *PlatformApi* | [**platform_connection_agents_destroy**](docs/PlatformApi.md#platform_connection_agents_destroy) | **POST** /api/platform/connections/agents/remove | 
 *PlatformApi* | [**platform_connection_create**](docs/PlatformApi.md#platform_connection_create) | **POST** /api/platform/connections | 
 *PlatformApi* | [**platform_connection_create_mesh**](docs/PlatformApi.md#platform_connection_create_mesh) | **POST** /api/platform/connections/mesh | 
+*PlatformApi* | [**platform_connection_create_p2_t**](docs/PlatformApi.md#platform_connection_create_p2_t) | **POST** /api/platform/connections/point-to-tag | 
 *PlatformApi* | [**platform_connection_create_p2p**](docs/PlatformApi.md#platform_connection_create_p2p) | **POST** /api/platform/connections/point-to-point | 
 *PlatformApi* | [**platform_connection_destroy**](docs/PlatformApi.md#platform_connection_destroy) | **POST** /api/platform/connections/remove | 
 *PlatformApi* | [**platform_connection_destroy_deprecated**](docs/PlatformApi.md#platform_connection_destroy_deprecated) | **DELETE** /api/platform/connections/{connection_id} | 
@@ -167,18 +161,8 @@ Class | Method | HTTP request | Description
 *PlatformApi* | [**platform_connection_service_update**](docs/PlatformApi.md#platform_connection_service_update) | **POST** /api/platform/connection-services | 
 *PlatformApi* | [**platform_connection_subnet_destroy**](docs/PlatformApi.md#platform_connection_subnet_destroy) | **POST** /api/platform/connection-services-delete | 
 *PlatformApi* | [**platform_logs_read_timestamp**](docs/PlatformApi.md#platform_logs_read_timestamp) | **POST** /api/platform/logs-reads-timestamp | 
-*PlatformApi* | [**platform_network_agent_create**](docs/PlatformApi.md#platform_network_agent_create) | **POST** /api/platform/network/{network_id}/agents/add | 
-*PlatformApi* | [**platform_network_agent_create_deprecated**](docs/PlatformApi.md#platform_network_agent_create_deprecated) | **POST** /api/platform/network/{network_id}/agents | 
-*PlatformApi* | [**platform_network_agent_destroy**](docs/PlatformApi.md#platform_network_agent_destroy) | **DELETE** /api/platform/networks/{network_id}/agents/{agent_id} | 
-*PlatformApi* | [**platform_network_agent_group_create**](docs/PlatformApi.md#platform_network_agent_group_create) | **POST** /api/platform/network/{network_id}/agent-groups/{group_name} | 
-*PlatformApi* | [**platform_network_agent_remove**](docs/PlatformApi.md#platform_network_agent_remove) | **POST** /api/platform/networks/{network_id}/agents/remove | 
-*PlatformApi* | [**platform_network_agent_remove_deprecated**](docs/PlatformApi.md#platform_network_agent_remove_deprecated) | **DELETE** /api/platform/networks/{network_id}/agents | 
-*PlatformApi* | [**platform_network_create**](docs/PlatformApi.md#platform_network_create) | **POST** /api/platform/networks | 
-*PlatformApi* | [**platform_network_destroy**](docs/PlatformApi.md#platform_network_destroy) | **DELETE** /api/platform/networks/{network_id} | 
-*PlatformApi* | [**platform_network_index**](docs/PlatformApi.md#platform_network_index) | **GET** /api/platform/networks | 
-*PlatformApi* | [**platform_network_info**](docs/PlatformApi.md#platform_network_info) | **GET** /api/platform/network/{network_id}/info | 
-*PlatformApi* | [**platform_network_network_agent_destroy_deprecated**](docs/PlatformApi.md#platform_network_network_agent_destroy_deprecated) | **POST** /api/platform/network/{network_id}/agents/delete | 
-*PlatformApi* | [**platform_network_topology**](docs/PlatformApi.md#platform_network_topology) | **GET** /api/platform/networks/topology | 
+*PlatformApi* | [**platform_network_info**](docs/PlatformApi.md#platform_network_info) | **GET** /api/platform/network/info | 
+
 
 ## Documentation For Models
 
@@ -219,15 +203,25 @@ Class | Method | HTTP request | Description
  - [UserSettingsObject](docs/UserSettingsObject.md)
  - [VerifyMFARequest](docs/VerifyMFARequest.md)
  - [AdminAgentConfig](docs/AdminAgentConfig.md)
+ - [AgentConnectionAgentAgentTagObject](docs/AgentConnectionAgentAgentTagObject.md)
+ - [AgentConnectionAgentObject](docs/AgentConnectionAgentObject.md)
+ - [AgentConnectionFindAndCountObject](docs/AgentConnectionFindAndCountObject.md)
  - [AgentConnectionObject](docs/AgentConnectionObject.md)
  - [AgentConnectionResponseConnectionPerformanceArrayArray_](docs/AgentConnectionResponseConnectionPerformanceArrayArray_.md)
  - [AgentConnectionStatus](docs/AgentConnectionStatus.md)
+ - [AgentConnectionSubnetStatuses](docs/AgentConnectionSubnetStatuses.md)
  - [AgentConnectionSubnetsDeletionObject](docs/AgentConnectionSubnetsDeletionObject.md)
+ - [AgentConnectionWithServicesAgent](docs/AgentConnectionWithServicesAgent.md)
+ - [AgentConnectionWithServicesAgentAgentServices](docs/AgentConnectionWithServicesAgentAgentServices.md)
+ - [AgentConnectionWithServicesAgentAgentServicesSubnets](docs/AgentConnectionWithServicesAgentAgentServicesSubnets.md)
+ - [AgentConnectionWithServicesObject](docs/AgentConnectionWithServicesObject.md)
  - [AgentCoordinatesObject](docs/AgentCoordinatesObject.md)
+ - [AgentCreateAgentObject](docs/AgentCreateAgentObject.md)
  - [AgentFiltersObject](docs/AgentFiltersObject.md)
- - [AgentGroupObject](docs/AgentGroupObject.md)
+ - [AgentFoundAndCountObject](docs/AgentFoundAndCountObject.md)
  - [AgentInterfaceBwObject](docs/AgentInterfaceBwObject.md)
  - [AgentInterfaceMetadata](docs/AgentInterfaceMetadata.md)
+ - [AgentInterfaceModelObject](docs/AgentInterfaceModelObject.md)
  - [AgentInterfaceObject](docs/AgentInterfaceObject.md)
  - [AgentInterfacesMetadata](docs/AgentInterfacesMetadata.md)
  - [AgentLockedFields](docs/AgentLockedFields.md)
@@ -236,23 +230,25 @@ Class | Method | HTTP request | Description
  - [AgentNetworkObject](docs/AgentNetworkObject.md)
  - [AgentObject](docs/AgentObject.md)
  - [AgentPathObject](docs/AgentPathObject.md)
+ - [AgentProvider](docs/AgentProvider.md)
  - [AgentProviderObject](docs/AgentProviderObject.md)
  - [AgentProviderOrderString](docs/AgentProviderOrderString.md)
- - [AgentServiceObject](docs/AgentServiceObject.md)
+ - [AgentServiceGetServicesByAgentIdUserIdObject](docs/AgentServiceGetServicesByAgentIdUserIdObject.md)
  - [AgentServiceTypes](docs/AgentServiceTypes.md)
  - [AgentServicesDeletionObject](docs/AgentServicesDeletionObject.md)
  - [AgentServicesUpdateChangesObject](docs/AgentServicesUpdateChangesObject.md)
  - [AgentServicesUpdateObject](docs/AgentServicesUpdateObject.md)
  - [AgentSuccessResponse](docs/AgentSuccessResponse.md)
- - [AgentTagObject](docs/AgentTagObject.md)
+ - [AgentTagModelObject](docs/AgentTagModelObject.md)
+ - [AgentTagPairObject](docs/AgentTagPairObject.md)
  - [AgentVersion](docs/AgentVersion.md)
+ - [AgentWgConfig](docs/AgentWgConfig.md)
  - [AgentsObject](docs/AgentsObject.md)
  - [AgentsPairObject](docs/AgentsPairObject.md)
  - [AnyOfAgentMessagePayload](docs/AnyOfAgentMessagePayload.md)
  - [AnyOfPlatformResponseErrorItemValue](docs/AnyOfPlatformResponseErrorItemValue.md)
  - [AnyOfVppCallableObject](docs/AnyOfVppCallableObject.md)
  - [AnyOfWgCallableObject](docs/AnyOfWgCallableObject.md)
- - [AnyOfinlineResponse204](docs/AnyOfinlineResponse204.md)
  - [ApiKeyObject](docs/ApiKeyObject.md)
  - [AutoPingPayload](docs/AutoPingPayload.md)
  - [BehaviorType](docs/BehaviorType.md)
@@ -270,6 +266,7 @@ Class | Method | HTTP request | Description
  - [ColorObject](docs/ColorObject.md)
  - [ConnectionCreationBody](docs/ConnectionCreationBody.md)
  - [ConnectionCreationBodyMesh](docs/ConnectionCreationBodyMesh.md)
+ - [ConnectionCreationBodyP2T](docs/ConnectionCreationBodyP2T.md)
  - [ConnectionCreationBodyP2p](docs/ConnectionCreationBodyP2p.md)
  - [ConnectionPerformance](docs/ConnectionPerformance.md)
  - [ConstraintEnum](docs/ConstraintEnum.md)
@@ -277,7 +274,6 @@ Class | Method | HTTP request | Description
  - [ContextType](docs/ContextType.md)
  - [DefaultString](docs/DefaultString.md)
  - [IdNumber](docs/IdNumber.md)
- - [InlineResponse204](docs/InlineResponse204.md)
  - [InterfaceObject](docs/InterfaceObject.md)
  - [InterfaceType](docs/InterfaceType.md)
  - [Ipv4](docs/Ipv4.md)
@@ -288,14 +284,9 @@ Class | Method | HTTP request | Description
  - [LogsReadTimestampEntityTypes](docs/LogsReadTimestampEntityTypes.md)
  - [LogsReadTimestampObject](docs/LogsReadTimestampObject.md)
  - [Longitude](docs/Longitude.md)
- - [MetadataNetworkType](docs/MetadataNetworkType.md)
- - [NetworkAgentObject](docs/NetworkAgentObject.md)
- - [NetworkAgentPayload](docs/NetworkAgentPayload.md)
- - [NetworkGenesisType](docs/NetworkGenesisType.md)
+ - [NetworkInfoAgent](docs/NetworkInfoAgent.md)
+ - [NetworkInfoConnection](docs/NetworkInfoConnection.md)
  - [NetworkInfoObject](docs/NetworkInfoObject.md)
- - [NetworkMetadata](docs/NetworkMetadata.md)
- - [NetworkObject](docs/NetworkObject.md)
- - [NetworkTopologyObject](docs/NetworkTopologyObject.md)
  - [OrderString](docs/OrderString.md)
  - [PlatformAgentStatus](docs/PlatformAgentStatus.md)
  - [PlatformAgentTypeLocal](docs/PlatformAgentTypeLocal.md)
@@ -305,29 +296,26 @@ Class | Method | HTTP request | Description
  - [PlatformAgentsErrorResponseHits](docs/PlatformAgentsErrorResponseHits.md)
  - [PlatformAgentsHitObject](docs/PlatformAgentsHitObject.md)
  - [PlatformAgentsHitObjectSource](docs/PlatformAgentsHitObjectSource.md)
- - [PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3AstringData](docs/PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3AstringData.md)
- - [PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_](docs/PlatformResponse5BLinkTagPublic5D3F3Astring5BLinkTagSdn15D3F3Astring5BLinkTagSdn25D3F3Astring5BLinkTagSdn35D3F3Astring_.md)
  - [PlatformResponseAdminAgentConfig_](docs/PlatformResponseAdminAgentConfig_.md)
+ - [PlatformResponseAgentConnectionFindAndCountObjectArray_](docs/PlatformResponseAgentConnectionFindAndCountObjectArray_.md)
  - [PlatformResponseAgentConnectionObjectArray_](docs/PlatformResponseAgentConnectionObjectArray_.md)
+ - [PlatformResponseAgentConnectionWithServicesObjectArray_](docs/PlatformResponseAgentConnectionWithServicesObjectArray_.md)
  - [PlatformResponseAgentCoordinatesObjectArray_](docs/PlatformResponseAgentCoordinatesObjectArray_.md)
+ - [PlatformResponseAgentCreateAgentObject_](docs/PlatformResponseAgentCreateAgentObject_.md)
  - [PlatformResponseAgentFiltersObject_](docs/PlatformResponseAgentFiltersObject_.md)
- - [PlatformResponseAgentObjectArray_](docs/PlatformResponseAgentObjectArray_.md)
- - [PlatformResponseAgentObject_](docs/PlatformResponseAgentObject_.md)
- - [PlatformResponseAgentProviderObjectArray_](docs/PlatformResponseAgentProviderObjectArray_.md)
- - [PlatformResponseAgentProviderObject_](docs/PlatformResponseAgentProviderObject_.md)
- - [PlatformResponseAgentServiceObjectArray_](docs/PlatformResponseAgentServiceObjectArray_.md)
+ - [PlatformResponseAgentFoundAndCountObjectArray_](docs/PlatformResponseAgentFoundAndCountObjectArray_.md)
+ - [PlatformResponseAgentProviderArray_](docs/PlatformResponseAgentProviderArray_.md)
+ - [PlatformResponseAgentProvider_](docs/PlatformResponseAgentProvider_.md)
+ - [PlatformResponseAgentServiceGetServicesByAgentIdUserIdObjectArray_](docs/PlatformResponseAgentServiceGetServicesByAgentIdUserIdObjectArray_.md)
  - [PlatformResponseAgentSuccessResponse_](docs/PlatformResponseAgentSuccessResponse_.md)
- - [PlatformResponseAgentTagObjectArray_](docs/PlatformResponseAgentTagObjectArray_.md)
+ - [PlatformResponseAgentTagModelObjectArray_](docs/PlatformResponseAgentTagModelObjectArray_.md)
+ - [PlatformResponseAgentWgConfig_](docs/PlatformResponseAgentWgConfig_.md)
  - [PlatformResponseApiKeyObjectArray_](docs/PlatformResponseApiKeyObjectArray_.md)
  - [PlatformResponseApiKeyObject_](docs/PlatformResponseApiKeyObject_.md)
  - [PlatformResponseErrorItem](docs/PlatformResponseErrorItem.md)
  - [PlatformResponseNetworkInfoObject_](docs/PlatformResponseNetworkInfoObject_.md)
- - [PlatformResponseNetworkObjectArray_](docs/PlatformResponseNetworkObjectArray_.md)
- - [PlatformResponseNetworkObject_](docs/PlatformResponseNetworkObject_.md)
- - [PlatformResponseNetworkTopologyObjectArray_](docs/PlatformResponseNetworkTopologyObjectArray_.md)
  - [PlatformResponseSuccessBoolean_](docs/PlatformResponseSuccessBoolean_.md)
  - [PlatformResponseSuccessbooleanData](docs/PlatformResponseSuccessbooleanData.md)
- - [PlatformResponseVoid_](docs/PlatformResponseVoid_.md)
  - [Port](docs/Port.md)
  - [ProviderObject](docs/ProviderObject.md)
  - [PublicAppInfoObject](docs/PublicAppInfoObject.md)
@@ -361,6 +349,11 @@ Class | Method | HTTP request | Description
  - [TakeNumber](docs/TakeNumber.md)
  - [TopologyObject](docs/TopologyObject.md)
  - [TranslationObject](docs/TranslationObject.md)
+ - [TsoaAgentConfigInfoNetwork](docs/TsoaAgentConfigInfoNetwork.md)
+ - [TsoaAgentConfigInfoNetworkPUBLIC](docs/TsoaAgentConfigInfoNetworkPUBLIC.md)
+ - [TsoaOmitAgentInterfaceAgent_](docs/TsoaOmitAgentInterfaceAgent_.md)
+ - [TsoaOmitAgentServiceModelAgentOrAgentServiceSubnets_](docs/TsoaOmitAgentServiceModelAgentOrAgentServiceSubnets_.md)
+ - [TsoaOmitAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_](docs/TsoaOmitAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_.md)
  - [TsoaPartialAgentConnectionObject_](docs/TsoaPartialAgentConnectionObject_.md)
  - [TsoaPartialAgentInterfaceBwObject_](docs/TsoaPartialAgentInterfaceBwObject_.md)
  - [TsoaPartialAgentInterfaceObject_](docs/TsoaPartialAgentInterfaceObject_.md)
@@ -374,7 +367,6 @@ Class | Method | HTTP request | Description
  - [TsoaPartialInterfaceObject_](docs/TsoaPartialInterfaceObject_.md)
  - [TsoaPartialLanguageObject_](docs/TsoaPartialLanguageObject_.md)
  - [TsoaPartialLinkObject_](docs/TsoaPartialLinkObject_.md)
- - [TsoaPartialNetworkObject_](docs/TsoaPartialNetworkObject_.md)
  - [TsoaPartialProviderObject_](docs/TsoaPartialProviderObject_.md)
  - [TsoaPartialRegionObject_](docs/TsoaPartialRegionObject_.md)
  - [TsoaPartialRouteObject_](docs/TsoaPartialRouteObject_.md)
@@ -389,6 +381,18 @@ Class | Method | HTTP request | Description
  - [TsoaPickAgentAgentLocationCountry_](docs/TsoaPickAgentAgentLocationCountry_.md)
  - [TsoaPickAgentAgentNameOrAgentId_](docs/TsoaPickAgentAgentNameOrAgentId_.md)
  - [TsoaPickAgentAgentVersion_](docs/TsoaPickAgentAgentVersion_.md)
+ - [TsoaPickAgentConnectionAgent1IdOrAgent2IdOrAgentConnectionIdOrAgentConnectionStatusOrAgentConnectionStatusReason_](docs/TsoaPickAgentConnectionAgent1IdOrAgent2IdOrAgentConnectionIdOrAgentConnectionStatusOrAgentConnectionStatusReason_.md)
+ - [TsoaPickAgentConnectionAgentConnectionId_](docs/TsoaPickAgentConnectionAgentConnectionId_.md)
+ - [TsoaPickAgentConnectionOrAgentConnectionIdOrAgentConnectionUpdatedAtOrAgentConnectionLinkTagOrAgentConnectionStatusOrAgentConnectionStatusReasonOrAgentConnectionLatencyMsOrAgentConnectionPacketLoss_](docs/TsoaPickAgentConnectionOrAgentConnectionIdOrAgentConnectionUpdatedAtOrAgentConnectionLinkTagOrAgentConnectionStatusOrAgentConnectionStatusReasonOrAgentConnectionLatencyMsOrAgentConnectionPacketLoss_.md)
+ - [TsoaPickAgentConnectionSubnetOrAgentConnectionSubnetIdOrAgentServiceSubnetIdOrAgentConnectionSubnetIsEnabledOrAgentConnectionSubnetErrorOrAgentConnectionSubnetStatus_](docs/TsoaPickAgentConnectionSubnetOrAgentConnectionSubnetIdOrAgentServiceSubnetIdOrAgentConnectionSubnetIsEnabledOrAgentConnectionSubnetErrorOrAgentConnectionSubnetStatus_.md)
+ - [TsoaPickAgentInterfaceExcludeKeyofAgentInterfaceAgent_](docs/TsoaPickAgentInterfaceExcludeKeyofAgentInterfaceAgent_.md)
+ - [TsoaPickAgentOrAgentIdOrAgentPublicIpv4OrAgentLocationCityOrAgentLockedFieldsOrAgentNameOrAgentTypeOrAgentVersionOrAgentModifiedAtOrAgentStatusOrAgentIsOnlineOrAgentIsVirtual_](docs/TsoaPickAgentOrAgentIdOrAgentPublicIpv4OrAgentLocationCityOrAgentLockedFieldsOrAgentNameOrAgentTypeOrAgentVersionOrAgentModifiedAtOrAgentStatusOrAgentIsOnlineOrAgentIsVirtual_.md)
+ - [TsoaPickAgentProviderAgentProviderNameOrAgentProviderId_](docs/TsoaPickAgentProviderAgentProviderNameOrAgentProviderId_.md)
+ - [TsoaPickAgentServiceModelExcludeKeyofAgentServiceModelAgentOrAgentServiceSubnets_](docs/TsoaPickAgentServiceModelExcludeKeyofAgentServiceModelAgentOrAgentServiceSubnets_.md)
+ - [TsoaPickAgentServiceSubnetExcludeKeyofAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_](docs/TsoaPickAgentServiceSubnetExcludeKeyofAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_.md)
+ - [TsoaPickAgentTagAgentTagIdOrAgentTagName_](docs/TsoaPickAgentTagAgentTagIdOrAgentTagName_.md)
+ - [TsoaPickAgentTagAgentTagIdOrUserIdOrAgentTagName_](docs/TsoaPickAgentTagAgentTagIdOrUserIdOrAgentTagName_.md)
+ - [TsoaPickAgentTagAgentTagNameOrAgentTagId_](docs/TsoaPickAgentTagAgentTagNameOrAgentTagId_.md)
  - [TunnelObject](docs/TunnelObject.md)
  - [UpdateStatusBody](docs/UpdateStatusBody.md)
  - [UpdateStatusBodySubnetsToUpdate](docs/UpdateStatusBodySubnetsToUpdate.md)
@@ -396,7 +400,6 @@ Class | Method | HTTP request | Description
  - [UserAgentCreateObject](docs/UserAgentCreateObject.md)
  - [UserAgentPatchObject](docs/UserAgentPatchObject.md)
  - [UserApiKeyCreateObject](docs/UserApiKeyCreateObject.md)
- - [UserNetworkObject](docs/UserNetworkObject.md)
  - [UserSettings](docs/UserSettings.md)
  - [UserSrDirection](docs/UserSrDirection.md)
  - [UserSrObject](docs/UserSrObject.md)
@@ -437,6 +440,7 @@ Class | Method | HTTP request | Description
  - [WgRemovePeer](docs/WgRemovePeer.md)
  - [WgRemovePeerArgs](docs/WgRemovePeerArgs.md)
  - [WhereString](docs/WhereString.md)
+
 
 ## Documentation For Authorization
 In order to use this SDK you must have a valid API Authorization token.
