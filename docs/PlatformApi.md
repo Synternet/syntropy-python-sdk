@@ -27,7 +27,6 @@ Method | HTTP request | Description
 [**platform_connection_agents_destroy**](PlatformApi.md#platform_connection_agents_destroy) | **POST** /api/platform/connections/agents/remove | 
 [**platform_connection_create**](PlatformApi.md#platform_connection_create) | **POST** /api/platform/connections | 
 [**platform_connection_create_mesh**](PlatformApi.md#platform_connection_create_mesh) | **POST** /api/platform/connections/mesh | 
-[**platform_connection_create_p2_t**](PlatformApi.md#platform_connection_create_p2_t) | **POST** /api/platform/connections/point-to-tag | 
 [**platform_connection_create_p2p**](PlatformApi.md#platform_connection_create_p2p) | **POST** /api/platform/connections/point-to-point | 
 [**platform_connection_destroy**](PlatformApi.md#platform_connection_destroy) | **POST** /api/platform/connections/remove | 
 [**platform_connection_destroy_deprecated**](PlatformApi.md#platform_connection_destroy_deprecated) | **DELETE** /api/platform/connections/{connection_id} | 
@@ -1155,7 +1154,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_connection_create**
-> PlatformResponseAgentConnectionObjectArray_ platform_connection_create(body, paths=paths)
+> platform_connection_create(body, paths=paths)
 
 
 
@@ -1185,8 +1184,7 @@ body = {
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:
-    api_response = api_instance.platform_connection_create(body, paths=paths)
-    pprint(api_response)
+    api_instance.platform_connection_create(body, paths=paths)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_connection_create: %s\n" % e)
 ```
@@ -1200,7 +1198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlatformResponseAgentConnectionObjectArray_**](PlatformResponseAgentConnectionObjectArray_.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1209,12 +1207,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_connection_create_mesh**
-> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_mesh(body, paths=paths)
+> platform_connection_create_mesh(body, paths=paths)
 
 
 
@@ -1238,8 +1236,7 @@ body = NULL # dict(str, object) |
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:
-    api_response = api_instance.platform_connection_create_mesh(body, paths=paths)
-    pprint(api_response)
+    api_instance.platform_connection_create_mesh(body, paths=paths)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_connection_create_mesh: %s\n" % e)
 ```
@@ -1253,7 +1250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlatformResponseAgentConnectionObjectArray_**](PlatformResponseAgentConnectionObjectArray_.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1262,65 +1259,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **platform_connection_create_p2_t**
-> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_p2_t(body, paths=paths)
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import syntropy_sdk
-from syntropy_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.PlatformApi(syntropy_sdk.ApiClient(configuration))
-body = NULL # dict(str, object) | 
-paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
-
-try:
-    api_response = api_instance.platform_connection_create_p2_t(body, paths=paths)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PlatformApi->platform_connection_create_p2_t: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**dict(str, object)**](dict.md)|  | 
- **paths** | [**list[str]**](str.md)| Comma separated servers ids list for SDN path. | [optional] 
-
-### Return type
-
-[**PlatformResponseAgentConnectionObjectArray_**](PlatformResponseAgentConnectionObjectArray_.md)
-
-### Authorization
-
-[jwt](../README.md#jwt)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **platform_connection_create_p2p**
-> PlatformResponseAgentConnectionObjectArray_ platform_connection_create_p2p(body, paths=paths)
+> platform_connection_create_p2p(body, paths=paths)
 
 
 
@@ -1344,8 +1288,7 @@ body = NULL # dict(str, object) |
 paths = ['paths_example'] # list[str] | Comma separated servers ids list for SDN path. (optional)
 
 try:
-    api_response = api_instance.platform_connection_create_p2p(body, paths=paths)
-    pprint(api_response)
+    api_instance.platform_connection_create_p2p(body, paths=paths)
 except ApiException as e:
     print("Exception when calling PlatformApi->platform_connection_create_p2p: %s\n" % e)
 ```
@@ -1359,7 +1302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlatformResponseAgentConnectionObjectArray_**](PlatformResponseAgentConnectionObjectArray_.md)
+void (empty response body)
 
 ### Authorization
 
@@ -1368,7 +1311,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

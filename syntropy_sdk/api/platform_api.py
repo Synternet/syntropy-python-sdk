@@ -2251,7 +2251,7 @@ class PlatformApi(object):
         :param async_req bool
         :param dict(str, object) body: (required)
         :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2278,7 +2278,7 @@ class PlatformApi(object):
         :param async_req bool
         :param dict(str, object) body: (required)
         :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2321,11 +2321,6 @@ class PlatformApi(object):
         body_params = None
         if "body" in params:
             body_params = params["body"]
-        # HTTP header `Accept`
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
-
         # HTTP header `Content-Type`
         header_params[
             "Content-Type"
@@ -2345,7 +2340,7 @@ class PlatformApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PlatformResponseAgentConnectionObjectArray_",  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -2365,7 +2360,7 @@ class PlatformApi(object):
         :param async_req bool
         :param dict(str, object) body: (required)
         :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2393,7 +2388,7 @@ class PlatformApi(object):
         :param async_req bool
         :param dict(str, object) body: (required)
         :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2436,11 +2431,6 @@ class PlatformApi(object):
         body_params = None
         if "body" in params:
             body_params = params["body"]
-        # HTTP header `Accept`
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
-
         # HTTP header `Content-Type`
         header_params[
             "Content-Type"
@@ -2460,122 +2450,7 @@ class PlatformApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PlatformResponseAgentConnectionObjectArray_",  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get("async_req"),
-            _return_http_data_only=params.get("_return_http_data_only"),
-            _preload_content=params.get("_preload_content", True),
-            _request_timeout=params.get("_request_timeout"),
-            collection_formats=collection_formats,
-        )
-
-    def platform_connection_create_p2_t(self, body, **kwargs):  # noqa: E501
-        """platform_connection_create_p2_t  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_connection_create_p2_t(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param dict(str, object) body: (required)
-        :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs["_return_http_data_only"] = True
-        if kwargs.get("async_req"):
-            return self.platform_connection_create_p2_t_with_http_info(
-                body, **kwargs
-            )  # noqa: E501
-        else:
-            (data) = self.platform_connection_create_p2_t_with_http_info(
-                body, **kwargs
-            )  # noqa: E501
-            return data
-
-    def platform_connection_create_p2_t_with_http_info(
-        self, body, **kwargs
-    ):  # noqa: E501
-        """platform_connection_create_p2_t  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.platform_connection_create_p2_t_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param dict(str, object) body: (required)
-        :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ["body", "paths"]  # noqa: E501
-        all_params.append("async_req")
-        all_params.append("_return_http_data_only")
-        all_params.append("_preload_content")
-        all_params.append("_request_timeout")
-
-        params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method platform_connection_create_p2_t" % key
-                )
-            params[key] = val
-        del params["kwargs"]
-        # verify the required parameter 'body' is set
-        if "body" not in params or params["body"] is None:
-            raise ValueError(
-                "Missing the required parameter `body` when calling `platform_connection_create_p2_t`"
-            )  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if "paths" in params:
-            query_params.append(("paths", params["paths"]))  # noqa: E501
-            collection_formats["paths"] = "multi"  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if "body" in params:
-            body_params = params["body"]
-        # HTTP header `Accept`
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params[
-            "Content-Type"
-        ] = self.api_client.select_header_content_type(  # noqa: E501
-            ["application/json"]
-        )  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
-
-        return self.api_client.call_api(
-            "/api/platform/connections/point-to-tag",
-            "POST",
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type="PlatformResponseAgentConnectionObjectArray_",  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -2595,7 +2470,7 @@ class PlatformApi(object):
         :param async_req bool
         :param dict(str, object) body: (required)
         :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2623,7 +2498,7 @@ class PlatformApi(object):
         :param async_req bool
         :param dict(str, object) body: (required)
         :param list[str] paths: Comma separated servers ids list for SDN path.
-        :return: PlatformResponseAgentConnectionObjectArray_
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2666,11 +2541,6 @@ class PlatformApi(object):
         body_params = None
         if "body" in params:
             body_params = params["body"]
-        # HTTP header `Accept`
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
-
         # HTTP header `Content-Type`
         header_params[
             "Content-Type"
@@ -2690,7 +2560,7 @@ class PlatformApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PlatformResponseAgentConnectionObjectArray_",  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),

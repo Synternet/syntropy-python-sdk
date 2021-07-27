@@ -13,7 +13,6 @@
 
 from __future__ import absolute_import
 
-# import models into model package
 from syntropy_sdk.models.access_token_data import AccessTokenData
 from syntropy_sdk.models.access_token_order import AccessTokenOrder
 from syntropy_sdk.models.access_token_read_data import AccessTokenReadData
@@ -82,7 +81,6 @@ from syntropy_sdk.models.agent_services_update_changes_object import (
 from syntropy_sdk.models.agent_services_update_object import AgentServicesUpdateObject
 from syntropy_sdk.models.agent_success_response import AgentSuccessResponse
 from syntropy_sdk.models.agent_tag_model_object import AgentTagModelObject
-from syntropy_sdk.models.agent_tag_pair_object import AgentTagPairObject
 from syntropy_sdk.models.agent_version import AgentVersion
 from syntropy_sdk.models.agent_wg_config import AgentWgConfig
 from syntropy_sdk.models.agents_object import AgentsObject
@@ -148,7 +146,6 @@ from syntropy_sdk.models.color_object import ColorObject
 from syntropy_sdk.models.confirm_mfa_request import ConfirmMFARequest
 from syntropy_sdk.models.connection_creation_body import ConnectionCreationBody
 from syntropy_sdk.models.connection_creation_body_mesh import ConnectionCreationBodyMesh
-from syntropy_sdk.models.connection_creation_body_p2_t import ConnectionCreationBodyP2T
 from syntropy_sdk.models.connection_creation_body_p2p import ConnectionCreationBodyP2p
 from syntropy_sdk.models.connection_performance import ConnectionPerformance
 from syntropy_sdk.models.constraint_enum import ConstraintEnum
@@ -202,9 +199,6 @@ from syntropy_sdk.models.platform_response_admin_agent_config_ import (
 from syntropy_sdk.models.platform_response_agent_connection_find_and_count_object_array_ import (
     PlatformResponseAgentConnectionFindAndCountObjectArray_,
 )
-from syntropy_sdk.models.platform_response_agent_connection_object_array_ import (
-    PlatformResponseAgentConnectionObjectArray_,
-)
 from syntropy_sdk.models.platform_response_agent_connection_with_services_object_array_ import (
     PlatformResponseAgentConnectionWithServicesObjectArray_,
 )
@@ -254,6 +248,13 @@ from syntropy_sdk.models.platform_response_success_boolean_ import (
 from syntropy_sdk.models.platform_response_successboolean_data import (
     PlatformResponseSuccessbooleanData,
 )
+from syntropy_sdk.models.point_to_tag_point_to_tag import PointToTagPointToTag
+from syntropy_sdk.models.point_to_tag_point_to_tag_filter import (
+    PointToTagPointToTagFilter,
+)
+from syntropy_sdk.models.point_to_tag_response import PointToTagResponse
+from syntropy_sdk.models.point_to_tag_search_request import PointToTagSearchRequest
+from syntropy_sdk.models.point_to_tag_search_response import PointToTagSearchResponse
 from syntropy_sdk.models.port import Port
 from syntropy_sdk.models.provider_object import ProviderObject
 from syntropy_sdk.models.public_app_info_object import PublicAppInfoObject
@@ -392,6 +393,8 @@ from syntropy_sdk.models.tsoa_pick_agent_tag_agent_tag_name_or_agent_tag_id_ imp
     TsoaPickAgentTagAgentTagNameOrAgentTagId_,
 )
 from syntropy_sdk.models.tunnel_object import TunnelObject
+from syntropy_sdk.models.types_error_msg import TypesErrorMsg
+from syntropy_sdk.models.types_error_response import TypesErrorResponse
 from syntropy_sdk.models.update_status_body import UpdateStatusBody
 from syntropy_sdk.models.update_status_body_subnets_to_update import (
     UpdateStatusBodySubnetsToUpdate,

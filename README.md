@@ -129,6 +129,11 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**validate_captcha**](docs/AuthApi.md#validate_captcha) | **POST** /auth/authorization/validate-captcha | 
 *AuthApi* | [**validate_captcha_0**](docs/AuthApi.md#validate_captcha_0) | **POST** /auth/authorization/validate-limit | 
 *AuthApi* | [**validate_user_credentials**](docs/AuthApi.md#validate_user_credentials) | **POST** /auth/authorization/validate-user | 
+*RulesApi* | [**connection_point_to_tag_create**]( RulesApi.md#connection_point_to_tag_create) | **POST** /rules/connections/point-to-tag | 
+*RulesApi* | [**connection_point_to_tag_remove**]( RulesApi.md#connection_point_to_tag_remove) | **POST** /rules/connections/point-to-tag/remove | 
+*RulesApi* | [**connection_point_to_tag_search**]( RulesApi.md#connection_point_to_tag_search) | **POST** /rules/connections/point-to-tag/search | 
+*RulesApi* | [**connection_point_to_tag_show_by_id**]( RulesApi.md#connection_point_to_tag_show_by_id) | **GET** /rules/connections/point-to-tag/{agent_id} | 
+*RulesApi* | [**connection_point_to_tag_update**]( RulesApi.md#connection_point_to_tag_update) | **PATCH** /rules/connections/point-to-tag | 
 *PlatformApi* | [**platform_admin_agent_config**](docs/PlatformApi.md#platform_admin_agent_config) | **GET** /api/platform/admin/agent/{agent_id}/config | 
 *PlatformApi* | [**platform_agent_config**](docs/PlatformApi.md#platform_agent_config) | **GET** /api/platform/agent/{agent_id}/config | 
 *PlatformApi* | [**platform_agent_coordinates**](docs/PlatformApi.md#platform_agent_coordinates) | **POST** /api/platform/agents/coordinates | 
