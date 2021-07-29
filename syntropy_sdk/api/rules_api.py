@@ -124,10 +124,10 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["ApiKeyAuth"]  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/rules/connections/point-to-tag",
+            "/api/rules/connections/point-to-tag",
             "POST",
             path_params,
             query_params,
@@ -236,10 +236,10 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["ApiKeyAuth"]  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/rules/connections/point-to-tag/remove",
+            "/api/rules/connections/point-to-tag/remove",
             "POST",
             path_params,
             query_params,
@@ -348,10 +348,10 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["ApiKeyAuth"]  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/rules/connections/point-to-tag/search",
+            "/api/rules/connections/point-to-tag/search",
             "POST",
             path_params,
             query_params,
@@ -452,11 +452,18 @@ class RulesApi(object):
             ["application/json"]
         )  # noqa: E501
 
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
         # Authentication setting
-        auth_settings = ["ApiKeyAuth"]  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/rules/connections/point-to-tag/{agent_id}",
+            "/api/rules/connections/point-to-tag/{agent_id}",
             "GET",
             path_params,
             query_params,
@@ -565,10 +572,10 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["ApiKeyAuth"]  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            "/rules/connections/point-to-tag",
+            "/api/rules/connections/point-to-tag",
             "PATCH",
             path_params,
             query_params,
