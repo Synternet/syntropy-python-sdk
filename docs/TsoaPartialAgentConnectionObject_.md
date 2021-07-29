@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **agent_2_id** | **float** |  | [optional] 
 **agent_interface_2_id** | **float** |  | [optional] 
 **user_id** | **float** |  | [optional] 
+**agent_connection_group_id** | **float** |  | [optional] 
 **agent_sdn_policy_id** | **float** |  | [optional] 
 **agent_connection_link_tag** | [**LinkTag**](LinkTag.md) |  | [optional] 
 **agent_connection_status** | [**AgentConnectionStatus**](AgentConnectionStatus.md) |  | [optional] 

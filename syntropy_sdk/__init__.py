@@ -14,10 +14,10 @@
 
 from __future__ import absolute_import
 
-# import apis into sdk package
 from syntropy_sdk.api.api_keys_api import ApiKeysApi
 from syntropy_sdk.api.auth_api import AuthApi
 from syntropy_sdk.api.platform_api import PlatformApi
+from syntropy_sdk.api.rules_api import RulesApi
 
 # import ApiClient
 from syntropy_sdk.api_client import ApiClient
@@ -67,6 +67,7 @@ from syntropy_sdk.models.agent_interfaces_metadata import AgentInterfacesMetadat
 from syntropy_sdk.models.agent_locked_fields import AgentLockedFields
 from syntropy_sdk.models.agent_message_payload import AgentMessagePayload
 from syntropy_sdk.models.agent_message_type import AgentMessageType
+from syntropy_sdk.models.agent_network_object import AgentNetworkObject
 from syntropy_sdk.models.agent_object import AgentObject
 from syntropy_sdk.models.agent_path_object import AgentPathObject
 from syntropy_sdk.models.agent_provider import AgentProvider
@@ -85,7 +86,6 @@ from syntropy_sdk.models.agent_services_update_changes_object import (
 from syntropy_sdk.models.agent_services_update_object import AgentServicesUpdateObject
 from syntropy_sdk.models.agent_success_response import AgentSuccessResponse
 from syntropy_sdk.models.agent_tag_model_object import AgentTagModelObject
-from syntropy_sdk.models.agent_tag_pair_object import AgentTagPairObject
 from syntropy_sdk.models.agent_version import AgentVersion
 from syntropy_sdk.models.agent_wg_config import AgentWgConfig
 from syntropy_sdk.models.agents_object import AgentsObject
@@ -113,7 +113,6 @@ from syntropy_sdk.models.change_path_object_data_costs import ChangePathObjectDa
 from syntropy_sdk.models.color_object import ColorObject
 from syntropy_sdk.models.connection_creation_body import ConnectionCreationBody
 from syntropy_sdk.models.connection_creation_body_mesh import ConnectionCreationBodyMesh
-from syntropy_sdk.models.connection_creation_body_p2_t import ConnectionCreationBodyP2T
 from syntropy_sdk.models.connection_creation_body_p2p import ConnectionCreationBodyP2p
 from syntropy_sdk.models.connection_performance import ConnectionPerformance
 from syntropy_sdk.models.constraint_enum import ConstraintEnum
@@ -133,6 +132,9 @@ from syntropy_sdk.models.logs_read_timestamp_entity_types import (
 )
 from syntropy_sdk.models.logs_read_timestamp_object import LogsReadTimestampObject
 from syntropy_sdk.models.longitude import Longitude
+from syntropy_sdk.models.network_info_agent import NetworkInfoAgent
+from syntropy_sdk.models.network_info_connection import NetworkInfoConnection
+from syntropy_sdk.models.network_info_object import NetworkInfoObject
 from syntropy_sdk.models.order_string import OrderString
 from syntropy_sdk.models.platform_agent_status import PlatformAgentStatus
 from syntropy_sdk.models.platform_agent_type_local import PlatformAgentTypeLocal
@@ -153,9 +155,6 @@ from syntropy_sdk.models.platform_response_admin_agent_config_ import (
 )
 from syntropy_sdk.models.platform_response_agent_connection_find_and_count_object_array_ import (
     PlatformResponseAgentConnectionFindAndCountObjectArray_,
-)
-from syntropy_sdk.models.platform_response_agent_connection_object_array_ import (
-    PlatformResponseAgentConnectionObjectArray_,
 )
 from syntropy_sdk.models.platform_response_agent_connection_with_services_object_array_ import (
     PlatformResponseAgentConnectionWithServicesObjectArray_,
@@ -197,6 +196,9 @@ from syntropy_sdk.models.platform_response_api_key_object_array_ import (
     PlatformResponseApiKeyObjectArray_,
 )
 from syntropy_sdk.models.platform_response_error_item import PlatformResponseErrorItem
+from syntropy_sdk.models.platform_response_network_info_object_ import (
+    PlatformResponseNetworkInfoObject_,
+)
 from syntropy_sdk.models.platform_response_success_boolean_ import (
     PlatformResponseSuccessBoolean_,
 )
@@ -238,11 +240,20 @@ from syntropy_sdk.models.status import Status
 from syntropy_sdk.models.take_number import TakeNumber
 from syntropy_sdk.models.topology_object import TopologyObject
 from syntropy_sdk.models.translation_object import TranslationObject
+from syntropy_sdk.models.tsoa_agent_config_info_network import (
+    TsoaAgentConfigInfoNetwork,
+)
+from syntropy_sdk.models.tsoa_agent_config_info_network_public import (
+    TsoaAgentConfigInfoNetworkPUBLIC,
+)
 from syntropy_sdk.models.tsoa_omit_agent_interface_agent_ import (
     TsoaOmitAgentInterfaceAgent_,
 )
 from syntropy_sdk.models.tsoa_omit_agent_service_model_agent_or_agent_service_subnets_ import (
     TsoaOmitAgentServiceModelAgentOrAgentServiceSubnets_,
+)
+from syntropy_sdk.models.tsoa_omit_agent_service_subnet_agent_service_or_agent_network_or_agent_or_agent_connection_subnets_ import (
+    TsoaOmitAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_,
 )
 from syntropy_sdk.models.tsoa_partial_agent_connection_object_ import (
     TsoaPartialAgentConnectionObject_,
@@ -252,6 +263,9 @@ from syntropy_sdk.models.tsoa_partial_agent_interface_bw_object_ import (
 )
 from syntropy_sdk.models.tsoa_partial_agent_interface_object_ import (
     TsoaPartialAgentInterfaceObject_,
+)
+from syntropy_sdk.models.tsoa_partial_agent_network_object_ import (
+    TsoaPartialAgentNetworkObject_,
 )
 from syntropy_sdk.models.tsoa_partial_agent_object_ import TsoaPartialAgentObject_
 from syntropy_sdk.models.tsoa_partial_agent_path_object_ import (
@@ -315,6 +329,9 @@ from syntropy_sdk.models.tsoa_pick_agent_provider_agent_provider_name_or_agent_p
 )
 from syntropy_sdk.models.tsoa_pick_agent_service_model_exclude_keyof_agent_service_model_agent_or_agent_service_subnets_ import (
     TsoaPickAgentServiceModelExcludeKeyofAgentServiceModelAgentOrAgentServiceSubnets_,
+)
+from syntropy_sdk.models.tsoa_pick_agent_service_subnet_exclude_keyof_agent_service_subnet_agent_service_or_agent_network_or_agent_or_agent_connection_subnets_ import (
+    TsoaPickAgentServiceSubnetExcludeKeyofAgentServiceSubnetAgentServiceOrAgentNetworkOrAgentOrAgentConnectionSubnets_,
 )
 from syntropy_sdk.models.tsoa_pick_agent_tag_agent_tag_id_or_agent_tag_name_ import (
     TsoaPickAgentTagAgentTagIdOrAgentTagName_,

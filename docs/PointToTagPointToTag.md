@@ -1,10 +1,10 @@
-# Body
+# PointToTagPointToTag
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** | **str** |  | 
-**value** | [**PointToTagPointToTag**](PointToTagPointToTag.md) |  | 
+**agent_id** | **int** |  | 
+**tag_names** | **list[str]** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
