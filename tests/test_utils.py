@@ -27,6 +27,24 @@ def test_with_retry__fail():
     func.assert_called_once_with(42)
 
 
+@pytest.mark.parametrize(
+    "effect, skip, take, max_take, expect",
+    (
+        ([1, 2, 3, 4, 5], 0, 3, 3, {"data": [1, 2, 3]}),
+        ([1, 2, 3, 4, 5], 1, 3, 3, {"data": [2, 3, 4]}),
+        ([1, 2, 3, 4, 5], 1, 3, 5, {"data": [2, 3, 4]}),
+        ([1, 2, 3, 4, 5, 6, 7, 8, 9], 0, 0, 5, {"data": [1, 2, 3, 4, 5, 6, 7, 8, 9]}),
+        ([1, 2, 3, 4, 5, 6, 7, 8, 9], 1, 0, 5, {"data": [2, 3, 4, 5, 6, 7, 8, 9]}),
+    ),
+)
+def test_with_pagination(effect, skip, take, max_take, expect):
+    def fn(skip=0, take=0):
+        return {"data": effect[skip : skip + take]}
+
+    result = utils.WithPagination(fn, max_take=max_take)(skip=skip, take=take)
+    assert result == expect
+
+
 def test_determine_batch_size():
     request = utils.BatchedRequest(lambda x: x, max_payload_size=5)
     assert request._determine_batch_size(None, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10) == (

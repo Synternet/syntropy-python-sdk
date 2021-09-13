@@ -4,7 +4,7 @@ import time
 from syntropy_sdk import ApiClient, AuthApi, Configuration, models
 from syntropy_sdk.exceptions import *
 
-TAKE_MAX_ITEMS_PER_CALL = 2048
+TAKE_MAX_ITEMS_PER_CALL = 100
 MAX_PAYLOAD_SIZE = 99 * 1024
 MAX_QUERY_FIELD_SIZE = 2 * 1024
 
@@ -45,6 +45,52 @@ class WithRetry:
                     raise
                 delay = min(self.cap, self.base * 2 ** (attempt * self.exponent))
                 time.sleep(delay)
+
+
+class WithPagination:
+    """Call api method to retrieve as many times as is necessary to get up to `take` entries.
+
+    NOTE: If `take` parameter is not provided, then this helper will retrieve all available entries.
+
+    TODO: This implementation disregards HTTP headers that contain pagination information and therefore
+    sometimes it will make an additional request beyound the total data. This request should return
+    an empty result and this will be used as a stop signal.
+    This behavior should be amended so that HTTP headers would be used to determine the total number of
+    entries available. Currently, regular api methods overwrite `_return_http_data_only` kwarg, thus
+    `*_with_http_info` methods should be used instead.
+
+    Example:
+        WithPagination(platform_api.platform_agent_index)(skip=10, take=10000)
+    """
+
+    def __init__(self, func, max_take=TAKE_MAX_ITEMS_PER_CALL):
+        self.func = func
+        self.max_take = max_take
+
+    def __call__(self, *args, **kwargs):
+        take = kwargs.pop("take", 0)
+        skip = kwargs.pop("skip", 0)
+        take = take if take else None
+        skip = skip if skip else 0
+
+        result = {"data": []}
+        take_now = self.max_take
+        while True:
+            if take is not None:
+                take_now = min(take_now, take)
+                if take_now <= 0:
+                    break
+            call_result = self.func(*args, skip=skip, take=take_now, **kwargs)
+            if call_result["data"]:
+                result["data"] += call_result["data"]
+
+            if len(call_result["data"]) < take_now:
+                break
+            if take is not None:
+                take -= take_now
+            skip += self.max_take
+
+        return result
 
 
 def _default_translator(field):
