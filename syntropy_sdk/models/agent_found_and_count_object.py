@@ -36,7 +36,7 @@ class AgentFoundAndCountObject(
                             and the value is json key in definition.
     """
     swagger_types = {
-        "agent_provider": "Object",
+        "agent_provider": "AgentProviderObject",
         "agent_tags": "list[TsoaPickAgentTagAgentTagNameOrAgentTagId_]",
         "agent_services_subnets_enabled_count": "float",
         "agent_services_subnets_count": "float",

@@ -1,6 +1,8 @@
 import json
 import time
 
+from urllib3.response import HTTPResponse
+
 from syntropy_sdk import ApiClient, AuthApi, Configuration, models
 from syntropy_sdk.exceptions import *
 
@@ -81,6 +83,9 @@ class WithPagination:
                 if take_now <= 0:
                     break
             call_result = self.func(*args, skip=skip, take=take_now, **kwargs)
+
+            call_result = deserialize_result(call_result)
+
             if call_result["data"]:
                 result["data"] += call_result["data"]
 
@@ -178,6 +183,7 @@ class BatchedRequest:
                 response = func(batch, *args, **kwargs)
             else:
                 response = func(body=batch, *args, **kwargs)
+            response = deserialize_result(response)
             if isinstance(response, dict) and "data" in response:
                 result += response["data"]
             else:
@@ -250,13 +256,22 @@ class BatchedRequestFilter(BatchedRequest):
             filters = original_filter + [filter_batch]
             new_filter = ",".join(filters)
             response = func(filter=new_filter, *args, **kwargs)
-
+            response = deserialize_result(response)
             if isinstance(response, dict) and "data" in response:
                 result += response["data"]
             else:
                 result.append(response)
         # NOTE: Undesirable side effect: will transform non-list responses to {"data": data}
         return {"data": result}
+
+
+def deserialize_result(call_result):
+    if isinstance(call_result, HTTPResponse):
+        # fetch data from response object
+        call_result = json.loads(call_result.data)
+    elif hasattr(call_result, "to_dict"):
+        call_result = call_result.to_dict()  # FIXME: This is for compatibility
+    return call_result
 
 
 def login_with_access_token(api_url, access_token):
