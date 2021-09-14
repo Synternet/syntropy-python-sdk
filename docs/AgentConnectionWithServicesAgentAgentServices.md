@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_services_subnets** | [**list[AgentConnectionWithServicesAgentAgentServicesSubnets]**](AgentConnectionWithServicesAgentAgentServicesSubnets.md) |  | 
+**agent_service_subnets** | [**list[AgentConnectionWithServicesAgentAgentServiceSubnets]**](AgentConnectionWithServicesAgentAgentServiceSubnets.md) |  | 
 **agent_service_type** | [**AgentServiceTypes**](AgentServiceTypes.md) |  | 
 **agent_service_name** | **str** |  | 
 **agent_service_is_active** | **bool** |  | 

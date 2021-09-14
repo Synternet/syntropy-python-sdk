@@ -37,7 +37,7 @@ class AgentFoundAndCountObject(
     """
     swagger_types = {
         "agent_provider": "Object",
-        "agent_tags": "TsoaPickAgentTagAgentTagNameOrAgentTagId_",
+        "agent_tags": "list[TsoaPickAgentTagAgentTagNameOrAgentTagId_]",
         "agent_services_subnets_enabled_count": "float",
         "agent_services_subnets_count": "float",
         "agent_location_country": "str",
@@ -122,7 +122,7 @@ class AgentFoundAndCountObject(
 
 
         :return: The agent_tags of this AgentFoundAndCountObject.  # noqa: E501
-        :rtype: TsoaPickAgentTagAgentTagNameOrAgentTagId_
+        :rtype: list[TsoaPickAgentTagAgentTagNameOrAgentTagId_]
         """
         return self._agent_tags
 
@@ -132,7 +132,7 @@ class AgentFoundAndCountObject(
 
 
         :param agent_tags: The agent_tags of this AgentFoundAndCountObject.  # noqa: E501
-        :type: TsoaPickAgentTagAgentTagNameOrAgentTagId_
+        :type: list[TsoaPickAgentTagAgentTagNameOrAgentTagId_]
         """
         if agent_tags is None:
             raise ValueError(

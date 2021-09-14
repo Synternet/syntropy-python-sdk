@@ -32,45 +32,45 @@ class RulesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def connection_point_to_tag_create(self, body, **kwargs):  # noqa: E501
-        """Create rules  # noqa: E501
+    def rules_connection_point_to_tag_create(self, body, **kwargs):  # noqa: E501
+        """Create point-to-tag  # noqa: E501
 
         Create rules (rule per tag) for platform agent to connect to all other agents with selected tags.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_create(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_create(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PointToTagPointToTag body: Rule per Tag data. (required)
+        :param PointtotagPointToTag body: Rule per Tag data. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.connection_point_to_tag_create_with_http_info(
+            return self.rules_connection_point_to_tag_create_with_http_info(
                 body, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.connection_point_to_tag_create_with_http_info(
+            (data) = self.rules_connection_point_to_tag_create_with_http_info(
                 body, **kwargs
             )  # noqa: E501
             return data
 
-    def connection_point_to_tag_create_with_http_info(
+    def rules_connection_point_to_tag_create_with_http_info(
         self, body, **kwargs
     ):  # noqa: E501
-        """Create rules  # noqa: E501
+        """Create point-to-tag  # noqa: E501
 
         Create rules (rule per tag) for platform agent to connect to all other agents with selected tags.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_create_with_http_info(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_create_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PointToTagPointToTag body: Rule per Tag data. (required)
+        :param PointtotagPointToTag body: Rule per Tag data. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -87,7 +87,7 @@ class RulesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method connection_point_to_tag_create" % key
+                    " to method rules_connection_point_to_tag_create" % key
                 )
             params[key] = val
         del params["kwargs"]
@@ -124,7 +124,7 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["ApiKeyAuth"]  # noqa: E501
 
         return self.api_client.call_api(
             "/api/rules/connections/point-to-tag",
@@ -144,45 +144,45 @@ class RulesApi(object):
             collection_formats=collection_formats,
         )
 
-    def connection_point_to_tag_remove(self, body, **kwargs):  # noqa: E501
-        """Remove rules  # noqa: E501
+    def rules_connection_point_to_tag_remove(self, body, **kwargs):  # noqa: E501
+        """Remove point-to-tag  # noqa: E501
 
         Remove rules (rule per tag) for platform agent to stop connecting with all other agents with selected tags.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_remove(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_remove(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PointToTagPointToTag body: Rule per Tag data. (required)
+        :param PointtotagPointToTag body: Rule per Tag data. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.connection_point_to_tag_remove_with_http_info(
+            return self.rules_connection_point_to_tag_remove_with_http_info(
                 body, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.connection_point_to_tag_remove_with_http_info(
+            (data) = self.rules_connection_point_to_tag_remove_with_http_info(
                 body, **kwargs
             )  # noqa: E501
             return data
 
-    def connection_point_to_tag_remove_with_http_info(
+    def rules_connection_point_to_tag_remove_with_http_info(
         self, body, **kwargs
     ):  # noqa: E501
-        """Remove rules  # noqa: E501
+        """Remove point-to-tag  # noqa: E501
 
         Remove rules (rule per tag) for platform agent to stop connecting with all other agents with selected tags.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_remove_with_http_info(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_remove_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PointToTagPointToTag body: Rule per Tag data. (required)
+        :param PointtotagPointToTag body: Rule per Tag data. (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -199,7 +199,7 @@ class RulesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method connection_point_to_tag_remove" % key
+                    " to method rules_connection_point_to_tag_remove" % key
                 )
             params[key] = val
         del params["kwargs"]
@@ -236,7 +236,7 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["ApiKeyAuth"]  # noqa: E501
 
         return self.api_client.call_api(
             "/api/rules/connections/point-to-tag/remove",
@@ -256,46 +256,46 @@ class RulesApi(object):
             collection_formats=collection_formats,
         )
 
-    def connection_point_to_tag_search(self, body, **kwargs):  # noqa: E501
-        """Search rules  # noqa: E501
+    def rules_connection_point_to_tag_search(self, body, **kwargs):  # noqa: E501
+        """Search point-to-tag  # noqa: E501
 
-        Search rules  # noqa: E501
+        Search point-to-tag  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_search(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_search(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PointToTagSearchRequest body: Search request (required)
-        :return: PointToTagSearchResponse
+        :param PointtotagSearchRequest body: Search request (required)
+        :return: PointtotagSearchResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.connection_point_to_tag_search_with_http_info(
+            return self.rules_connection_point_to_tag_search_with_http_info(
                 body, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.connection_point_to_tag_search_with_http_info(
+            (data) = self.rules_connection_point_to_tag_search_with_http_info(
                 body, **kwargs
             )  # noqa: E501
             return data
 
-    def connection_point_to_tag_search_with_http_info(
+    def rules_connection_point_to_tag_search_with_http_info(
         self, body, **kwargs
     ):  # noqa: E501
-        """Search rules  # noqa: E501
+        """Search point-to-tag  # noqa: E501
 
-        Search rules  # noqa: E501
+        Search point-to-tag  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_search_with_http_info(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_search_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param PointToTagSearchRequest body: Search request (required)
-        :return: PointToTagSearchResponse
+        :param PointtotagSearchRequest body: Search request (required)
+        :return: PointtotagSearchResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -311,7 +311,7 @@ class RulesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method connection_point_to_tag_search" % key
+                    " to method rules_connection_point_to_tag_search" % key
                 )
             params[key] = val
         del params["kwargs"]
@@ -348,7 +348,7 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["ApiKeyAuth"]  # noqa: E501
 
         return self.api_client.call_api(
             "/api/rules/connections/point-to-tag/search",
@@ -359,7 +359,7 @@ class RulesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PointToTagSearchResponse",  # noqa: E501
+            response_type="PointtotagSearchResponse",  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -368,46 +368,48 @@ class RulesApi(object):
             collection_formats=collection_formats,
         )
 
-    def connection_point_to_tag_show_by_id(self, agent_id, **kwargs):  # noqa: E501
-        """Retrieve single pointed tag based on given ID  # noqa: E501
+    def rules_connection_point_to_tag_show_by_id(
+        self, agent_id, **kwargs
+    ):  # noqa: E501
+        """Get point-to-tag  # noqa: E501
 
         Retrieve single pointed tag based on given ID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_show_by_id(agent_id, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_show_by_id(agent_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int agent_id: AgentID (required)
-        :return: PointToTagResponse
+        :return: PointtotagResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.connection_point_to_tag_show_by_id_with_http_info(
+            return self.rules_connection_point_to_tag_show_by_id_with_http_info(
                 agent_id, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.connection_point_to_tag_show_by_id_with_http_info(
+            (data) = self.rules_connection_point_to_tag_show_by_id_with_http_info(
                 agent_id, **kwargs
             )  # noqa: E501
             return data
 
-    def connection_point_to_tag_show_by_id_with_http_info(
+    def rules_connection_point_to_tag_show_by_id_with_http_info(
         self, agent_id, **kwargs
     ):  # noqa: E501
-        """Retrieve single pointed tag based on given ID  # noqa: E501
+        """Get point-to-tag  # noqa: E501
 
         Retrieve single pointed tag based on given ID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_show_by_id_with_http_info(agent_id, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_show_by_id_with_http_info(agent_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int agent_id: AgentID (required)
-        :return: PointToTagResponse
+        :return: PointtotagResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -423,7 +425,7 @@ class RulesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method connection_point_to_tag_show_by_id" % key
+                    " to method rules_connection_point_to_tag_show_by_id" % key
                 )
             params[key] = val
         del params["kwargs"]
@@ -452,15 +454,8 @@ class RulesApi(object):
             ["application/json"]
         )  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params[
-            "Content-Type"
-        ] = self.api_client.select_header_content_type(  # noqa: E501
-            ["application/json"]
-        )  # noqa: E501
-
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["ApiKeyAuth"]  # noqa: E501
 
         return self.api_client.call_api(
             "/api/rules/connections/point-to-tag/{agent_id}",
@@ -471,7 +466,7 @@ class RulesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PointToTagResponse",  # noqa: E501
+            response_type="PointtotagResponse",  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -480,45 +475,45 @@ class RulesApi(object):
             collection_formats=collection_formats,
         )
 
-    def connection_point_to_tag_update(self, body, **kwargs):  # noqa: E501
-        """Patch rules  # noqa: E501
+    def rules_connection_point_to_tag_update(self, body, **kwargs):  # noqa: E501
+        """Patch point-to-tag  # noqa: E501
 
         Simultaneously adds, removes, replaces point-to-tags rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_update(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_update(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[Body] body: Operations list (required)
+        :param list[ConnectionsPointtotagBody] body: Operations list (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
         if kwargs.get("async_req"):
-            return self.connection_point_to_tag_update_with_http_info(
+            return self.rules_connection_point_to_tag_update_with_http_info(
                 body, **kwargs
             )  # noqa: E501
         else:
-            (data) = self.connection_point_to_tag_update_with_http_info(
+            (data) = self.rules_connection_point_to_tag_update_with_http_info(
                 body, **kwargs
             )  # noqa: E501
             return data
 
-    def connection_point_to_tag_update_with_http_info(
+    def rules_connection_point_to_tag_update_with_http_info(
         self, body, **kwargs
     ):  # noqa: E501
-        """Patch rules  # noqa: E501
+        """Patch point-to-tag  # noqa: E501
 
         Simultaneously adds, removes, replaces point-to-tags rules.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.connection_point_to_tag_update_with_http_info(body, async_req=True)
+        >>> thread = api.rules_connection_point_to_tag_update_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[Body] body: Operations list (required)
+        :param list[ConnectionsPointtotagBody] body: Operations list (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -535,7 +530,7 @@ class RulesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method connection_point_to_tag_update" % key
+                    " to method rules_connection_point_to_tag_update" % key
                 )
             params[key] = val
         del params["kwargs"]
@@ -572,7 +567,7 @@ class RulesApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["ApiKeyAuth"]  # noqa: E501
 
         return self.api_client.call_api(
             "/api/rules/connections/point-to-tag",
@@ -584,6 +579,107 @@ class RulesApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def rules_search(self, **kwargs):  # noqa: E501
+        """Search rules  # noqa: E501
+
+        Search rules  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.rules_search(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RulesRequest body: Search request
+        :return: RulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.rules_search_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.rules_search_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def rules_search_with_http_info(self, **kwargs):  # noqa: E501
+        """Search rules  # noqa: E501
+
+        Search rules  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.rules_search_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param RulesRequest body: Search request
+        :return: RulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method rules_search" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params:
+            body_params = params["body"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["ApiKeyAuth"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/rules/search",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="RulesResponse",  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),

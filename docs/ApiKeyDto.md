@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **api_key_name** | **str** |  | 
+**api_key_description** | **str** |  | [optional] 
 **api_key_valid_until** | [**AnyOfApiKeyDtoApiKeyValidUntil**](AnyOfApiKeyDtoApiKeyValidUntil.md) |  | [optional] 
 **api_key_status** | **bool** |  | 
 **api_key_id** | **float** |  | 

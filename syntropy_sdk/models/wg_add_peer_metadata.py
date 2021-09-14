@@ -33,6 +33,7 @@ class WgAddPeerMetadata(object):
         "allowed_ips_info": "list[WgAddPeerMetadataAllowedIpsInfo]",
         "link_tag": "LinkTag",
         "agent_id": "float",
+        "connection_group_id": "float",
         "connection_id": "float",
         "device_public_ipv4": "str",
         "device_name": "str",
@@ -43,6 +44,7 @@ class WgAddPeerMetadata(object):
         "allowed_ips_info": "allowed_ips_info",
         "link_tag": "link_tag",
         "agent_id": "agent_id",
+        "connection_group_id": "connection_group_id",
         "connection_id": "connection_id",
         "device_public_ipv4": "device_public_ipv4",
         "device_name": "device_name",
@@ -54,6 +56,7 @@ class WgAddPeerMetadata(object):
         allowed_ips_info=None,
         link_tag=None,
         agent_id=None,
+        connection_group_id=None,
         connection_id=None,
         device_public_ipv4=None,
         device_name=None,
@@ -63,6 +66,7 @@ class WgAddPeerMetadata(object):
         self._allowed_ips_info = None
         self._link_tag = None
         self._agent_id = None
+        self._connection_group_id = None
         self._connection_id = None
         self._device_public_ipv4 = None
         self._device_name = None
@@ -71,6 +75,7 @@ class WgAddPeerMetadata(object):
         self.allowed_ips_info = allowed_ips_info
         self.link_tag = link_tag
         self.agent_id = agent_id
+        self.connection_group_id = connection_group_id
         self.connection_id = connection_id
         self.device_public_ipv4 = device_public_ipv4
         self.device_name = device_name
@@ -150,6 +155,31 @@ class WgAddPeerMetadata(object):
             )  # noqa: E501
 
         self._agent_id = agent_id
+
+    @property
+    def connection_group_id(self):
+        """Gets the connection_group_id of this WgAddPeerMetadata.  # noqa: E501
+
+
+        :return: The connection_group_id of this WgAddPeerMetadata.  # noqa: E501
+        :rtype: float
+        """
+        return self._connection_group_id
+
+    @connection_group_id.setter
+    def connection_group_id(self, connection_group_id):
+        """Sets the connection_group_id of this WgAddPeerMetadata.
+
+
+        :param connection_group_id: The connection_group_id of this WgAddPeerMetadata.  # noqa: E501
+        :type: float
+        """
+        if connection_group_id is None:
+            raise ValueError(
+                "Invalid value for `connection_group_id`, must not be `None`"
+            )  # noqa: E501
+
+        self._connection_group_id = connection_group_id
 
     @property
     def connection_id(self):

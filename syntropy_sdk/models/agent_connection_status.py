@@ -29,6 +29,7 @@ class AgentConnectionStatus(object):
     WARNING = "WARNING"
     ERROR = "ERROR"
     CONNECTED = "CONNECTED"
+    NOT_AVAILABLE = "NOT_AVAILABLE"
     OFFLINE = "OFFLINE"
     """
     Attributes:

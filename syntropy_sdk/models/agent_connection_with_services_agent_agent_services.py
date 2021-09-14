@@ -30,7 +30,7 @@ class AgentConnectionWithServicesAgentAgentServices(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "agent_services_subnets": "list[AgentConnectionWithServicesAgentAgentServicesSubnets]",
+        "agent_service_subnets": "list[AgentConnectionWithServicesAgentAgentServiceSubnets]",
         "agent_service_type": "AgentServiceTypes",
         "agent_service_name": "str",
         "agent_service_is_active": "bool",
@@ -38,7 +38,7 @@ class AgentConnectionWithServicesAgentAgentServices(object):
     }
 
     attribute_map = {
-        "agent_services_subnets": "agent_services_subnets",
+        "agent_service_subnets": "agent_service_subnets",
         "agent_service_type": "agent_service_type",
         "agent_service_name": "agent_service_name",
         "agent_service_is_active": "agent_service_is_active",
@@ -47,49 +47,49 @@ class AgentConnectionWithServicesAgentAgentServices(object):
 
     def __init__(
         self,
-        agent_services_subnets=None,
+        agent_service_subnets=None,
         agent_service_type=None,
         agent_service_name=None,
         agent_service_is_active=None,
         agent_service_id=None,
     ):  # noqa: E501
         """AgentConnectionWithServicesAgentAgentServices - a model defined in Swagger"""  # noqa: E501
-        self._agent_services_subnets = None
+        self._agent_service_subnets = None
         self._agent_service_type = None
         self._agent_service_name = None
         self._agent_service_is_active = None
         self._agent_service_id = None
         self.discriminator = None
-        self.agent_services_subnets = agent_services_subnets
+        self.agent_service_subnets = agent_service_subnets
         self.agent_service_type = agent_service_type
         self.agent_service_name = agent_service_name
         self.agent_service_is_active = agent_service_is_active
         self.agent_service_id = agent_service_id
 
     @property
-    def agent_services_subnets(self):
-        """Gets the agent_services_subnets of this AgentConnectionWithServicesAgentAgentServices.  # noqa: E501
+    def agent_service_subnets(self):
+        """Gets the agent_service_subnets of this AgentConnectionWithServicesAgentAgentServices.  # noqa: E501
 
 
-        :return: The agent_services_subnets of this AgentConnectionWithServicesAgentAgentServices.  # noqa: E501
-        :rtype: list[AgentConnectionWithServicesAgentAgentServicesSubnets]
+        :return: The agent_service_subnets of this AgentConnectionWithServicesAgentAgentServices.  # noqa: E501
+        :rtype: list[AgentConnectionWithServicesAgentAgentServiceSubnets]
         """
-        return self._agent_services_subnets
+        return self._agent_service_subnets
 
-    @agent_services_subnets.setter
-    def agent_services_subnets(self, agent_services_subnets):
-        """Sets the agent_services_subnets of this AgentConnectionWithServicesAgentAgentServices.
+    @agent_service_subnets.setter
+    def agent_service_subnets(self, agent_service_subnets):
+        """Sets the agent_service_subnets of this AgentConnectionWithServicesAgentAgentServices.
 
 
-        :param agent_services_subnets: The agent_services_subnets of this AgentConnectionWithServicesAgentAgentServices.  # noqa: E501
-        :type: list[AgentConnectionWithServicesAgentAgentServicesSubnets]
+        :param agent_service_subnets: The agent_service_subnets of this AgentConnectionWithServicesAgentAgentServices.  # noqa: E501
+        :type: list[AgentConnectionWithServicesAgentAgentServiceSubnets]
         """
-        if agent_services_subnets is None:
+        if agent_service_subnets is None:
             raise ValueError(
-                "Invalid value for `agent_services_subnets`, must not be `None`"
+                "Invalid value for `agent_service_subnets`, must not be `None`"
             )  # noqa: E501
 
-        self._agent_services_subnets = agent_services_subnets
+        self._agent_service_subnets = agent_service_subnets
 
     @property
     def agent_service_type(self):
