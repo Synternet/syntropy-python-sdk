@@ -46,7 +46,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "/"
+        self.host = "https://controller-sandbox-server.syntropystack.com"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -247,5 +247,5 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 0.1.0\n"
-            "SDK Package Version: 0.2.1".format(env=sys.platform, pyversion=sys.version)
+            "SDK Package Version: 0.3.0".format(env=sys.platform, pyversion=sys.version)
         )

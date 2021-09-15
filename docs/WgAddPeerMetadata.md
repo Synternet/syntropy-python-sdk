@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **allowed_ips_info** | [**list[WgAddPeerMetadataAllowedIpsInfo]**](WgAddPeerMetadataAllowedIpsInfo.md) |  | 
 **link_tag** | [**LinkTag**](LinkTag.md) |  | 
 **agent_id** | **float** |  | 
+**connection_group_id** | **float** |  | 
 **connection_id** | **float** |  | 
 **device_public_ipv4** | **str** |  | 
 **device_name** | **str** |  | 

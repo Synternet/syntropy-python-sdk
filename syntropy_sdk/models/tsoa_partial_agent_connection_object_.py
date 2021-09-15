@@ -39,11 +39,7 @@ class TsoaPartialAgentConnectionObject_(object):
         "agent_sdn_policy_id": "float",
         "agent_connection_link_tag": "LinkTag",
         "agent_connection_status": "AgentConnectionStatus",
-        "agent_connection_last_handshake": "datetime",
-        "agent_connection_tx_bytes_total": "float",
-        "agent_connection_rx_bytes_total": "float",
-        "agent_connection_latency_ms": "float",
-        "agent_connection_packet_loss": "float",
+        "agent_connection_status_reason": "str",
     }
 
     attribute_map = {
@@ -56,11 +52,7 @@ class TsoaPartialAgentConnectionObject_(object):
         "agent_sdn_policy_id": "agent_sdn_policy_id",
         "agent_connection_link_tag": "agent_connection_link_tag",
         "agent_connection_status": "agent_connection_status",
-        "agent_connection_last_handshake": "agent_connection_last_handshake",
-        "agent_connection_tx_bytes_total": "agent_connection_tx_bytes_total",
-        "agent_connection_rx_bytes_total": "agent_connection_rx_bytes_total",
-        "agent_connection_latency_ms": "agent_connection_latency_ms",
-        "agent_connection_packet_loss": "agent_connection_packet_loss",
+        "agent_connection_status_reason": "agent_connection_status_reason",
     }
 
     def __init__(
@@ -74,11 +66,7 @@ class TsoaPartialAgentConnectionObject_(object):
         agent_sdn_policy_id=None,
         agent_connection_link_tag=None,
         agent_connection_status=None,
-        agent_connection_last_handshake=None,
-        agent_connection_tx_bytes_total=None,
-        agent_connection_rx_bytes_total=None,
-        agent_connection_latency_ms=None,
-        agent_connection_packet_loss=None,
+        agent_connection_status_reason=None,
     ):  # noqa: E501
         """TsoaPartialAgentConnectionObject_ - a model defined in Swagger"""  # noqa: E501
         self._agent_1_id = None
@@ -90,11 +78,7 @@ class TsoaPartialAgentConnectionObject_(object):
         self._agent_sdn_policy_id = None
         self._agent_connection_link_tag = None
         self._agent_connection_status = None
-        self._agent_connection_last_handshake = None
-        self._agent_connection_tx_bytes_total = None
-        self._agent_connection_rx_bytes_total = None
-        self._agent_connection_latency_ms = None
-        self._agent_connection_packet_loss = None
+        self._agent_connection_status_reason = None
         self.discriminator = None
         if agent_1_id is not None:
             self.agent_1_id = agent_1_id
@@ -114,16 +98,8 @@ class TsoaPartialAgentConnectionObject_(object):
             self.agent_connection_link_tag = agent_connection_link_tag
         if agent_connection_status is not None:
             self.agent_connection_status = agent_connection_status
-        if agent_connection_last_handshake is not None:
-            self.agent_connection_last_handshake = agent_connection_last_handshake
-        if agent_connection_tx_bytes_total is not None:
-            self.agent_connection_tx_bytes_total = agent_connection_tx_bytes_total
-        if agent_connection_rx_bytes_total is not None:
-            self.agent_connection_rx_bytes_total = agent_connection_rx_bytes_total
-        if agent_connection_latency_ms is not None:
-            self.agent_connection_latency_ms = agent_connection_latency_ms
-        if agent_connection_packet_loss is not None:
-            self.agent_connection_packet_loss = agent_connection_packet_loss
+        if agent_connection_status_reason is not None:
+            self.agent_connection_status_reason = agent_connection_status_reason
 
     @property
     def agent_1_id(self):
@@ -315,109 +291,25 @@ class TsoaPartialAgentConnectionObject_(object):
         self._agent_connection_status = agent_connection_status
 
     @property
-    def agent_connection_last_handshake(self):
-        """Gets the agent_connection_last_handshake of this TsoaPartialAgentConnectionObject_.  # noqa: E501
+    def agent_connection_status_reason(self):
+        """Gets the agent_connection_status_reason of this TsoaPartialAgentConnectionObject_.  # noqa: E501
 
 
-        :return: The agent_connection_last_handshake of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :rtype: datetime
+        :return: The agent_connection_status_reason of this TsoaPartialAgentConnectionObject_.  # noqa: E501
+        :rtype: str
         """
-        return self._agent_connection_last_handshake
+        return self._agent_connection_status_reason
 
-    @agent_connection_last_handshake.setter
-    def agent_connection_last_handshake(self, agent_connection_last_handshake):
-        """Sets the agent_connection_last_handshake of this TsoaPartialAgentConnectionObject_.
-
-
-        :param agent_connection_last_handshake: The agent_connection_last_handshake of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :type: datetime
-        """
-
-        self._agent_connection_last_handshake = agent_connection_last_handshake
-
-    @property
-    def agent_connection_tx_bytes_total(self):
-        """Gets the agent_connection_tx_bytes_total of this TsoaPartialAgentConnectionObject_.  # noqa: E501
+    @agent_connection_status_reason.setter
+    def agent_connection_status_reason(self, agent_connection_status_reason):
+        """Sets the agent_connection_status_reason of this TsoaPartialAgentConnectionObject_.
 
 
-        :return: The agent_connection_tx_bytes_total of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._agent_connection_tx_bytes_total
-
-    @agent_connection_tx_bytes_total.setter
-    def agent_connection_tx_bytes_total(self, agent_connection_tx_bytes_total):
-        """Sets the agent_connection_tx_bytes_total of this TsoaPartialAgentConnectionObject_.
-
-
-        :param agent_connection_tx_bytes_total: The agent_connection_tx_bytes_total of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :type: float
+        :param agent_connection_status_reason: The agent_connection_status_reason of this TsoaPartialAgentConnectionObject_.  # noqa: E501
+        :type: str
         """
 
-        self._agent_connection_tx_bytes_total = agent_connection_tx_bytes_total
-
-    @property
-    def agent_connection_rx_bytes_total(self):
-        """Gets the agent_connection_rx_bytes_total of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-
-
-        :return: The agent_connection_rx_bytes_total of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._agent_connection_rx_bytes_total
-
-    @agent_connection_rx_bytes_total.setter
-    def agent_connection_rx_bytes_total(self, agent_connection_rx_bytes_total):
-        """Sets the agent_connection_rx_bytes_total of this TsoaPartialAgentConnectionObject_.
-
-
-        :param agent_connection_rx_bytes_total: The agent_connection_rx_bytes_total of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._agent_connection_rx_bytes_total = agent_connection_rx_bytes_total
-
-    @property
-    def agent_connection_latency_ms(self):
-        """Gets the agent_connection_latency_ms of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-
-
-        :return: The agent_connection_latency_ms of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._agent_connection_latency_ms
-
-    @agent_connection_latency_ms.setter
-    def agent_connection_latency_ms(self, agent_connection_latency_ms):
-        """Sets the agent_connection_latency_ms of this TsoaPartialAgentConnectionObject_.
-
-
-        :param agent_connection_latency_ms: The agent_connection_latency_ms of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._agent_connection_latency_ms = agent_connection_latency_ms
-
-    @property
-    def agent_connection_packet_loss(self):
-        """Gets the agent_connection_packet_loss of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-
-
-        :return: The agent_connection_packet_loss of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :rtype: float
-        """
-        return self._agent_connection_packet_loss
-
-    @agent_connection_packet_loss.setter
-    def agent_connection_packet_loss(self, agent_connection_packet_loss):
-        """Sets the agent_connection_packet_loss of this TsoaPartialAgentConnectionObject_.
-
-
-        :param agent_connection_packet_loss: The agent_connection_packet_loss of this TsoaPartialAgentConnectionObject_.  # noqa: E501
-        :type: float
-        """
-
-        self._agent_connection_packet_loss = agent_connection_packet_loss
+        self._agent_connection_status_reason = agent_connection_status_reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""
