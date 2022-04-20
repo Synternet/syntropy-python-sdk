@@ -283,10 +283,10 @@ def login_with_access_token(api_url, access_token):
     api = ApiClient(config)
     auth = AuthApi(api)
 
-    body = models.AccessTokenData(access_token=access_token)
+    body = models.V1NetworkAuthAccessTokenLoginRequest(access_token=access_token)
     try:
-        response = auth.auth_access_token_login(body)
-        return response.access_token
+        response = auth.v1_network_auth_access_token_login(body)
+        return response.data.access_token
     finally:
         del auth
         del api

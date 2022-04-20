@@ -155,9 +155,9 @@ def test_batched_request__filter():
 def test_login_with_access_token():
     with mock.patch.object(
         sdk.AuthApi,
-        "auth_access_token_login",
+        "v1_network_auth_access_token_login",
         autospec=True,
-        return_value=sdk.models.AzureUserTokenDto(
+        return_value=sdk.models.V1NetworkAuthAccessTokenLoginResult(
             access_token="token",
             token_type="bearer",
             expires_in="whenever",
