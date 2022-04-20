@@ -286,7 +286,8 @@ def login_with_access_token(api_url, access_token):
     body = models.V1NetworkAuthAccessTokenLoginRequest(access_token=access_token)
     try:
         response = auth.v1_network_auth_access_token_login(body)
-        return response.data.access_token
+        print(response)
+        return response.data["access_token"]
     finally:
         del auth
         del api

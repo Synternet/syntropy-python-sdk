@@ -47,14 +47,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_coordinates_search_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_coordinates_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_coordinates_search_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_coordinates_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_coordinates_search_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_coordinates_search_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Search Agent location coordinates  # noqa: E501
 
         Retrieves Agents location coordinates.  # noqa: E501
@@ -70,25 +76,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_coordinates_search" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_coordinates_search`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_coordinates_search`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -102,34 +109,40 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/coordinates/search', 'POST',
+            "/v1/network/agents/coordinates/search",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsCoordinatesSearchResponse',  # noqa: E501
+            response_type="V1NetworkAgentsCoordinatesSearchResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_create(self, body, **kwargs):  # noqa: E501
         """Create Agent  # noqa: E501
@@ -146,11 +159,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_create_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_create_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_create_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -169,25 +186,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_create" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_create`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -201,34 +219,40 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents', 'POST',
+            "/v1/network/agents",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsCreateResponse',  # noqa: E501
+            response_type="V1NetworkAgentsCreateResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_delete(self, agent_id, **kwargs):  # noqa: E501
         """Delete Agent  # noqa: E501
@@ -245,11 +269,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_delete_with_http_info(agent_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_delete_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_delete_with_http_info(agent_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_delete_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_delete_with_http_info(self, agent_id, **kwargs):  # noqa: E501
@@ -268,31 +296,32 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['agent_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["agent_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_delete" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'agent_id' is set
-        if ('agent_id' not in params or
-                params['agent_id'] is None):
-            raise ValueError("Missing the required parameter `agent_id` when calling `v1_network_agents_delete`")  # noqa: E501
+        if "agent_id" not in params or params["agent_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `agent_id` when calling `v1_network_agents_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'agent_id' in params:
-            path_params['agent_id'] = params['agent_id']  # noqa: E501
+        if "agent_id" in params:
+            path_params["agent_id"] = params["agent_id"]  # noqa: E501
 
         query_params = []
 
@@ -303,14 +332,16 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/{agent_id}', 'DELETE',
+            "/v1/network/agents/{agent_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -319,11 +350,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_filters_search(self, body, **kwargs):  # noqa: E501
         """Search Agent filters  # noqa: E501
@@ -340,14 +372,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_filters_search_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_filters_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_filters_search_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_filters_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_filters_search_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_filters_search_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Search Agent filters  # noqa: E501
 
         Gets all unique Agents names and ids for filters.  # noqa: E501
@@ -363,25 +401,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_filters_search" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_filters_search`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_filters_search`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -395,34 +434,40 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/filters/search', 'POST',
+            "/v1/network/agents/filters/search",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsFiltersSearchResponse',  # noqa: E501
+            response_type="V1NetworkAgentsFiltersSearchResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_get(self, **kwargs):  # noqa: E501
         """Get Agents  # noqa: E501
@@ -441,8 +486,8 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.v1_network_agents_get_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.v1_network_agents_get_with_http_info(**kwargs)  # noqa: E501
@@ -466,33 +511,33 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['skip', 'take', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["skip", "take", "filter"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'skip' in params:
-            query_params.append(('skip', params['skip']))  # noqa: E501
-        if 'take' in params:
-            query_params.append(('take', params['take']))  # noqa: E501
-        if 'filter' in params:
-            query_params.append(('filter', params['filter']))  # noqa: E501
+        if "skip" in params:
+            query_params.append(("skip", params["skip"]))  # noqa: E501
+        if "take" in params:
+            query_params.append(("take", params["take"]))  # noqa: E501
+        if "filter" in params:
+            query_params.append(("filter", params["filter"]))  # noqa: E501
 
         header_params = {}
 
@@ -501,27 +546,30 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents', 'GET',
+            "/v1/network/agents",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsGetResponse',  # noqa: E501
+            response_type="V1NetworkAgentsGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_logs_errors_search(self, body, **kwargs):  # noqa: E501
         """Search Agent error logs  # noqa: E501
@@ -538,14 +586,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_logs_errors_search_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_logs_errors_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_logs_errors_search_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_logs_errors_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_logs_errors_search_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_logs_errors_search_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Search Agent error logs  # noqa: E501
 
         Returns a list of Agent error logs.  # noqa: E501
@@ -561,25 +615,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_logs_errors_search" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_logs_errors_search`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_logs_errors_search`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -593,36 +648,44 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/logs/errors/search', 'POST',
+            "/v1/network/agents/logs/errors/search",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsLogsErrorsSearchResponse',  # noqa: E501
+            response_type="V1NetworkAgentsLogsErrorsSearchResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_agents_logs_reads_timestamp_search(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_logs_reads_timestamp_search(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Save log read timestamp  # noqa: E501
 
         Saves last logs read timestamp.  # noqa: E501
@@ -637,14 +700,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_logs_reads_timestamp_search_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_logs_reads_timestamp_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_logs_reads_timestamp_search_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_logs_reads_timestamp_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_logs_reads_timestamp_search_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_logs_reads_timestamp_search_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Save log read timestamp  # noqa: E501
 
         Saves last logs read timestamp.  # noqa: E501
@@ -660,25 +729,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_logs_reads_timestamp_search" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_logs_reads_timestamp_search`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_logs_reads_timestamp_search`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -692,21 +762,26 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/logs-reads-timestamp', 'POST',
+            "/v1/network/agents/logs-reads-timestamp",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -715,11 +790,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_logs_search(self, body, **kwargs):  # noqa: E501
         """Search Agent logs  # noqa: E501
@@ -736,14 +812,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_logs_search_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_logs_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_logs_search_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_logs_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_logs_search_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_logs_search_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Search Agent logs  # noqa: E501
 
         Search Agent logs.  # noqa: E501
@@ -759,25 +841,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_logs_search" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_logs_search`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_logs_search`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -791,34 +874,40 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/logs/search', 'POST',
+            "/v1/network/agents/logs/search",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsLogsSearchResponse',  # noqa: E501
+            response_type="V1NetworkAgentsLogsSearchResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_providers_get(self, **kwargs):  # noqa: E501
         """Get Agent providers  # noqa: E501
@@ -838,11 +927,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_providers_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_providers_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_providers_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_providers_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_providers_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -864,35 +957,35 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['skip', 'take', 'order', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["skip", "take", "order", "filter"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_providers_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'skip' in params:
-            query_params.append(('skip', params['skip']))  # noqa: E501
-        if 'take' in params:
-            query_params.append(('take', params['take']))  # noqa: E501
-        if 'order' in params:
-            query_params.append(('order', params['order']))  # noqa: E501
-        if 'filter' in params:
-            query_params.append(('filter', params['filter']))  # noqa: E501
+        if "skip" in params:
+            query_params.append(("skip", params["skip"]))  # noqa: E501
+        if "take" in params:
+            query_params.append(("take", params["take"]))  # noqa: E501
+        if "order" in params:
+            query_params.append(("order", params["order"]))  # noqa: E501
+        if "filter" in params:
+            query_params.append(("filter", params["filter"]))  # noqa: E501
 
         header_params = {}
 
@@ -901,27 +994,30 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/providers', 'GET',
+            "/v1/network/agents/providers",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsProvidersGetResponse',  # noqa: E501
+            response_type="V1NetworkAgentsProvidersGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_remove(self, body, **kwargs):  # noqa: E501
         """Delete Agents  # noqa: E501
@@ -938,11 +1034,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_remove_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_remove_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_remove_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -961,25 +1061,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_remove" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_remove`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_remove`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -993,21 +1094,26 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/remove', 'POST',
+            "/v1/network/agents/remove",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1016,11 +1122,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_search(self, body, **kwargs):  # noqa: E501
         """Search Agents  # noqa: E501
@@ -1037,11 +1144,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_search_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_search_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_search_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_search_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -1060,25 +1171,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_search" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_search`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_search`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1092,36 +1204,44 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/search', 'POST',
+            "/v1/network/agents/search",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsSearchResponse',  # noqa: E501
+            response_type="V1NetworkAgentsSearchResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_agents_services_delete(self, agent_service_subnet_id, **kwargs):  # noqa: E501
+    def v1_network_agents_services_delete(
+        self, agent_service_subnet_id, **kwargs
+    ):  # noqa: E501
         """Delete Agent service  # noqa: E501
 
         Deletes Agent service.  # noqa: E501
@@ -1136,14 +1256,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_services_delete_with_http_info(agent_service_subnet_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_services_delete_with_http_info(
+                agent_service_subnet_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_services_delete_with_http_info(agent_service_subnet_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_services_delete_with_http_info(
+                agent_service_subnet_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_services_delete_with_http_info(self, agent_service_subnet_id, **kwargs):  # noqa: E501
+    def v1_network_agents_services_delete_with_http_info(
+        self, agent_service_subnet_id, **kwargs
+    ):  # noqa: E501
         """Delete Agent service  # noqa: E501
 
         Deletes Agent service.  # noqa: E501
@@ -1159,31 +1285,37 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['agent_service_subnet_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["agent_service_subnet_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_services_delete" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'agent_service_subnet_id' is set
-        if ('agent_service_subnet_id' not in params or
-                params['agent_service_subnet_id'] is None):
-            raise ValueError("Missing the required parameter `agent_service_subnet_id` when calling `v1_network_agents_services_delete`")  # noqa: E501
+        if (
+            "agent_service_subnet_id" not in params
+            or params["agent_service_subnet_id"] is None
+        ):
+            raise ValueError(
+                "Missing the required parameter `agent_service_subnet_id` when calling `v1_network_agents_services_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'agent_service_subnet_id' in params:
-            path_params['agent_service_subnet_id'] = params['agent_service_subnet_id']  # noqa: E501
+        if "agent_service_subnet_id" in params:
+            path_params["agent_service_subnet_id"] = params[
+                "agent_service_subnet_id"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1194,14 +1326,16 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/services/{agent_service_subnet_id}', 'DELETE',
+            "/v1/network/agents/services/{agent_service_subnet_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -1210,11 +1344,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_services_get(self, **kwargs):  # noqa: E501
         """Get Agent services.  # noqa: E501
@@ -1231,11 +1366,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_services_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_services_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_services_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_services_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_services_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -1254,29 +1393,29 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["filter"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_services_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'filter' in params:
-            query_params.append(('filter', params['filter']))  # noqa: E501
+        if "filter" in params:
+            query_params.append(("filter", params["filter"]))  # noqa: E501
 
         header_params = {}
 
@@ -1285,27 +1424,30 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/services', 'GET',
+            "/v1/network/agents/services",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsServicesGetResponse',  # noqa: E501
+            response_type="V1NetworkAgentsServicesGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_services_remove(self, body, **kwargs):  # noqa: E501
         """Delete Agent services  # noqa: E501
@@ -1322,14 +1464,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_services_remove_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_services_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_services_remove_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_services_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_services_remove_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_services_remove_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Delete Agent services  # noqa: E501
 
         Deletes Agent services.  # noqa: E501
@@ -1345,25 +1493,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_services_remove" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_services_remove`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_services_remove`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1377,21 +1526,26 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/services/remove', 'POST',
+            "/v1/network/agents/services/remove",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1400,11 +1554,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_services_update(self, body, **kwargs):  # noqa: E501
         """Update Agent services  # noqa: E501
@@ -1421,14 +1576,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_services_update_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_services_update_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_services_update_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_services_update_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_services_update_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_services_update_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Update Agent services  # noqa: E501
 
         Updates Agent services.  # noqa: E501
@@ -1444,25 +1605,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_services_update" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_services_update`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_services_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1476,21 +1638,26 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/services/bulk', 'PATCH',
+            "/v1/network/agents/services/bulk",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -1499,11 +1666,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_settings_get(self, **kwargs):  # noqa: E501
         """Get Agent settings  # noqa: E501
@@ -1519,11 +1687,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_settings_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_settings_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_settings_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_settings_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_settings_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -1542,20 +1714,20 @@ class AgentsApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_settings_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -1570,27 +1742,30 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/settings', 'GET',
+            "/v1/network/agents/settings",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsSettingsGetResponse',  # noqa: E501
+            response_type="V1NetworkAgentsSettingsGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_settings_update(self, body, **kwargs):  # noqa: E501
         """Update Agent settings  # noqa: E501
@@ -1607,14 +1782,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_settings_update_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_settings_update_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_settings_update_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_settings_update_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_settings_update_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_agents_settings_update_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Update Agent settings  # noqa: E501
 
         Updates Agents settings.  # noqa: E501
@@ -1630,25 +1811,26 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_settings_update" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_settings_update`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_settings_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1662,21 +1844,26 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/settings', 'PATCH',
+            "/v1/network/agents/settings",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -1685,11 +1872,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_tags_get(self, **kwargs):  # noqa: E501
         """Get Agent tags  # noqa: E501
@@ -1705,11 +1893,15 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_tags_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_tags_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_tags_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_tags_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_agents_tags_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -1728,20 +1920,20 @@ class AgentsApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_tags_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -1756,27 +1948,30 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/tags', 'GET',
+            "/v1/network/agents/tags",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsTagsGetResponse',  # noqa: E501
+            response_type="V1NetworkAgentsTagsGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_update(self, body, agent_id, **kwargs):  # noqa: E501
         """Updates Agent  # noqa: E501
@@ -1794,14 +1989,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_update_with_http_info(body, agent_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_update_with_http_info(
+                body, agent_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_update_with_http_info(body, agent_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_update_with_http_info(
+                body, agent_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_update_with_http_info(self, body, agent_id, **kwargs):  # noqa: E501
+    def v1_network_agents_update_with_http_info(
+        self, body, agent_id, **kwargs
+    ):  # noqa: E501
         """Updates Agent  # noqa: E501
 
         Update Agent.  # noqa: E501
@@ -1818,35 +2019,37 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'agent_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body", "agent_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_update" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_agents_update`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_agents_update`"
+            )  # noqa: E501
         # verify the required parameter 'agent_id' is set
-        if ('agent_id' not in params or
-                params['agent_id'] is None):
-            raise ValueError("Missing the required parameter `agent_id` when calling `v1_network_agents_update`")  # noqa: E501
+        if "agent_id" not in params or params["agent_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `agent_id` when calling `v1_network_agents_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'agent_id' in params:
-            path_params['agent_id'] = params['agent_id']  # noqa: E501
+        if "agent_id" in params:
+            path_params["agent_id"] = params["agent_id"]  # noqa: E501
 
         query_params = []
 
@@ -1856,21 +2059,26 @@ class AgentsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/{agent_id}', 'PATCH',
+            "/v1/network/agents/{agent_id}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -1879,11 +2087,12 @@ class AgentsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_agents_wg_config_get_one(self, agent_id, **kwargs):  # noqa: E501
         """Get Agent Wg config  # noqa: E501
@@ -1900,14 +2109,20 @@ class AgentsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_agents_wg_config_get_one_with_http_info(agent_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_agents_wg_config_get_one_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_agents_wg_config_get_one_with_http_info(agent_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_agents_wg_config_get_one_with_http_info(
+                agent_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_agents_wg_config_get_one_with_http_info(self, agent_id, **kwargs):  # noqa: E501
+    def v1_network_agents_wg_config_get_one_with_http_info(
+        self, agent_id, **kwargs
+    ):  # noqa: E501
         """Get Agent Wg config  # noqa: E501
 
         Returns Agents WireGuard configuration.  # noqa: E501
@@ -1923,31 +2138,32 @@ class AgentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['agent_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["agent_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_agents_wg_config_get_one" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'agent_id' is set
-        if ('agent_id' not in params or
-                params['agent_id'] is None):
-            raise ValueError("Missing the required parameter `agent_id` when calling `v1_network_agents_wg_config_get_one`")  # noqa: E501
+        if "agent_id" not in params or params["agent_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `agent_id` when calling `v1_network_agents_wg_config_get_one`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'agent_id' in params:
-            path_params['agent_id'] = params['agent_id']  # noqa: E501
+        if "agent_id" in params:
+            path_params["agent_id"] = params["agent_id"]  # noqa: E501
 
         query_params = []
 
@@ -1958,24 +2174,27 @@ class AgentsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/agents/wg-config/{agent_id}', 'GET',
+            "/v1/network/agents/wg-config/{agent_id}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAgentsWgConfigGetOneResponse',  # noqa: E501
+            response_type="V1NetworkAgentsWgConfigGetOneResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

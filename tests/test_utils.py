@@ -4,7 +4,7 @@ from unittest import mock
 import pytest
 
 import syntropy_sdk as sdk
-from syntropy_sdk import utils
+from syntropy_sdk import models, utils
 from syntropy_sdk.rest import ApiException
 
 
@@ -157,11 +157,13 @@ def test_login_with_access_token():
         sdk.AuthApi,
         "v1_network_auth_access_token_login",
         autospec=True,
-        return_value=sdk.models.V1NetworkAuthAccessTokenLoginResult(
-            access_token="token",
-            token_type="bearer",
-            expires_in="whenever",
-            refresh_token="refresh token",
+        return_value=models.V1NetworkAuthAccessTokenLoginResponse(
+            {
+                "access_token": "token",
+                "token_type": "bearer",
+                "expires_in": "whenever",
+                "refresh_token": "refresh token",
+            }
         ),
     ) as the_mock:
         assert "token" == utils.login_with_access_token("the url", "access token")

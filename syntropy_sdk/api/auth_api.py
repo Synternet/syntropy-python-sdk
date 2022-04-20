@@ -47,14 +47,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_access_token_login_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_access_token_login_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_access_token_login_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_access_token_login_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_access_token_login_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_access_token_login_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Login (Access token)  # noqa: E501
 
         Retrieve JWT from Access token.  # noqa: E501
@@ -70,25 +76,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_access_token_login" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_access_token_login`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_access_token_login`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -102,34 +109,40 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/access-token/login', 'POST',
+            "/v1/network/auth/access-token/login",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthAccessTokenLoginResponse',  # noqa: E501
+            response_type="V1NetworkAuthAccessTokenLoginResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_access_tokens_create(self, body, **kwargs):  # noqa: E501
         """Create Access token  # noqa: E501
@@ -146,14 +159,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_access_tokens_create_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_access_tokens_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_access_tokens_create_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_access_tokens_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_access_tokens_create_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_access_tokens_create_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Create Access token  # noqa: E501
 
         Creates Access token.  # noqa: E501
@@ -169,25 +188,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_access_tokens_create" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_access_tokens_create`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_access_tokens_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -201,36 +221,44 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/access-tokens', 'POST',
+            "/v1/network/auth/access-tokens",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthAccessTokensCreateResponse',  # noqa: E501
+            response_type="V1NetworkAuthAccessTokensCreateResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_auth_access_tokens_delete(self, access_token_id, **kwargs):  # noqa: E501
+    def v1_network_auth_access_tokens_delete(
+        self, access_token_id, **kwargs
+    ):  # noqa: E501
         """Delete Access token  # noqa: E501
 
         Deletes Access token.  # noqa: E501
@@ -245,14 +273,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_access_tokens_delete_with_http_info(access_token_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_access_tokens_delete_with_http_info(
+                access_token_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_access_tokens_delete_with_http_info(access_token_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_access_tokens_delete_with_http_info(
+                access_token_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_access_tokens_delete_with_http_info(self, access_token_id, **kwargs):  # noqa: E501
+    def v1_network_auth_access_tokens_delete_with_http_info(
+        self, access_token_id, **kwargs
+    ):  # noqa: E501
         """Delete Access token  # noqa: E501
 
         Deletes Access token.  # noqa: E501
@@ -268,31 +302,32 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['access_token_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["access_token_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_access_tokens_delete" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'access_token_id' is set
-        if ('access_token_id' not in params or
-                params['access_token_id'] is None):
-            raise ValueError("Missing the required parameter `access_token_id` when calling `v1_network_auth_access_tokens_delete`")  # noqa: E501
+        if "access_token_id" not in params or params["access_token_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `access_token_id` when calling `v1_network_auth_access_tokens_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'access_token_id' in params:
-            path_params['access_token_id'] = params['access_token_id']  # noqa: E501
+        if "access_token_id" in params:
+            path_params["access_token_id"] = params["access_token_id"]  # noqa: E501
 
         query_params = []
 
@@ -303,14 +338,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/access-tokens/{access_token_id}', 'DELETE',
+            "/v1/network/auth/access-tokens/{access_token_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -319,11 +356,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_access_tokens_get(self, **kwargs):  # noqa: E501
         """Get Access tokens  # noqa: E501
@@ -342,11 +380,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_access_tokens_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_access_tokens_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_access_tokens_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_access_tokens_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_access_tokens_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -367,33 +409,33 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['skip', 'take', 'order']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["skip", "take", "order"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_access_tokens_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'skip' in params:
-            query_params.append(('skip', params['skip']))  # noqa: E501
-        if 'take' in params:
-            query_params.append(('take', params['take']))  # noqa: E501
-        if 'order' in params:
-            query_params.append(('order', params['order']))  # noqa: E501
+        if "skip" in params:
+            query_params.append(("skip", params["skip"]))  # noqa: E501
+        if "take" in params:
+            query_params.append(("take", params["take"]))  # noqa: E501
+        if "order" in params:
+            query_params.append(("order", params["order"]))  # noqa: E501
 
         header_params = {}
 
@@ -402,27 +444,30 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/access-tokens', 'GET',
+            "/v1/network/auth/access-tokens",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthAccessTokensGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthAccessTokensGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_access_tokens_permissions_get(self, **kwargs):  # noqa: E501
         """Get Access token permissions  # noqa: E501
@@ -438,14 +483,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_access_tokens_permissions_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_access_tokens_permissions_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_access_tokens_permissions_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_access_tokens_permissions_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_access_tokens_permissions_get_with_http_info(self, **kwargs):  # noqa: E501
+    def v1_network_auth_access_tokens_permissions_get_with_http_info(
+        self, **kwargs
+    ):  # noqa: E501
         """Get Access token permissions  # noqa: E501
 
         Retrieves a list of Access token permissions  # noqa: E501
@@ -461,20 +512,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_access_tokens_permissions_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -489,27 +540,30 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/access-tokens/permissions', 'GET',
+            "/v1/network/auth/access-tokens/permissions",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthAccessTokensPermissionsGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthAccessTokensPermissionsGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_api_keys_create(self, body, **kwargs):  # noqa: E501
         """Create API key  # noqa: E501
@@ -526,14 +580,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_api_keys_create_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_api_keys_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_api_keys_create_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_api_keys_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_api_keys_create_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_api_keys_create_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Create API key  # noqa: E501
 
         Creates API key.  # noqa: E501
@@ -549,25 +609,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_api_keys_create" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_api_keys_create`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_api_keys_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -581,34 +642,40 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/api-keys', 'POST',
+            "/v1/network/auth/api-keys",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthApiKeysCreateResponse',  # noqa: E501
+            response_type="V1NetworkAuthApiKeysCreateResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_api_keys_delete(self, api_key_id, **kwargs):  # noqa: E501
         """Delete API key  # noqa: E501
@@ -625,14 +692,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_api_keys_delete_with_http_info(api_key_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_api_keys_delete_with_http_info(
+                api_key_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_api_keys_delete_with_http_info(api_key_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_api_keys_delete_with_http_info(
+                api_key_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_api_keys_delete_with_http_info(self, api_key_id, **kwargs):  # noqa: E501
+    def v1_network_auth_api_keys_delete_with_http_info(
+        self, api_key_id, **kwargs
+    ):  # noqa: E501
         """Delete API key  # noqa: E501
 
         Deletes API key.  # noqa: E501
@@ -648,31 +721,32 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['api_key_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["api_key_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_api_keys_delete" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'api_key_id' is set
-        if ('api_key_id' not in params or
-                params['api_key_id'] is None):
-            raise ValueError("Missing the required parameter `api_key_id` when calling `v1_network_auth_api_keys_delete`")  # noqa: E501
+        if "api_key_id" not in params or params["api_key_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `api_key_id` when calling `v1_network_auth_api_keys_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'api_key_id' in params:
-            path_params['api_key_id'] = params['api_key_id']  # noqa: E501
+        if "api_key_id" in params:
+            path_params["api_key_id"] = params["api_key_id"]  # noqa: E501
 
         query_params = []
 
@@ -683,14 +757,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/api-keys/{api_key_id}', 'DELETE',
+            "/v1/network/auth/api-keys/{api_key_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -699,11 +775,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_api_keys_get(self, **kwargs):  # noqa: E501
         """Get API keys  # noqa: E501
@@ -723,11 +800,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_api_keys_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_api_keys_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_api_keys_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_api_keys_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_api_keys_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -749,35 +830,35 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['skip', 'take', 'order', 'filter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["skip", "take", "order", "filter"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_api_keys_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'skip' in params:
-            query_params.append(('skip', params['skip']))  # noqa: E501
-        if 'take' in params:
-            query_params.append(('take', params['take']))  # noqa: E501
-        if 'order' in params:
-            query_params.append(('order', params['order']))  # noqa: E501
-        if 'filter' in params:
-            query_params.append(('filter', params['filter']))  # noqa: E501
+        if "skip" in params:
+            query_params.append(("skip", params["skip"]))  # noqa: E501
+        if "take" in params:
+            query_params.append(("take", params["take"]))  # noqa: E501
+        if "order" in params:
+            query_params.append(("order", params["order"]))  # noqa: E501
+        if "filter" in params:
+            query_params.append(("filter", params["filter"]))  # noqa: E501
 
         header_params = {}
 
@@ -786,27 +867,30 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/api-keys', 'GET',
+            "/v1/network/auth/api-keys",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthApiKeysGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthApiKeysGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_logout(self, **kwargs):  # noqa: E501
         """Logout  # noqa: E501
@@ -822,8 +906,8 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.v1_network_auth_logout_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.v1_network_auth_logout_with_http_info(**kwargs)  # noqa: E501
@@ -845,20 +929,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_logout" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -873,14 +957,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/logout', 'POST',
+            "/v1/network/auth/logout",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -889,11 +975,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_mfa_confirm(self, body, **kwargs):  # noqa: E501
         """Confirm MFA  # noqa: E501
@@ -910,11 +997,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_mfa_confirm_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_mfa_confirm_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_mfa_confirm_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_mfa_confirm_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_mfa_confirm_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -933,25 +1024,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_mfa_confirm" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_mfa_confirm`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_mfa_confirm`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -965,34 +1057,40 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/mfa/confirm', 'POST',
+            "/v1/network/auth/mfa/confirm",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthMfaConfirmResponse',  # noqa: E501
+            response_type="V1NetworkAuthMfaConfirmResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_mfa_disable(self, body, **kwargs):  # noqa: E501
         """Disable MFA  # noqa: E501
@@ -1009,11 +1107,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_mfa_disable_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_mfa_disable_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_mfa_disable_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_mfa_disable_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_mfa_disable_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -1032,25 +1134,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_mfa_disable" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_mfa_disable`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_mfa_disable`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1064,21 +1167,26 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/mfa/disable', 'POST',
+            "/v1/network/auth/mfa/disable",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1087,11 +1195,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_mfa_disable_using_backup(self, body, **kwargs):  # noqa: E501
         """Disable MFA (backup)  # noqa: E501
@@ -1108,14 +1217,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_mfa_disable_using_backup_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_mfa_disable_using_backup_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_mfa_disable_using_backup_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_mfa_disable_using_backup_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_mfa_disable_using_backup_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_mfa_disable_using_backup_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Disable MFA (backup)  # noqa: E501
 
         Disables MFA using backup.  # noqa: E501
@@ -1131,25 +1246,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_mfa_disable_using_backup" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_mfa_disable_using_backup`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_mfa_disable_using_backup`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1163,21 +1279,26 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/mfa/disable-using-backup', 'POST',
+            "/v1/network/auth/mfa/disable-using-backup",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1186,11 +1307,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_mfa_generate(self, **kwargs):  # noqa: E501
         """Generate MFA  # noqa: E501
@@ -1206,11 +1328,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_mfa_generate_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_mfa_generate_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_mfa_generate_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_mfa_generate_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_mfa_generate_with_http_info(self, **kwargs):  # noqa: E501
@@ -1229,20 +1355,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_mfa_generate" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -1257,27 +1383,30 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/mfa/generate', 'GET',
+            "/v1/network/auth/mfa/generate",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthMfaGenerateResponse',  # noqa: E501
+            response_type="V1NetworkAuthMfaGenerateResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_settings_update(self, body, **kwargs):  # noqa: E501
         """Update User settings  # noqa: E501
@@ -1294,14 +1423,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_settings_update_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_settings_update_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_settings_update_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_settings_update_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_settings_update_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_settings_update_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Update User settings  # noqa: E501
 
         Updates User settings.  # noqa: E501
@@ -1317,25 +1452,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_settings_update" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_settings_update`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_settings_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1349,21 +1485,26 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/user/settings', 'PATCH',
+            "/v1/network/auth/user/settings",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -1372,11 +1513,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_user_get(self, **kwargs):  # noqa: E501
         """Get User info  # noqa: E501
@@ -1392,11 +1534,13 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.v1_network_auth_user_get_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.v1_network_auth_user_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_user_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_user_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -1415,20 +1559,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_user_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -1443,27 +1587,30 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/user', 'GET',
+            "/v1/network/auth/user",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthUserGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthUserGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_user_invitations_get(self, **kwargs):  # noqa: E501
         """Get invitations for authenticated user  # noqa: E501
@@ -1479,14 +1626,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_user_invitations_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_user_invitations_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_user_invitations_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_user_invitations_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_user_invitations_get_with_http_info(self, **kwargs):  # noqa: E501
+    def v1_network_auth_user_invitations_get_with_http_info(
+        self, **kwargs
+    ):  # noqa: E501
         """Get invitations for authenticated user  # noqa: E501
 
         Gets invitations for authenticated user.  # noqa: E501
@@ -1502,20 +1655,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_user_invitations_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -1530,27 +1683,30 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/user/invitations', 'GET',
+            "/v1/network/auth/user/invitations",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthUserInvitationsGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthUserInvitationsGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_users_get(self, **kwargs):  # noqa: E501
         """Get workspace users  # noqa: E501
@@ -1566,11 +1722,13 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
             return self.v1_network_auth_users_get_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.v1_network_auth_users_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_users_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_users_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -1589,20 +1747,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_users_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -1617,27 +1775,30 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/users', 'GET',
+            "/v1/network/auth/users",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthUsersGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthUsersGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_users_remove(self, body, **kwargs):  # noqa: E501
         """Remove users from workspace  # noqa: E501
@@ -1654,11 +1815,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_users_remove_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_users_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_users_remove_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_users_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_users_remove_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -1677,25 +1842,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_users_remove" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_users_remove`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_users_remove`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1709,21 +1875,26 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/users/remove', 'POST',
+            "/v1/network/auth/users/remove",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1732,11 +1903,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_users_role_update(self, body, user_id, **kwargs):  # noqa: E501
         """Update user role in the workspace  # noqa: E501
@@ -1754,14 +1926,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_users_role_update_with_http_info(body, user_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_users_role_update_with_http_info(
+                body, user_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_users_role_update_with_http_info(body, user_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_users_role_update_with_http_info(
+                body, user_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_users_role_update_with_http_info(self, body, user_id, **kwargs):  # noqa: E501
+    def v1_network_auth_users_role_update_with_http_info(
+        self, body, user_id, **kwargs
+    ):  # noqa: E501
         """Update user role in the workspace  # noqa: E501
 
         Updates user role in the workspace.  # noqa: E501
@@ -1778,35 +1956,37 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body", "user_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_users_role_update" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_users_role_update`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_users_role_update`"
+            )  # noqa: E501
         # verify the required parameter 'user_id' is set
-        if ('user_id' not in params or
-                params['user_id'] is None):
-            raise ValueError("Missing the required parameter `user_id` when calling `v1_network_auth_users_role_update`")  # noqa: E501
+        if "user_id" not in params or params["user_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `user_id` when calling `v1_network_auth_users_role_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'user_id' in params:
-            path_params['user_id'] = params['user_id']  # noqa: E501
+        if "user_id" in params:
+            path_params["user_id"] = params["user_id"]  # noqa: E501
 
         query_params = []
 
@@ -1816,21 +1996,26 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/users/{user_id}/role', 'PATCH',
+            "/v1/network/auth/users/{user_id}/role",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -1839,11 +2024,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_verify_email(self, code, **kwargs):  # noqa: E501
         """Verify email  # noqa: E501
@@ -1860,11 +2046,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_verify_email_with_http_info(code, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_verify_email_with_http_info(
+                code, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_verify_email_with_http_info(code, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_verify_email_with_http_info(
+                code, **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_verify_email_with_http_info(self, code, **kwargs):  # noqa: E501
@@ -1883,31 +2073,32 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['code']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["code"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_verify_email" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'code' is set
-        if ('code' not in params or
-                params['code'] is None):
-            raise ValueError("Missing the required parameter `code` when calling `v1_network_auth_verify_email`")  # noqa: E501
+        if "code" not in params or params["code"] is None:
+            raise ValueError(
+                "Missing the required parameter `code` when calling `v1_network_auth_verify_email`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'code' in params:
-            path_params['code'] = params['code']  # noqa: E501
+        if "code" in params:
+            path_params["code"] = params["code"]  # noqa: E501
 
         query_params = []
 
@@ -1918,14 +2109,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/verify-email/{code}', 'POST',
+            "/v1/network/auth/verify-email/{code}",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -1934,11 +2127,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_workspace_create(self, body, **kwargs):  # noqa: E501
         """Create workspace  # noqa: E501
@@ -1955,14 +2149,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspace_create_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspace_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspace_create_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspace_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspace_create_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_workspace_create_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Create workspace  # noqa: E501
 
         Creates workspace.  # noqa: E501
@@ -1978,25 +2178,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspace_create" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_workspace_create`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_workspace_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -2010,34 +2211,40 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces', 'POST',
+            "/v1/network/auth/workspaces",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthWorkspaceCreateResponse',  # noqa: E501
+            response_type="V1NetworkAuthWorkspaceCreateResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_workspace_delete(self, workspace_id, **kwargs):  # noqa: E501
         """Delete workspace  # noqa: E501
@@ -2054,14 +2261,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspace_delete_with_http_info(workspace_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspace_delete_with_http_info(
+                workspace_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspace_delete_with_http_info(workspace_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspace_delete_with_http_info(
+                workspace_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspace_delete_with_http_info(self, workspace_id, **kwargs):  # noqa: E501
+    def v1_network_auth_workspace_delete_with_http_info(
+        self, workspace_id, **kwargs
+    ):  # noqa: E501
         """Delete workspace  # noqa: E501
 
         Deletes workspace.  # noqa: E501
@@ -2077,31 +2290,32 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['workspace_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["workspace_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspace_delete" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'workspace_id' is set
-        if ('workspace_id' not in params or
-                params['workspace_id'] is None):
-            raise ValueError("Missing the required parameter `workspace_id` when calling `v1_network_auth_workspace_delete`")  # noqa: E501
+        if "workspace_id" not in params or params["workspace_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `workspace_id` when calling `v1_network_auth_workspace_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'workspace_id' in params:
-            path_params['workspace_id'] = params['workspace_id']  # noqa: E501
+        if "workspace_id" in params:
+            path_params["workspace_id"] = params["workspace_id"]  # noqa: E501
 
         query_params = []
 
@@ -2112,14 +2326,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/{workspace_id}', 'DELETE',
+            "/v1/network/auth/workspaces/{workspace_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -2128,11 +2344,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_workspace_get(self, **kwargs):  # noqa: E501
         """Get workspaces  # noqa: E501
@@ -2148,11 +2365,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspace_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspace_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspace_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspace_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_workspace_get_with_http_info(self, **kwargs):  # noqa: E501
@@ -2171,20 +2392,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspace_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -2199,29 +2420,34 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces', 'GET',
+            "/v1/network/auth/workspaces",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthWorkspaceGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthWorkspaceGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_auth_workspace_update(self, body, workspace_id, **kwargs):  # noqa: E501
+    def v1_network_auth_workspace_update(
+        self, body, workspace_id, **kwargs
+    ):  # noqa: E501
         """Update workspace  # noqa: E501
 
         Updates workspace.  # noqa: E501
@@ -2237,14 +2463,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspace_update_with_http_info(body, workspace_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspace_update_with_http_info(
+                body, workspace_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspace_update_with_http_info(body, workspace_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspace_update_with_http_info(
+                body, workspace_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspace_update_with_http_info(self, body, workspace_id, **kwargs):  # noqa: E501
+    def v1_network_auth_workspace_update_with_http_info(
+        self, body, workspace_id, **kwargs
+    ):  # noqa: E501
         """Update workspace  # noqa: E501
 
         Updates workspace.  # noqa: E501
@@ -2261,35 +2493,37 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'workspace_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body", "workspace_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspace_update" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_workspace_update`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_workspace_update`"
+            )  # noqa: E501
         # verify the required parameter 'workspace_id' is set
-        if ('workspace_id' not in params or
-                params['workspace_id'] is None):
-            raise ValueError("Missing the required parameter `workspace_id` when calling `v1_network_auth_workspace_update`")  # noqa: E501
+        if "workspace_id" not in params or params["workspace_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `workspace_id` when calling `v1_network_auth_workspace_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'workspace_id' in params:
-            path_params['workspace_id'] = params['workspace_id']  # noqa: E501
+        if "workspace_id" in params:
+            path_params["workspace_id"] = params["workspace_id"]  # noqa: E501
 
         query_params = []
 
@@ -2299,21 +2533,26 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/{workspace_id}', 'PATCH',
+            "/v1/network/auth/workspaces/{workspace_id}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
@@ -2322,13 +2561,16 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_auth_workspaces_invitations_accept(self, invitation_id, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_accept(
+        self, invitation_id, **kwargs
+    ):  # noqa: E501
         """Accept workspace invitation  # noqa: E501
 
         Accepts workspace invitation.  # noqa: E501
@@ -2343,14 +2585,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspaces_invitations_accept_with_http_info(invitation_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspaces_invitations_accept_with_http_info(
+                invitation_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspaces_invitations_accept_with_http_info(invitation_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspaces_invitations_accept_with_http_info(
+                invitation_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspaces_invitations_accept_with_http_info(self, invitation_id, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_accept_with_http_info(
+        self, invitation_id, **kwargs
+    ):  # noqa: E501
         """Accept workspace invitation  # noqa: E501
 
         Accepts workspace invitation.  # noqa: E501
@@ -2366,31 +2614,32 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['invitation_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["invitation_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspaces_invitations_accept" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'invitation_id' is set
-        if ('invitation_id' not in params or
-                params['invitation_id'] is None):
-            raise ValueError("Missing the required parameter `invitation_id` when calling `v1_network_auth_workspaces_invitations_accept`")  # noqa: E501
+        if "invitation_id" not in params or params["invitation_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `invitation_id` when calling `v1_network_auth_workspaces_invitations_accept`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'invitation_id' in params:
-            path_params['invitation_id'] = params['invitation_id']  # noqa: E501
+        if "invitation_id" in params:
+            path_params["invitation_id"] = params["invitation_id"]  # noqa: E501
 
         query_params = []
 
@@ -2401,14 +2650,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/invitations/{invitation_id}/accept', 'POST',
+            "/v1/network/auth/workspaces/invitations/{invitation_id}/accept",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -2417,13 +2668,16 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_auth_workspaces_invitations_create(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_create(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Create workspace invitation  # noqa: E501
 
         Creates workspace invitation.  # noqa: E501
@@ -2438,14 +2692,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspaces_invitations_create_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspaces_invitations_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspaces_invitations_create_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspaces_invitations_create_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspaces_invitations_create_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_create_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Create workspace invitation  # noqa: E501
 
         Creates workspace invitation.  # noqa: E501
@@ -2461,25 +2721,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspaces_invitations_create" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_workspaces_invitations_create`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_workspaces_invitations_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -2493,36 +2754,44 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/invitations', 'POST',
+            "/v1/network/auth/workspaces/invitations",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthWorkspacesInvitationsCreateResponse',  # noqa: E501
+            response_type="V1NetworkAuthWorkspacesInvitationsCreateResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_auth_workspaces_invitations_decline(self, invitation_id, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_decline(
+        self, invitation_id, **kwargs
+    ):  # noqa: E501
         """Decline workspace invitation  # noqa: E501
 
         Declines workspace invitation.  # noqa: E501
@@ -2537,14 +2806,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspaces_invitations_decline_with_http_info(invitation_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspaces_invitations_decline_with_http_info(
+                invitation_id, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspaces_invitations_decline_with_http_info(invitation_id, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspaces_invitations_decline_with_http_info(
+                invitation_id, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspaces_invitations_decline_with_http_info(self, invitation_id, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_decline_with_http_info(
+        self, invitation_id, **kwargs
+    ):  # noqa: E501
         """Decline workspace invitation  # noqa: E501
 
         Declines workspace invitation.  # noqa: E501
@@ -2560,31 +2835,32 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['invitation_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["invitation_id"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspaces_invitations_decline" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'invitation_id' is set
-        if ('invitation_id' not in params or
-                params['invitation_id'] is None):
-            raise ValueError("Missing the required parameter `invitation_id` when calling `v1_network_auth_workspaces_invitations_decline`")  # noqa: E501
+        if "invitation_id" not in params or params["invitation_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `invitation_id` when calling `v1_network_auth_workspaces_invitations_decline`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'invitation_id' in params:
-            path_params['invitation_id'] = params['invitation_id']  # noqa: E501
+        if "invitation_id" in params:
+            path_params["invitation_id"] = params["invitation_id"]  # noqa: E501
 
         query_params = []
 
@@ -2595,14 +2871,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/invitations/{invitation_id}/decline', 'POST',
+            "/v1/network/auth/workspaces/invitations/{invitation_id}/decline",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -2611,11 +2889,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_workspaces_invitations_get(self, **kwargs):  # noqa: E501
         """Get workspace invitations  # noqa: E501
@@ -2631,14 +2910,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspaces_invitations_get_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspaces_invitations_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspaces_invitations_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspaces_invitations_get_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspaces_invitations_get_with_http_info(self, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_get_with_http_info(
+        self, **kwargs
+    ):  # noqa: E501
         """Get workspace invitations  # noqa: E501
 
         Gets workspace invitations.  # noqa: E501
@@ -2654,20 +2939,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspaces_invitations_get" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -2682,29 +2967,34 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/invitations', 'GET',
+            "/v1/network/auth/workspaces/invitations",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='V1NetworkAuthWorkspacesInvitationsGetResponse',  # noqa: E501
+            response_type="V1NetworkAuthWorkspacesInvitationsGetResponse",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def v1_network_auth_workspaces_invitations_remove(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_remove(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Delete workspace invitations  # noqa: E501
 
         Deletes workspace invitations.  # noqa: E501
@@ -2719,14 +3009,20 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspaces_invitations_remove_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspaces_invitations_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspaces_invitations_remove_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspaces_invitations_remove_with_http_info(
+                body, **kwargs
+            )  # noqa: E501
             return data
 
-    def v1_network_auth_workspaces_invitations_remove_with_http_info(self, body, **kwargs):  # noqa: E501
+    def v1_network_auth_workspaces_invitations_remove_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Delete workspace invitations  # noqa: E501
 
         Deletes workspace invitations.  # noqa: E501
@@ -2742,25 +3038,26 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspaces_invitations_remove" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `v1_network_auth_workspaces_invitations_remove`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `v1_network_auth_workspaces_invitations_remove`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -2774,21 +3071,26 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/invitations/remove', 'POST',
+            "/v1/network/auth/workspaces/invitations/remove",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -2797,11 +3099,12 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def v1_network_auth_workspaces_leave(self, **kwargs):  # noqa: E501
         """Leave workspace  # noqa: E501
@@ -2817,11 +3120,15 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.v1_network_auth_workspaces_leave_with_http_info(**kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        if kwargs.get("async_req"):
+            return self.v1_network_auth_workspaces_leave_with_http_info(
+                **kwargs
+            )  # noqa: E501
         else:
-            (data) = self.v1_network_auth_workspaces_leave_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.v1_network_auth_workspaces_leave_with_http_info(
+                **kwargs
+            )  # noqa: E501
             return data
 
     def v1_network_auth_workspaces_leave_with_http_info(self, **kwargs):  # noqa: E501
@@ -2840,20 +3147,20 @@ class AuthApi(object):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("async_req")
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method v1_network_auth_workspaces_leave" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -2868,14 +3175,16 @@ class AuthApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['jwt']  # noqa: E501
+        auth_settings = ["jwt"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/network/auth/workspaces/leave', 'POST',
+            "/v1/network/auth/workspaces/leave",
+            "POST",
             path_params,
             query_params,
             header_params,
@@ -2884,8 +3193,9 @@ class AuthApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=params.get("async_req"),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
