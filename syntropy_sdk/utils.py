@@ -226,36 +226,38 @@ class BatchedRequestFilter(BatchedRequest):
         self,
         func,
         max_query_size,
-        filter_name,
         filter_data,
     ):
+        """Generates as many requests as needed in order to query
+        data using filters in such a way so that the filter query string
+        does not exceed max_query_size limit.
+
+        Args:
+            func (_type_): A function to use for the query.
+            max_query_size (_type_): maximum size of the query string.
+            filter_data (_type_): an additional list of filter items.
+        """
         super().__init__(func, max_query_size)
-        self.filter_name = filter_name
         self.filter_data = filter_data
-        self._original_filter_size = 0
+
+    def _build_query(self, data):
+        return ",".join(str(i) for i in data)
 
     def _calculate_payload_size(self, data):
-        return (
-            len(";".join(str(i) for i in data))
-            + len(f"{self.filter_name}[]:")
-            + self._original_filter_size
-        )
+        return len(self._build_query(data))
 
     def __call__(self, *args, **kwargs):
         result = []
-        original_filter = []
+        filter = self.filter_data
         if "filter" in kwargs:
-            original_filter = [kwargs["filter"]]
-            self._original_filter_size = len(kwargs["filter"])
+            filter += kwargs["filter"]
             del kwargs["filter"]
 
-        for batch in self._generate_batches(None, self.filter_data):
+        for batch in self._generate_batches(None, filter):
             func = WithRetry(self.func)
 
-            filter_batch = f"{self.filter_name}[]:{';'.join(str(i) for i in batch)}"
-            filters = original_filter + [filter_batch]
-            new_filter = ",".join(filters)
-            response = func(filter=new_filter, *args, **kwargs)
+            filter_batch = self._build_query(batch)
+            response = func(filter=filter_batch, *args, **kwargs)
             response = deserialize_result(response)
             if isinstance(response, dict) and "data" in response:
                 result += response["data"]
