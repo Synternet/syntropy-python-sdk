@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **agent_location_country** | **list[str]** |  | [optional] 
 **agent_modified_at_from** | **datetime** |  | [optional] 
 **agent_modified_at_to** | **datetime** |  | [optional] 
+**agent_name** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
