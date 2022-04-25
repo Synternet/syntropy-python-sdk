@@ -226,7 +226,7 @@ class BatchedRequestFilter(BatchedRequest):
         self,
         func,
         max_query_size,
-        filter_data,
+        filter_data=None,
     ):
         """Generates as many requests as needed in order to query
         data using filters in such a way so that the filter query string
@@ -238,7 +238,7 @@ class BatchedRequestFilter(BatchedRequest):
             filter_data (_type_): an additional list of filter items.
         """
         super().__init__(func, max_query_size)
-        self.filter_data = filter_data
+        self.filter_data = filter_data if filter_data is not None else []
 
     def _build_query(self, data):
         return ",".join(str(i) for i in data)

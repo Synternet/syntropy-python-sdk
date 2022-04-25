@@ -30,34 +30,47 @@ class V1AgentFilter(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'agent_id': 'list[IdNumber]',
-        'agent_provider_id': 'list[IdNumber]',
-        'agent_tag_id': 'list[IdNumber]',
-        'agent_type': 'list[AgentTypeParam]',
-        'agent_version': 'list[str]',
-        'agent_tag_name': 'list[str]',
-        'agent_status': 'list[AgentFilterAgentStatus]',
-        'agent_location_country': 'list[str]',
-        'agent_modified_at_from': 'datetime',
-        'agent_modified_at_to': 'datetime',
-        'agent_name': 'str'
+        "agent_id": "list[IdNumber]",
+        "agent_provider_id": "list[IdNumber]",
+        "agent_tag_id": "list[IdNumber]",
+        "agent_type": "list[AgentTypeParam]",
+        "agent_version": "list[str]",
+        "agent_tag_name": "list[str]",
+        "agent_status": "list[AgentFilterAgentStatus]",
+        "agent_location_country": "list[str]",
+        "agent_modified_at_from": "datetime",
+        "agent_modified_at_to": "datetime",
+        "agent_name": "str",
     }
 
     attribute_map = {
-        'agent_id': 'agent_id',
-        'agent_provider_id': 'agent_provider_id',
-        'agent_tag_id': 'agent_tag_id',
-        'agent_type': 'agent_type',
-        'agent_version': 'agent_version',
-        'agent_tag_name': 'agent_tag_name',
-        'agent_status': 'agent_status',
-        'agent_location_country': 'agent_location_country',
-        'agent_modified_at_from': 'agent_modified_at_from',
-        'agent_modified_at_to': 'agent_modified_at_to',
-        'agent_name': 'agent_name'
+        "agent_id": "agent_id",
+        "agent_provider_id": "agent_provider_id",
+        "agent_tag_id": "agent_tag_id",
+        "agent_type": "agent_type",
+        "agent_version": "agent_version",
+        "agent_tag_name": "agent_tag_name",
+        "agent_status": "agent_status",
+        "agent_location_country": "agent_location_country",
+        "agent_modified_at_from": "agent_modified_at_from",
+        "agent_modified_at_to": "agent_modified_at_to",
+        "agent_name": "agent_name",
     }
 
-    def __init__(self, agent_id=None, agent_provider_id=None, agent_tag_id=None, agent_type=None, agent_version=None, agent_tag_name=None, agent_status=None, agent_location_country=None, agent_modified_at_from=None, agent_modified_at_to=None, agent_name=None):  # noqa: E501
+    def __init__(
+        self,
+        agent_id=None,
+        agent_provider_id=None,
+        agent_tag_id=None,
+        agent_type=None,
+        agent_version=None,
+        agent_tag_name=None,
+        agent_status=None,
+        agent_location_country=None,
+        agent_modified_at_from=None,
+        agent_modified_at_to=None,
+        agent_name=None,
+    ):  # noqa: E501
         """V1AgentFilter - a model defined in Swagger"""  # noqa: E501
         self._agent_id = None
         self._agent_provider_id = None
