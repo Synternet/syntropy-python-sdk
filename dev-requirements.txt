@@ -18,8 +18,10 @@ filelock==3.4.1
     # via
     #   -r dev-requirements.in
     #   virtualenv
-identify==2.5.0
-    # via pre-commit
+identify==2.4.4
+    # via
+    #   -r dev-requirements.in
+    #   pre-commit
 iniconfig==1.1.1
     # via pytest
 nodeenv==1.6.0

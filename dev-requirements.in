@@ -7,3 +7,4 @@ py>=1.4.31
 randomize>=0.13
 pre-commit
 filelock==3.4.1
+identify==2.4.4
