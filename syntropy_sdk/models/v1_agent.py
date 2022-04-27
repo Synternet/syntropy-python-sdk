@@ -110,7 +110,7 @@ class V1Agent(object):
         self.discriminator = None
         self.agent_id = agent_id
         self.agent_public_ipv4 = agent_public_ipv4
-        self.agent_location_city = agent_location_city
+        self._agent_location_city = agent_location_city
         self.agent_device_id = agent_device_id
         self.agent_name = agent_name
         self.agent_status = agent_status
@@ -119,7 +119,7 @@ class V1Agent(object):
         self.agent_modified_at = agent_modified_at
         self.agent_is_virtual = agent_is_virtual
         self.agent_type = agent_type
-        self.agent_provider = agent_provider
+        self._agent_provider = agent_provider
         self.agent_tags = agent_tags
         self.agent_services_subnets_enabled_count = agent_services_subnets_enabled_count
         self.agent_services_subnets_count = agent_services_subnets_count

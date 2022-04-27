@@ -158,12 +158,12 @@ def test_login_with_access_token():
         "v1_network_auth_access_token_login",
         autospec=True,
         return_value=models.V1NetworkAuthAccessTokenLoginResponse(
-            {
-                "access_token": "token",
-                "token_type": "bearer",
-                "expires_in": "whenever",
-                "refresh_token": "refresh token",
-            }
+            models.V1AuthAccessTokenLoginItem(
+                access_token="token",
+                token_type="bearer",
+                expires_in="whenever",
+                refresh_token="refresh token",
+            ),
         ),
     ) as the_mock:
         assert "token" == utils.login_with_access_token("the url", "access token")
