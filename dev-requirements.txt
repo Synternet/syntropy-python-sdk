@@ -14,8 +14,10 @@ coverage==6.2
     # via -r dev-requirements.in
 distlib==0.3.4
     # via virtualenv
-filelock==3.6.0
-    # via virtualenv
+filelock==3.4.1
+    # via
+    #   -r dev-requirements.in
+    #   virtualenv
 identify==2.5.0
     # via pre-commit
 iniconfig==1.1.1
