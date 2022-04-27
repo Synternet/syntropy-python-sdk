@@ -1,17 +1,17 @@
 # syntropy_sdk.NetworkApi
 
-All URIs are relative to *https://controller-sandbox-server.syntropystack.com*
+All URIs are relative to *https://api.syntropystack.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**platform_network_info**](NetworkApi.md#platform_network_info) | **GET** /api/platform/network/info | Get network
+[**v1_network_get**](NetworkApi.md#v1_network_get) | **GET** /v1/network | Get Network view
 
-# **platform_network_info**
-> PlatformResponseNetworkInfoObject_ platform_network_info()
+# **v1_network_get**
+> V1NetworkGetResponse v1_network_get()
 
-Get network
+Get Network view
 
-Get network info.
+Gets current network view.
 
 ### Example
 ```python
@@ -31,11 +31,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = syntropy_sdk.NetworkApi(syntropy_sdk.ApiClient(configuration))
 
 try:
-    # Get network
-    api_response = api_instance.platform_network_info()
+    # Get Network view
+    api_response = api_instance.v1_network_get()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling NetworkApi->platform_network_info: %s\n" % e)
+    print("Exception when calling NetworkApi->v1_network_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**PlatformResponseNetworkInfoObject_**](PlatformResponseNetworkInfoObject_.md)
+[**V1NetworkGetResponse**](V1NetworkGetResponse.md)
 
 ### Authorization
 

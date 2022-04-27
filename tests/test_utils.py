@@ -4,7 +4,7 @@ from unittest import mock
 import pytest
 
 import syntropy_sdk as sdk
-from syntropy_sdk import utils
+from syntropy_sdk import models, utils
 from syntropy_sdk.rest import ApiException
 
 
@@ -124,44 +124,46 @@ def test_batched_request__body_empty_result():
     ]
 
 
-def test_batched_request__filter():
+def test_batched_request__filter_partial():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
     data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    assert utils.BatchedRequestFilter(
-        func, max_query_size=20, filter_name="ids", filter_data=data
-    )(filter="filter:123") == {"data": [i + 1 for _ in range(5) for i in range(3)]}
+    assert utils.BatchedRequestFilter(func, max_query_size=4, filter_data=data[:5])(
+        filter=data[5:]
+    ) == {"data": [i + 1 for _ in range(5) for i in range(3)]}
     assert func.call_args_list == [
-        mock.call(filter="filter:123,ids[]:0;1"),
-        mock.call(filter="filter:123,ids[]:2;3"),
-        mock.call(filter="filter:123,ids[]:4;5"),
-        mock.call(filter="filter:123,ids[]:6;7"),
-        mock.call(filter="filter:123,ids[]:8;9"),
+        mock.call(filter="0,1"),
+        mock.call(filter="2,3"),
+        mock.call(filter="4,5"),
+        mock.call(filter="6,7"),
+        mock.call(filter="8,9"),
     ]
 
 
 def test_batched_request__filter():
     func = mock.Mock(return_value={"data": [1, 2, 3]})
     data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    assert utils.BatchedRequestFilter(
-        func, max_query_size=200, filter_name="ids", filter_data=data
-    )(filter="filter:123") == {
+    assert utils.BatchedRequestFilter(func, max_query_size=200, filter_data=data[:5])(
+        filter=data[5:]
+    ) == {
         "data": [1, 2, 3],
     }
     assert func.call_args_list == [
-        mock.call(filter="filter:123,ids[]:0;1;2;3;4;5;6;7;8;9"),
+        mock.call(filter="0,1,2,3,4,5,6,7,8,9"),
     ]
 
 
 def test_login_with_access_token():
     with mock.patch.object(
         sdk.AuthApi,
-        "auth_access_token_login",
+        "v1_network_auth_access_token_login",
         autospec=True,
-        return_value=sdk.models.AzureUserTokenDto(
-            access_token="token",
-            token_type="bearer",
-            expires_in="whenever",
-            refresh_token="refresh token",
+        return_value=models.V1NetworkAuthAccessTokenLoginResponse(
+            models.V1AuthAccessTokenLoginItem(
+                access_token="token",
+                token_type="bearer",
+                expires_in="whenever",
+                refresh_token="refresh token",
+            ),
         ),
     ) as the_mock:
         assert "token" == utils.login_with_access_token("the url", "access token")
