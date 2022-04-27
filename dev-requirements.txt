@@ -10,7 +10,7 @@ certifi==2021.10.8
     # via -r requirements.txt
 cfgv==3.3.1
     # via pre-commit
-coverage==6.3.2
+coverage==6.2
     # via -r dev-requirements.in
 distlib==0.3.4
     # via virtualenv
