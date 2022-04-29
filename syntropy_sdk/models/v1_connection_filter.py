@@ -32,22 +32,29 @@ class V1ConnectionFilter(object):
     swagger_types = {
         "agent_connection_group_id": "list[IdNumber]",
         "agent_id": "list[IdNumber]",
+        "agent_pair": "list[V1AgentPairFilter]",
     }
 
     attribute_map = {
         "agent_connection_group_id": "agent_connection_group_id",
         "agent_id": "agent_id",
+        "agent_pair": "agent_pair",
     }
 
-    def __init__(self, agent_connection_group_id=None, agent_id=None):  # noqa: E501
+    def __init__(
+        self, agent_connection_group_id=None, agent_id=None, agent_pair=None
+    ):  # noqa: E501
         """V1ConnectionFilter - a model defined in Swagger"""  # noqa: E501
         self._agent_connection_group_id = None
         self._agent_id = None
+        self._agent_pair = None
         self.discriminator = None
         if agent_connection_group_id is not None:
             self.agent_connection_group_id = agent_connection_group_id
         if agent_id is not None:
             self.agent_id = agent_id
+        if agent_pair is not None:
+            self.agent_pair = agent_pair
 
     @property
     def agent_connection_group_id(self):
@@ -90,6 +97,27 @@ class V1ConnectionFilter(object):
         """
 
         self._agent_id = agent_id
+
+    @property
+    def agent_pair(self):
+        """Gets the agent_pair of this V1ConnectionFilter.  # noqa: E501
+
+
+        :return: The agent_pair of this V1ConnectionFilter.  # noqa: E501
+        :rtype: list[V1AgentPairFilter]
+        """
+        return self._agent_pair
+
+    @agent_pair.setter
+    def agent_pair(self, agent_pair):
+        """Sets the agent_pair of this V1ConnectionFilter.
+
+
+        :param agent_pair: The agent_pair of this V1ConnectionFilter.  # noqa: E501
+        :type: list[V1AgentPairFilter]
+        """
+
+        self._agent_pair = agent_pair
 
     def to_dict(self):
         """Returns the model properties as a dict"""

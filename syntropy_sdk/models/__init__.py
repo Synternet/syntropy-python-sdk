@@ -89,6 +89,7 @@ from syntropy_sdk.models.v1_agent_log import V1AgentLog
 from syntropy_sdk.models.v1_agent_log_severity import V1AgentLogSeverity
 from syntropy_sdk.models.v1_agent_log_sort import V1AgentLogSort
 from syntropy_sdk.models.v1_agent_order import V1AgentOrder
+from syntropy_sdk.models.v1_agent_pair_filter import V1AgentPairFilter
 from syntropy_sdk.models.v1_agent_service import V1AgentService
 from syntropy_sdk.models.v1_agent_settings import V1AgentSettings
 from syntropy_sdk.models.v1_agent_settings_rerouting_threshold import (
