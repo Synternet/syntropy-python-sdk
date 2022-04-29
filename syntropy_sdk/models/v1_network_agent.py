@@ -37,6 +37,7 @@ class V1NetworkAgent(object):
         "agent_version": "str",
         "agent_device_id": "str",
         "agent_location_city": "str",
+        "agent_modified_at": "str",
         "agent_provider_id": "int",
         "agent_public_ipv4": "str",
         "agent_status": "AgentStatus",
@@ -51,6 +52,7 @@ class V1NetworkAgent(object):
         "agent_version": "agent_version",
         "agent_device_id": "agent_device_id",
         "agent_location_city": "agent_location_city",
+        "agent_modified_at": "agent_modified_at",
         "agent_provider_id": "agent_provider_id",
         "agent_public_ipv4": "agent_public_ipv4",
         "agent_status": "agent_status",
@@ -66,6 +68,7 @@ class V1NetworkAgent(object):
         agent_version=None,
         agent_device_id=None,
         agent_location_city=None,
+        agent_modified_at=None,
         agent_provider_id=None,
         agent_public_ipv4=None,
         agent_status=None,
@@ -79,6 +82,7 @@ class V1NetworkAgent(object):
         self._agent_version = None
         self._agent_device_id = None
         self._agent_location_city = None
+        self._agent_modified_at = None
         self._agent_provider_id = None
         self._agent_public_ipv4 = None
         self._agent_status = None
@@ -91,6 +95,8 @@ class V1NetworkAgent(object):
         self.agent_version = agent_version
         self.agent_device_id = agent_device_id
         self.agent_location_city = agent_location_city
+        if agent_modified_at is not None:
+            self.agent_modified_at = agent_modified_at
         self.agent_provider_id = agent_provider_id
         self.agent_public_ipv4 = agent_public_ipv4
         self.agent_status = agent_status
@@ -270,6 +276,27 @@ class V1NetworkAgent(object):
             )  # noqa: E501
 
         self._agent_location_city = agent_location_city
+
+    @property
+    def agent_modified_at(self):
+        """Gets the agent_modified_at of this V1NetworkAgent.  # noqa: E501
+
+
+        :return: The agent_modified_at of this V1NetworkAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._agent_modified_at
+
+    @agent_modified_at.setter
+    def agent_modified_at(self, agent_modified_at):
+        """Sets the agent_modified_at of this V1NetworkAgent.
+
+
+        :param agent_modified_at: The agent_modified_at of this V1NetworkAgent.  # noqa: E501
+        :type: str
+        """
+
+        self._agent_modified_at = agent_modified_at
 
     @property
     def agent_provider_id(self):

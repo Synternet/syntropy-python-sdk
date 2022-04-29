@@ -1,11 +1,10 @@
-# V1ConnectionFilter
+# V1AgentPairFilter
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_connection_group_id** | [**list[IdNumber]**](IdNumber.md) |  | [optional] 
-**agent_id** | [**list[IdNumber]**](IdNumber.md) |  | [optional] 
-**agent_pair** | [**list[V1AgentPairFilter]**](V1AgentPairFilter.md) |  | [optional] 
+**agent_2_id** | [**IdNumber**](IdNumber.md) |  | 
+**agent_1_id** | [**IdNumber**](IdNumber.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
