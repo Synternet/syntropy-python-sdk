@@ -256,8 +256,7 @@ class BatchedRequestFilter(BatchedRequest):
         for batch in self._generate_batches(None, filter):
             func = WithRetry(self.func)
 
-            filter_batch = self._build_query(batch)
-            response = func(filter=filter_batch, *args, **kwargs)
+            response = func(filter=batch, *args, **kwargs)
             response = deserialize_result(response)
             if isinstance(response, dict) and "data" in response:
                 result += response["data"]

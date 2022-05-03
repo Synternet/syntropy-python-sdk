@@ -131,11 +131,11 @@ def test_batched_request__filter_partial():
         filter=data[5:]
     ) == {"data": [i + 1 for _ in range(5) for i in range(3)]}
     assert func.call_args_list == [
-        mock.call(filter="0,1"),
-        mock.call(filter="2,3"),
-        mock.call(filter="4,5"),
-        mock.call(filter="6,7"),
-        mock.call(filter="8,9"),
+        mock.call(filter=[0, 1]),
+        mock.call(filter=[2, 3]),
+        mock.call(filter=[4, 5]),
+        mock.call(filter=[6, 7]),
+        mock.call(filter=[8, 9]),
     ]
 
 
@@ -148,7 +148,7 @@ def test_batched_request__filter():
         "data": [1, 2, 3],
     }
     assert func.call_args_list == [
-        mock.call(filter="0,1,2,3,4,5,6,7,8,9"),
+        mock.call(filter=data),
     ]
 
 
