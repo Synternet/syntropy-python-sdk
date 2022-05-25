@@ -61,7 +61,7 @@ from pprint import pprint
 # Configure API
 config = sdk.Configuration()
 config.host = "url to the Syntropy Stack API"
-config.api_key["Authorization"] = "Bearer " + "your api authorizaton token"
+config.api_key["api-key"] = "your api key"
 api = sdk.ApiClient(config)
 
 agents_api = sdk.AgentsApi(api)

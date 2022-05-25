@@ -46,7 +46,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://api-sandbox.syntropystack.com"
+        self.host = "https://api.syntropystack.com"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -234,6 +234,12 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                 "in": "header",
                 "key": "api-key",
                 "value": self.get_api_key_with_prefix("api-key"),
+            },
+            "jwt": {
+                "type": "api_key",
+                "in": "header",
+                "key": "Authorization",
+                "value": self.get_api_key_with_prefix("Authorization"),
             },
         }
 
