@@ -25,10 +25,10 @@ class AgentType(object):
     """
     allowed enum values
     """
-    LINUX = "Linux"
-    MACOS = "macOS"
-    WINDOWS = "Windows"
-    VIRTUAL = "Virtual"
+    LINUX = "LINUX"
+    MACOS = "MACOS"
+    WINDOWS = "WINDOWS"
+    VIRTUAL = "VIRTUAL"
     """
     Attributes:
       swagger_types (dict): The key is attribute name

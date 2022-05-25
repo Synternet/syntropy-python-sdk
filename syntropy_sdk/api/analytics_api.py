@@ -146,7 +146,7 @@ class AnalyticsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/a/bandwidth",
@@ -280,7 +280,7 @@ class AnalyticsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/a/iface-active-change",
@@ -414,7 +414,7 @@ class AnalyticsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/a/latency",
@@ -548,7 +548,7 @@ class AnalyticsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/a/packet-loss",
@@ -658,7 +658,7 @@ class AnalyticsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/a/statuses/search",
@@ -770,7 +770,7 @@ class AnalyticsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/a/statuses/warnings/search",

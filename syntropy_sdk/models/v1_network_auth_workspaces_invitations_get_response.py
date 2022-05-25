@@ -29,7 +29,7 @@ class V1NetworkAuthWorkspacesInvitationsGetResponse(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"data": "list[WorkspaceInvitationResponse]"}
+    swagger_types = {"data": "list[WorkspaceInvitationGerResponseItem]"}
 
     attribute_map = {"data": "data"}
 
@@ -45,7 +45,7 @@ class V1NetworkAuthWorkspacesInvitationsGetResponse(object):
 
 
         :return: The data of this V1NetworkAuthWorkspacesInvitationsGetResponse.  # noqa: E501
-        :rtype: list[WorkspaceInvitationResponse]
+        :rtype: list[WorkspaceInvitationGerResponseItem]
         """
         return self._data
 
@@ -55,7 +55,7 @@ class V1NetworkAuthWorkspacesInvitationsGetResponse(object):
 
 
         :param data: The data of this V1NetworkAuthWorkspacesInvitationsGetResponse.  # noqa: E501
-        :type: list[WorkspaceInvitationResponse]
+        :type: list[WorkspaceInvitationGerResponseItem]
         """
         if data is None:
             raise ValueError(

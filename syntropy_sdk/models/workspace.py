@@ -30,7 +30,7 @@ class Workspace(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "workspace_name": "WorkspaceName",
+        "workspace_name": "str",
         "workspace_id": "int",
         "workspace_created_at": "datetime",
         "workspace_require_2fa": "bool",
@@ -72,7 +72,7 @@ class Workspace(object):
 
 
         :return: The workspace_name of this Workspace.  # noqa: E501
-        :rtype: WorkspaceName
+        :rtype: str
         """
         return self._workspace_name
 
@@ -82,7 +82,7 @@ class Workspace(object):
 
 
         :param workspace_name: The workspace_name of this Workspace.  # noqa: E501
-        :type: WorkspaceName
+        :type: str
         """
         if workspace_name is None:
             raise ValueError(

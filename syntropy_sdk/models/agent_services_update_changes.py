@@ -41,10 +41,8 @@ class AgentServicesUpdateChanges(object):
         self._agent_service_subnet_id = None
         self._is_enabled = None
         self.discriminator = None
-        if agent_service_subnet_id is not None:
-            self.agent_service_subnet_id = agent_service_subnet_id
-        if is_enabled is not None:
-            self.is_enabled = is_enabled
+        self.agent_service_subnet_id = agent_service_subnet_id
+        self.is_enabled = is_enabled
 
     @property
     def agent_service_subnet_id(self):
@@ -64,6 +62,10 @@ class AgentServicesUpdateChanges(object):
         :param agent_service_subnet_id: The agent_service_subnet_id of this AgentServicesUpdateChanges.  # noqa: E501
         :type: IdNumber
         """
+        if agent_service_subnet_id is None:
+            raise ValueError(
+                "Invalid value for `agent_service_subnet_id`, must not be `None`"
+            )  # noqa: E501
 
         self._agent_service_subnet_id = agent_service_subnet_id
 
@@ -85,6 +87,10 @@ class AgentServicesUpdateChanges(object):
         :param is_enabled: The is_enabled of this AgentServicesUpdateChanges.  # noqa: E501
         :type: bool
         """
+        if is_enabled is None:
+            raise ValueError(
+                "Invalid value for `is_enabled`, must not be `None`"
+            )  # noqa: E501
 
         self._is_enabled = is_enabled
 

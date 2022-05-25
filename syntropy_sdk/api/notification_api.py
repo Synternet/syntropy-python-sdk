@@ -124,7 +124,7 @@ class NotificationApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/notification/user-contact",

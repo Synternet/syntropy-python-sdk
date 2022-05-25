@@ -1,12 +1,11 @@
 # syntropy_sdk.AgentsApi
 
-All URIs are relative to *https://api.syntropystack.com*
+All URIs are relative to *https://api-sandbox.syntropystack.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**v1_network_agents_coordinates_search**](AgentsApi.md#v1_network_agents_coordinates_search) | **POST** /v1/network/agents/coordinates/search | Search Agent location coordinates
 [**v1_network_agents_create**](AgentsApi.md#v1_network_agents_create) | **POST** /v1/network/agents | Create Agent
-[**v1_network_agents_delete**](AgentsApi.md#v1_network_agents_delete) | **DELETE** /v1/network/agents/{agent_id} | Delete Agent
 [**v1_network_agents_filters_search**](AgentsApi.md#v1_network_agents_filters_search) | **POST** /v1/network/agents/filters/search | Search Agent filters
 [**v1_network_agents_get**](AgentsApi.md#v1_network_agents_get) | **GET** /v1/network/agents | Get Agents
 [**v1_network_agents_logs_errors_search**](AgentsApi.md#v1_network_agents_logs_errors_search) | **POST** /v1/network/agents/logs/errors/search | Search Agent error logs
@@ -15,7 +14,6 @@ Method | HTTP request | Description
 [**v1_network_agents_providers_get**](AgentsApi.md#v1_network_agents_providers_get) | **GET** /v1/network/agents/providers | Get Agent providers
 [**v1_network_agents_remove**](AgentsApi.md#v1_network_agents_remove) | **POST** /v1/network/agents/remove | Delete Agents
 [**v1_network_agents_search**](AgentsApi.md#v1_network_agents_search) | **POST** /v1/network/agents/search | Search Agents
-[**v1_network_agents_services_delete**](AgentsApi.md#v1_network_agents_services_delete) | **DELETE** /v1/network/agents/services/{agent_service_subnet_id} | Delete Agent service
 [**v1_network_agents_services_get**](AgentsApi.md#v1_network_agents_services_get) | **GET** /v1/network/agents/services | Get Agent services.
 [**v1_network_agents_services_remove**](AgentsApi.md#v1_network_agents_services_remove) | **POST** /v1/network/agents/services/remove | Delete Agent services
 [**v1_network_agents_services_update**](AgentsApi.md#v1_network_agents_services_update) | **PATCH** /v1/network/agents/services/bulk | Update Agent services
@@ -40,11 +38,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -70,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -94,11 +92,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -124,64 +122,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **v1_network_agents_delete**
-> v1_network_agents_delete(agent_id)
-
-Delete Agent
-
-Deletes Agent with existing connections. Learn more about platform agents [here](https://docs.syntropystack.com/docs/what-is-syntropy-agent).
-
-### Example
-```python
-from __future__ import print_function
-import time
-import syntropy_sdk
-from syntropy_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
-agent_id = syntropy_sdk.IdNumber() # IdNumber | 
-
-try:
-    # Delete Agent
-    api_instance.v1_network_agents_delete(agent_id)
-except ApiException as e:
-    print("Exception when calling AgentsApi->v1_network_agents_delete: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **agent_id** | [**IdNumber**](.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[jwt](../README.md#jwt)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -201,11 +146,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -231,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -255,11 +200,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -289,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -313,11 +258,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -343,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -367,11 +312,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -396,7 +341,7 @@ void (empty response body)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -420,11 +365,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -450,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -474,11 +419,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -510,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -534,11 +479,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -563,7 +508,7 @@ void (empty response body)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -587,11 +532,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -617,64 +562,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **v1_network_agents_services_delete**
-> v1_network_agents_services_delete(agent_service_subnet_id)
-
-Delete Agent service
-
-Deletes Agent service.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import syntropy_sdk
-from syntropy_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: jwt
-configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
-agent_service_subnet_id = syntropy_sdk.IdNumber() # IdNumber | 
-
-try:
-    # Delete Agent service
-    api_instance.v1_network_agents_services_delete(agent_service_subnet_id)
-except ApiException as e:
-    print("Exception when calling AgentsApi->v1_network_agents_services_delete: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **agent_service_subnet_id** | [**IdNumber**](.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[jwt](../README.md#jwt)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -694,11 +586,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -724,7 +616,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -748,11 +640,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -777,7 +669,7 @@ void (empty response body)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -801,11 +693,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -830,7 +722,7 @@ void (empty response body)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -854,11 +746,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -880,7 +772,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -904,11 +796,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -933,7 +825,7 @@ void (empty response body)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -957,11 +849,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -983,7 +875,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -1007,11 +899,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -1038,7 +930,7 @@ void (empty response body)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 
@@ -1062,11 +954,11 @@ import syntropy_sdk
 from syntropy_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: jwt
+# Configure API key authorization: accessToken
 configuration = syntropy_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = syntropy_sdk.AgentsApi(syntropy_sdk.ApiClient(configuration))
@@ -1092,7 +984,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[accessToken](../README.md#accessToken), [jwt](../README.md#jwt)
 
 ### HTTP request headers
 

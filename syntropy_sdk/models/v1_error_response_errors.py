@@ -29,26 +29,18 @@ class V1ErrorResponseErrors(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"code": "str", "field": "str", "message": "str", "type": "str"}
+    swagger_types = {"code": "str", "message": "str", "type": "str"}
 
-    attribute_map = {
-        "code": "code",
-        "field": "field",
-        "message": "message",
-        "type": "type",
-    }
+    attribute_map = {"code": "code", "message": "message", "type": "type"}
 
-    def __init__(self, code=None, field=None, message=None, type=None):  # noqa: E501
+    def __init__(self, code=None, message=None, type=None):  # noqa: E501
         """V1ErrorResponseErrors - a model defined in Swagger"""  # noqa: E501
         self._code = None
-        self._field = None
         self._message = None
         self._type = None
         self.discriminator = None
         if code is not None:
             self.code = code
-        if field is not None:
-            self.field = field
         if message is not None:
             self.message = message
         if type is not None:
@@ -74,27 +66,6 @@ class V1ErrorResponseErrors(object):
         """
 
         self._code = code
-
-    @property
-    def field(self):
-        """Gets the field of this V1ErrorResponseErrors.  # noqa: E501
-
-
-        :return: The field of this V1ErrorResponseErrors.  # noqa: E501
-        :rtype: str
-        """
-        return self._field
-
-    @field.setter
-    def field(self, field):
-        """Sets the field of this V1ErrorResponseErrors.
-
-
-        :param field: The field of this V1ErrorResponseErrors.  # noqa: E501
-        :type: str
-        """
-
-        self._field = field
 
     @property
     def message(self):

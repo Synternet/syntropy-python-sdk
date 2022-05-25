@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **agent_id** | [**list[IdNumber]**](IdNumber.md) |  | [optional] 
 **agent_provider_id** | [**list[IdNumber]**](IdNumber.md) |  | [optional] 
 **agent_tag_id** | [**list[IdNumber]**](IdNumber.md) |  | [optional] 
-**agent_type** | [**list[AgentTypeParam]**](AgentTypeParam.md) |  | [optional] 
+**agent_type** | [**list[AgentType]**](AgentType.md) |  | [optional] 
 **agent_version** | **list[str]** |  | [optional] 
 **agent_tag_name** | **list[str]** |  | [optional] 
 **agent_status** | [**list[AgentFilterAgentStatus]**](AgentFilterAgentStatus.md) |  | [optional] 

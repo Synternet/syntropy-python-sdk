@@ -29,7 +29,7 @@ class V1AStatusWarning(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"connection_group_id": "int", "warnings": "list[str]"}
+    swagger_types = {"connection_group_id": "int", "warnings": "list[AAgentWarning]"}
 
     attribute_map = {
         "connection_group_id": "connection_group_id",
@@ -75,7 +75,7 @@ class V1AStatusWarning(object):
 
 
         :return: The warnings of this V1AStatusWarning.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AAgentWarning]
         """
         return self._warnings
 
@@ -85,7 +85,7 @@ class V1AStatusWarning(object):
 
 
         :param warnings: The warnings of this V1AStatusWarning.  # noqa: E501
-        :type: list[str]
+        :type: list[AAgentWarning]
         """
         if warnings is None:
             raise ValueError(

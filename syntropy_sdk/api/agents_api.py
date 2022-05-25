@@ -124,7 +124,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/coordinates/search",
@@ -234,7 +234,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents",
@@ -246,109 +246,6 @@ class AgentsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="V1NetworkAgentsCreateResponse",  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get("async_req"),
-            _return_http_data_only=params.get("_return_http_data_only"),
-            _preload_content=params.get("_preload_content", True),
-            _request_timeout=params.get("_request_timeout"),
-            collection_formats=collection_formats,
-        )
-
-    def v1_network_agents_delete(self, agent_id, **kwargs):  # noqa: E501
-        """Delete Agent  # noqa: E501
-
-        Deletes Agent with existing connections. Learn more about platform agents [here](https://docs.syntropystack.com/docs/what-is-syntropy-agent).  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_network_agents_delete(agent_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param IdNumber agent_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs["_return_http_data_only"] = True
-        if kwargs.get("async_req"):
-            return self.v1_network_agents_delete_with_http_info(
-                agent_id, **kwargs
-            )  # noqa: E501
-        else:
-            (data) = self.v1_network_agents_delete_with_http_info(
-                agent_id, **kwargs
-            )  # noqa: E501
-            return data
-
-    def v1_network_agents_delete_with_http_info(self, agent_id, **kwargs):  # noqa: E501
-        """Delete Agent  # noqa: E501
-
-        Deletes Agent with existing connections. Learn more about platform agents [here](https://docs.syntropystack.com/docs/what-is-syntropy-agent).  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_network_agents_delete_with_http_info(agent_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param IdNumber agent_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ["agent_id"]  # noqa: E501
-        all_params.append("async_req")
-        all_params.append("_return_http_data_only")
-        all_params.append("_preload_content")
-        all_params.append("_request_timeout")
-
-        params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_network_agents_delete" % key
-                )
-            params[key] = val
-        del params["kwargs"]
-        # verify the required parameter 'agent_id' is set
-        if "agent_id" not in params or params["agent_id"] is None:
-            raise ValueError(
-                "Missing the required parameter `agent_id` when calling `v1_network_agents_delete`"
-            )  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if "agent_id" in params:
-            path_params["agent_id"] = params["agent_id"]  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
-
-        return self.api_client.call_api(
-            "/v1/network/agents/{agent_id}",
-            "DELETE",
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -449,7 +346,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/filters/search",
@@ -551,7 +448,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents",
@@ -663,7 +560,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/logs/errors/search",
@@ -777,7 +674,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/logs-reads-timestamp",
@@ -889,7 +786,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/logs/search",
@@ -999,7 +896,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/providers",
@@ -1109,7 +1006,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/remove",
@@ -1219,7 +1116,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/search",
@@ -1231,118 +1128,6 @@ class AgentsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="V1NetworkAgentsSearchResponse",  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get("async_req"),
-            _return_http_data_only=params.get("_return_http_data_only"),
-            _preload_content=params.get("_preload_content", True),
-            _request_timeout=params.get("_request_timeout"),
-            collection_formats=collection_formats,
-        )
-
-    def v1_network_agents_services_delete(
-        self, agent_service_subnet_id, **kwargs
-    ):  # noqa: E501
-        """Delete Agent service  # noqa: E501
-
-        Deletes Agent service.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_network_agents_services_delete(agent_service_subnet_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param IdNumber agent_service_subnet_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs["_return_http_data_only"] = True
-        if kwargs.get("async_req"):
-            return self.v1_network_agents_services_delete_with_http_info(
-                agent_service_subnet_id, **kwargs
-            )  # noqa: E501
-        else:
-            (data) = self.v1_network_agents_services_delete_with_http_info(
-                agent_service_subnet_id, **kwargs
-            )  # noqa: E501
-            return data
-
-    def v1_network_agents_services_delete_with_http_info(
-        self, agent_service_subnet_id, **kwargs
-    ):  # noqa: E501
-        """Delete Agent service  # noqa: E501
-
-        Deletes Agent service.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_network_agents_services_delete_with_http_info(agent_service_subnet_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param IdNumber agent_service_subnet_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ["agent_service_subnet_id"]  # noqa: E501
-        all_params.append("async_req")
-        all_params.append("_return_http_data_only")
-        all_params.append("_preload_content")
-        all_params.append("_request_timeout")
-
-        params = locals()
-        for key, val in six.iteritems(params["kwargs"]):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v1_network_agents_services_delete" % key
-                )
-            params[key] = val
-        del params["kwargs"]
-        # verify the required parameter 'agent_service_subnet_id' is set
-        if (
-            "agent_service_subnet_id" not in params
-            or params["agent_service_subnet_id"] is None
-        ):
-            raise ValueError(
-                "Missing the required parameter `agent_service_subnet_id` when calling `v1_network_agents_services_delete`"
-            )  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if "agent_service_subnet_id" in params:
-            path_params["agent_service_subnet_id"] = params[
-                "agent_service_subnet_id"
-            ]  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
-
-        return self.api_client.call_api(
-            "/v1/network/agents/services/{agent_service_subnet_id}",
-            "DELETE",
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get("async_req"),
             _return_http_data_only=params.get("_return_http_data_only"),
@@ -1429,7 +1214,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/services",
@@ -1541,7 +1326,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/services/remove",
@@ -1653,7 +1438,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/services/bulk",
@@ -1747,7 +1532,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/settings",
@@ -1859,7 +1644,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/settings",
@@ -1953,7 +1738,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/tags",
@@ -2074,7 +1859,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/{agent_id}",
@@ -2179,7 +1964,7 @@ class AgentsApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/agents/wg-config/{agent_id}",

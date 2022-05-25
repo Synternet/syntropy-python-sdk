@@ -79,7 +79,7 @@ class V1ConnectionAgent(object):
         self.agent_name = agent_name
         self.agent_public_ipv4 = agent_public_ipv4
         self.agent_id = agent_id
-        self._agent_provider_id = agent_provider_id
+        self.agent_provider_id = agent_provider_id
 
     @property
     def agent_is_online(self):

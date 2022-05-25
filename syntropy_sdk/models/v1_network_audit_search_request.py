@@ -30,14 +30,14 @@ class V1NetworkAuditSearchRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "action": "list[str]",
+        "action": "list[AuditActionType]",
         "_from": "str",
         "performed_by": "str",
         "skip": "int",
-        "source": "list[str]",
+        "source": "list[AuditSourceType]",
         "take": "int",
         "to": "str",
-        "type": "list[str]",
+        "type": "list[AuditRecordType]",
     }
 
     attribute_map = {
@@ -93,7 +93,7 @@ class V1NetworkAuditSearchRequest(object):
 
 
         :return: The action of this V1NetworkAuditSearchRequest.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AuditActionType]
         """
         return self._action
 
@@ -103,22 +103,8 @@ class V1NetworkAuditSearchRequest(object):
 
 
         :param action: The action of this V1NetworkAuditSearchRequest.  # noqa: E501
-        :type: list[str]
+        :type: list[AuditActionType]
         """
-        allowed_values = [
-            "ACTION_CREATED",
-            "ACTION_DELETED",
-            "ACTION_UPDATED",
-        ]  # noqa: E501
-        if not set(action).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `action` [{0}], must be a subset of [{1}]".format(  # noqa: E501
-                    ", ".join(
-                        map(str, set(action) - set(allowed_values))
-                    ),  # noqa: E501
-                    ", ".join(map(str, allowed_values)),
-                )
-            )
 
         self._action = action
 
@@ -195,7 +181,7 @@ class V1NetworkAuditSearchRequest(object):
 
 
         :return: The source of this V1NetworkAuditSearchRequest.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AuditSourceType]
         """
         return self._source
 
@@ -205,18 +191,8 @@ class V1NetworkAuditSearchRequest(object):
 
 
         :param source: The source of this V1NetworkAuditSearchRequest.  # noqa: E501
-        :type: list[str]
+        :type: list[AuditSourceType]
         """
-        allowed_values = ["SOURCE_USER", "SOURCE_SYSTEM"]  # noqa: E501
-        if not set(source).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `source` [{0}], must be a subset of [{1}]".format(  # noqa: E501
-                    ", ".join(
-                        map(str, set(source) - set(allowed_values))
-                    ),  # noqa: E501
-                    ", ".join(map(str, allowed_values)),
-                )
-            )
 
         self._source = source
 
@@ -270,7 +246,7 @@ class V1NetworkAuditSearchRequest(object):
 
 
         :return: The type of this V1NetworkAuditSearchRequest.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AuditRecordType]
         """
         return self._type
 
@@ -280,21 +256,8 @@ class V1NetworkAuditSearchRequest(object):
 
 
         :param type: The type of this V1NetworkAuditSearchRequest.  # noqa: E501
-        :type: list[str]
+        :type: list[AuditRecordType]
         """
-        allowed_values = [
-            "TYPE_ACCESS_TOKEN",
-            "TYPE_AGENT_TOKEN",
-            "TYPE_AGENT",
-            "TYPE_CONNECTION",
-        ]  # noqa: E501
-        if not set(type).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `type` [{0}], must be a subset of [{1}]".format(  # noqa: E501
-                    ", ".join(map(str, set(type) - set(allowed_values))),  # noqa: E501
-                    ", ".join(map(str, allowed_values)),
-                )
-            )
 
         self._type = type
 

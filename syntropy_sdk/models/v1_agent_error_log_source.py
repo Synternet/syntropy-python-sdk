@@ -29,7 +29,11 @@ class V1AgentErrorLogSource(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"agent_id": "IdNumber", "severity": "str", "timestamp": "datetime"}
+    swagger_types = {
+        "agent_id": "IdNumber",
+        "severity": "AgentErrorLogSeverity",
+        "timestamp": "datetime",
+    }
 
     attribute_map = {
         "agent_id": "agent_id",
@@ -78,7 +82,7 @@ class V1AgentErrorLogSource(object):
 
 
         :return: The severity of this V1AgentErrorLogSource.  # noqa: E501
-        :rtype: str
+        :rtype: AgentErrorLogSeverity
         """
         return self._severity
 
@@ -88,19 +92,12 @@ class V1AgentErrorLogSource(object):
 
 
         :param severity: The severity of this V1AgentErrorLogSource.  # noqa: E501
-        :type: str
+        :type: AgentErrorLogSeverity
         """
         if severity is None:
             raise ValueError(
                 "Invalid value for `severity`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["WARN", "ERROR"]  # noqa: E501
-        if severity not in allowed_values:
-            raise ValueError(
-                "Invalid value for `severity` ({0}), must be one of {1}".format(  # noqa: E501
-                    severity, allowed_values
-                )
-            )
 
         self._severity = severity
 
