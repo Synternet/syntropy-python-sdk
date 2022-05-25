@@ -30,31 +30,31 @@ class V1AStatusAgentStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "iface_active": "str",
+        "iface_active": "IfaceActive",
         "public_last_handshake": "str",
         "public_latency": "float",
         "public_packet_loss": "float",
-        "public_status": "str",
-        "public_warnings": "list[str]",
+        "public_status": "AAgentStatus",
+        "public_warnings": "list[AAgentWarning]",
         "sdn1_last_handshake": "str",
         "sdn1_latency": "float",
         "sdn1_packet_loss": "float",
         "sdn1_path": "list[int]",
-        "sdn1_status": "str",
-        "sdn1_warnings": "list[str]",
+        "sdn1_status": "AAgentStatus",
+        "sdn1_warnings": "list[AAgentWarning]",
         "sdn2_last_handshake": "str",
         "sdn2_latency": "float",
         "sdn2_packet_loss": "float",
         "sdn2_path": "list[int]",
-        "sdn2_status": "str",
-        "sdn2_warnings": "list[str]",
+        "sdn2_status": "AAgentStatus",
+        "sdn2_warnings": "list[AAgentWarning]",
         "sdn3_last_handshake": "str",
         "sdn3_latency": "float",
         "sdn3_packet_loss": "float",
         "sdn3_path": "list[int]",
-        "sdn3_status": "str",
-        "sdn3_warnings": "list[str]",
-        "status": "str",
+        "sdn3_status": "AAgentStatus",
+        "sdn3_warnings": "list[AAgentWarning]",
+        "status": "AAgentStatus",
         "updated_at": "str",
     }
 
@@ -177,7 +177,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The iface_active of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: str
+        :rtype: IfaceActive
         """
         return self._iface_active
 
@@ -187,7 +187,7 @@ class V1AStatusAgentStatus(object):
 
 
         :param iface_active: The iface_active of this V1AStatusAgentStatus.  # noqa: E501
-        :type: str
+        :type: IfaceActive
         """
         if iface_active is None:
             raise ValueError(
@@ -277,7 +277,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The public_status of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: str
+        :rtype: AAgentStatus
         """
         return self._public_status
 
@@ -287,19 +287,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param public_status: The public_status of this V1AStatusAgentStatus.  # noqa: E501
-        :type: str
+        :type: AAgentStatus
         """
         if public_status is None:
             raise ValueError(
                 "Invalid value for `public_status`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["OK", "WARNING", "ERROR"]  # noqa: E501
-        if public_status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `public_status` ({0}), must be one of {1}".format(  # noqa: E501
-                    public_status, allowed_values
-                )
-            )
 
         self._public_status = public_status
 
@@ -309,7 +302,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The public_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AAgentWarning]
         """
         return self._public_warnings
 
@@ -319,22 +312,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param public_warnings: The public_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :type: list[str]
+        :type: list[AAgentWarning]
         """
         if public_warnings is None:
             raise ValueError(
                 "Invalid value for `public_warnings`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["PACKET_LOSS", "LATENCY", "HANDSHAKE"]  # noqa: E501
-        if not set(public_warnings).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `public_warnings` [{0}], must be a subset of [{1}]".format(  # noqa: E501
-                    ", ".join(
-                        map(str, set(public_warnings) - set(allowed_values))
-                    ),  # noqa: E501
-                    ", ".join(map(str, allowed_values)),
-                )
-            )
 
         self._public_warnings = public_warnings
 
@@ -444,7 +427,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The sdn1_status of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: str
+        :rtype: AAgentStatus
         """
         return self._sdn1_status
 
@@ -454,19 +437,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param sdn1_status: The sdn1_status of this V1AStatusAgentStatus.  # noqa: E501
-        :type: str
+        :type: AAgentStatus
         """
         if sdn1_status is None:
             raise ValueError(
                 "Invalid value for `sdn1_status`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["OK", "WARNING", "ERROR"]  # noqa: E501
-        if sdn1_status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sdn1_status` ({0}), must be one of {1}".format(  # noqa: E501
-                    sdn1_status, allowed_values
-                )
-            )
 
         self._sdn1_status = sdn1_status
 
@@ -476,7 +452,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The sdn1_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AAgentWarning]
         """
         return self._sdn1_warnings
 
@@ -486,22 +462,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param sdn1_warnings: The sdn1_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :type: list[str]
+        :type: list[AAgentWarning]
         """
         if sdn1_warnings is None:
             raise ValueError(
                 "Invalid value for `sdn1_warnings`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["PACKET_LOSS", "LATENCY", "HANDSHAKE"]  # noqa: E501
-        if not set(sdn1_warnings).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `sdn1_warnings` [{0}], must be a subset of [{1}]".format(  # noqa: E501
-                    ", ".join(
-                        map(str, set(sdn1_warnings) - set(allowed_values))
-                    ),  # noqa: E501
-                    ", ".join(map(str, allowed_values)),
-                )
-            )
 
         self._sdn1_warnings = sdn1_warnings
 
@@ -611,7 +577,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The sdn2_status of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: str
+        :rtype: AAgentStatus
         """
         return self._sdn2_status
 
@@ -621,19 +587,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param sdn2_status: The sdn2_status of this V1AStatusAgentStatus.  # noqa: E501
-        :type: str
+        :type: AAgentStatus
         """
         if sdn2_status is None:
             raise ValueError(
                 "Invalid value for `sdn2_status`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["OK", "WARNING", "ERROR"]  # noqa: E501
-        if sdn2_status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sdn2_status` ({0}), must be one of {1}".format(  # noqa: E501
-                    sdn2_status, allowed_values
-                )
-            )
 
         self._sdn2_status = sdn2_status
 
@@ -643,7 +602,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The sdn2_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AAgentWarning]
         """
         return self._sdn2_warnings
 
@@ -653,22 +612,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param sdn2_warnings: The sdn2_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :type: list[str]
+        :type: list[AAgentWarning]
         """
         if sdn2_warnings is None:
             raise ValueError(
                 "Invalid value for `sdn2_warnings`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["PACKET_LOSS", "LATENCY", "HANDSHAKE"]  # noqa: E501
-        if not set(sdn2_warnings).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `sdn2_warnings` [{0}], must be a subset of [{1}]".format(  # noqa: E501
-                    ", ".join(
-                        map(str, set(sdn2_warnings) - set(allowed_values))
-                    ),  # noqa: E501
-                    ", ".join(map(str, allowed_values)),
-                )
-            )
 
         self._sdn2_warnings = sdn2_warnings
 
@@ -778,7 +727,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The sdn3_status of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: str
+        :rtype: AAgentStatus
         """
         return self._sdn3_status
 
@@ -788,19 +737,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param sdn3_status: The sdn3_status of this V1AStatusAgentStatus.  # noqa: E501
-        :type: str
+        :type: AAgentStatus
         """
         if sdn3_status is None:
             raise ValueError(
                 "Invalid value for `sdn3_status`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["OK", "WARNING", "ERROR"]  # noqa: E501
-        if sdn3_status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `sdn3_status` ({0}), must be one of {1}".format(  # noqa: E501
-                    sdn3_status, allowed_values
-                )
-            )
 
         self._sdn3_status = sdn3_status
 
@@ -810,7 +752,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The sdn3_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[AAgentWarning]
         """
         return self._sdn3_warnings
 
@@ -820,22 +762,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param sdn3_warnings: The sdn3_warnings of this V1AStatusAgentStatus.  # noqa: E501
-        :type: list[str]
+        :type: list[AAgentWarning]
         """
         if sdn3_warnings is None:
             raise ValueError(
                 "Invalid value for `sdn3_warnings`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["PACKET_LOSS", "LATENCY", "HANDSHAKE"]  # noqa: E501
-        if not set(sdn3_warnings).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `sdn3_warnings` [{0}], must be a subset of [{1}]".format(  # noqa: E501
-                    ", ".join(
-                        map(str, set(sdn3_warnings) - set(allowed_values))
-                    ),  # noqa: E501
-                    ", ".join(map(str, allowed_values)),
-                )
-            )
 
         self._sdn3_warnings = sdn3_warnings
 
@@ -845,7 +777,7 @@ class V1AStatusAgentStatus(object):
 
 
         :return: The status of this V1AStatusAgentStatus.  # noqa: E501
-        :rtype: str
+        :rtype: AAgentStatus
         """
         return self._status
 
@@ -855,19 +787,12 @@ class V1AStatusAgentStatus(object):
 
 
         :param status: The status of this V1AStatusAgentStatus.  # noqa: E501
-        :type: str
+        :type: AAgentStatus
         """
         if status is None:
             raise ValueError(
                 "Invalid value for `status`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["OK", "WARNING", "ERROR"]  # noqa: E501
-        if status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
-                    status, allowed_values
-                )
-            )
 
         self._status = status
 

@@ -30,106 +30,31 @@ class V1NetworkAgentsUpdateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "agent_name": "DefaultString",
-        "agent_provider_name": "DefaultString",
         "agent_tags": "list[str]",
-        "agent_location_lat": "Latitude",
-        "agent_location_lon": "Longitude",
-        "agent_location_city": "DefaultString",
-        "agent_location_country": "DefaultString",
+        "agent_name": "str",
         "agent_provider_id": "IdNumber",
     }
 
     attribute_map = {
-        "agent_name": "agent_name",
-        "agent_provider_name": "agent_provider_name",
         "agent_tags": "agent_tags",
-        "agent_location_lat": "agent_location_lat",
-        "agent_location_lon": "agent_location_lon",
-        "agent_location_city": "agent_location_city",
-        "agent_location_country": "agent_location_country",
+        "agent_name": "agent_name",
         "agent_provider_id": "agent_provider_id",
     }
 
     def __init__(
-        self,
-        agent_name=None,
-        agent_provider_name=None,
-        agent_tags=None,
-        agent_location_lat=None,
-        agent_location_lon=None,
-        agent_location_city=None,
-        agent_location_country=None,
-        agent_provider_id=None,
+        self, agent_tags=None, agent_name=None, agent_provider_id=None
     ):  # noqa: E501
         """V1NetworkAgentsUpdateRequest - a model defined in Swagger"""  # noqa: E501
-        self._agent_name = None
-        self._agent_provider_name = None
         self._agent_tags = None
-        self._agent_location_lat = None
-        self._agent_location_lon = None
-        self._agent_location_city = None
-        self._agent_location_country = None
+        self._agent_name = None
         self._agent_provider_id = None
         self.discriminator = None
-        if agent_name is not None:
-            self.agent_name = agent_name
-        if agent_provider_name is not None:
-            self.agent_provider_name = agent_provider_name
         if agent_tags is not None:
             self.agent_tags = agent_tags
-        if agent_location_lat is not None:
-            self.agent_location_lat = agent_location_lat
-        if agent_location_lon is not None:
-            self.agent_location_lon = agent_location_lon
-        if agent_location_city is not None:
-            self.agent_location_city = agent_location_city
-        if agent_location_country is not None:
-            self.agent_location_country = agent_location_country
+        if agent_name is not None:
+            self.agent_name = agent_name
         if agent_provider_id is not None:
             self.agent_provider_id = agent_provider_id
-
-    @property
-    def agent_name(self):
-        """Gets the agent_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-
-
-        :return: The agent_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :rtype: DefaultString
-        """
-        return self._agent_name
-
-    @agent_name.setter
-    def agent_name(self, agent_name):
-        """Sets the agent_name of this V1NetworkAgentsUpdateRequest.
-
-
-        :param agent_name: The agent_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :type: DefaultString
-        """
-
-        self._agent_name = agent_name
-
-    @property
-    def agent_provider_name(self):
-        """Gets the agent_provider_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-
-
-        :return: The agent_provider_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :rtype: DefaultString
-        """
-        return self._agent_provider_name
-
-    @agent_provider_name.setter
-    def agent_provider_name(self, agent_provider_name):
-        """Sets the agent_provider_name of this V1NetworkAgentsUpdateRequest.
-
-
-        :param agent_provider_name: The agent_provider_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :type: DefaultString
-        """
-
-        self._agent_provider_name = agent_provider_name
 
     @property
     def agent_tags(self):
@@ -153,88 +78,25 @@ class V1NetworkAgentsUpdateRequest(object):
         self._agent_tags = agent_tags
 
     @property
-    def agent_location_lat(self):
-        """Gets the agent_location_lat of this V1NetworkAgentsUpdateRequest.  # noqa: E501
+    def agent_name(self):
+        """Gets the agent_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
 
 
-        :return: The agent_location_lat of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :rtype: Latitude
+        :return: The agent_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
+        :rtype: str
         """
-        return self._agent_location_lat
+        return self._agent_name
 
-    @agent_location_lat.setter
-    def agent_location_lat(self, agent_location_lat):
-        """Sets the agent_location_lat of this V1NetworkAgentsUpdateRequest.
-
-
-        :param agent_location_lat: The agent_location_lat of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :type: Latitude
-        """
-
-        self._agent_location_lat = agent_location_lat
-
-    @property
-    def agent_location_lon(self):
-        """Gets the agent_location_lon of this V1NetworkAgentsUpdateRequest.  # noqa: E501
+    @agent_name.setter
+    def agent_name(self, agent_name):
+        """Sets the agent_name of this V1NetworkAgentsUpdateRequest.
 
 
-        :return: The agent_location_lon of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :rtype: Longitude
-        """
-        return self._agent_location_lon
-
-    @agent_location_lon.setter
-    def agent_location_lon(self, agent_location_lon):
-        """Sets the agent_location_lon of this V1NetworkAgentsUpdateRequest.
-
-
-        :param agent_location_lon: The agent_location_lon of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :type: Longitude
+        :param agent_name: The agent_name of this V1NetworkAgentsUpdateRequest.  # noqa: E501
+        :type: str
         """
 
-        self._agent_location_lon = agent_location_lon
-
-    @property
-    def agent_location_city(self):
-        """Gets the agent_location_city of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-
-
-        :return: The agent_location_city of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :rtype: DefaultString
-        """
-        return self._agent_location_city
-
-    @agent_location_city.setter
-    def agent_location_city(self, agent_location_city):
-        """Sets the agent_location_city of this V1NetworkAgentsUpdateRequest.
-
-
-        :param agent_location_city: The agent_location_city of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :type: DefaultString
-        """
-
-        self._agent_location_city = agent_location_city
-
-    @property
-    def agent_location_country(self):
-        """Gets the agent_location_country of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-
-
-        :return: The agent_location_country of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :rtype: DefaultString
-        """
-        return self._agent_location_country
-
-    @agent_location_country.setter
-    def agent_location_country(self, agent_location_country):
-        """Sets the agent_location_country of this V1NetworkAgentsUpdateRequest.
-
-
-        :param agent_location_country: The agent_location_country of this V1NetworkAgentsUpdateRequest.  # noqa: E501
-        :type: DefaultString
-        """
-
-        self._agent_location_country = agent_location_country
+        self._agent_name = agent_name
 
     @property
     def agent_provider_id(self):

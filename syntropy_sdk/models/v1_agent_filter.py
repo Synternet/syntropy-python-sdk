@@ -33,7 +33,7 @@ class V1AgentFilter(object):
         "agent_id": "list[IdNumber]",
         "agent_provider_id": "list[IdNumber]",
         "agent_tag_id": "list[IdNumber]",
-        "agent_type": "list[AgentTypeParam]",
+        "agent_type": "list[AgentType]",
         "agent_version": "list[str]",
         "agent_tag_name": "list[str]",
         "agent_status": "list[AgentFilterAgentStatus]",
@@ -176,7 +176,7 @@ class V1AgentFilter(object):
 
 
         :return: The agent_type of this V1AgentFilter.  # noqa: E501
-        :rtype: list[AgentTypeParam]
+        :rtype: list[AgentType]
         """
         return self._agent_type
 
@@ -186,7 +186,7 @@ class V1AgentFilter(object):
 
 
         :param agent_type: The agent_type of this V1AgentFilter.  # noqa: E501
-        :type: list[AgentTypeParam]
+        :type: list[AgentType]
         """
 
         self._agent_type = agent_type

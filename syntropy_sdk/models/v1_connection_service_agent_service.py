@@ -30,7 +30,7 @@ class V1ConnectionServiceAgentService(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "agent_service_subnets": "list[V1ConnectionServiceAgentServiceAgentServiceSubnets]",
+        "agent_service_subnets": "list[ConnectionServiceAgentServiceSubnet]",
         "agent_service_udp_ports": "list[int]",
         "agent_service_tcp_ports": "list[int]",
         "agent_service_type": "AgentServiceTypes",
@@ -92,7 +92,7 @@ class V1ConnectionServiceAgentService(object):
 
 
         :return: The agent_service_subnets of this V1ConnectionServiceAgentService.  # noqa: E501
-        :rtype: list[V1ConnectionServiceAgentServiceAgentServiceSubnets]
+        :rtype: list[ConnectionServiceAgentServiceSubnet]
         """
         return self._agent_service_subnets
 
@@ -102,7 +102,7 @@ class V1ConnectionServiceAgentService(object):
 
 
         :param agent_service_subnets: The agent_service_subnets of this V1ConnectionServiceAgentService.  # noqa: E501
-        :type: list[V1ConnectionServiceAgentServiceAgentServiceSubnets]
+        :type: list[ConnectionServiceAgentServiceSubnet]
         """
         if agent_service_subnets is None:
             raise ValueError(

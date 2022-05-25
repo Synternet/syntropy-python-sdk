@@ -30,11 +30,11 @@ class AuditLog(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "action_type": "str",
+        "action_type": "AuditActionType",
         "parameters": "str",
         "performed_by": "str",
-        "record_type": "str",
-        "source_type": "str",
+        "record_type": "AuditRecordType",
+        "source_type": "AuditSourceType",
         "timestamp": "str",
         "user_id": "int",
         "workspace_id": "int",
@@ -87,7 +87,7 @@ class AuditLog(object):
 
 
         :return: The action_type of this AuditLog.  # noqa: E501
-        :rtype: str
+        :rtype: AuditActionType
         """
         return self._action_type
 
@@ -97,23 +97,12 @@ class AuditLog(object):
 
 
         :param action_type: The action_type of this AuditLog.  # noqa: E501
-        :type: str
+        :type: AuditActionType
         """
         if action_type is None:
             raise ValueError(
                 "Invalid value for `action_type`, must not be `None`"
             )  # noqa: E501
-        allowed_values = [
-            "ACTION_CREATED",
-            "ACTION_DELETED",
-            "ACTION_UPDATED",
-        ]  # noqa: E501
-        if action_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `action_type` ({0}), must be one of {1}".format(  # noqa: E501
-                    action_type, allowed_values
-                )
-            )
 
         self._action_type = action_type
 
@@ -173,7 +162,7 @@ class AuditLog(object):
 
 
         :return: The record_type of this AuditLog.  # noqa: E501
-        :rtype: str
+        :rtype: AuditRecordType
         """
         return self._record_type
 
@@ -183,25 +172,12 @@ class AuditLog(object):
 
 
         :param record_type: The record_type of this AuditLog.  # noqa: E501
-        :type: str
+        :type: AuditRecordType
         """
         if record_type is None:
             raise ValueError(
                 "Invalid value for `record_type`, must not be `None`"
             )  # noqa: E501
-        allowed_values = [
-            "TYPE_ACCESS_TOKEN",
-            "TYPE_AGENT_TOKEN",
-            "TYPE_AGENT",
-            "TYPE_CONNECTION",
-            "TYPE_SERVICE",
-        ]  # noqa: E501
-        if record_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `record_type` ({0}), must be one of {1}".format(  # noqa: E501
-                    record_type, allowed_values
-                )
-            )
 
         self._record_type = record_type
 
@@ -211,7 +187,7 @@ class AuditLog(object):
 
 
         :return: The source_type of this AuditLog.  # noqa: E501
-        :rtype: str
+        :rtype: AuditSourceType
         """
         return self._source_type
 
@@ -221,19 +197,12 @@ class AuditLog(object):
 
 
         :param source_type: The source_type of this AuditLog.  # noqa: E501
-        :type: str
+        :type: AuditSourceType
         """
         if source_type is None:
             raise ValueError(
                 "Invalid value for `source_type`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["SOURCE_USER", "SOURCE_SYSTEM"]  # noqa: E501
-        if source_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `source_type` ({0}), must be one of {1}".format(  # noqa: E501
-                    source_type, allowed_values
-                )
-            )
 
         self._source_type = source_type
 

@@ -95,8 +95,7 @@ class V1NetworkAgent(object):
         self.agent_version = agent_version
         self.agent_device_id = agent_device_id
         self.agent_location_city = agent_location_city
-        if agent_modified_at is not None:
-            self.agent_modified_at = agent_modified_at
+        self.agent_modified_at = agent_modified_at
         self.agent_provider_id = agent_provider_id
         self.agent_public_ipv4 = agent_public_ipv4
         self.agent_status = agent_status
@@ -295,6 +294,10 @@ class V1NetworkAgent(object):
         :param agent_modified_at: The agent_modified_at of this V1NetworkAgent.  # noqa: E501
         :type: str
         """
+        if agent_modified_at is None:
+            raise ValueError(
+                "Invalid value for `agent_modified_at`, must not be `None`"
+            )  # noqa: E501
 
         self._agent_modified_at = agent_modified_at
 

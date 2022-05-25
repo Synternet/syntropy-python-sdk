@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_service_subnets** | [**list[V1ConnectionServiceAgentServiceAgentServiceSubnets]**](V1ConnectionServiceAgentServiceAgentServiceSubnets.md) |  | 
+**agent_service_subnets** | [**list[ConnectionServiceAgentServiceSubnet]**](ConnectionServiceAgentServiceSubnet.md) |  | 
 **agent_service_udp_ports** | **list[int]** |  | 
 **agent_service_tcp_ports** | **list[int]** |  | 
 **agent_service_type** | [**AgentServiceTypes**](AgentServiceTypes.md) |  | 

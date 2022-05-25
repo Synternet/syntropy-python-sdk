@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **agent_version** | **str** |  | 
 **agent_device_id** | **str** |  | 
 **agent_location_city** | **str** |  | 
-**agent_modified_at** | **str** |  | [optional] 
+**agent_modified_at** | **str** |  | 
 **agent_provider_id** | **int** |  | 
 **agent_public_ipv4** | **str** |  | 
 **agent_status** | [**AgentStatus**](AgentStatus.md) |  | 

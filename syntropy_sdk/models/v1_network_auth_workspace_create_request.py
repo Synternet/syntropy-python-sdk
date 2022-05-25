@@ -29,7 +29,7 @@ class V1NetworkAuthWorkspaceCreateRequest(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"workspace_name": "WorkspaceName"}
+    swagger_types = {"workspace_name": "str"}
 
     attribute_map = {"workspace_name": "workspace_name"}
 
@@ -45,7 +45,7 @@ class V1NetworkAuthWorkspaceCreateRequest(object):
 
 
         :return: The workspace_name of this V1NetworkAuthWorkspaceCreateRequest.  # noqa: E501
-        :rtype: WorkspaceName
+        :rtype: str
         """
         return self._workspace_name
 
@@ -55,7 +55,7 @@ class V1NetworkAuthWorkspaceCreateRequest(object):
 
 
         :param workspace_name: The workspace_name of this V1NetworkAuthWorkspaceCreateRequest.  # noqa: E501
-        :type: WorkspaceName
+        :type: str
         """
         if workspace_name is None:
             raise ValueError(

@@ -68,20 +68,17 @@ class UserSettings(object):
         self._enable_rules = None
         self._theme = None
         self.discriminator = None
-        if show_onboarding is not None:
-            self.show_onboarding = show_onboarding
+        self.show_onboarding = show_onboarding
         if show_registration_form is not None:
             self.show_registration_form = show_registration_form
         if user_timezone is not None:
             self.user_timezone = user_timezone
-        if auth_sources is not None:
-            self.auth_sources = auth_sources
+        self.auth_sources = auth_sources
         if two_factors_authentication is not None:
             self.two_factors_authentication = two_factors_authentication
         if enable_rules is not None:
             self.enable_rules = enable_rules
-        if theme is not None:
-            self.theme = theme
+        self.theme = theme
 
     @property
     def show_onboarding(self):
@@ -101,6 +98,10 @@ class UserSettings(object):
         :param show_onboarding: The show_onboarding of this UserSettings.  # noqa: E501
         :type: bool
         """
+        if show_onboarding is None:
+            raise ValueError(
+                "Invalid value for `show_onboarding`, must not be `None`"
+            )  # noqa: E501
 
         self._show_onboarding = show_onboarding
 
@@ -164,6 +165,10 @@ class UserSettings(object):
         :param auth_sources: The auth_sources of this UserSettings.  # noqa: E501
         :type: list[AuthSource]
         """
+        if auth_sources is None:
+            raise ValueError(
+                "Invalid value for `auth_sources`, must not be `None`"
+            )  # noqa: E501
 
         self._auth_sources = auth_sources
 
@@ -227,6 +232,10 @@ class UserSettings(object):
         :param theme: The theme of this UserSettings.  # noqa: E501
         :type: UserTheme
         """
+        if theme is None:
+            raise ValueError(
+                "Invalid value for `theme`, must not be `None`"
+            )  # noqa: E501
 
         self._theme = theme
 

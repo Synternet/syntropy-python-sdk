@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **str** |  | [optional] 
-**field** | **str** |  | [optional] 
 **message** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
 

@@ -45,7 +45,7 @@ class V1AgentCreateItem(object):
         "agent_locked_fields": "AgentLockedFields",
         "agent_modified_at": "datetime",
         "agent_is_virtual": "bool",
-        "agent_type": "AgentTypeParam",
+        "agent_type": "AgentType",
         "agent_internal_subnet": "str",
         "agent_created_at": "datetime",
         "agent_updated_at": "datetime",
@@ -519,7 +519,7 @@ class V1AgentCreateItem(object):
 
 
         :return: The agent_type of this V1AgentCreateItem.  # noqa: E501
-        :rtype: AgentTypeParam
+        :rtype: AgentType
         """
         return self._agent_type
 
@@ -529,7 +529,7 @@ class V1AgentCreateItem(object):
 
 
         :param agent_type: The agent_type of this V1AgentCreateItem.  # noqa: E501
-        :type: AgentTypeParam
+        :type: AgentType
         """
         if agent_type is None:
             raise ValueError(

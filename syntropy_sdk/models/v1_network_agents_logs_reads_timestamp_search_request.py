@@ -32,7 +32,7 @@ class V1NetworkAgentsLogsReadsTimestampSearchRequest(object):
     swagger_types = {
         "logs_read_timestamp_entity_id": "IdNumber",
         "logs_read_timestamp_entity_type": "LogsReadTimestampEntityType",
-        "logs_read_timestamp_last_read_timestamp": "DefaultString",
+        "logs_read_timestamp_last_read_timestamp": "str",
     }
 
     attribute_map = {
@@ -114,7 +114,7 @@ class V1NetworkAgentsLogsReadsTimestampSearchRequest(object):
 
 
         :return: The logs_read_timestamp_last_read_timestamp of this V1NetworkAgentsLogsReadsTimestampSearchRequest.  # noqa: E501
-        :rtype: DefaultString
+        :rtype: str
         """
         return self._logs_read_timestamp_last_read_timestamp
 
@@ -126,7 +126,7 @@ class V1NetworkAgentsLogsReadsTimestampSearchRequest(object):
 
 
         :param logs_read_timestamp_last_read_timestamp: The logs_read_timestamp_last_read_timestamp of this V1NetworkAgentsLogsReadsTimestampSearchRequest.  # noqa: E501
-        :type: DefaultString
+        :type: str
         """
         if logs_read_timestamp_last_read_timestamp is None:
             raise ValueError(

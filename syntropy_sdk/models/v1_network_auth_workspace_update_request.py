@@ -29,7 +29,7 @@ class V1NetworkAuthWorkspaceUpdateRequest(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"workspace_name": "WorkspaceName", "workspace_require_2fa": "bool"}
+    swagger_types = {"workspace_name": "str", "workspace_require_2fa": "bool"}
 
     attribute_map = {
         "workspace_name": "workspace_name",
@@ -52,7 +52,7 @@ class V1NetworkAuthWorkspaceUpdateRequest(object):
 
 
         :return: The workspace_name of this V1NetworkAuthWorkspaceUpdateRequest.  # noqa: E501
-        :rtype: WorkspaceName
+        :rtype: str
         """
         return self._workspace_name
 
@@ -62,7 +62,7 @@ class V1NetworkAuthWorkspaceUpdateRequest(object):
 
 
         :param workspace_name: The workspace_name of this V1NetworkAuthWorkspaceUpdateRequest.  # noqa: E501
-        :type: WorkspaceName
+        :type: str
         """
 
         self._workspace_name = workspace_name

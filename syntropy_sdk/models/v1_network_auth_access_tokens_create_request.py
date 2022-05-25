@@ -58,8 +58,7 @@ class V1NetworkAuthAccessTokensCreateRequest(object):
         self.discriminator = None
         self.permissions = permissions
         self.access_token_expiration = access_token_expiration
-        if access_token_name is not None:
-            self.access_token_name = access_token_name
+        self.access_token_name = access_token_name
         if access_token_description is not None:
             self.access_token_description = access_token_description
 
@@ -131,6 +130,10 @@ class V1NetworkAuthAccessTokensCreateRequest(object):
         :param access_token_name: The access_token_name of this V1NetworkAuthAccessTokensCreateRequest.  # noqa: E501
         :type: str
         """
+        if access_token_name is None:
+            raise ValueError(
+                "Invalid value for `access_token_name`, must not be `None`"
+            )  # noqa: E501
 
         self._access_token_name = access_token_name
 

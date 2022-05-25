@@ -29,7 +29,7 @@ class ConnectionsPointtotagBody(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"op": "str", "value": "V1RulesPointToTag"}
+    swagger_types = {"op": "RuleOperationType", "value": "V1RulesPointToTag"}
 
     attribute_map = {"op": "op", "value": "value"}
 
@@ -47,7 +47,7 @@ class ConnectionsPointtotagBody(object):
 
 
         :return: The op of this ConnectionsPointtotagBody.  # noqa: E501
-        :rtype: str
+        :rtype: RuleOperationType
         """
         return self._op
 
@@ -57,17 +57,10 @@ class ConnectionsPointtotagBody(object):
 
 
         :param op: The op of this ConnectionsPointtotagBody.  # noqa: E501
-        :type: str
+        :type: RuleOperationType
         """
         if op is None:
             raise ValueError("Invalid value for `op`, must not be `None`")  # noqa: E501
-        allowed_values = ["add", "remove", "replace"]  # noqa: E501
-        if op not in allowed_values:
-            raise ValueError(
-                "Invalid value for `op` ({0}), must be one of {1}".format(  # noqa: E501
-                    op, allowed_values
-                )
-            )
 
         self._op = op
 

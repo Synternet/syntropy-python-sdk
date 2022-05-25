@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**workspace_name** | [**WorkspaceName**](WorkspaceName.md) |  | 
+**workspace_name** | **str** |  | 
 **workspace_id** | **int** |  | 
 **workspace_created_at** | **datetime** |  | 
 **workspace_require_2fa** | **bool** |  | 

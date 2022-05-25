@@ -34,13 +34,11 @@ class WorkspaceInvitation(object):
         "user_email": "str",
         "role_id": "float",
         "user_inviter_id": "float",
-        "role_name": "str",
+        "role_name": "WorkspaceRoleName",
         "workspace_invitation_id": "float",
         "workspace_invitation_created_at": "datetime",
         "workspace_invitation_accepted_at": "datetime",
         "workspace_invitation_declined_at": "datetime",
-        "role": "Role",
-        "workspace": "Workspace",
     }
 
     attribute_map = {
@@ -53,8 +51,6 @@ class WorkspaceInvitation(object):
         "workspace_invitation_created_at": "workspace_invitation_created_at",
         "workspace_invitation_accepted_at": "workspace_invitation_accepted_at",
         "workspace_invitation_declined_at": "workspace_invitation_declined_at",
-        "role": "role",
-        "workspace": "workspace",
     }
 
     def __init__(
@@ -68,8 +64,6 @@ class WorkspaceInvitation(object):
         workspace_invitation_created_at=None,
         workspace_invitation_accepted_at=None,
         workspace_invitation_declined_at=None,
-        role=None,
-        workspace=None,
     ):  # noqa: E501
         """WorkspaceInvitation - a model defined in Swagger"""  # noqa: E501
         self._workspace_id = None
@@ -81,23 +75,16 @@ class WorkspaceInvitation(object):
         self._workspace_invitation_created_at = None
         self._workspace_invitation_accepted_at = None
         self._workspace_invitation_declined_at = None
-        self._role = None
-        self._workspace = None
         self.discriminator = None
         self.workspace_id = workspace_id
         self.user_email = user_email
         self.role_id = role_id
         self.user_inviter_id = user_inviter_id
-        if role_name is not None:
-            self.role_name = role_name
+        self.role_name = role_name
         self.workspace_invitation_id = workspace_invitation_id
         self.workspace_invitation_created_at = workspace_invitation_created_at
-        if workspace_invitation_accepted_at is not None:
-            self.workspace_invitation_accepted_at = workspace_invitation_accepted_at
-        if workspace_invitation_declined_at is not None:
-            self.workspace_invitation_declined_at = workspace_invitation_declined_at
-        self.role = role
-        self.workspace = workspace
+        self.workspace_invitation_accepted_at = workspace_invitation_accepted_at
+        self.workspace_invitation_declined_at = workspace_invitation_declined_at
 
     @property
     def workspace_id(self):
@@ -205,7 +192,7 @@ class WorkspaceInvitation(object):
 
 
         :return: The role_name of this WorkspaceInvitation.  # noqa: E501
-        :rtype: str
+        :rtype: WorkspaceRoleName
         """
         return self._role_name
 
@@ -215,8 +202,12 @@ class WorkspaceInvitation(object):
 
 
         :param role_name: The role_name of this WorkspaceInvitation.  # noqa: E501
-        :type: str
+        :type: WorkspaceRoleName
         """
+        if role_name is None:
+            raise ValueError(
+                "Invalid value for `role_name`, must not be `None`"
+            )  # noqa: E501
 
         self._role_name = role_name
 
@@ -288,6 +279,10 @@ class WorkspaceInvitation(object):
         :param workspace_invitation_accepted_at: The workspace_invitation_accepted_at of this WorkspaceInvitation.  # noqa: E501
         :type: datetime
         """
+        if workspace_invitation_accepted_at is None:
+            raise ValueError(
+                "Invalid value for `workspace_invitation_accepted_at`, must not be `None`"
+            )  # noqa: E501
 
         self._workspace_invitation_accepted_at = workspace_invitation_accepted_at
 
@@ -309,58 +304,12 @@ class WorkspaceInvitation(object):
         :param workspace_invitation_declined_at: The workspace_invitation_declined_at of this WorkspaceInvitation.  # noqa: E501
         :type: datetime
         """
+        if workspace_invitation_declined_at is None:
+            raise ValueError(
+                "Invalid value for `workspace_invitation_declined_at`, must not be `None`"
+            )  # noqa: E501
 
         self._workspace_invitation_declined_at = workspace_invitation_declined_at
-
-    @property
-    def role(self):
-        """Gets the role of this WorkspaceInvitation.  # noqa: E501
-
-
-        :return: The role of this WorkspaceInvitation.  # noqa: E501
-        :rtype: Role
-        """
-        return self._role
-
-    @role.setter
-    def role(self, role):
-        """Sets the role of this WorkspaceInvitation.
-
-
-        :param role: The role of this WorkspaceInvitation.  # noqa: E501
-        :type: Role
-        """
-        if role is None:
-            raise ValueError(
-                "Invalid value for `role`, must not be `None`"
-            )  # noqa: E501
-
-        self._role = role
-
-    @property
-    def workspace(self):
-        """Gets the workspace of this WorkspaceInvitation.  # noqa: E501
-
-
-        :return: The workspace of this WorkspaceInvitation.  # noqa: E501
-        :rtype: Workspace
-        """
-        return self._workspace
-
-    @workspace.setter
-    def workspace(self, workspace):
-        """Sets the workspace of this WorkspaceInvitation.
-
-
-        :param workspace: The workspace of this WorkspaceInvitation.  # noqa: E501
-        :type: Workspace
-        """
-        if workspace is None:
-            raise ValueError(
-                "Invalid value for `workspace`, must not be `None`"
-            )  # noqa: E501
-
-        self._workspace = workspace
 
     def to_dict(self):
         """Returns the model properties as a dict"""

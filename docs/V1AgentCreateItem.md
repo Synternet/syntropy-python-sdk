@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **agent_locked_fields** | [**AgentLockedFields**](AgentLockedFields.md) |  | 
 **agent_modified_at** | **datetime** |  | 
 **agent_is_virtual** | **bool** |  | 
-**agent_type** | [**AgentTypeParam**](AgentTypeParam.md) |  | 
+**agent_type** | [**AgentType**](AgentType.md) |  | 
 **agent_internal_subnet** | **str** |  | 
 **agent_created_at** | **datetime** |  | 
 **agent_updated_at** | **datetime** |  | 

@@ -1,6 +1,6 @@
 # syntropy_sdk.SDNAgentsApi
 
-All URIs are relative to *https://api.syntropystack.com*
+All URIs are relative to *https://api-sandbox.syntropystack.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

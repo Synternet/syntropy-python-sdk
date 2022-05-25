@@ -229,6 +229,12 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
+            "accessToken": {
+                "type": "api_key",
+                "in": "header",
+                "key": "api-key",
+                "value": self.get_api_key_with_prefix("api-key"),
+            },
             "jwt": {
                 "type": "api_key",
                 "in": "header",

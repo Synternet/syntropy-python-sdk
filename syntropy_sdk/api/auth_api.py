@@ -236,7 +236,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/access-tokens",
@@ -343,7 +343,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/access-tokens/{access_token_id}",
@@ -449,7 +449,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/access-tokens",
@@ -545,7 +545,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/access-tokens/permissions",
@@ -657,7 +657,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/api-keys",
@@ -762,7 +762,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/api-keys/{api_key_id}",
@@ -872,7 +872,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/api-keys",
@@ -962,7 +962,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/logout",
@@ -1072,7 +1072,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/mfa/confirm",
@@ -1182,7 +1182,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/mfa/disable",
@@ -1294,7 +1294,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/mfa/disable-using-backup",
@@ -1388,7 +1388,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/mfa/generate",
@@ -1418,7 +1418,7 @@ class AuthApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserSettings body: (required)
+        :param UserSettingsUpdateBody body: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1446,7 +1446,7 @@ class AuthApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserSettings body: (required)
+        :param UserSettingsUpdateBody body: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1500,7 +1500,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/user/settings",
@@ -1592,7 +1592,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/user",
@@ -1688,7 +1688,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/user/invitations",
@@ -1780,7 +1780,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/users",
@@ -1890,7 +1890,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/users/remove",
@@ -2011,7 +2011,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/users/{user_id}/role",
@@ -2226,7 +2226,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces",
@@ -2331,7 +2331,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/{workspace_id}",
@@ -2425,7 +2425,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces",
@@ -2548,7 +2548,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/{workspace_id}",
@@ -2655,7 +2655,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/invitations/{invitation_id}/accept",
@@ -2769,7 +2769,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/invitations",
@@ -2876,7 +2876,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/invitations/{invitation_id}/decline",
@@ -2972,7 +2972,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/invitations",
@@ -3086,7 +3086,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/invitations/remove",
@@ -3180,7 +3180,7 @@ class AuthApi(object):
         )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ["jwt"]  # noqa: E501
+        auth_settings = ["accessToken", "jwt"]  # noqa: E501
 
         return self.api_client.call_api(
             "/v1/network/auth/workspaces/leave",

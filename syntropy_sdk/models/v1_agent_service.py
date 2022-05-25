@@ -35,9 +35,10 @@ class V1AgentService(object):
         "agent_service_networks": "list[str]",
         "agent_service_tcp_ports": "list[int]",
         "agent_service_udp_ports": "list[int]",
+        "agent_id": "int",
         "agent_service_is_active": "bool",
         "agent_service_created_at": "datetime",
-        "agent_service_subnets": "list[AgentServiceSubnetIdAndIp]",
+        "agent_service_subnets": "list[AgentServiceSubnet]",
     }
 
     attribute_map = {
@@ -46,6 +47,7 @@ class V1AgentService(object):
         "agent_service_networks": "agent_service_networks",
         "agent_service_tcp_ports": "agent_service_tcp_ports",
         "agent_service_udp_ports": "agent_service_udp_ports",
+        "agent_id": "agent_id",
         "agent_service_is_active": "agent_service_is_active",
         "agent_service_created_at": "agent_service_created_at",
         "agent_service_subnets": "agent_service_subnets",
@@ -58,6 +60,7 @@ class V1AgentService(object):
         agent_service_networks=None,
         agent_service_tcp_ports=None,
         agent_service_udp_ports=None,
+        agent_id=None,
         agent_service_is_active=None,
         agent_service_created_at=None,
         agent_service_subnets=None,
@@ -68,6 +71,7 @@ class V1AgentService(object):
         self._agent_service_networks = None
         self._agent_service_tcp_ports = None
         self._agent_service_udp_ports = None
+        self._agent_id = None
         self._agent_service_is_active = None
         self._agent_service_created_at = None
         self._agent_service_subnets = None
@@ -77,6 +81,7 @@ class V1AgentService(object):
         self.agent_service_networks = agent_service_networks
         self.agent_service_tcp_ports = agent_service_tcp_ports
         self.agent_service_udp_ports = agent_service_udp_ports
+        self.agent_id = agent_id
         self.agent_service_is_active = agent_service_is_active
         self.agent_service_created_at = agent_service_created_at
         self.agent_service_subnets = agent_service_subnets
@@ -207,6 +212,31 @@ class V1AgentService(object):
         self._agent_service_udp_ports = agent_service_udp_ports
 
     @property
+    def agent_id(self):
+        """Gets the agent_id of this V1AgentService.  # noqa: E501
+
+
+        :return: The agent_id of this V1AgentService.  # noqa: E501
+        :rtype: int
+        """
+        return self._agent_id
+
+    @agent_id.setter
+    def agent_id(self, agent_id):
+        """Sets the agent_id of this V1AgentService.
+
+
+        :param agent_id: The agent_id of this V1AgentService.  # noqa: E501
+        :type: int
+        """
+        if agent_id is None:
+            raise ValueError(
+                "Invalid value for `agent_id`, must not be `None`"
+            )  # noqa: E501
+
+        self._agent_id = agent_id
+
+    @property
     def agent_service_is_active(self):
         """Gets the agent_service_is_active of this V1AgentService.  # noqa: E501
 
@@ -262,7 +292,7 @@ class V1AgentService(object):
 
 
         :return: The agent_service_subnets of this V1AgentService.  # noqa: E501
-        :rtype: list[AgentServiceSubnetIdAndIp]
+        :rtype: list[AgentServiceSubnet]
         """
         return self._agent_service_subnets
 
@@ -272,7 +302,7 @@ class V1AgentService(object):
 
 
         :param agent_service_subnets: The agent_service_subnets of this V1AgentService.  # noqa: E501
-        :type: list[AgentServiceSubnetIdAndIp]
+        :type: list[AgentServiceSubnet]
         """
         if agent_service_subnets is None:
             raise ValueError(

@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action_type** | **str** |  | 
+**action_type** | [**AuditActionType**](AuditActionType.md) |  | 
 **parameters** | **str** |  | 
 **performed_by** | **str** |  | 
-**record_type** | **str** |  | 
-**source_type** | **str** |  | 
+**record_type** | [**AuditRecordType**](AuditRecordType.md) |  | 
+**source_type** | [**AuditSourceType**](AuditSourceType.md) |  | 
 **timestamp** | **str** |  | 
 **user_id** | **int** |  | 
 **workspace_id** | **int** |  | 
